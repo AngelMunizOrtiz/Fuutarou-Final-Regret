@@ -1,16 +1,31 @@
-import { setupPixivnViteData } from "@drincs/pixi-vn/vite-listener";
-import { ComponentType, lazy, Suspense } from "react";
+import { ComponentType, lazy, Suspense, useEffect } from "react";
 import { ErrorBoundary, FallbackProps } from "react-error-boundary";
-import { useI18n } from "./i18n";
+import { initializeI18n } from "./i18n";
 import LoadingScreen from "./screens/LoadingScreen";
 import { defineAssets } from "./utils/assets-utility";
 import { initializeIndexedDB } from "./utils/indexedDB-utility";
 import { importAllInkLabels } from "./utils/ink-utility";
+import { preloadImages } from "./utils/preload-utility";
+
+const SPLASH_IMAGE_ASSETS = [
+    "/images/bg_title.webp",
+    "/images/logo_game.webp",
+    "/images/pressanybutton.webp",
+] as const;
 
 const Home = lazy(async () => {
     await Promise.all([import("./values"), import("./labels")]);
-    await Promise.all([initializeIndexedDB(), defineAssets(), useI18n(), importAllInkLabels()]);
-    setupPixivnViteData();
+    await Promise.all([
+        initializeIndexedDB(),
+        defineAssets(),
+        initializeI18n(),
+        importAllInkLabels(),
+        preloadImages(SPLASH_IMAGE_ASSETS),
+    ]);
+    if (import.meta.env.DEV) {
+        const { setupPixivnViteData } = await import("@drincs/pixi-vn/vite-listener");
+        setupPixivnViteData();
+    }
     return import("./Home");
 });
 
@@ -19,8 +34,11 @@ const ErrorFallback: ComponentType<FallbackProps> = ({ error, resetErrorBoundary
         <div
             role='alert'
             style={{
+                position: "fixed",
+                inset: 0,
+                zIndex: 10001,
                 pointerEvents: "auto",
-                backgroundColor: "black",
+                backgroundColor: "#090916",
             }}
         >
             <h2
@@ -67,6 +85,10 @@ const ErrorFallback: ComponentType<FallbackProps> = ({ error, resetErrorBoundary
 };
 
 export default function App() {
+    useEffect(() => {
+        document.getElementById("bootstrap-loader")?.remove();
+    }, []);
+
     return (
         <ErrorBoundary FallbackComponent={ErrorFallback}>
             <Suspense fallback={<LoadingScreen />}>

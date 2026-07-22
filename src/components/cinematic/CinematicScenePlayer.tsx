@@ -1,9 +1,10 @@
 import { Box, Typography } from "@mui/joy";
 import { AnimatePresence, motion } from "motion/react";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { DreamFragment } from "../../data/dreamSequence";
+import { preloadImages } from "../../utils/preload-utility";
 import BubbleAnimation from "../BubbleAnimation";
 import DialogueBox from "../DialogueBox";
-import { DreamFragment } from "../../data/dreamSequence";
 
 interface CinematicScenePlayerProps {
     sceneId: string;
@@ -14,12 +15,8 @@ interface CinematicScenePlayerProps {
 export default function CinematicScenePlayer({ sceneId, frames, onComplete }: CinematicScenePlayerProps) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isCompleting, setIsCompleting] = useState(false);
+    const advanceLockRef = useRef(false);
     const currentFrame = frames[currentIndex];
-
-    useEffect(() => {
-        setCurrentIndex(0);
-        setIsCompleting(false);
-    }, [sceneId]);
 
     const complete = useCallback(async () => {
         if (isCompleting) return;
@@ -28,16 +25,38 @@ export default function CinematicScenePlayer({ sceneId, frames, onComplete }: Ci
         await onComplete();
     }, [isCompleting, onComplete]);
 
-    const advance = useCallback(() => {
-        if (isCompleting) return;
+    const advance = useCallback(async () => {
+        if (isCompleting || advanceLockRef.current) return;
+
+        advanceLockRef.current = true;
 
         if (currentIndex < frames.length - 1) {
-            setCurrentIndex((prev) => prev + 1);
+            const nextFrame = frames[currentIndex + 1];
+            try {
+                if (nextFrame.mediaType !== "video") {
+                    await preloadImages([nextFrame.image]);
+                }
+            } catch (error) {
+                console.warn(`Unable to preload cinematic frame: ${nextFrame.image}`, error);
+            }
+            setCurrentIndex((previousIndex) => previousIndex + 1);
+            advanceLockRef.current = false;
             return;
         }
 
-        void complete();
-    }, [complete, currentIndex, frames.length, isCompleting]);
+        await complete();
+    }, [complete, currentIndex, frames, isCompleting]);
+
+    useEffect(() => {
+        const upcomingImages = frames
+            .slice(currentIndex + 1, currentIndex + 3)
+            .filter((frame) => frame.mediaType !== "video")
+            .map((frame) => frame.image);
+
+        void preloadImages(upcomingImages).catch((error) => {
+            console.warn("Unable to preload upcoming cinematic frames", error);
+        });
+    }, [currentIndex, frames]);
 
     useEffect(() => {
         if (!currentFrame?.autoAdvanceMs) return;

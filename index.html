@@ -3,11 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/pixi-vn.svg" />
+    <link rel="stylesheet" href="/src/index.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fuutarou Final Regret</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div id="bootstrap-loader" class="vn-loading-screen" role="status" aria-label="Cargando recuerdos…">
+        <div class="vn-loading-aurora" aria-hidden="true"></div>
+        <div class="vn-marble-stage" aria-hidden="true">
+          <div class="vn-marble-orbit">
+            <span class="vn-marble vn-marble--ichika" style="--marble-index: 0"></span>
+            <span class="vn-marble vn-marble--nino" style="--marble-index: 1"></span>
+            <span class="vn-marble vn-marble--miku" style="--marble-index: 2"></span>
+            <span class="vn-marble vn-marble--yotsuba" style="--marble-index: 3"></span>
+            <span class="vn-marble vn-marble--itsuki" style="--marble-index: 4"></span>
+          </div>
+          <div class="vn-marble-shadow"></div>
+        </div>
+        <div class="vn-loading-copy">
+          <span class="vn-loading-kicker">Fuutarou's Final Regret</span>
+          <span class="vn-loading-label">Cargando recuerdos…</span>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

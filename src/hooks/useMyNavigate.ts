@@ -1,4 +1,4 @@
-import { Assets } from "@drincs/pixi-vn";
+import { useCallback } from "react";
 import { NavigateFunction, NavigateOptions, To, useNavigate } from "react-router-dom";
 
 /**
@@ -7,13 +7,15 @@ import { NavigateFunction, NavigateOptions, To, useNavigate } from "react-router
 export default function useMyNavigate(): NavigateFunction {
     const navigate = useNavigate();
 
-    return async (to: To | number, options?: NavigateOptions) => {
-        if (typeof to === "number") {
-            await navigate(to);
-        } else {
-            Assets.backgroundLoadBundle(to as string);
-            await navigate(to, options);
-        }
-        window.history.pushState(null, window.location.href, window.location.href);
-    };
+    return useCallback(
+        async (to: To | number, options?: NavigateOptions) => {
+            if (typeof to === "number") {
+                await navigate(to);
+            } else {
+                await navigate(to, options);
+            }
+            window.history.pushState(null, window.location.href, window.location.href);
+        },
+        [navigate],
+    ) as NavigateFunction;
 }

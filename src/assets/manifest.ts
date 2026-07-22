@@ -1,5 +1,4 @@
 import type { AssetsManifest } from "@drincs/pixi-vn";
-import { MAIN_MENU_ROUTE, SPLASH_ROUTE } from "../constans";
 
 export const STORY_ASSET_BUNDLES = {
     chapter1: "story-chapter-1",
@@ -54,20 +53,6 @@ export function getNextStoryAssetBundles(labelId: string) {
 
 const manifest: AssetsManifest = {
     bundles: [
-        {
-            name: SPLASH_ROUTE,
-            assets: [
-                { alias: "bg_title", src: "/images/bg_title.webp" },
-                { alias: "logo_game", src: "/images/logo_game.webp" },
-                { alias: "press_button", src: "/images/pressanybutton.webp" },
-            ],
-        },
-        {
-            name: MAIN_MENU_ROUTE,
-            assets: [
-                { alias: "background_main_menu", src: "/images/bg_title.webp" },
-            ],
-        },
         {
             name: STORY_ASSET_BUNDLES.chapter1,
             assets: [

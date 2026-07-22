@@ -1,5 +1,5 @@
 import { Box } from "@mui/joy";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { lazy, Suspense } from "react";
 import Routes from "./AppRoutes";
 import useClosePageDetector from "./hooks/useClosePageDetector";
 import useInkInitialization from "./hooks/useInkInitialization";
@@ -10,6 +10,13 @@ import GameSaveScreen from "./screens/GameSaveScreen";
 import SaveLoadAlert from "./screens/modals/SaveLoadAlert";
 import OfflineScreen from "./screens/OfflineScreen";
 import Settings from "./screens/Settings";
+
+const ReactQueryDevtools = import.meta.env.DEV
+    ? lazy(async () => {
+          const module = await import("@tanstack/react-query-devtools");
+          return { default: module.ReactQueryDevtools };
+      })
+    : null;
 
 function HomeChild() {
     useKeyboardDetector();
@@ -30,13 +37,13 @@ function HomeChild() {
             <GameSaveScreen />
             <SaveLoadAlert />
             <OfflineScreen />
-            <Box
-                sx={{
-                    pointerEvents: "auto",
-                }}
-            >
-                <ReactQueryDevtools initialIsOpen={false} />
-            </Box>
+            {ReactQueryDevtools && (
+                <Suspense fallback={null}>
+                    <Box sx={{ pointerEvents: "auto" }}>
+                        <ReactQueryDevtools initialIsOpen={false} />
+                    </Box>
+                </Suspense>
+            )}
         </>
     );
 }

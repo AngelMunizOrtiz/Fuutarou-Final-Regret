@@ -1,7 +1,11 @@
 import { Assets } from "@drincs/pixi-vn";
 import manifest, { getNextStoryAssetBundles, getStoryAssetBundles } from "../assets/manifest";
 
-const backgroundRequestedBundles = new Set<string>();
+const loadedStoryBundles = new Set<string>();
+const backgroundRequests = new Map<string, Promise<void>>();
+let activeStoryBundles: readonly string[] = [];
+let previousStoryBundles: readonly string[] = [];
+let assetGeneration = 0;
 
 /**
  * Define all the assets that will be used in the game.
@@ -14,17 +18,69 @@ export async function defineAssets() {
 
 export async function loadStoryAssetsForLabel(labelId: string) {
     const currentBundles = getStoryAssetBundles(labelId);
+    const nextBundles = getNextStoryAssetBundles(labelId);
 
-    await Promise.all(currentBundles.map((bundleName) => Assets.loadBundle(bundleName)));
+    if (!sameBundles(activeStoryBundles, currentBundles)) {
+        previousStoryBundles = activeStoryBundles;
+        activeStoryBundles = currentBundles;
+    }
 
-    for (const bundleName of getNextStoryAssetBundles(labelId)) {
-        if (currentBundles.includes(bundleName) || backgroundRequestedBundles.has(bundleName)) {
+    await Promise.all(
+        currentBundles.map(async (bundleName) => {
+            await Assets.loadBundle(bundleName);
+            loadedStoryBundles.add(bundleName);
+        }),
+    );
+
+    for (const bundleName of nextBundles) {
+        if (currentBundles.includes(bundleName) || backgroundRequests.has(bundleName) || loadedStoryBundles.has(bundleName)) {
             continue;
         }
 
-        backgroundRequestedBundles.add(bundleName);
-        void Assets.backgroundLoadBundle(bundleName);
+        const generation = assetGeneration;
+        const request = Assets.backgroundLoadBundle(bundleName)
+            .then(async () => {
+                if (generation !== assetGeneration) {
+                    await Assets.unloadBundle(bundleName);
+                    return;
+                }
+                loadedStoryBundles.add(bundleName);
+            })
+            .catch((error) => {
+                console.warn(`Unable to preload story bundle: ${bundleName}`, error);
+            })
+            .finally(() => {
+                backgroundRequests.delete(bundleName);
+            });
+
+        backgroundRequests.set(bundleName, request);
     }
+
+    const retainedBundles = new Set([...previousStoryBundles, ...currentBundles, ...nextBundles]);
+    const staleBundles = [...loadedStoryBundles].filter((bundleName) => !retainedBundles.has(bundleName));
+    await Promise.all(
+        staleBundles.map(async (bundleName) => {
+            await Assets.unloadBundle(bundleName);
+            loadedStoryBundles.delete(bundleName);
+        }),
+    );
+}
+
+export async function releaseStoryAssets() {
+    assetGeneration += 1;
+    activeStoryBundles = [];
+    previousStoryBundles = [];
+    backgroundRequests.clear();
+
+    const bundles = [...loadedStoryBundles];
+    loadedStoryBundles.clear();
+    if (bundles.length > 0) {
+        await Assets.unloadBundle(bundles);
+    }
+}
+
+function sameBundles(left: readonly string[], right: readonly string[]) {
+    return left.length === right.length && left.every((bundleName, index) => bundleName === right[index]);
 }
 
 /**

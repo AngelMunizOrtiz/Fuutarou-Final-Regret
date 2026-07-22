@@ -9,7 +9,6 @@ export const REFRESH_SAVE_LOCAL_STORAGE_KEY = "refresh_save";
 export const SPLASH_FINISHED_SESSION_STORAGE_KEY = "splash_finished";
 
 export const CANVAS_UI_LAYER_NAME = "ui";
-export const CANVAS_MINIGAME_LAYER_NAME = "minigame";
 export const HTML_UI_LAYER_NAME = "ui";
 export const HTML_CANVAS_LAYER_NAME = "canvas";
 

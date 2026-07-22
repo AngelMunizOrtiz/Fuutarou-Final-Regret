@@ -34,13 +34,13 @@ export async function saveGameToIndexDB(
     data = createGameSave()
 ): Promise<GameSaveData & { id: number }> {
     const { image = await canvas.extractImage(), ...rest } = info;
-    let item = {
+    const item = {
         ...data,
         image: image,
         ...rest,
     };
     if (item.id === undefined) {
-        let lastSave = await getLastRowFromIndexDB<GameSaveData & { id: number }>(INDEXED_DB_SAVE_TABLE);
+        const lastSave = await getLastRowFromIndexDB<GameSaveData & { id: number }>(INDEXED_DB_SAVE_TABLE);
         if (lastSave) {
             item.id = lastSave.id + 1;
         } else {
@@ -59,7 +59,7 @@ export async function getSaveFromIndexDB(id: number): Promise<(GameSaveData & { 
 }
 
 export async function getLastSaveFromIndexDB(): Promise<(GameSaveData & { id: number }) | null> {
-    let list = await getListFromIndexDB<GameSaveData & { id: number }>(INDEXED_DB_SAVE_TABLE, {
+    const list = await getListFromIndexDB<GameSaveData & { id: number }>(INDEXED_DB_SAVE_TABLE, {
         pagination: { limit: 1, offset: 0 },
         order: { field: "date", direction: "prev" },
     });
@@ -97,11 +97,11 @@ export function loadGameSaveFromFile(navigate: NavigateFunction, afterLoad?: () 
             reader.onload = (e) => {
                 const jsonString = e.target?.result as string;
                 navigate(LOADING_ROUTE);
-                let data: GameSaveData = JSON.parse(jsonString);
+                const data: GameSaveData = JSON.parse(jsonString);
                 // load the save data from the JSON string
                 loadSave(data, navigate)
                     .then(() => {
-                        afterLoad && afterLoad();
+                        afterLoad?.();
                     })
                     .catch(() => {
                         navigate(NARRATION_ROUTE);
@@ -113,9 +113,9 @@ export function loadGameSaveFromFile(navigate: NavigateFunction, afterLoad?: () 
     input.click();
 }
 
-export async function addRefreshSave() {
+export function addRefreshSave() {
     const data = createGameSave();
-    let jsonString = JSON.stringify(data);
+    const jsonString = JSON.stringify(data);
     if (jsonString) {
         localStorage.setItem(REFRESH_SAVE_LOCAL_STORAGE_KEY, jsonString);
     }
@@ -125,7 +125,7 @@ export async function loadRefreshSave(navigate: NavigateFunction) {
     const jsonString = localStorage.getItem(REFRESH_SAVE_LOCAL_STORAGE_KEY);
     if (jsonString) {
         navigate(LOADING_ROUTE);
-        let data: GameSaveData = JSON.parse(jsonString);
+        const data: GameSaveData = JSON.parse(jsonString);
 
         return loadSave(data, navigate)
             .then(() => {
@@ -134,7 +134,5 @@ export async function loadRefreshSave(navigate: NavigateFunction) {
             .catch(() => {
                 navigate(MAIN_MENU_ROUTE);
             });
-    } else {
-        navigate(MAIN_MENU_ROUTE);
     }
 }

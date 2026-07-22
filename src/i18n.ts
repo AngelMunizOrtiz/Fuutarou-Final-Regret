@@ -6,21 +6,22 @@ import resourcesToBackend from "i18next-resources-to-backend";
 import { initReactI18next } from "react-i18next";
 import { convertInkToJson } from "./utils/ink-utility";
 
+type LocaleResource = Record<string, unknown> & {
+    default?: unknown;
+    narration?: Record<string, unknown>;
+};
+
 function getUserLang(): string {
-    let userLang: string = navigator.language || "en";
+    const userLang: string = navigator.language || "en";
     return userLang?.toLocaleLowerCase()?.split("-")[0];
 }
 
-function getLocalesResource(lng: string): Promise<any> {
-    return import(`./locales/strings_${lng}.json`);
+function getLocalesResource(lng: string): Promise<LocaleResource> {
+    return import(`./locales/strings_${lng}.json`) as Promise<LocaleResource>;
 }
 
-async function generateResourceToTranslate(lng: string): Promise<any> {
-    let res = await getLocalesResource(lng);
-    res = { ...res };
-    if (!res) {
-        res = {};
-    }
+async function generateResourceToTranslate(lng: string): Promise<LocaleResource> {
+    const res: LocaleResource = { ...(await getLocalesResource(lng)) };
     if (!res.narration) {
         res.narration = {};
     }
@@ -28,7 +29,9 @@ async function generateResourceToTranslate(lng: string): Promise<any> {
         delete res.default;
     }
     for (const element of await convertInkToJson()) {
-        element && (await generateJsonInkTranslation(element, res.narration));
+        if (element) {
+            await generateJsonInkTranslation(element, res.narration);
+        }
     }
     return res;
 }
@@ -47,9 +50,10 @@ export async function downloadResourceToTranslate() {
     a.click();
 }
 
-export const useI18n = () => {
+export async function initializeI18n() {
     if (!i18n.isInitialized) {
-        i18n.use(Backend)
+        await i18n
+            .use(Backend)
             .use(initReactI18next)
             .init({
                 debug: false,
@@ -62,17 +66,14 @@ export const useI18n = () => {
                 backend: {
                     backends: [
                         resourcesToBackend(async (lng: string, ns: string) => {
-                            let object = await getLocalesResource(lng);
+                            const object = await getLocalesResource(lng);
                             return object[ns];
                         }),
                     ],
                 },
-                missingInterpolationHandler(_text, value, _options) {
-                    let key = value[1];
-                    if (key === "steph_fullname") {
-                        return "Stephanie";
-                    }
-                    let character = RegisteredCharacters.get(key);
+                missingInterpolationHandler(_text, value) {
+                    const key = value[1];
+                    const character = RegisteredCharacters.get(key);
                     if (character) {
                         return character.name;
                     }
@@ -80,4 +81,4 @@ export const useI18n = () => {
                 },
             });
     }
-};
+}

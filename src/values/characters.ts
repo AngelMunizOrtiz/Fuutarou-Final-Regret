@@ -1,26 +1,6 @@
 import { RegisteredCharacters } from "@drincs/pixi-vn";
 import Character from "../models/Character";
 
-export const mc = new Character("mc", {
-    name: "Me",
-});
-
-export const james = new Character("james", {
-    name: "James",
-    color: "#0084ac",
-});
-
-export const steph_fullname = "Stephanie";
-export const steph = new Character("steph", {
-    name: "Steph",
-    color: "#ac5900",
-});
-
-export const sly = new Character("sly", {
-    name: "Sly",
-    color: "#6d00ac",
-});
-
 const storyCharacters = [
     new Character("narrator", { name: "", color: "#f2f2f2" }),
     new Character("fuutarou", { name: "Fuutarou", color: "#7a8fa6" }),
@@ -59,4 +39,4 @@ const storyCharacters = [
     new Character("oda_kiku", { name: "Oda/Kiku", color: "#e8d28a" }),
 ];
 
-RegisteredCharacters.add([mc, james, steph, sly, ...storyCharacters]);
+RegisteredCharacters.add(storyCharacters);

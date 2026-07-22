@@ -5,7 +5,7 @@ import FolderOpenRoundedIcon from "@mui/icons-material/FolderOpenRounded";
 import PhotoLibraryRoundedIcon from "@mui/icons-material/PhotoLibraryRounded";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
-import { Box, CircularProgress } from "@mui/joy";
+import { Box } from "@mui/joy";
 import Stack from "@mui/joy/Stack";
 import { useQueryClient } from "@tanstack/react-query";
 import { getCurrentWindow } from "@tauri-apps/api/window";
@@ -19,8 +19,17 @@ import useQueryLastSave from "../hooks/useQueryLastSave";
 import useGameSaveScreenStore from "../stores/useGameSaveScreenStore";
 import useInterfaceStore from "../stores/useInterfaceStore";
 import useSettingsScreenStore from "../stores/useSettingsScreenStore";
+import { releaseStoryAssets } from "../utils/assets-utility";
+import { preloadImages } from "../utils/preload-utility";
 import { loadSave } from "../utils/save-utility";
 import { runViewTransition } from "../utils/view-transition";
+import LoadingScreen from "./LoadingScreen";
+
+const OPENING_SCENE_ASSETS = [
+    "/images/bg_title.webp",
+    "/images/memories/frame1.webp",
+    "/images/memories/frame2.webp",
+] as const;
 
 export default function MainMenu() {
     const setOpenSettings = useSettingsScreenStore((state) => state.setOpen);
@@ -30,7 +39,7 @@ export default function MainMenu() {
     const { data: lastSave = null, isLoading } = useQueryLastSave();
     const gameProps = useGameProps();
     const { uiTransition: t, navigate, notify } = gameProps;
-    const [loading, setLoading] = useState(false);
+    const [loadingMessage, setLoadingMessage] = useState<string | null>(null);
     const [isOpeningGallery, setIsOpeningGallery] = useState(false);
     const musicRef = useRef<HTMLAudioElement | null>(null);
 
@@ -60,16 +69,21 @@ export default function MainMenu() {
 
     useEffect(() => {
         editHideInterface(false);
-        musicRef.current = new Audio("/audio/bgm/menu.wav");
-        musicRef.current.loop = true;
-        musicRef.current.volume = 0.4;
-        musicRef.current.play().catch((err) => console.warn("Audio bloqueado:", err));
+        void releaseStoryAssets();
+
+        const music = new Audio();
+        music.src = "/audio/bgm/menu.wav";
+        music.preload = "metadata";
+        music.loop = true;
+        music.volume = 0.4;
+        musicRef.current = music;
+        void music.play().catch(() => undefined);
 
         return () => {
-            if (musicRef.current) {
-                musicRef.current.pause();
-                musicRef.current = null;
-            }
+            music.pause();
+            music.removeAttribute("src");
+            music.load();
+            musicRef.current = null;
             canvas.removeAll();
         };
     }, [editHideInterface]);
@@ -315,13 +329,13 @@ export default function MainMenu() {
                             onClick={() => {
                                 playRandomSfx();
                                 if (!lastSave) return;
-                                setLoading(true);
+                                setLoadingMessage("Recuperando partida…");
                                 loadSave(lastSave, navigate)
                                     .then(() => queryClient.invalidateQueries({ queryKey: [INTERFACE_DATA_USE_QUEY_KEY] }))
                                     .catch(() => notify("Error al cargar", { variant: "error" }))
-                                    .finally(() => setLoading(false));
+                                    .finally(() => setLoadingMessage(null));
                             }}
-                            disabled={(!isLoading && !lastSave) || loading}
+                            disabled={isLoading || !lastSave || Boolean(loadingMessage)}
                         >
                             {t("continue")}
                         </MenuButton>
@@ -331,10 +345,17 @@ export default function MainMenu() {
                             startDecorator={<PlayArrowRoundedIcon sx={menuIconStyle} />}
                             onClick={async () => {
                                 playRandomSfx();
-                                setLoading(true);
-                                Game.clear();
-                                canvas.removeAll();
-                                navigate(`${INTRO_ROUTE}?returnLabel=start&mode=call&reset=1`);
+                                setLoadingMessage("Preparando el prólogo…");
+                                try {
+                                    await preloadImages(OPENING_SCENE_ASSETS);
+                                    Game.clear();
+                                    canvas.removeAll();
+                                    navigate(`${INTRO_ROUTE}?returnLabel=start&mode=call&reset=1`);
+                                } catch (error) {
+                                    console.error(error);
+                                    notify("No se pudieron preparar los recursos del prólogo", { variant: "error" });
+                                    setLoadingMessage(null);
+                                }
                             }}
                         >
                             {t("start")}
@@ -375,11 +396,7 @@ export default function MainMenu() {
                 </Box>
             </Box>
 
-            {loading && (
-                <Box sx={{ position: "absolute", right: 50, bottom: 50, zIndex: 100 }}>
-                    <CircularProgress color="primary" />
-                </Box>
-            )}
+            {loadingMessage && <LoadingScreen label={loadingMessage} />}
         </Box>
     );
 }

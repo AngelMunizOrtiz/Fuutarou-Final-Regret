@@ -1,10 +1,8 @@
 import { canvas, Container, Game } from "@drincs/pixi-vn";
-import "@drincs/pixi-vn-spine";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import { CANVAS_UI_LAYER_NAME, HTML_CANVAS_LAYER_NAME, HTML_UI_LAYER_NAME, SCENE_ROUTE } from "./constans";
-import "./index.css";
 import useCharacterStageStore from "./stores/useCharacterStageStore";
 import { loadStoryAssetsForLabel } from "./utils/assets-utility";
 import { isStorySceneTransition } from "./utils/ink-utility";
@@ -39,7 +37,7 @@ Game.init(body, {
     id: HTML_CANVAS_LAYER_NAME,
     height: 1080,
     width: 1920,
-    backgroundColor: "#303030",
+    backgroundColor: "#090916",
     resizeMode: "contain",
 }).then(() => {
     // Pixi.JS UI Layer

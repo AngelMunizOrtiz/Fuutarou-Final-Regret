@@ -15,12 +15,14 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useSnackbar } from "notistack";
 import { type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { MasterVolumeIcon, MasterVolumeSlider } from "../components/VolumeControl";
 import useNarrationFunctions from "../hooks/useNarrationFunctions";
 import { useQueryCanGoBack } from "../hooks/useQueryInterface";
 import useQueryLastSave, { LAST_SAVE_USE_QUEY_KEY } from "../hooks/useQueryLastSave";
 import { SAVES_USE_QUEY_KEY } from "../hooks/useQuerySaves";
 import { useWheelActions } from "../hooks/useWheelActions";
 import useAutoInfoStore from "../stores/useAutoInfoStore";
+import useAudioSettingsStore from "../stores/useAudioSettingsStore";
 import useGameSaveScreenStore from "../stores/useGameSaveScreenStore";
 import useHistoryScreenStore from "../stores/useHistoryScreenStore";
 import useInterfaceStore from "../stores/useInterfaceStore";
@@ -31,7 +33,7 @@ import useTypewriterStore from "../stores/useTypewriterStore";
 import { saveGameToIndexDB } from "../utils/save-utility";
 import { captureGameScreenshot } from "../utils/screenshot-utility";
 
-type OpenPanel = "menu" | "timing" | null;
+type OpenPanel = "menu" | "timing" | "volume" | null;
 type TimingPresetId = "slow" | "medium" | "fast";
 
 type TimingPreset = {
@@ -109,6 +111,7 @@ export default function QuickTools() {
     const autoTime = useAutoInfoStore((state) => state.time);
     const editAutoEnabled = useAutoInfoStore((state) => state.editEnabled);
     const setAutoTime = useAutoInfoStore((state) => state.setTime);
+    const masterVolume = useAudioSettingsStore((state) => state.volume);
     const typewriterDelay = useTypewriterStore((state) => state.delay);
     const setTypewriterDelay = useTypewriterStore((state) => state.setDelay);
     const nextStepLoading = useStepStore((state) => state.loading);
@@ -204,6 +207,16 @@ export default function QuickTools() {
             }}
         >
             <Stack direction="row" spacing={0.75} justifyContent="flex-end">
+                <Tooltip title="Volumen general" placement="bottom">
+                    <IconButton
+                        aria-label="Volumen general"
+                        aria-expanded={openPanel === "volume"}
+                        onClick={() => setOpenPanel((current) => (current === "volume" ? null : "volume"))}
+                        sx={hudButtonSx}
+                    >
+                        <MasterVolumeIcon volume={masterVolume} />
+                    </IconButton>
+                </Tooltip>
                 <Tooltip title={t("auto_forward_time_restricted")} placement="bottom">
                     <Button
                         size="sm"
@@ -260,6 +273,12 @@ export default function QuickTools() {
                         presets={AUTO_DELAY_PRESETS}
                         onChange={setAutoTime}
                     />
+                </Sheet>
+            )}
+
+            {openPanel === "volume" && (
+                <Sheet component="section" aria-label="Volumen general" sx={panelSx}>
+                    <MasterVolumeSlider compact />
                 </Sheet>
             )}
 

@@ -17,6 +17,7 @@ import useGameProps from "../hooks/useGameProps";
 import { INTERFACE_DATA_USE_QUEY_KEY } from "../hooks/useQueryInterface";
 import useQueryLastSave from "../hooks/useQueryLastSave";
 import useGameSaveScreenStore from "../stores/useGameSaveScreenStore";
+import useAudioSettingsStore from "../stores/useAudioSettingsStore";
 import useInterfaceStore from "../stores/useInterfaceStore";
 import useSettingsScreenStore from "../stores/useSettingsScreenStore";
 import { releaseStoryAssets } from "../utils/assets-utility";
@@ -42,12 +43,20 @@ export default function MainMenu() {
     const [loadingMessage, setLoadingMessage] = useState<string | null>(null);
     const [isOpeningGallery, setIsOpeningGallery] = useState(false);
     const musicRef = useRef<HTMLAudioElement | null>(null);
+    const masterVolume = useAudioSettingsStore((state) => state.volume);
 
     const playRandomSfx = () => {
+        if (masterVolume <= 0) return;
+
         const randomIndex = Math.floor(Math.random() * 6) + 1;
         const sfx = new Audio(`/audio/sfx_menu_button/${randomIndex}.mp3`);
-        sfx.volume = 0.5;
-        sfx.play().catch(() => { });
+        sfx.volume = 0.5 * masterVolume;
+        const releaseSfx = () => {
+            sfx.removeAttribute("src");
+            sfx.load();
+        };
+        sfx.addEventListener("ended", releaseSfx, { once: true });
+        sfx.play().catch(releaseSfx);
     };
 
     const openGallery = () => {
@@ -75,7 +84,7 @@ export default function MainMenu() {
         music.src = "/audio/bgm/menu.wav";
         music.preload = "metadata";
         music.loop = true;
-        music.volume = 0.4;
+        music.volume = 0.4 * useAudioSettingsStore.getState().volume;
         musicRef.current = music;
         void music.play().catch(() => undefined);
 
@@ -87,6 +96,10 @@ export default function MainMenu() {
             canvas.removeAll();
         };
     }, [editHideInterface]);
+
+    useEffect(() => {
+        if (musicRef.current) musicRef.current.volume = 0.4 * masterVolume;
+    }, [masterVolume]);
 
     const stickerButtonStyle = (filter = "none", rotation = "0deg") => ({
         "--sticker-filter": filter,

@@ -1,4 +1,4 @@
-import { ComponentType, lazy, Suspense, useEffect } from "react";
+import { ComponentType, lazy, Suspense, useCallback, useEffect, useState } from "react";
 import { ErrorBoundary, FallbackProps } from "react-error-boundary";
 import { initializeI18n } from "./i18n";
 import LoadingScreen from "./screens/LoadingScreen";
@@ -12,6 +12,10 @@ const SPLASH_IMAGE_ASSETS = [
     "/images/logo_game.webp",
     "/images/pressanybutton.webp",
 ] as const;
+
+const INITIAL_LOADER_MINIMUM_MS = 1400;
+const INITIAL_LOADER_EXIT_MS = 420;
+const INITIAL_LOADER_STARTED_AT = performance.now();
 
 const Home = lazy(async () => {
     await Promise.all([import("./values"), import("./labels")]);
@@ -84,16 +88,46 @@ const ErrorFallback: ComponentType<FallbackProps> = ({ error, resetErrorBoundary
     );
 };
 
+function HomeReadyMarker({ onReady }: { onReady: () => void }) {
+    useEffect(onReady, [onReady]);
+    return <Home />;
+}
+
 export default function App() {
+    const [homeReady, setHomeReady] = useState(false);
+    const [showInitialLoader, setShowInitialLoader] = useState(true);
+    const [initialLoaderExiting, setInitialLoaderExiting] = useState(false);
+    const markHomeReady = useCallback(() => setHomeReady(true), []);
+
     useEffect(() => {
         document.getElementById("bootstrap-loader")?.remove();
     }, []);
 
+    useEffect(() => {
+        if (!homeReady) return;
+
+        let exitTimer: number | undefined;
+        const elapsed = performance.now() - INITIAL_LOADER_STARTED_AT;
+        const minimumTimer = window.setTimeout(
+            () => {
+                setInitialLoaderExiting(true);
+                exitTimer = window.setTimeout(() => setShowInitialLoader(false), INITIAL_LOADER_EXIT_MS);
+            },
+            Math.max(0, INITIAL_LOADER_MINIMUM_MS - elapsed),
+        );
+
+        return () => {
+            window.clearTimeout(minimumTimer);
+            if (exitTimer !== undefined) window.clearTimeout(exitTimer);
+        };
+    }, [homeReady]);
+
     return (
         <ErrorBoundary FallbackComponent={ErrorFallback}>
-            <Suspense fallback={<LoadingScreen />}>
-                <Home />
+            <Suspense fallback={null}>
+                <HomeReadyMarker onReady={markHomeReady} />
             </Suspense>
+            {showInitialLoader && <LoadingScreen exiting={initialLoaderExiting} />}
         </ErrorBoundary>
     );
 }

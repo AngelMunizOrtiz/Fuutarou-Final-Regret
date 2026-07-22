@@ -15,6 +15,7 @@ import { useTranslation } from "react-i18next";
 import ReturnMainMenuButton from "../components/ReturnMainMenuButton";
 import useEventListener from "../hooks/useKeyDetector";
 import useSettingsScreenStore from "../stores/useSettingsScreenStore";
+import AudioSettings from "./settings/AudioSettings";
 import AutoSettingToggle from "./settings/AutoSettingToggle";
 import DialoguesSettings from "./settings/DialoguesSettings";
 import DownloadFileToTranslateSettingButton from "./settings/DownloadFileToTranslateSettingButton";
@@ -98,6 +99,11 @@ export default function Settings() {
                         {t("dialogues")}
                     </Typography>
                     <DialoguesSettings />
+
+                    <Typography level='title-md' fontWeight='bold'>
+                        Audio
+                    </Typography>
+                    <AudioSettings />
 
                     <Typography level='title-md' fontWeight='bold'>
                         {t("display")}

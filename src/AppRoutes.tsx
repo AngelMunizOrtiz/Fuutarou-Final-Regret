@@ -4,6 +4,7 @@ import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import CharacterStage from "./components/CharacterStage";
 import NextButton from "./components/NextButton";
 import VisibilityButton from "./components/VisibilityButton";
+import FloatingVolumeControl from "./components/VolumeControl";
 import {
     GALLERY_ROUTE,
     LOADING_ROUTE,
@@ -44,7 +45,8 @@ export default function AppRoutes() {
     }, [isSplashFinished, location.pathname, navigate]);
 
     return (
-        <Routes>
+        <>
+            <Routes>
             <Route
                 key={"splash"}
                 path={SPLASH_ROUTE}
@@ -75,7 +77,9 @@ export default function AppRoutes() {
                     />
                 }
             />
-        </Routes>
+            </Routes>
+            {location.pathname !== NARRATION_ROUTE && location.pathname !== LOADING_ROUTE && <FloatingVolumeControl />}
+        </>
     );
 }
 

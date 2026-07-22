@@ -35,9 +35,19 @@ body {
   overflow: hidden;
   isolation: isolate;
   color: rgba(255, 250, 246, 0.92);
+  opacity: 1;
+  filter: blur(0);
+  transition: opacity 420ms ease, filter 420ms ease;
   background:
-    radial-gradient(circle at 50% 44%, rgba(89, 50, 118, 0.34), transparent 32%),
-    linear-gradient(145deg, #070710 0%, var(--loading-ink) 52%, #120b1b 100%);
+    radial-gradient(ellipse at 50% 42%, rgba(217, 81, 255, 0.2) 0%, rgba(76, 32, 105, 0.16) 34%, transparent 62%),
+    radial-gradient(circle at 50% 115%, rgba(115, 59, 169, 0.3), transparent 48%),
+    linear-gradient(160deg, #05040d 0%, #0c0718 46%, #170923 72%, #08050f 100%);
+}
+
+.vn-loading-screen--exit {
+  pointer-events: none;
+  opacity: 0;
+  filter: blur(8px);
 }
 
 .vn-loading-screen::before,
@@ -50,94 +60,210 @@ body {
 
 .vn-loading-screen::before {
   z-index: -2;
-  opacity: 0.34;
+  top: 42%;
+  left: -18%;
+  width: 136%;
+  height: 82%;
+  opacity: 0.48;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  background-size: 54px 54px;
-  transform: perspective(540px) rotateX(62deg) scale(1.55) translateY(18%);
-  transform-origin: center bottom;
-  mask-image: radial-gradient(ellipse at center, black 12%, transparent 72%);
+    linear-gradient(rgba(230, 169, 255, 0.085) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(230, 169, 255, 0.07) 1px, transparent 1px);
+  background-size: 64px 44px;
+  transform: perspective(520px) rotateX(66deg) scale(1.35);
+  transform-origin: center top;
+  mask-image: linear-gradient(to bottom, transparent, black 18%, black 68%, transparent 100%);
 }
 
 .vn-loading-screen::after {
   z-index: -1;
+  opacity: 0.62;
   background:
-    radial-gradient(circle at 18% 24%, rgba(243, 206, 98, 0.16) 0 1px, transparent 2px),
-    radial-gradient(circle at 77% 19%, rgba(114, 184, 236, 0.2) 0 1px, transparent 2px),
-    radial-gradient(circle at 82% 76%, rgba(240, 141, 184, 0.16) 0 1px, transparent 2px),
-    radial-gradient(circle at 25% 82%, rgba(120, 216, 117, 0.16) 0 1px, transparent 2px);
-  background-size: 138px 138px, 174px 174px, 202px 202px, 226px 226px;
-  animation: vn-loading-stars 8s linear infinite;
+    radial-gradient(circle at 18% 24%, rgba(255, 222, 139, 0.7) 0 1px, transparent 2px),
+    radial-gradient(circle at 77% 19%, rgba(130, 207, 255, 0.72) 0 1px, transparent 2px),
+    radial-gradient(circle at 82% 76%, rgba(255, 140, 205, 0.62) 0 1px, transparent 2px),
+    radial-gradient(circle at 25% 82%, rgba(139, 255, 162, 0.56) 0 1px, transparent 2px);
+  background-size: 158px 158px, 194px 194px, 232px 232px, 264px 264px;
+  animation: vn-loading-stars 11s linear infinite;
 }
 
 .vn-loading-aurora {
   position: absolute;
-  width: min(78vw, 760px);
-  aspect-ratio: 1;
+  top: 44%;
+  left: 50%;
+  width: min(92vw, 900px);
+  height: min(48vw, 460px);
   border-radius: 50%;
-  opacity: 0.5;
-  filter: blur(78px);
-  background: conic-gradient(
-    from 30deg,
-    rgba(243, 206, 98, 0.2),
-    rgba(240, 141, 184, 0.16),
-    rgba(114, 184, 236, 0.22),
-    rgba(120, 216, 117, 0.16),
-    rgba(237, 112, 107, 0.2),
-    rgba(243, 206, 98, 0.2)
-  );
-  animation: vn-loading-aurora 7s ease-in-out infinite alternate;
+  opacity: 0.68;
+  filter: blur(64px);
+  background:
+    radial-gradient(ellipse at center, rgba(229, 105, 255, 0.36), rgba(90, 67, 211, 0.18) 40%, transparent 72%);
+  transform: translate(-50%, -50%);
+  animation: vn-loading-aurora 5.8s ease-in-out infinite alternate;
 }
 
 .vn-marble-stage {
   position: relative;
-  width: min(78vw, 520px);
-  height: clamp(170px, 28vw, 270px);
-  margin-bottom: 3.5rem;
-  perspective: 900px;
+  width: min(92vw, 720px);
+  height: clamp(240px, 42vw, 390px);
+  margin-bottom: clamp(3.8rem, 8vh, 6.5rem);
+  perspective: 760px;
+  perspective-origin: 50% 46%;
+  transform-style: preserve-3d;
+}
+
+.vn-marble-stage::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 46%;
+  left: 50%;
+  width: min(70vw, 520px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(236, 178, 255, 0.13);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, transparent 48%, rgba(208, 97, 255, 0.08) 49% 51%, transparent 52%),
+    radial-gradient(circle, transparent 64%, rgba(118, 129, 255, 0.09) 65% 66%, transparent 67%);
+  box-shadow:
+    0 0 55px rgba(225, 102, 255, 0.18),
+    inset 0 0 45px rgba(116, 112, 255, 0.12);
+  transform: translate(-50%, -50%);
+  animation: vn-loading-portal 6s linear infinite;
+}
+
+.vn-marble-stage::after {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  left: 50%;
+  bottom: 4%;
+  width: min(88vw, 650px);
+  height: 42%;
+  border: 1px solid rgba(226, 174, 255, 0.14);
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(181, 76, 235, 0.1), transparent 65%);
+  box-shadow: 0 0 65px rgba(151, 66, 213, 0.16);
+  transform: translateX(-50%) rotateX(72deg);
 }
 
 .vn-marble-orbit {
   position: absolute;
   inset: 0;
   transform-style: preserve-3d;
-  animation: vn-marble-stage-breathe 3.4s ease-in-out infinite;
+  animation: vn-marble-stage-breathe 5.4s ease-in-out infinite;
+}
+
+.vn-marble-runner {
+  --marble-index: 0;
+  --marble-duration: 5.6s;
+  --marble-delay: calc(var(--marble-index) * -1.06s);
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  width: clamp(62px, 10vw, 96px);
+  aspect-ratio: 1;
+  opacity: 0;
+  transform-style: preserve-3d;
+  animation: vn-marble-flight var(--marble-duration) cubic-bezier(0.42, 0.02, 0.58, 0.98) infinite;
+  animation-delay: var(--marble-delay);
+  will-change: transform, opacity, filter;
 }
 
 .vn-marble {
   --marble-color: #fff;
   --marble-deep: #777;
   --marble-glow: rgba(255, 255, 255, 0.54);
-  --marble-index: 0;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: clamp(54px, 10vw, 82px);
-  aspect-ratio: 1;
+  inset: 0;
+  display: block;
+  overflow: hidden;
   border-radius: 50%;
   transform-style: preserve-3d;
   background:
-    radial-gradient(circle at 31% 25%, rgba(255, 255, 255, 0.98) 0 5%, rgba(255, 255, 255, 0.66) 7%, transparent 19%),
-    radial-gradient(circle at 38% 34%, color-mix(in srgb, var(--marble-color) 84%, white) 0 24%, var(--marble-color) 48%, var(--marble-deep) 100%);
+    radial-gradient(circle at 27% 20%, white 0 3%, rgba(255, 255, 255, 0.84) 4%, transparent 13%),
+    radial-gradient(circle at 37% 29%, rgba(255, 255, 255, 0.48) 0 8%, transparent 27%),
+    radial-gradient(circle at 68% 73%, transparent 36%, color-mix(in srgb, var(--marble-deep) 78%, #130923) 92%),
+    radial-gradient(circle at 38% 35%, color-mix(in srgb, var(--marble-color) 72%, white) 0 16%, var(--marble-color) 48%, var(--marble-deep) 100%);
+  border: 1px solid color-mix(in srgb, var(--marble-color) 56%, white);
   box-shadow:
-    inset -12px -15px 20px rgba(31, 13, 42, 0.34),
-    inset 7px 7px 12px rgba(255, 255, 255, 0.3),
-    0 0 20px var(--marble-glow),
-    0 0 52px color-mix(in srgb, var(--marble-color) 38%, transparent);
-  animation: vn-marble-fake-3d 3.25s cubic-bezier(0.45, 0.04, 0.24, 1) infinite;
-  animation-delay: calc(var(--marble-index) * -0.54s);
-  will-change: transform, filter, opacity;
+    inset -17px -20px 26px rgba(24, 7, 39, 0.46),
+    inset 9px 10px 18px rgba(255, 255, 255, 0.25),
+    inset 0 0 12px color-mix(in srgb, var(--marble-color) 42%, transparent),
+    0 0 12px rgba(255, 255, 255, 0.22),
+    0 0 27px var(--marble-glow),
+    0 0 62px color-mix(in srgb, var(--marble-color) 42%, transparent);
+  animation: vn-marble-body 1.15s ease-in-out infinite alternate;
+  will-change: transform, filter;
+}
+
+.vn-marble::before {
+  content: "";
+  position: absolute;
+  inset: 9%;
+  border-radius: 50%;
+  opacity: 0.72;
+  background:
+    conic-gradient(from 30deg, transparent 0 16%, rgba(255, 255, 255, 0.28) 22%, transparent 32% 58%, color-mix(in srgb, var(--marble-color) 72%, white) 66%, transparent 77%),
+    radial-gradient(ellipse at 58% 55%, transparent 42%, rgba(255, 255, 255, 0.18) 46%, transparent 55%);
+  mix-blend-mode: screen;
+  animation: vn-marble-caustic 2.2s linear infinite;
 }
 
 .vn-marble::after {
   content: "";
   position: absolute;
-  inset: 12% 18% 52% 15%;
+  top: 10%;
+  left: 13%;
+  width: 55%;
+  height: 31%;
   border-radius: 50%;
-  background: linear-gradient(120deg, rgba(255, 255, 255, 0.75), transparent 70%);
-  transform: rotate(-18deg);
-  filter: blur(1px);
+  background: linear-gradient(128deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.12) 56%, transparent 72%);
+  transform: rotate(-24deg);
+  filter: blur(0.7px);
+}
+
+.vn-marble-core {
+  position: absolute;
+  inset: 19%;
+  display: block;
+  border-radius: 50%;
+  opacity: 0.38;
+  background: radial-gradient(circle at 42% 35%, white, var(--marble-color) 22%, transparent 66%);
+  filter: blur(7px);
+  mix-blend-mode: screen;
+  animation: vn-marble-core 1.7s ease-in-out infinite alternate;
+}
+
+.vn-marble-trail {
+  position: absolute;
+  z-index: -2;
+  top: 39%;
+  right: 64%;
+  width: 135%;
+  height: 24%;
+  border-radius: 50%;
+  opacity: 0.42;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--marble-color, white) 58%, transparent));
+  filter: blur(9px);
+  transform: rotate(-10deg);
+  animation: vn-marble-trail var(--marble-duration) ease-in-out infinite;
+  animation-delay: var(--marble-delay);
+}
+
+.vn-marble-floor-shadow {
+  position: absolute;
+  z-index: -1;
+  top: 108%;
+  left: 50%;
+  width: 112%;
+  height: 20%;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse, color-mix(in srgb, var(--marble-color, white) 34%, rgba(5, 2, 12, 0.9)), transparent 70%);
+  filter: blur(7px);
+  transform: translateX(-50%);
+  animation: vn-marble-floor-shadow var(--marble-duration) ease-in-out infinite;
+  animation-delay: var(--marble-delay);
 }
 
 .vn-marble--ichika {
@@ -170,18 +296,20 @@ body {
   --marble-glow: rgba(237, 112, 107, 0.58);
 }
 
-.vn-marble-shadow {
+.vn-marble-horizon {
   position: absolute;
+  z-index: -1;
   left: 50%;
-  bottom: 5%;
-  width: min(58vw, 340px);
-  height: 30px;
+  bottom: 12%;
+  width: min(78vw, 560px);
+  height: 2px;
   border-radius: 50%;
-  opacity: 0.58;
-  background: rgba(2, 1, 8, 0.82);
-  filter: blur(13px);
+  opacity: 0.72;
+  background: linear-gradient(90deg, transparent, rgba(234, 177, 255, 0.68), transparent);
+  box-shadow: 0 0 22px rgba(218, 107, 255, 0.55);
+  filter: blur(1px);
   transform: translateX(-50%);
-  animation: vn-marble-shadow 3.4s ease-in-out infinite;
+  animation: vn-loading-horizon 3.8s ease-in-out infinite alternate;
 }
 
 .vn-loading-copy {
@@ -232,52 +360,108 @@ body {
   border: 0;
 }
 
-@keyframes vn-marble-fake-3d {
+@keyframes vn-marble-flight {
   0% {
-    opacity: 0.68;
-    filter: saturate(0.82) blur(0.5px);
-    transform: translate3d(calc(-50% - 190px), 34px, -130px) scale(0.68) rotate(-18deg);
+    z-index: 0;
+    opacity: 0.48;
+    filter: saturate(0.76) brightness(0.78) blur(0.8px);
+    transform: translate3d(calc(-50% - min(38vw, 270px)), 30px, -320px) scale(0.4) rotateZ(-18deg);
   }
-  22% {
+  9% {
+    opacity: 0.62;
+    filter: saturate(0.8) brightness(0.82) blur(0.8px);
+    transform: translate3d(calc(-50% - min(31vw, 220px)), -28px, -250px) scale(0.47) rotateZ(-10deg);
+  }
+  24% {
+    z-index: 2;
+    opacity: 0.9;
+    filter: saturate(1) brightness(0.96) blur(0.25px);
+    transform: translate3d(calc(-50% - min(21vw, 150px)), 24px, -90px) scale(0.72) rotateZ(3deg);
+  }
+  39% {
+    z-index: 5;
     opacity: 1;
-    filter: saturate(1.12) blur(0);
-    transform: translate3d(calc(-50% - 96px), -48px, 35px) scale(1.03) rotate(32deg);
+    filter: saturate(1.14) brightness(1.06) blur(0);
+    transform: translate3d(calc(-50% - min(10vw, 72px)), -70px, 72px) scale(1.02) rotateZ(11deg);
   }
-  48% {
+  54% {
+    z-index: 10;
     opacity: 1;
-    filter: saturate(1.2) blur(0);
-    transform: translate3d(-50%, 12px, 95px) scale(1.12) rotate(86deg);
+    filter: saturate(1.2) brightness(1.1) blur(0);
+    transform: translate3d(calc(-50% + min(1vw, 8px)), 13px, 220px) scale(1.3) rotateZ(18deg);
   }
-  73% {
-    opacity: 0.96;
-    filter: saturate(1.02) blur(0);
-    transform: translate3d(calc(-50% + 105px), -34px, 10px) scale(0.98) rotate(142deg);
+  69% {
+    z-index: 5;
+    opacity: 1;
+    filter: saturate(1.12) brightness(1.04) blur(0);
+    transform: translate3d(calc(-50% + min(13vw, 94px)), -55px, 80px) scale(1.03) rotateZ(26deg);
+  }
+  84% {
+    z-index: 2;
+    opacity: 0.82;
+    filter: saturate(0.9) brightness(0.86) blur(0.55px);
+    transform: translate3d(calc(-50% + min(26vw, 186px)), 20px, -145px) scale(0.62) rotateZ(35deg);
   }
   100% {
-    opacity: 0.68;
-    filter: saturate(0.82) blur(0.5px);
-    transform: translate3d(calc(-50% + 190px), 34px, -130px) scale(0.68) rotate(198deg);
+    z-index: 0;
+    opacity: 0.48;
+    filter: saturate(0.74) brightness(0.76) blur(0.8px);
+    transform: translate3d(calc(-50% + min(38vw, 270px)), -22px, -320px) scale(0.4) rotateZ(45deg);
   }
 }
 
 @keyframes vn-marble-stage-breathe {
-  0%, 100% { transform: rotateZ(-1.5deg) translateY(0); }
-  50% { transform: rotateZ(1.5deg) translateY(-5px); }
+  0%, 100% { transform: rotateZ(-0.7deg) translateY(2px); }
+  50% { transform: rotateZ(0.7deg) translateY(-4px); }
 }
 
-@keyframes vn-marble-shadow {
-  0%, 100% { opacity: 0.4; transform: translateX(-50%) scaleX(0.82); }
-  50% { opacity: 0.64; transform: translateX(-50%) scaleX(1.08); }
+@keyframes vn-marble-body {
+  from { transform: translateY(-2px) rotate(-2deg); }
+  to { transform: translateY(2px) rotate(2deg); }
+}
+
+@keyframes vn-marble-caustic {
+  to { transform: rotate(1turn); }
+}
+
+@keyframes vn-marble-core {
+  from { opacity: 0.28; transform: scale(0.84) translate(-5%, -3%); }
+  to { opacity: 0.52; transform: scale(1.18) translate(4%, 3%); }
+}
+
+@keyframes vn-marble-trail {
+  0%, 8%, 100% { opacity: 0; transform: translateX(18%) scaleX(0.35) rotate(-10deg); }
+  26%, 72% { opacity: 0.44; transform: translateX(0) scaleX(1) rotate(-10deg); }
+  86% { opacity: 0.18; transform: translateX(-12%) scaleX(0.6) rotate(-10deg); }
+}
+
+@keyframes vn-marble-floor-shadow {
+  0%, 100% { opacity: 0; transform: translateX(-50%) scaleX(0.35); }
+  24% { opacity: 0.34; transform: translateX(-50%) scaleX(0.7); }
+  39%, 69% { opacity: 0.28; transform: translateX(-50%) scaleX(0.78); }
+  54% { opacity: 0.7; transform: translateX(-50%) scaleX(1.16); }
+  84% { opacity: 0.2; transform: translateX(-50%) scaleX(0.58); }
 }
 
 @keyframes vn-loading-stars {
   from { transform: translate3d(0, 0, 0); }
-  to { transform: translate3d(-34px, 20px, 0); }
+  to { transform: translate3d(-46px, 28px, 0); }
 }
 
 @keyframes vn-loading-aurora {
-  from { transform: scale(0.92) rotate(-8deg); opacity: 0.34; }
-  to { transform: scale(1.08) rotate(8deg); opacity: 0.56; }
+  from { transform: translate(-50%, -50%) scale(0.86) rotate(-5deg); opacity: 0.42; }
+  to { transform: translate(-50%, -50%) scale(1.13) rotate(5deg); opacity: 0.72; }
+}
+
+@keyframes vn-loading-portal {
+  from { transform: translate(-50%, -50%) rotate(0deg) scale(0.96); opacity: 0.58; }
+  50% { opacity: 0.92; }
+  to { transform: translate(-50%, -50%) rotate(360deg) scale(1.04); opacity: 0.58; }
+}
+
+@keyframes vn-loading-horizon {
+  from { opacity: 0.42; transform: translateX(-50%) scaleX(0.78); }
+  to { opacity: 0.86; transform: translateX(-50%) scaleX(1.08); }
 }
 
 @keyframes vn-loading-ellipsis {
@@ -287,42 +471,47 @@ body {
 
 @media (max-width: 520px) {
   .vn-marble-stage {
-    width: 92vw;
+    width: 96vw;
+    height: clamp(220px, 72vw, 310px);
   }
 
-  .vn-marble {
-    width: clamp(46px, 14vw, 64px);
+  .vn-marble-runner {
+    width: clamp(52px, 17vw, 72px);
   }
 
-  @keyframes vn-marble-fake-3d {
-    0% { opacity: 0.68; transform: translate3d(calc(-50% - 132px), 26px, -100px) scale(0.68) rotate(-18deg); }
-    22% { opacity: 1; transform: translate3d(calc(-50% - 68px), -36px, 25px) scale(1.03) rotate(32deg); }
-    48% { opacity: 1; transform: translate3d(-50%, 10px, 70px) scale(1.1) rotate(86deg); }
-    73% { opacity: 0.96; transform: translate3d(calc(-50% + 72px), -28px, 8px) scale(0.98) rotate(142deg); }
-    100% { opacity: 0.68; transform: translate3d(calc(-50% + 132px), 26px, -100px) scale(0.68) rotate(198deg); }
+  .vn-loading-copy {
+    bottom: max(22px, 5vh);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .vn-loading-screen::after,
   .vn-loading-aurora,
+  .vn-marble-stage::before,
   .vn-marble-orbit,
-  .vn-marble-shadow,
+  .vn-marble-horizon,
+  .vn-marble,
+  .vn-marble::before,
+  .vn-marble-core,
+  .vn-marble-trail,
+  .vn-marble-floor-shadow,
   .vn-loading-label::after {
     animation: none;
   }
 
-  .vn-marble {
+  .vn-marble-runner {
     animation: none;
     opacity: 1;
     filter: none;
-    transform: translate3d(-50%, 0, 0) scale(0.82);
   }
 
-  .vn-marble:nth-child(1) { transform: translate3d(calc(-50% - 144px), 0, 0) scale(0.82); }
-  .vn-marble:nth-child(2) { transform: translate3d(calc(-50% - 72px), 0, 0) scale(0.82); }
-  .vn-marble:nth-child(4) { transform: translate3d(calc(-50% + 72px), 0, 0) scale(0.82); }
-  .vn-marble:nth-child(5) { transform: translate3d(calc(-50% + 144px), 0, 0) scale(0.82); }
+  .vn-marble-trail { display: none; }
+  .vn-marble-floor-shadow { opacity: 0.42; }
+  .vn-marble-runner:nth-child(1) { transform: translate3d(calc(-50% - min(30vw, 190px)), 10px, -80px) scale(0.68); }
+  .vn-marble-runner:nth-child(2) { transform: translate3d(calc(-50% - min(15vw, 95px)), -28px, 0) scale(0.82); }
+  .vn-marble-runner:nth-child(3) { transform: translate3d(-50%, 8px, 80px) scale(1); }
+  .vn-marble-runner:nth-child(4) { transform: translate3d(calc(-50% + min(15vw, 95px)), -28px, 0) scale(0.82); }
+  .vn-marble-runner:nth-child(5) { transform: translate3d(calc(-50% + min(30vw, 190px)), 10px, -80px) scale(0.68); }
 }
 
 /* Local motion helpers used by the UI, avoiding incompatible Tailwind plugins. */

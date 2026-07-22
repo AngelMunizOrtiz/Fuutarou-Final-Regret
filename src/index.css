@@ -1,0 +1,260 @@
+@import "tailwindcss" source(none);
+@source ".";
+@plugin "@tailwindcss/typography";
+
+:root {
+  background-color: #242424;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+
+/* Local motion helpers used by the UI, avoiding incompatible Tailwind plugins. */
+.motion-opacity-in-0.motion-translate-y-in,
+.motion-opacity-out-0.motion-translate-y-out,
+.motion-opacity-in-0.motion-translate-x-in,
+.motion-opacity-out-0.motion-translate-x-out,
+.motion-scale-out-0,
+.motion-preset-pop,
+.motion-blur-in-md {
+  animation-duration: 240ms;
+  animation-delay: var(--motion-delay, 0ms);
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform, filter;
+}
+
+.motion-opacity-in-0.motion-translate-y-in,
+.motion-opacity-in-0.motion-translate-x-in {
+  animation-name: motion-fade-slide-in;
+}
+
+.motion-opacity-out-0.motion-translate-y-out,
+.motion-opacity-out-0.motion-translate-x-out {
+  animation-name: motion-fade-slide-out;
+}
+
+.motion-scale-out-0 {
+  animation-name: motion-scale-out;
+}
+
+.motion-preset-pop {
+  animation-name: motion-pop-in;
+  animation-duration: 280ms;
+}
+
+.motion-blur-in-md {
+  animation-name: motion-blur-in;
+}
+
+@keyframes motion-fade-slide-in {
+  from {
+    opacity: 0;
+    transform: translate(var(--motion-translate-x, 0), var(--motion-translate-y, var(--motion-translate-distance, 50%)));
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes motion-fade-slide-out {
+  from {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(var(--motion-translate-x, 0), var(--motion-translate-y, var(--motion-translate-distance, 50%)));
+  }
+}
+
+.motion-translate-x-in,
+.motion-translate-x-out {
+  --motion-translate-x: var(--motion-translate-distance, 50%);
+  --motion-translate-y: 0;
+}
+
+.motion-translate-y-in,
+.motion-translate-y-out {
+  --motion-translate-x: 0;
+  --motion-translate-y: var(--motion-translate-distance, 50%);
+}
+
+@keyframes motion-scale-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+@keyframes motion-pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.72);
+  }
+
+  70% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes motion-blur-in {
+  from {
+    opacity: 0;
+    filter: blur(12px);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-opacity-in-0.motion-translate-y-in,
+  .motion-opacity-out-0.motion-translate-y-out,
+  .motion-opacity-in-0.motion-translate-x-in,
+  .motion-opacity-out-0.motion-translate-x-out,
+  .motion-scale-out-0,
+  .motion-preset-pop,
+  .motion-blur-in-md {
+    animation-duration: 1ms;
+  }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 620ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+::view-transition-old(root) {
+  animation-name: vn-route-fade-out;
+}
+
+::view-transition-new(root) {
+  animation-name: vn-route-fade-in;
+}
+
+@keyframes vn-route-fade-out {
+  from {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    filter: blur(8px);
+    transform: scale(0.992);
+  }
+}
+
+@keyframes vn-route-fade-in {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+    transform: scale(1.012);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+.vn-character-slot {
+  transform: translateX(-50%);
+}
+
+.vn-character-body {
+  opacity: 1;
+  transform: translateY(var(--character-y)) scale(var(--character-scale)) scaleX(var(--character-flip));
+  transform-origin: bottom center;
+  filter:
+    drop-shadow(0 18px 24px rgba(72, 40, 76, 0.28))
+    drop-shadow(0 4px 0 rgba(255, 255, 255, 0.16));
+  transition: opacity 220ms ease, filter 220ms ease;
+}
+
+.vn-character-body.is-active-speaker {
+  opacity: 1;
+  filter:
+    drop-shadow(0 22px 30px rgba(86, 38, 95, 0.34))
+    drop-shadow(0 0 18px rgba(255, 232, 177, 0.34))
+    drop-shadow(0 4px 0 rgba(255, 255, 255, 0.2));
+  animation: vn-character-active-bounce 880ms ease-in-out infinite;
+}
+
+.vn-character-body.is-listening {
+  opacity: 1;
+  filter:
+    brightness(0.84)
+    saturate(0.82)
+    drop-shadow(0 16px 22px rgba(72, 40, 76, 0.22))
+    drop-shadow(0 4px 0 rgba(255, 255, 255, 0.12));
+}
+
+@keyframes vn-character-active-bounce {
+  0%,
+  100% {
+    transform: translateY(var(--character-y)) scale(var(--character-scale)) scaleX(var(--character-flip));
+  }
+
+  36% {
+    transform: translateY(calc(var(--character-y) - 11px)) scale(var(--character-scale)) scaleX(var(--character-flip));
+  }
+
+  68% {
+    transform: translateY(calc(var(--character-y) - 4px)) scale(var(--character-scale)) scaleX(var(--character-flip));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vn-character-body.is-active-speaker {
+    animation: none;
+  }
+}
+
+@font-face {
+  font-family: 'ConteScript';
+  src: url('/fonts/ContéScriptReduced.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'MPLUSRounded';
+  src: url('/fonts/MPLUSRounded1c-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sawarabi';
+  src: url('/fonts/SawarabiGothic-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

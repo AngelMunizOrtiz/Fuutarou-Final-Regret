@@ -1,0 +1,95 @@
+Estoy continuando una novela visual creada con Pixi-VN.
+
+Proyecto:
+C:\Users\angel\OneDrive\Desktop\debug-py
+
+Quiero seguir ampliando los sprites de personajes. Antes de modificar nada, analiza el proyecto, los documentos existentes, `src/ink/start.ink` y las carpetas de `public/images/characters`.
+
+IMPORTANTE:
+- Trabaja sobre `public/images/characters`, no sobre `dist`.
+- `dist` es generado automáticamente mediante `npm run build`.
+- Usa siempre las hojas actuales de cada personaje como referencia directa de identidad.
+- Inspecciona cada referencia con `view_image` antes de llamar a ImageGen.
+- Usa ImageGen con `referenced_image_paths`, bloqueo estricto de identidad y el pipeline de sprites.
+- No regeneres personajes sin usar sus imágenes actuales como referencia.
+- No sobrescribas cambios no relacionados.
+
+TRABAJO YA REALIZADO
+
+Los siguientes personajes ya tienen aproximadamente ocho expresiones o poses utilizables:
+
+Fuutarou:
+- neutral, annoyed, surprised, hand_cover, neck_scratch
+- soft_smile, worried, sad, embarrassed
+
+Yotsuba:
+- neutral, cheerful, determined, nervous, wave
+- shocked, sad_smile, crying
+
+Nino:
+- neutral, annoyed, proud, soft
+- happy, embarrassed, worried, angry
+
+Raiha:
+- neutral, cheerful_wave, concerned_scold, surprised_shy
+- bright_laugh, gentle_worry, exasperated, determined
+
+Ichika:
+- neutral, teasing, concerned, confident
+- warm_smile, laughing, embarrassed, sad_reflective
+
+Itsuki:
+- neutral, surprised, warm, serious
+- thoughtful, joyful, indignant, flustered
+
+En el último trabajo se generaron cuatro poses nuevas para Raiha, Ichika e Itsuki. Se usaron hojas horizontales de cuatro personajes, fondo #00FF00, eliminación local del chroma y normalización a PNG RGBA de 620x876.
+
+Las expresiones nuevas están registradas en:
+- `src/data/characterSprites.ts`
+- `src/assets/manifest.ts`
+
+También se aplicaron algunas en:
+- `src/ink/start.ink`
+
+Los previews están en:
+- `public/images/characters/chapter_02_raiha_emotions_v2_preview.png`
+- `public/images/characters/chapter_02_ichika_emotions_v2_preview.png`
+- `public/images/characters/chapter_02_itsuki_emotions_v2_preview.png`
+
+`npm run build` terminó correctamente.
+
+PERSONAJES QUE FALTA AMPLIAR
+
+Prioridad 1: Miku
+Actualmente tiene:
+- neutral
+- gentle
+- serious
+- embarrassed
+
+Referencia principal:
+`public/images/characters/miku/miku_sheet_source_chroma.png`
+
+Miku es la protagonista romántica principal, por lo que debería recibir al menos cuatro poses nuevas, naturales y emocionalmente útiles. Algunas sugerencias:
+- happy_smile: sonrisa sincera, postura más abierta
+- worried: mano cerca del pecho, mirada inquieta
+- sad: mirada baja, manos juntas, tristeza contenida
+- determined: postura firme, expresión segura
+También se podría considerar después `flustered`, `crying` o `thoughtful`.
+
+Prioridad 2: Isanari
+Referencia:
+`public/images/characters/isanari/isanari_sheet_source_chroma.png`
+
+Ya tiene neutral, cheerful, awkward y thoughtful.
+Agregar cuatro poses como:
+- laughing
+- concerned
+- emotional
+- exasperated o proud
+
+Prioridad 3: Maruo
+Referencia:
+`public/images/characters/maruo/maruo_sheet_source_chroma.png`
+
+Ya tiene neutral

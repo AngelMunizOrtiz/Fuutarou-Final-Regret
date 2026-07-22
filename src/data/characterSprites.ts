@@ -1,0 +1,461 @@
+export type CharacterSpriteDefinition = {
+    src: string;
+    scale?: number;
+    yOffset?: number;
+};
+
+const spritePreloadCache = new Map<string, Promise<void>>();
+
+export const characterSprites = {
+    fuutarou: {
+        neutral: {
+            src: "/images/characters/fuutarou/fuutarou_neutral.webp",
+            scale: 1.04,
+        },
+        annoyed: {
+            src: "/images/characters/fuutarou/fuutarou_annoyed.webp",
+            scale: 1.04,
+        },
+        surprised: {
+            src: "/images/characters/fuutarou/fuutarou_surprised.webp",
+            scale: 1.04,
+        },
+        hand_cover: {
+            src: "/images/characters/fuutarou/fuutarou_hand_cover.webp",
+            scale: 1.04,
+        },
+        neck_scratch: {
+            src: "/images/characters/fuutarou/fuutarou_neck_scratch.webp",
+            scale: 1.04,
+        },
+        soft_smile: {
+            src: "/images/characters/fuutarou/fuutarou_soft_smile.webp",
+            scale: 1.04,
+        },
+        worried: {
+            src: "/images/characters/fuutarou/fuutarou_worried.webp",
+            scale: 1.04,
+        },
+        sad: {
+            src: "/images/characters/fuutarou/fuutarou_sad.webp",
+            scale: 1.04,
+        },
+        embarrassed: {
+            src: "/images/characters/fuutarou/fuutarou_embarrassed.webp",
+            scale: 1.04,
+        },
+    },
+    takeda: {
+        smile: {
+            src: "/images/characters/takeda/takeda_smile.webp",
+            scale: 1,
+        },
+        sparkle: {
+            src: "/images/characters/takeda/takeda_sparkle.webp",
+            scale: 1.02,
+        },
+        exhausted: {
+            src: "/images/characters/takeda/takeda_exhausted.webp",
+            scale: 1,
+        },
+        arms_crossed: {
+            src: "/images/characters/takeda/takeda_arms_crossed.webp",
+            scale: 1,
+        },
+        enthusiastic: {
+            src: "/images/characters/takeda/takeda_enthusiastic.webp",
+            scale: 1,
+        },
+        surprised: {
+            src: "/images/characters/takeda/takeda_surprised.webp",
+            scale: 1,
+        },
+        sheepish: {
+            src: "/images/characters/takeda/takeda_sheepish.webp",
+            scale: 1,
+        },
+        supportive: {
+            src: "/images/characters/takeda/takeda_supportive.webp",
+            scale: 1,
+        },
+    },
+    raiha: {
+        neutral: {
+            src: "/images/characters/raiha/raiha_neutral.webp",
+            scale: 0.92,
+        },
+        cheerful_wave: {
+            src: "/images/characters/raiha/raiha_cheerful_wave.webp",
+            scale: 0.92,
+        },
+        concerned_scold: {
+            src: "/images/characters/raiha/raiha_concerned_scold.webp",
+            scale: 0.92,
+        },
+        surprised_shy: {
+            src: "/images/characters/raiha/raiha_surprised_shy.webp",
+            scale: 0.92,
+        },
+        bright_laugh: {
+            src: "/images/characters/raiha/raiha_bright_laugh.webp",
+            scale: 0.92,
+        },
+        gentle_worry: {
+            src: "/images/characters/raiha/raiha_gentle_worry.webp",
+            scale: 0.92,
+        },
+        exasperated: {
+            src: "/images/characters/raiha/raiha_exasperated.webp",
+            scale: 0.92,
+        },
+        determined: {
+            src: "/images/characters/raiha/raiha_determined.webp",
+            scale: 0.92,
+        },
+    },
+    isanari: {
+        neutral: {
+            src: "/images/characters/isanari/isanari_neutral.webp",
+            scale: 1,
+        },
+        cheerful: {
+            src: "/images/characters/isanari/isanari_cheerful.webp",
+            scale: 1,
+        },
+        awkward: {
+            src: "/images/characters/isanari/isanari_awkward.webp",
+            scale: 1,
+        },
+        thoughtful: {
+            src: "/images/characters/isanari/isanari_thoughtful.webp",
+            scale: 1,
+        },
+        boisterous_laugh: {
+            src: "/images/characters/isanari/isanari_boisterous_laugh.webp",
+            scale: 1,
+        },
+        proud_emotional: {
+            src: "/images/characters/isanari/isanari_proud_emotional.webp",
+            scale: 1,
+        },
+        hungover: {
+            src: "/images/characters/isanari/isanari_hungover.webp",
+            scale: 1,
+        },
+        protective_alarm: {
+            src: "/images/characters/isanari/isanari_protective_alarm.webp",
+            scale: 1,
+        },
+    },
+    maruo: {
+        neutral: {
+            src: "/images/characters/maruo/maruo_neutral.webp",
+            scale: 1,
+        },
+        stern: {
+            src: "/images/characters/maruo/maruo_stern.webp",
+            scale: 1,
+        },
+        composed: {
+            src: "/images/characters/maruo/maruo_composed.webp",
+            scale: 1,
+        },
+        concerned: {
+            src: "/images/characters/maruo/maruo_concerned.webp",
+            scale: 1,
+        },
+        soft_smile: {
+            src: "/images/characters/maruo/maruo_soft_smile.webp",
+            scale: 1,
+        },
+        surprised: {
+            src: "/images/characters/maruo/maruo_surprised.webp",
+            scale: 1,
+        },
+        pained_reflection: {
+            src: "/images/characters/maruo/maruo_pained_reflection.webp",
+            scale: 1,
+        },
+        awkward_warmth: {
+            src: "/images/characters/maruo/maruo_awkward_warmth.webp",
+            scale: 1,
+        },
+    },
+    grandpa: {
+        neutral: {
+            src: "/images/characters/grandpa_nakano/grandpa_nakano_neutral.webp",
+            scale: 1,
+        },
+        authoritative: {
+            src: "/images/characters/grandpa_nakano/grandpa_nakano_authoritative.webp",
+            scale: 1,
+        },
+        gentle: {
+            src: "/images/characters/grandpa_nakano/grandpa_nakano_gentle.webp",
+            scale: 1,
+        },
+        concerned: {
+            src: "/images/characters/grandpa_nakano/grandpa_nakano_concerned.webp",
+            scale: 1,
+        },
+        grateful: {
+            src: "/images/characters/grandpa_nakano/grandpa_nakano_grateful.webp",
+            scale: 1,
+        },
+        regretful: {
+            src: "/images/characters/grandpa_nakano/grandpa_nakano_regretful.webp",
+            scale: 1,
+        },
+        relieved_smile: {
+            src: "/images/characters/grandpa_nakano/grandpa_nakano_relieved_smile.webp",
+            scale: 1,
+        },
+        frail_tired: {
+            src: "/images/characters/grandpa_nakano/grandpa_nakano_frail_tired.webp",
+            scale: 1,
+        },
+    },
+    aoi: {
+        cheerful_peace: {
+            src: "/images/characters/aoi/aoi_cheerful_peace.webp",
+            scale: 1,
+        },
+        curious: {
+            src: "/images/characters/aoi/aoi_curious.webp",
+            scale: 1,
+        },
+        bashful: {
+            src: "/images/characters/aoi/aoi_bashful.webp",
+            scale: 1,
+        },
+        determined: {
+            src: "/images/characters/aoi/aoi_determined.webp",
+            scale: 1,
+        },
+        maternal: {
+            src: "/images/characters/aoi/aoi_maternal.webp",
+            scale: 1,
+        },
+        pregnancy_joy: {
+            src: "/images/characters/aoi/aoi_pregnancy_joy.webp",
+            scale: 1,
+        },
+        ill: {
+            src: "/images/characters/aoi/aoi_ill.webp",
+            scale: 1,
+        },
+        tearful: {
+            src: "/images/characters/aoi/aoi_tearful.webp",
+            scale: 1,
+        },
+    },
+    ichika: {
+        neutral: {
+            src: "/images/characters/ichika/ichika_neutral.webp",
+            scale: 1,
+        },
+        teasing: {
+            src: "/images/characters/ichika/ichika_teasing.webp",
+            scale: 1,
+        },
+        concerned: {
+            src: "/images/characters/ichika/ichika_concerned.webp",
+            scale: 1,
+        },
+        confident: {
+            src: "/images/characters/ichika/ichika_confident.webp",
+            scale: 1,
+        },
+        warm_smile: {
+            src: "/images/characters/ichika/ichika_warm_smile.webp",
+            scale: 1,
+        },
+        laughing: {
+            src: "/images/characters/ichika/ichika_laughing.webp",
+            scale: 1,
+        },
+        embarrassed: {
+            src: "/images/characters/ichika/ichika_embarrassed.webp",
+            scale: 1,
+        },
+        sad_reflective: {
+            src: "/images/characters/ichika/ichika_sad_reflective.webp",
+            scale: 1,
+        },
+    },
+    nino: {
+        neutral: {
+            src: "/images/characters/nino/nino_neutral.webp",
+            scale: 1,
+        },
+        annoyed: {
+            src: "/images/characters/nino/nino_annoyed.webp",
+            scale: 1,
+        },
+        proud: {
+            src: "/images/characters/nino/nino_proud.webp",
+            scale: 1,
+        },
+        soft: {
+            src: "/images/characters/nino/nino_soft.webp",
+            scale: 1,
+        },
+        happy: {
+            src: "/images/characters/nino/nino_happy.webp",
+            scale: 1,
+        },
+        embarrassed: {
+            src: "/images/characters/nino/nino_embarrassed.webp",
+            scale: 1,
+        },
+        worried: {
+            src: "/images/characters/nino/nino_worried.webp",
+            scale: 1,
+        },
+        angry: {
+            src: "/images/characters/nino/nino_angry.webp",
+            scale: 1,
+        },
+    },
+    miku: {
+        neutral: {
+            src: "/images/characters/miku/miku_neutral.webp",
+            scale: 1,
+        },
+        gentle: {
+            src: "/images/characters/miku/miku_gentle.webp",
+            scale: 1,
+        },
+        serious: {
+            src: "/images/characters/miku/miku_serious.webp",
+            scale: 1,
+        },
+        embarrassed: {
+            src: "/images/characters/miku/miku_embarrassed.webp",
+            scale: 1,
+        },
+        warm_laugh: {
+            src: "/images/characters/miku/miku_warm_laugh.webp",
+            scale: 1,
+        },
+        thoughtful: {
+            src: "/images/characters/miku/miku_thoughtful.webp",
+            scale: 1,
+        },
+        hurt: {
+            src: "/images/characters/miku/miku_hurt.webp",
+            scale: 1,
+        },
+        teary_smile: {
+            src: "/images/characters/miku/miku_teary_smile.webp",
+            scale: 1,
+        },
+    },
+    yotsuba: {
+        neutral: {
+            src: "/images/characters/yotsuba/yotsuba_neutral.webp",
+            scale: 1,
+        },
+        wave: {
+            src: "/images/characters/yotsuba/yotsuba_wave.webp",
+            scale: 1,
+        },
+        nervous: {
+            src: "/images/characters/yotsuba/yotsuba_nervous.webp",
+            scale: 1,
+        },
+        determined: {
+            src: "/images/characters/yotsuba/yotsuba_determined.webp",
+            scale: 1,
+        },
+        cheerful: {
+            src: "/images/characters/yotsuba/yotsuba_cheerful.webp",
+            scale: 1,
+        },
+        shocked: {
+            src: "/images/characters/yotsuba/yotsuba_shocked.webp",
+            scale: 1,
+        },
+        sad_smile: {
+            src: "/images/characters/yotsuba/yotsuba_sad_smile.webp",
+            scale: 1,
+        },
+        crying: {
+            src: "/images/characters/yotsuba/yotsuba_crying.webp",
+            scale: 1,
+        },
+    },
+    itsuki: {
+        neutral: {
+            src: "/images/characters/itsuki/itsuki_neutral.webp",
+            scale: 1,
+        },
+        surprised: {
+            src: "/images/characters/itsuki/itsuki_surprised.webp",
+            scale: 1,
+        },
+        warm: {
+            src: "/images/characters/itsuki/itsuki_warm.webp",
+            scale: 1,
+        },
+        serious: {
+            src: "/images/characters/itsuki/itsuki_serious.webp",
+            scale: 1,
+        },
+        thoughtful: {
+            src: "/images/characters/itsuki/itsuki_thoughtful.webp",
+            scale: 1,
+        },
+        joyful: {
+            src: "/images/characters/itsuki/itsuki_joyful.webp",
+            scale: 1,
+        },
+        indignant: {
+            src: "/images/characters/itsuki/itsuki_indignant.webp",
+            scale: 1,
+        },
+        flustered: {
+            src: "/images/characters/itsuki/itsuki_flustered.webp",
+            scale: 1,
+        },
+    },
+} as const;
+
+export type CharacterSpriteId = keyof typeof characterSprites;
+
+export function getCharacterSprite(characterId: string, expression = "neutral") {
+    const character = characterSprites[characterId.toLowerCase() as CharacterSpriteId];
+
+    if (!character) {
+        return undefined;
+    }
+
+    const expressions = character as Record<string, CharacterSpriteDefinition>;
+    return expressions[expression] || expressions.neutral || expressions.smile || Object.values(expressions)[0];
+}
+
+export async function preloadCharacterSprite(characterId: string, expression = "neutral") {
+    const sprite = getCharacterSprite(characterId, expression);
+
+    if (!sprite || typeof Image === "undefined") {
+        return sprite;
+    }
+
+    let preload = spritePreloadCache.get(sprite.src);
+    if (!preload) {
+        preload = new Promise<void>((resolve, reject) => {
+            const image = new Image();
+            image.decoding = "async";
+            image.onload = () => resolve();
+            image.onerror = () => reject(new Error(`Unable to load character sprite: ${sprite.src}`));
+            image.src = sprite.src;
+        }).catch((error) => {
+            spritePreloadCache.delete(sprite.src);
+            console.warn(error);
+        });
+        spritePreloadCache.set(sprite.src, preload);
+    }
+
+    await preload;
+    return sprite;
+}

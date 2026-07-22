@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Frontend build output and tool caches
+dist/
+dist-ssr/
+.vite/
+coverage/
+
+# Tauri/Rust build output. Keep src-tauri source, config and lockfile tracked.
+src-tauri/target/
+
+# Local generated work files
+.codex-tmp/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Local environment overrides
+*.local
+
+# Editor directories and files
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

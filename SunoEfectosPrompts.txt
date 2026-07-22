@@ -1,0 +1,49 @@
+8. Despertar
+A single 8-second awakening transition for an emotional visual novel, soft atmospheric swell, morning piano, bright glass chimes, warm strings gradually opening, feeling of returning from a dream, hopeful but nostalgic, instrumental only, no vocals, clean ending
+Type: One-Shot
+BPM: 72
+Key: G Major
+Nombre: awakening_transition.wav
+Ambientes — Loop
+Para estos sonidos usa siempre expresiones como seamless loop, no intro y no ending.
+9. Noche en el onsen
+Seamless nighttime Japanese onsen ambience loop, gentle hot spring water flowing and bubbling, distant crickets, soft mountain wind through trees, occasional subtle wooden wind chime, calm intimate atmosphere, realistic field recording, no music, no voices, no footsteps, stable volume, no intro, no ending
+Type: Loop
+BPM: Auto
+Key: Any
+Nombre: ambience_onsen_night.wav
+10. Interior del ryokan
+Seamless traditional Japanese ryokan room ambience loop, quiet wooden building creaks, distant hot spring water, soft wind outside, subtle sliding paper door movement far away, warm peaceful indoor room tone, realistic, no music, no voices, no footsteps, no intro, no ending
+Type: Loop
+BPM: Auto
+Key: Any
+Nombre: ambience_ryokan_room.wav
+11. Tokio al atardecer
+Seamless Tokyo residential street ambience at sunset, distant traffic, soft pedestrian crossing signal far away, occasional bicycle passing, light footsteps in the distance, gentle urban wind, peaceful anime drama atmosphere, realistic field recording, no music, no dialogue, no intro, no ending
+Type: Loop
+BPM: Auto
+Key: Any
+Nombre: ambience_tokyo_evening.wav
+12. Universidad durante el día
+Seamless Japanese university campus ambience loop, distant students murmuring without intelligible words, soft footsteps, wind moving through trees, occasional birds, subtle city presence far away, calm daytime atmosphere, realistic, no music, no clear dialogue, no intro, no ending
+Type: Loop
+BPM: Auto
+Key: Any
+Nombre: ambience_university_day.wav
+13. Pesadilla ambiental
+Seamless psychological dream ambience loop, distant reversed piano textures, low dark drone, subtle heartbeat-like vibration, airy whispers without words, unstable spatial movement, emotional regret and loneliness, no jumpscare, no melody, no vocals, no intro, no ending
+Type: Loop
+BPM: Auto
+Key: C Minor o Any
+Nombre: ambience_nightmare.wav
+Qué generaría primero
+Para no gastar demasiados créditos de golpe:
+memory_reveal
+important_choice
+romantic_moment
+painful_revelation
+chapter_transition
+ambience_onsen_night
+ambience_ryokan_room
+ambience_nightmare
+Generaría tres variantes de cada uno. Descarga preferentemente en WAV y conserva los originales sin comprimir. Luego puedo seleccionar los mejores, recortar silencios, nivelar volumen, convertirlos a un formato ligero y programar dónde deben reproducirse y cómo deben hacer fade.

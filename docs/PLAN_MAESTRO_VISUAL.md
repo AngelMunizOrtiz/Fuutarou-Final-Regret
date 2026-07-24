@@ -37,10 +37,10 @@ Terminos usados:
 | Fondos del ryokan y aguas termales | LISTO | 10 BG numerados + 1 variante de lluvia |
 | Integracion de BG del arco termal | LISTO | Usados entre capitulos 2 y 7; BG_010 abre tambien el capitulo 8 |
 | Sprites principales | LISTO como referencia | 12 personajes con varias poses; Isanari joven tiene 5 expresiones y Fuutarou nino 3 |
-| CG del arco capitulos 2-7 | EN CURSO | 26 definidos; CG_001 dibujado e integrado |
+| CG del arco capitulos 2-7 | EN CURSO | 26 definidos; CG_001 y CG_019-CG_023 dibujados e integrados |
 | Fondos propios del capitulo 8 | LISTO | BG_011, BG_012 y BG_012_Rain producidos e integrados |
 | Capitulos 9-11 | EN CURSO | Capitulo 9 ya cuenta con BG_013 y BG_014; faltan sus escenas previas y los capitulos 10-11 |
-| Compilacion | LISTO | `npm run build` superado el 2026-07-19 |
+| Compilacion | LISTO | `npm run build` superado el 2026-07-24 |
 
 Importante: los 26 CG de este documento son la lista cerrada del arco de los capitulos 2 al 7. No representan todavia la totalidad de CG del juego. El siguiente bloque empezara en `CG_027` despues de auditar los capitulos 8 al 11.
 
@@ -175,23 +175,23 @@ No hay distincion entre CG esenciales y opcionales. Todos los momentos de esta l
 
 ### Capitulo 7: Aoi, Isanari y la partida
 
-- [ ] `CG_019 - Confesion del joven Isanari a Aoi`
+- [x] `CG_019 - Confesion del joven Isanari a Aoi`
   - Isanari adolescente se inclina ante Aoi al confesarle sus sentimientos.
   - Escenario propio de juventud; debe definirse usando referencias del flashback.
 
-- [ ] `CG_020 - Montaje de la vida de Aoi e Isanari`
+- [x] `CG_020 - Montaje de la vida de Aoi e Isanari`
   - Una ilustracion narrativa dividida en momentos: estudios, apertura de la panaderia, propuesta y familia.
   - Escenario compuesto en varias vinetas coherentes.
 
-- [ ] `CG_021 - Despedida de Aoi en el hospital`
+- [x] `CG_021 - Despedida de Aoi en el hospital`
   - Aoi e Isanari se toman del brazo o de la mano durante su ultima conversacion.
   - Escenario propio de hospital.
 
-- [ ] `CG_022 - Isanari se derrumba al volver a casa`
+- [x] `CG_022 - Isanari se derrumba al volver a casa`
   - Fuutarou y Raiha ya fueron enviados a su habitacion; Isanari queda solo y rompe en llanto.
   - Escenario propio de la antigua casa Uesugi.
 
-- [ ] `CG_023 - Isanari llora frente a Maruo en el presente`
+- [x] `CG_023 - Isanari llora frente a Maruo en el presente`
   - Isanari se cubre los ojos al recordar a Aoi; Maruo permanece a su lado.
   - Fondo base: `BG_003`.
 

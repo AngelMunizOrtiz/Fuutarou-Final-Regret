@@ -2,11 +2,13 @@
 # sprite hide all
 # show image bg bg01-hallway align 0 with fade
 narrator: Chapter 7: Aoi and Isanari, a quintessential quintuplets fanfic
-# sprite left isanari_young flustered
+# show image bg ch07-cg-019-young-isanari-confession align 0 with fade
 Please go out with me!
 A young blonde boy, in his teens, bows as he confesses to the girl he had a crush on. The short-haired girl responds.
 Um, who are you again?
 The boy blushes as he shoots up in embarrassment.
+# show image bg bg01-hallway align 0 with fade
+# sprite left isanari_young flustered
 isanari: I'm Uesugi Isanari! The boy who sits next to you in class!
 # sprite right aoi curious
 Ah, I see. I think I remember someone like that...My name's Yutori Aoi, nice to meet you!
@@ -108,9 +110,11 @@ isanari: Eh..EEEHHH!?
 …
 aoi: His name will be...Fuutarou!
 isanari: Look at that scowl...I can tell he's not gonna be great at parties.
-# sprite hide left
+# sprite hide all
+# show image bg ch07-cg-020-aoi-isanari-life-montage align 0 with fade
 ...
 …
+# show image bg bg01-hallway align 0 with fade
 isanari: The bakery's not doing so hot, even though Aoi has only gotten better and better. I knew I should have taken a Business major.
 …
 …
@@ -187,7 +191,8 @@ isanari: How're you doing today, Aoi?
 …
 isanari: Alright, Aoi! I'll come to see you again tomorrow!
 Aoi grabs Isanari's arm.
-# sprite right aoi tearful
+# sprite hide all
+# show image bg ch07-cg-021-aoi-hospital-farewell align 0 with fade
 aoi: Isanari...I don't think I can go on for much longer...
 isanari: What? No, that's not right...I'm sure you're just-
 aoi: Isanari…
@@ -208,8 +213,9 @@ isanari_whispers: Go...go to your room...:
 fuutarou: Huh? What was that?
 Isanari bites his lips.
 isanari: I said, GO TO YOUR ROOM!
+# sprite hide all
+# show image bg ch07-cg-022-isanari-home-breakdown align 0 with fade
 Startled and scared, Fuutarou takes Raiha with him to their room. As he closes the door, Isanari starts drinking...for the very first time. He breaks down, crying Aoi's name. That night, in the Uesugi household, only the pained screams of Isanari could be heard.
-# sprite hide center
 …
 …
 …
@@ -224,9 +230,12 @@ maruo: ...Are you…?
 isanari: It's just an idea, nothing more! Did you know that Raiha wants to become a doctor? Not only that...Fuutarou's been taking a Business major. It's funny, it's like both of them are following in our footsteps...No, they're going beyond us, they're such great children…
 Isanari's voice begins to stutter.
 isanari: Even though she's not here...I know that she would be so proud of her children...Just as proud as I am…
+# sprite hide all
+# show image bg ch07-cg-023-isanari-maruo-grief align 0 with fade
 Isanari covers his eyes as he begins to tear up.
 isanari: I loved her...I loved her so much…
 As Isanari calms down, he looks towards Maruo. For that second, Isanari could have sworn that Maruo had been smiling, but it left as soon as it came. Before Isanari could talk, Maruo replaced the can of beer in his hand with a card.
+# show image bg ch02-onsen-reception-staircase align 0 with fade
 isanari: Huh? What is this?
 maruo: It's my business card. If your daughter wishes to receive some help, I would be willing to lend a hand.
 Maruo begrudgingly whispers."This also applies to your son…"

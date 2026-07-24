@@ -107,6 +107,11 @@ const manifest: AssetsManifest = {
             assets: [
                 { alias: "ch02-onsen-upper-ryokan-motorcycle-forecourt", src: "/images/backgrounds/chapter_02/onsen_upper_ryokan_motorcycle_forecourt_bg_010.webp" },
                 { alias: "bg01-hallway", src: "https://raw.githubusercontent.com/DRincs-Productions/pixi-vn-bucket/refs/heads/main/breakdown/bg01-hallway.webp" },
+                { alias: "ch07-cg-019-young-isanari-confession", src: "/images/cg/chapter_07/cg_019_young_isanari_confession.webp" },
+                { alias: "ch07-cg-020-aoi-isanari-life-montage", src: "/images/cg/chapter_07/cg_020_aoi_isanari_life_montage.webp" },
+                { alias: "ch07-cg-021-aoi-hospital-farewell", src: "/images/cg/chapter_07/cg_021_aoi_hospital_farewell.webp" },
+                { alias: "ch07-cg-022-isanari-home-breakdown", src: "/images/cg/chapter_07/cg_022_isanari_home_breakdown.webp" },
+                { alias: "ch07-cg-023-isanari-maruo-grief", src: "/images/cg/chapter_07/cg_023_isanari_maruo_grief.webp" },
             ],
         },
         {

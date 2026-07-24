@@ -2,6 +2,7 @@
 # sprite hide all
 # show image bg bg01-hallway align 0 with fade
 narrator: Chapter 7: Aoi and Isanari, a quintessential quintuplets fanfic
+# sprite left isanari_young flustered
 Please go out with me!
 A young blonde boy, in his teens, bows as he confesses to the girl he had a crush on. The short-haired girl responds.
 Um, who are you again?
@@ -11,6 +12,7 @@ isanari: I'm Uesugi Isanari! The boy who sits next to you in class!
 Ah, I see. I think I remember someone like that...My name's Yutori Aoi, nice to meet you!
 isanari: I...I know that.
 aoi: Oh! Then...why did you call me here?
+# sprite left isanari_young determined
 isanari: To confess!
 aoi: Confess? Did you do something bad?
 isanari: No, I...I love you!
@@ -19,9 +21,11 @@ isanari: I want to go out with you!
 Aoi starts thinking, although there's not much going on in that head of hers, even she could tell what Isanari wanted, to be her friend!
 # sprite right aoi cheerful_peace
 aoi: Alright! I'll go out with you!
+# sprite left isanari_young warm_smile
 isanari: Really? Alright!
 …
 …
+# sprite left isanari_young neutral
 # sprite right aoi bashful
 aoi: I failed another test, teehee!
 isanari: Aoi, if you keep failing like that, you won't be able to fulfill your dream...What is your dream anyway?
@@ -31,6 +35,7 @@ isanari: I see, so what can you bake?
 aoi: Well…
 …
 …
+# sprite left isanari_young shocked
 isanari: Huh!? Where am I?
 maruo: In the nurse's office, one of the teachers found you foaming out the mouth in the hallway.
 isanari: Oh..Well, I wonder what happened.
@@ -41,6 +46,7 @@ shimoda: That damned bread is why you're here, dumbass!
 isanari: Huh!?
 …
 …
+# sprite left isanari_young determined
 isanari: Hey, Maruo...I think I'm gonna stop being a delinquent.
 maruo: Good for you, Uesugi-kun. Now you can get that hair back to normal.
 isanari: Hell no, the hair is staying. It's just...Argh, that girl, she won't be able to see her dream through...Not without me.
@@ -52,6 +58,7 @@ maruo: Hmph. I cannot see what you're getting at.
 …
 …
 # sprite right aoi determined
+# sprite left isanari_young warm_smile
 aoi: Isanari! I did it, I passed!
 isanari: That's great, our efforts paid off!
 Aoi hugs Isanari, shocking him. But, knowing this is a great chance, he hugs her back.
@@ -60,6 +67,7 @@ Aoi hugs Isanari, shocking him. But, knowing this is a great chance, he hugs her
 Congratulations on Graduating!
 …
 …
+# sprite left isanari_young neutral
 isanari: Are you sure about this store? This place is pretty expensive to keep clean.
 # sprite right aoi determined
 aoi: Yep, I've been getting better and better at baking!
@@ -75,11 +83,13 @@ aoi: Eh!? That's even worse!
 isanari: Even worse? So, you admit the name is bad!
 …
 …
+# sprite left isanari_young flustered
 isanari: Will you marry me!?
 No response. As Isanari looks up, he notices Aoi in tears.
 isanari: Aoi, what's wrong?
 # sprite right aoi maternal
 aoi: I don't know, I don't know. I'm just, I just...I can't stop crying...Even though I've never been happier!
+# sprite left isanari_young warm_smile
 isanari: Ah, haha...Hahaha!
 …
 …
@@ -87,6 +97,7 @@ isanari: Ah, haha...Hahaha!
 aoi: Hmm, we haven't had many customers this month. Oh, well! I just need to keep trying harder!
 …
 ...
+# sprite left isanari_young shocked
 isanari: Aoi! Why are you putting salt in the flour!?
 Aoi doesn't respond. Before long, she jumps in Isanari's arms.
 isanari: What's wrong, are you feeling okay?
@@ -97,16 +108,19 @@ isanari: Eh..EEEHHH!?
 …
 aoi: His name will be...Fuutarou!
 isanari: Look at that scowl...I can tell he's not gonna be great at parties.
+# sprite hide left
 ...
 …
 isanari: The bakery's not doing so hot, even though Aoi has only gotten better and better. I knew I should have taken a Business major.
 …
 …
+# sprite center fuutarou_child cheerful
 fuutarou_child: Your hair is so cool, dad! I want it like that!
 isanari: Uh, no, you don't.
 # sprite right aoi cheerful_peace
 aoi: What's the harm? I think it looks cool! Maybe I should dye my hair too.
 isanari: You will do no such thing!
+# sprite hide center
 …
 …
 aoi: Um, Isanari?
@@ -186,6 +200,7 @@ isanari: Aoi...Aoi! Everything will be alright...I swear everything will be-
 …
 …
 Isanari returns home one night, with cans of beer and bottles of wine. Fuutarou and Raiha are there to meet him.
+# sprite center fuutarou_child worried
 fuutarou_child: Dad! How's mom? Is she doing fine?
 Isanari stays silent.
 fuutarou: Dad?
@@ -194,6 +209,7 @@ fuutarou: Huh? What was that?
 Isanari bites his lips.
 isanari: I said, GO TO YOUR ROOM!
 Startled and scared, Fuutarou takes Raiha with him to their room. As he closes the door, Isanari starts drinking...for the very first time. He breaks down, crying Aoi's name. That night, in the Uesugi household, only the pained screams of Isanari could be heard.
+# sprite hide center
 …
 …
 …

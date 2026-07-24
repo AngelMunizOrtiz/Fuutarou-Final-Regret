@@ -44,21 +44,21 @@ export default function ThemeSettings() {
                     }
                 }}
             >
-                <Tooltip title='Light Mode'>
+                <Tooltip title={t("light_mode")}>
                     <span>
                         <IconButton value='light'>
                             <LightModeIcon />
                         </IconButton>
                     </span>
                 </Tooltip>
-                <Tooltip title='System Mode'>
+                <Tooltip title={t("system_mode")}>
                     <span>
                         <IconButton value='system'>
                             <AutoModeIcon />
                         </IconButton>
                     </span>
                 </Tooltip>
-                <Tooltip title='Dark Mode'>
+                <Tooltip title={t("dark_mode")}>
                     <span>
                         <IconButton value='dark'>
                             <DarkModeIcon />
@@ -89,14 +89,14 @@ export default function ThemeSettings() {
                     if (newValue) setSolidColor(newValue);
                 }}
             >
-                <Tooltip title='White'>
+                <Tooltip title={t("white")}>
                     <span>
                         <IconButton value='white'>
                             <WbIncandescentIcon />
                         </IconButton>
                     </span>
                 </Tooltip>
-                <Tooltip title='Black'>
+                <Tooltip title={t("black")}>
                     <span>
                         <IconButton value='black'>
                             <ModeNightIcon />

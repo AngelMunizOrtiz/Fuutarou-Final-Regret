@@ -1,6 +1,6 @@
 import { ComponentType, lazy, Suspense, useCallback, useEffect, useState } from "react";
 import { ErrorBoundary, FallbackProps } from "react-error-boundary";
-import { initializeI18n } from "./i18n";
+import { getInitialGameLanguage, initializeI18n } from "./i18n";
 import LoadingScreen from "./screens/LoadingScreen";
 import { defineAssets } from "./utils/assets-utility";
 import { initializeIndexedDB } from "./utils/indexedDB-utility";
@@ -10,7 +10,8 @@ import { preloadImages } from "./utils/preload-utility";
 const SPLASH_IMAGE_ASSETS = [
     "/images/bg_title.webp",
     "/images/logo_game.webp",
-    "/images/pressanybutton.webp",
+    "/images/ui/press-any-button-en.svg",
+    "/images/ui/press-any-button-es.svg",
 ] as const;
 
 const INITIAL_LOADER_MINIMUM_MS = 1400;
@@ -34,6 +35,8 @@ const Home = lazy(async () => {
 });
 
 const ErrorFallback: ComponentType<FallbackProps> = ({ error, resetErrorBoundary }) => {
+    const language = getInitialGameLanguage();
+
     return (
         <div
             role='alert'
@@ -53,7 +56,7 @@ const ErrorFallback: ComponentType<FallbackProps> = ({ error, resetErrorBoundary
                     marginTop: "1rem",
                 }}
             >
-                Something went wrong
+                {language === "es" ? "Algo salió mal" : "Something went wrong"}
             </h2>
             <p
                 style={{
@@ -81,7 +84,7 @@ const ErrorFallback: ComponentType<FallbackProps> = ({ error, resetErrorBoundary
                     }}
                     onClick={resetErrorBoundary}
                 >
-                    Try again
+                    {language === "es" ? "Intentar de nuevo" : "Try again"}
                 </button>
             </div>
         </div>

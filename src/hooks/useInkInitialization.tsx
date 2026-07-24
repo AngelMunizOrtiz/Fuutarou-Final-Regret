@@ -6,7 +6,7 @@ export default function useInkInitialization() {
     const { t } = useTranslation(["narration"]);
     useEffect(() => {
         initializeInk({ t });
-    }, []);
+    }, [t]);
 
     return null;
 }

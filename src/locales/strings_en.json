@@ -3,6 +3,7 @@
 	"ui": {
 		"allert_error_occurred": "An error occurred, please report it to the developer",
 		"attention": "Attention",
+		"audio": "Audio",
 		"auto_forward_time": "Auto Forward Time",
 		"auto_forward_time_description": "Choose the time in seconds before the dialogue auto-forwards. If \"{{textSpeedName}}\" is enabled, the auto-forward will be executed after the typewriter effect is completed. (You can edit this value if \"{{autoName}}\" is enabled)",
 		"auto_forward_time_restricted": "Auto",
@@ -23,8 +24,17 @@
 		"fullscreen": "Fullscreen",
 		"fullscreen_description": "Toggle fullscreen mode.",
 		"gallery": "Gallery",
+		"collection": "Collection",
+		"image": "Image",
+		"video": "Animation",
+		"sequence": "Sequence",
+		"page_number": "Page {{page}}",
 		"hide_ui": "Hide UI",
+		"show_ui": "Show UI",
 		"history": "History",
+		"language": "Language",
+		"language_change_hint": "Changes instantly and is saved on this device.",
+		"story_translation_status": "The complete story is available in English and Spanish.",
 		"load": "Load",
 		"load_from_file": "Load from File",
 		"load_last_save": "Load Last Save",
@@ -36,6 +46,9 @@
 		"medium": "Medium",
 		"fast": "Fast",
 		"next": "Next",
+		"master_volume": "Master Volume",
+		"mute": "Mute",
+		"unmute": "Unmute",
 		"off": "Off",
 		"primary_color": "Primary Color",
 		"primary_color_description": "Choose the primary color for the theme.",
@@ -54,6 +67,18 @@
 		"solid_color_description": "Choose the solid color for the theme. It can be black or white and will be contrasting with the primary color. So if the primary color is dark, the solid color will be white, and a the other way around.",
 		"start": "Start",
 		"quit": "Quit",
+		"press_any_button": "PRESS ANY BUTTON",
+		"go_to_main_menu": "Go to the main menu",
+		"game_select_mode": "GAME SELECT MODE",
+		"recovering_save": "Recovering save…",
+		"loading_prologue": "Preparing the prologue…",
+		"load_error": "The save could not be loaded",
+		"prologue_assets_error": "The prologue assets could not be prepared",
+		"loading_memories": "Loading memories…",
+		"please_wait": "Please wait.",
+		"scene_not_found": "Scene not found: {{sceneId}}",
+		"something_went_wrong": "Something went wrong",
+		"try_again": "Try again",
 		"success_delete": "Delete successful",
 		"success_load": "Load successful",
 		"success_save": "Save successful",
@@ -64,9 +89,94 @@
 		"text_speed_description": "Choose the speed of the typewriter effect. If is set to 0 ( off ) the text will appear instantly.",
 		"theme_mode": "Theme Mode",
 		"theme_mode_description": "Choose between light, dark, or system theme mode.",
+		"light_mode": "Light Mode",
+		"system_mode": "System Mode",
+		"dark_mode": "Dark Mode",
+		"white": "White",
+		"black": "Black",
 		"you_sure_to_delete_save": "Are you sure you want to delete this save file?",
 		"you_sure_to_load_save": "Are you sure you want to load this save file?",
 		"you_sure_to_return_main_menu": "Are you sure you want to return to the main menu? All unsaved progress will be lost.",
 		"download_locale": "Download File to Translate"
+	},
+	"cinematic": {
+		"product_intro": {
+			"title": "Project Introduction",
+			"frames": {
+				"1": {
+					"title": "Fuutarou's Final Regret",
+					"subtitle": "Fan-made visual novel adaptation",
+					"details": {
+						"0": "Original story by XenoTime39.",
+						"1": "An entertainment-only experience inspired by an alternate route after chapter 120.",
+						"2": "One year has passed since graduation. Fuutarou returns to the hot springs, but something about his feelings begins to seem out of place."
+					}
+				},
+				"2": {
+					"title": "Context",
+					"subtitle": "Romance, doubts, and a choice left unresolved",
+					"details": {
+						"0": "This version explores what happens when Fuutarou begins to question whether his feelings for Yotsuba are truly genuine.",
+						"1": "From here, the story enters his memories and regrets."
+					}
+				}
+			}
+		},
+		"opening_dream": {
+			"title": "Opening Dream",
+			"frames": {
+				"5": { "text": "\"Uesugi-san!\"", "speaker": "?" },
+				"6": { "text": "\"There's still a lot I'm holding back.\"", "speaker": "?" },
+				"7": { "text": "[Why?]" },
+				"8": { "text": "\"Next... It's your turn.\"", "speaker": "?" },
+				"9": { "text": "\"Please... Don't say you won't pick anyone.\"", "speaker": "?" },
+				"10": { "text": "\"Let's work hard together!\"", "speaker": "?" },
+				"11": { "text": "[I only... wanted to be needed.]" },
+				"12": { "text": "\"Fuutarou\"", "speaker": "?" },
+				"16": { "text": "\"...!\"", "speaker": "Fuutarou" }
+			}
+		},
+		"chapter_1_context": {
+			"title": "Chapter 1 Context",
+			"frames": {
+				"1": {
+					"title": "1 Year After Graduation",
+					"subtitle": "Afternoon",
+					"details": {
+						"0": "Tokyo University",
+						"1": "Fuutarou returns from afternoon classes while reviewing his notes."
+					}
+				}
+			}
+		},
+		"chapter_1_notes": {
+			"title": "Fuutarou's Notes",
+			"frames": {
+				"1": {
+					"title": "Problem 7",
+					"subtitle": "If every choice was correct, why does regret still remain?",
+					"details": {
+						"0": "Fuutarou checks his notes while walking back from afternoon classes."
+					}
+				}
+			}
+		}
+	},
+	"gallery": {
+		"dream-sequence": { "title": "Dream Sequence", "subtitle": "Animated Memories" },
+		"menu-loop": { "title": "Main Menu", "subtitle": "Background Animation" },
+		"regret-1": { "title": "Final Regret", "subtitle": "Illustration 1" },
+		"regret-2": { "title": "Final Regret", "subtitle": "Illustration 2" },
+		"regret-3": { "title": "Final Regret", "subtitle": "Illustration 3" },
+		"regret-4": { "title": "Final Regret", "subtitle": "Illustration 4" },
+		"regret-5": { "title": "Final Regret", "subtitle": "Illustration 5" },
+		"regret-6": { "title": "Final Regret", "subtitle": "Illustration 6" },
+		"dream-frame-1": { "title": "Broken Dreams", "subtitle": "Frame 1" },
+		"dream-frame-2": { "title": "Broken Dreams", "subtitle": "Frame 2" },
+		"dream-frame-3": { "title": "Broken Dreams", "subtitle": "Frame 3" },
+		"dream-frame-4": { "title": "Broken Dreams", "subtitle": "Frame 4" },
+		"dream-frame-5": { "title": "Broken Dreams", "subtitle": "Frame 5" },
+		"dream-frame-6": { "title": "Broken Dreams", "subtitle": "Frame 6" },
+		"dream-frame-7": { "title": "Awakening", "subtitle": "Final Frame" }
 	}
 }

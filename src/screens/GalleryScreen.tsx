@@ -7,16 +7,13 @@ import MovieIcon from "@mui/icons-material/Movie";
 import { Box, Button, Chip, IconButton, Typography } from "@mui/joy";
 import { AnimatePresence, motion } from "motion/react";
 import { useCallback, useEffect, useMemo, useRef, useState, type WheelEvent } from "react";
+import { useTranslation } from "react-i18next";
 import { MAIN_MENU_ROUTE } from "../constans";
-import { galleryItems, getGalleryThumbnail } from "../data/galleryItems";
+import { getGalleryThumbnail, getLocalizedGalleryItems } from "../data/galleryItems";
 import useMyNavigate from "../hooks/useMyNavigate";
 import { runViewTransition } from "../utils/view-transition";
 
-function getKindLabel(kind: string) {
-    if (kind === "video") return "Animacion";
-    if (kind === "sequence") return "Secuencia";
-    return "Imagen";
-}
+const ITEMS_PER_PAGE = 6;
 
 function getKindIcon(kind: string) {
     if (kind === "video") return <MovieIcon />;
@@ -25,19 +22,26 @@ function getKindIcon(kind: string) {
 }
 
 export default function GalleryScreen() {
+    const { t } = useTranslation(["ui"]);
+    const { t: translateGallery } = useTranslation(["gallery"]);
     const navigate = useMyNavigate();
+    const galleryItems = useMemo(() => getLocalizedGalleryItems(translateGallery), [translateGallery]);
+    const getKindLabel = (kind: string) => {
+        if (kind === "video") return t("video");
+        if (kind === "sequence") return t("sequence");
+        return t("image");
+    };
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [sequenceFrame, setSequenceFrame] = useState(0);
     const [isLeaving, setIsLeaving] = useState(false);
     const [collectionPage, setCollectionPage] = useState(0);
     const galleryRootRef = useRef<HTMLDivElement | null>(null);
     const selectedItem = galleryItems[selectedIndex];
-    const itemsPerPage = 6;
     const collectionAutoAdvanceMs = 9000;
-    const collectionPageCount = Math.ceil(galleryItems.length / itemsPerPage);
+    const collectionPageCount = Math.ceil(galleryItems.length / ITEMS_PER_PAGE);
     const visibleGalleryItems = galleryItems.slice(
-        collectionPage * itemsPerPage,
-        collectionPage * itemsPerPage + itemsPerPage
+        collectionPage * ITEMS_PER_PAGE,
+        collectionPage * ITEMS_PER_PAGE + ITEMS_PER_PAGE
     );
 
     const selectedVisual = useMemo(() => {
@@ -47,12 +51,12 @@ export default function GalleryScreen() {
         return getGalleryThumbnail(selectedItem);
     }, [selectedItem, sequenceFrame]);
 
-    const goToItem = (index: number) => {
+    const goToItem = useCallback((index: number) => {
         const nextIndex = (index + galleryItems.length) % galleryItems.length;
         setSelectedIndex(nextIndex);
-        setCollectionPage(Math.floor(nextIndex / itemsPerPage));
+        setCollectionPage(Math.floor(nextIndex / ITEMS_PER_PAGE));
         setSequenceFrame(0);
-    };
+    }, [galleryItems.length]);
 
     const goToCollectionPage = (page: number) => {
         setCollectionPage((page + collectionPageCount) % collectionPageCount);
@@ -102,7 +106,7 @@ export default function GalleryScreen() {
 
         window.addEventListener("keydown", handleKeyDown);
         return () => window.removeEventListener("keydown", handleKeyDown);
-    }, [exitGallery, selectedIndex]);
+    }, [exitGallery, goToItem, selectedIndex]);
 
     const heroTitleSx = {
         color: "#ffffff",
@@ -232,7 +236,7 @@ export default function GalleryScreen() {
                                 },
                             }}
                         >
-                            Salir
+                            {t("exit")}
                         </Button>
 
                         <Typography
@@ -246,7 +250,7 @@ export default function GalleryScreen() {
                                 ...heroTitleSx,
                             }}
                         >
-                            Galeria
+                            {t("gallery")}
                         </Typography>
                     </Box>
 
@@ -412,7 +416,7 @@ export default function GalleryScreen() {
                                 ...heroTitleSx,
                             }}
                         >
-                            Coleccion
+                            {t("collection")}
                         </Typography>
 
                         <Box
@@ -461,7 +465,7 @@ export default function GalleryScreen() {
                                         }}
                                     >
                                         {visibleGalleryItems.map((item, pageIndex) => {
-                                            const itemIndex = collectionPage * itemsPerPage + pageIndex;
+                                            const itemIndex = collectionPage * ITEMS_PER_PAGE + pageIndex;
                                             const isSelected = itemIndex === selectedIndex;
                                             return (
                                                 <Box
@@ -570,7 +574,7 @@ export default function GalleryScreen() {
                                     key={page}
                                     component='button'
                                     onClick={() => goToCollectionPage(page)}
-                                    aria-label={`Pagina ${page + 1}`}
+                                    aria-label={t("page_number", { page: page + 1 })}
                                     sx={{
                                         width: page === collectionPage ? 24 : 9,
                                         height: 9,

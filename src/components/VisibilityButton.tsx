@@ -1,11 +1,13 @@
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { IconButton, Tooltip } from "@mui/joy";
 import { useEffect, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { useShallow } from "zustand/react/shallow";
 import useEventListener from "../hooks/useKeyDetector";
 import useInterfaceStore from "../stores/useInterfaceStore";
 
 export default function VisibilityButton() {
+    const { t } = useTranslation(["ui"]);
     const hidden = useInterfaceStore(useShallow((state) => state.hidden));
     const editHideInterface = useInterfaceStore((state) => state.editHidden);
     const showInterface = useInterfaceStore((state) => state.show);
@@ -27,9 +29,9 @@ export default function VisibilityButton() {
     });
 
     return (
-        <Tooltip title="Show UI" placement="left">
+        <Tooltip title={t("show_ui")} placement="left">
             <IconButton
-                aria-label="Show UI"
+                aria-label={t("show_ui")}
                 onClick={editHideInterface}
                 sx={{
                     position: "absolute",

@@ -1,3 +1,5 @@
+import type { TFunction } from "i18next";
+
 export type GalleryItem =
     | {
           id: string;
@@ -144,4 +146,12 @@ export function getGalleryThumbnail(item: GalleryItem) {
     if (item.kind === "image") return item.src;
     if (item.kind === "video") return item.poster;
     return item.frames[0];
+}
+
+export function getLocalizedGalleryItems(t: TFunction<"gallery">) {
+    return galleryItems.map((item) => ({
+        ...item,
+        title: t(`${item.id}.title`, { defaultValue: item.title }),
+        subtitle: t(`${item.id}.subtitle`, { defaultValue: item.subtitle }),
+    })) as GalleryItem[];
 }

@@ -15,12 +15,14 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useSnackbar } from "notistack";
 import { type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { LanguageFlagPair, LanguagePicker } from "../components/LanguageControl";
 import { MasterVolumeIcon, MasterVolumeSlider } from "../components/VolumeControl";
 import useNarrationFunctions from "../hooks/useNarrationFunctions";
 import { useQueryCanGoBack } from "../hooks/useQueryInterface";
 import useQueryLastSave, { LAST_SAVE_USE_QUEY_KEY } from "../hooks/useQueryLastSave";
 import { SAVES_USE_QUEY_KEY } from "../hooks/useQuerySaves";
 import { useWheelActions } from "../hooks/useWheelActions";
+import { getInitialGameLanguage, isGameLanguage } from "../i18n";
 import useAutoInfoStore from "../stores/useAutoInfoStore";
 import useAudioSettingsStore from "../stores/useAudioSettingsStore";
 import useGameSaveScreenStore from "../stores/useGameSaveScreenStore";
@@ -33,7 +35,7 @@ import useTypewriterStore from "../stores/useTypewriterStore";
 import { saveGameToIndexDB } from "../utils/save-utility";
 import { captureGameScreenshot } from "../utils/screenshot-utility";
 
-type OpenPanel = "menu" | "timing" | "volume" | null;
+type OpenPanel = "language" | "menu" | "timing" | "volume" | null;
 type TimingPresetId = "slow" | "medium" | "fast";
 
 type TimingPreset = {
@@ -118,7 +120,8 @@ export default function QuickTools() {
     const { data: lastSave = null } = useQueryLastSave();
     const { data: canGoBack = null } = useQueryCanGoBack();
     const { goBack } = useNarrationFunctions();
-    const { t } = useTranslation(["ui"]);
+    const { t, i18n } = useTranslation(["ui"]);
+    const activeLanguage = isGameLanguage(i18n.resolvedLanguage) ? i18n.resolvedLanguage : getInitialGameLanguage();
     const { enqueueSnackbar } = useSnackbar();
     const queryClient = useQueryClient();
     const hudRef = useRef<HTMLDivElement>(null);
@@ -207,9 +210,19 @@ export default function QuickTools() {
             }}
         >
             <Stack direction="row" spacing={0.75} justifyContent="flex-end">
-                <Tooltip title="Volumen general" placement="bottom">
+                <Tooltip title={t("language")} placement="bottom">
                     <IconButton
-                        aria-label="Volumen general"
+                        aria-label={t("language")}
+                        aria-expanded={openPanel === "language"}
+                        onClick={() => setOpenPanel((current) => (current === "language" ? null : "language"))}
+                        sx={hudButtonSx}
+                    >
+                        <LanguageFlagPair activeLanguage={activeLanguage} />
+                    </IconButton>
+                </Tooltip>
+                <Tooltip title={t("master_volume")} placement="bottom">
+                    <IconButton
+                        aria-label={t("master_volume")}
                         aria-expanded={openPanel === "volume"}
                         onClick={() => setOpenPanel((current) => (current === "volume" ? null : "volume"))}
                         sx={hudButtonSx}
@@ -277,8 +290,14 @@ export default function QuickTools() {
             )}
 
             {openPanel === "volume" && (
-                <Sheet component="section" aria-label="Volumen general" sx={panelSx}>
+                <Sheet component="section" aria-label={t("master_volume")} sx={panelSx}>
                     <MasterVolumeSlider compact />
+                </Sheet>
+            )}
+
+            {openPanel === "language" && (
+                <Sheet component="section" aria-label={t("language")} sx={panelSx}>
+                    <LanguagePicker compact onSelected={() => setOpenPanel(null)} />
                 </Sheet>
             )}
 

@@ -1,3 +1,4 @@
+import type { TFunction } from "i18next";
 import { DreamFragment, fuutarouDream } from "./dreamSequence";
 
 export type CinematicReturnMode = "call" | "jump";
@@ -111,4 +112,27 @@ export const cinematicScenes: Record<string, CinematicSceneDefinition> = {
 
 export function getCinematicScene(sceneId: string) {
     return cinematicScenes[sceneId];
+}
+
+export function getLocalizedCinematicScene(sceneId: string, t: TFunction<"cinematic">) {
+    const scene = getCinematicScene(sceneId);
+    if (!scene) return undefined;
+
+    return {
+        ...scene,
+        title: t(`${scene.id}.title`, { defaultValue: scene.title }),
+        frames: scene.frames.map((frame) => {
+            const frameKey = `${scene.id}.frames.${frame.id}`;
+            return {
+                ...frame,
+                title: frame.title ? t(`${frameKey}.title`, { defaultValue: frame.title }) : undefined,
+                subtitle: frame.subtitle ? t(`${frameKey}.subtitle`, { defaultValue: frame.subtitle }) : undefined,
+                text: frame.text ? t(`${frameKey}.text`, { defaultValue: frame.text }) : frame.text,
+                speaker: frame.speaker ? t(`${frameKey}.speaker`, { defaultValue: frame.speaker }) : undefined,
+                details: frame.details?.map((detail, index) =>
+                    t(`${frameKey}.details.${index}`, { defaultValue: detail }),
+                ),
+            };
+        }),
+    };
 }

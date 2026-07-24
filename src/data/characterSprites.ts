@@ -45,6 +45,20 @@ export const characterSprites = {
             scale: 1.04,
         },
     },
+    fuutarou_child: {
+        neutral: {
+            src: "/images/characters/fuutarou_child/fuutarou_child_neutral.webp",
+            scale: 0.74,
+        },
+        cheerful: {
+            src: "/images/characters/fuutarou_child/fuutarou_child_cheerful.webp",
+            scale: 0.74,
+        },
+        worried: {
+            src: "/images/characters/fuutarou_child/fuutarou_child_worried.webp",
+            scale: 0.74,
+        },
+    },
     takeda: {
         smile: {
             src: "/images/characters/takeda/takeda_smile.webp",
@@ -145,6 +159,28 @@ export const characterSprites = {
         protective_alarm: {
             src: "/images/characters/isanari/isanari_protective_alarm.webp",
             scale: 1,
+        },
+    },
+    isanari_young: {
+        neutral: {
+            src: "/images/characters/isanari_young/isanari_young_neutral.webp",
+            scale: 0.96,
+        },
+        flustered: {
+            src: "/images/characters/isanari_young/isanari_young_flustered.webp",
+            scale: 0.96,
+        },
+        shocked: {
+            src: "/images/characters/isanari_young/isanari_young_shocked.webp",
+            scale: 0.96,
+        },
+        determined: {
+            src: "/images/characters/isanari_young/isanari_young_determined.webp",
+            scale: 0.96,
+        },
+        warm_smile: {
+            src: "/images/characters/isanari_young/isanari_young_warm_smile.webp",
+            scale: 0.96,
         },
     },
     maruo: {

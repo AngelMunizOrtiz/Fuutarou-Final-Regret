@@ -11,9 +11,57 @@ type LocaleResource = Record<string, unknown> & {
     narration?: Record<string, unknown>;
 };
 
-function getUserLang(): string {
-    const userLang: string = navigator.language || "en";
-    return userLang?.toLocaleLowerCase()?.split("-")[0];
+const spanishNarrationModules = import.meta.glob<Record<string, string>>("./locales/narration_es/*.json", {
+    eager: true,
+    import: "default",
+});
+
+function getSpanishNarrationResource() {
+    return Object.fromEntries(
+        Object.entries(spanishNarrationModules)
+            .sort(([pathA], [pathB]) => pathA.localeCompare(pathB, "en"))
+            .flatMap(([, resource]) => Object.entries(resource)),
+    );
+}
+
+export const GAME_LANGUAGE_STORAGE_KEY = "ffr_game_language";
+
+export const SUPPORTED_GAME_LANGUAGES = [
+    { code: "es", label: "Español" },
+    { code: "en", label: "English" },
+] as const;
+
+export type GameLanguage = (typeof SUPPORTED_GAME_LANGUAGES)[number]["code"];
+
+export function isGameLanguage(value: string | null | undefined): value is GameLanguage {
+    return SUPPORTED_GAME_LANGUAGES.some((language) => language.code === value);
+}
+
+export function getInitialGameLanguage(): GameLanguage {
+    try {
+        const storedLanguage = window.localStorage.getItem(GAME_LANGUAGE_STORAGE_KEY);
+        if (isGameLanguage(storedLanguage)) return storedLanguage;
+    } catch {
+        // Storage can be unavailable in privacy-restricted browsers.
+    }
+
+    const browserLanguage = navigator.language?.toLocaleLowerCase().split("-")[0];
+    return isGameLanguage(browserLanguage) ? browserLanguage : "en";
+}
+
+function applyDocumentLanguage(language: GameLanguage) {
+    document.documentElement.lang = language;
+}
+
+export async function changeGameLanguage(language: GameLanguage) {
+    try {
+        window.localStorage.setItem(GAME_LANGUAGE_STORAGE_KEY, language);
+    } catch {
+        // The active session can still change language without persistence.
+    }
+
+    applyDocumentLanguage(language);
+    await i18n.changeLanguage(language);
 }
 
 function getLocalesResource(lng: string): Promise<LocaleResource> {
@@ -22,9 +70,7 @@ function getLocalesResource(lng: string): Promise<LocaleResource> {
 
 async function generateResourceToTranslate(lng: string): Promise<LocaleResource> {
     const res: LocaleResource = { ...(await getLocalesResource(lng)) };
-    if (!res.narration) {
-        res.narration = {};
-    }
+    res.narration = lng === "es" ? getSpanishNarrationResource() : (res.narration ?? {});
     if (res.default) {
         delete res.default;
     }
@@ -37,9 +83,9 @@ async function generateResourceToTranslate(lng: string): Promise<LocaleResource>
 }
 
 export async function downloadResourceToTranslate() {
-    const lng = i18n.options.fallbackLng?.toString() || "en";
+    const lng = isGameLanguage(i18n.resolvedLanguage) ? i18n.resolvedLanguage : getInitialGameLanguage();
     const data = await generateResourceToTranslate(lng);
-    const jsonString = JSON.stringify(data);
+    const jsonString = JSON.stringify(data, null, "\t");
     // download the save data as a JSON file
     const blob = new Blob([jsonString], { type: "application/json" });
     // download the file
@@ -52,20 +98,25 @@ export async function downloadResourceToTranslate() {
 
 export async function initializeI18n() {
     if (!i18n.isInitialized) {
+        const language = getInitialGameLanguage();
         await i18n
             .use(Backend)
             .use(initReactI18next)
             .init({
                 debug: false,
                 fallbackLng: "en",
-                lng: getUserLang(),
+                lng: language,
+                supportedLngs: SUPPORTED_GAME_LANGUAGES.map(({ code }) => code),
                 interpolation: {
                     escapeValue: false,
                 },
-                load: "currentOnly",
+                load: "languageOnly",
                 backend: {
                     backends: [
                         resourcesToBackend(async (lng: string, ns: string) => {
+                            if (lng === "es" && ns === "narration") {
+                                return getSpanishNarrationResource();
+                            }
                             const object = await getLocalesResource(lng);
                             return object[ns];
                         }),
@@ -80,5 +131,6 @@ export async function initializeI18n() {
                     return `[${key}]`;
                 },
             });
+        applyDocumentLanguage(language);
     }
 }

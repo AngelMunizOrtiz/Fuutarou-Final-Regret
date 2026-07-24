@@ -285,20 +285,20 @@ export default function MainMenu() {
                         }}
                     >
                         <Box
-                            component='img'
-                            src='/images/ui/game_select_mode_header.webp'
-                            alt='Game Select Mode'
+                            component='span'
                             sx={{
-                                width: "92%",
-                                maxHeight: "92%",
-                                objectFit: "contain",
-                                filter: `
-                                    drop-shadow(0 2px 0 rgba(255,255,255,0.9))
-                                    drop-shadow(0 6px 10px rgba(112, 58, 111, 0.18))
-                                    drop-shadow(0 0 12px rgba(255, 209, 119, 0.28))
-                                `,
+                                color: "#61436d",
+                                fontFamily: "'MPLUSRounded', sans-serif",
+                                fontSize: { xs: "0.76rem", sm: "0.9rem", md: "1.02rem" },
+                                fontWeight: 900,
+                                letterSpacing: "0.12em",
+                                textAlign: "center",
+                                textShadow:
+                                    "0 2px 0 rgba(255,255,255,0.9), 0 6px 10px rgba(112,58,111,0.18), 0 0 12px rgba(255,209,119,0.28)",
                             }}
-                        />
+                        >
+                            {t("game_select_mode")}
+                        </Box>
                     </Box>
 
                     <Box
@@ -342,10 +342,10 @@ export default function MainMenu() {
                             onClick={() => {
                                 playRandomSfx();
                                 if (!lastSave) return;
-                                setLoadingMessage("Recuperando partida…");
+                                setLoadingMessage(t("recovering_save"));
                                 loadSave(lastSave, navigate)
                                     .then(() => queryClient.invalidateQueries({ queryKey: [INTERFACE_DATA_USE_QUEY_KEY] }))
-                                    .catch(() => notify("Error al cargar", { variant: "error" }))
+                                    .catch(() => notify(t("load_error"), { variant: "error" }))
                                     .finally(() => setLoadingMessage(null));
                             }}
                             disabled={isLoading || !lastSave || Boolean(loadingMessage)}
@@ -358,7 +358,7 @@ export default function MainMenu() {
                             startDecorator={<PlayArrowRoundedIcon sx={menuIconStyle} />}
                             onClick={async () => {
                                 playRandomSfx();
-                                setLoadingMessage("Preparando el prólogo…");
+                                setLoadingMessage(t("loading_prologue"));
                                 try {
                                     await preloadImages(OPENING_SCENE_ASSETS);
                                     Game.clear();
@@ -366,7 +366,7 @@ export default function MainMenu() {
                                     navigate(`${INTRO_ROUTE}?returnLabel=start&mode=call&reset=1`);
                                 } catch (error) {
                                     console.error(error);
-                                    notify("No se pudieron preparar los recursos del prólogo", { variant: "error" });
+                                    notify(t("prologue_assets_error"), { variant: "error" });
                                     setLoadingMessage(null);
                                 }
                             }}

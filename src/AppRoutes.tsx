@@ -2,6 +2,7 @@ import { Game } from "@drincs/pixi-vn";
 import { useEffect, useState } from "react";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import CharacterStage from "./components/CharacterStage";
+import FloatingLanguageControl from "./components/LanguageControl";
 import NextButton from "./components/NextButton";
 import VisibilityButton from "./components/VisibilityButton";
 import FloatingVolumeControl from "./components/VolumeControl";
@@ -78,7 +79,12 @@ export default function AppRoutes() {
                 }
             />
             </Routes>
-            {location.pathname !== NARRATION_ROUTE && location.pathname !== LOADING_ROUTE && <FloatingVolumeControl />}
+            {location.pathname !== NARRATION_ROUTE && location.pathname !== LOADING_ROUTE && (
+                <>
+                    <FloatingLanguageControl />
+                    <FloatingVolumeControl />
+                </>
+            )}
         </>
     );
 }

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { MAIN_MENU_ROUTE } from "../constans";
 import useAudioSettingsStore from "../stores/useAudioSettingsStore";
@@ -8,11 +9,16 @@ interface SplashScreenProps {
 }
 
 export default function SplashScreen({ onFinish }: SplashScreenProps) {
+    const { i18n, t } = useTranslation(["ui"]);
     const navigate = useNavigate();
     const [isExiting, setIsExiting] = useState(false);
     const masterVolume = useAudioSettingsStore((state) => state.volume);
     const audioRef = useRef<HTMLAudioElement | null>(null);
     const fadeFrameRef = useRef<number | null>(null);
+    const promptImage =
+        i18n.resolvedLanguage?.toLowerCase().startsWith("es")
+            ? "/images/ui/press-any-button-es.svg"
+            : "/images/ui/press-any-button-en.svg";
 
     useEffect(() => {
         const audio = new Audio();
@@ -97,7 +103,7 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
             <button
                 type='button'
                 className='pointer-events-auto absolute inset-0 z-10 flex cursor-pointer items-center justify-center border-0 bg-transparent p-0'
-                aria-label='Ir al menú principal'
+                aria-label={t("go_to_main_menu")}
                 onClick={(event) => {
                     event.stopPropagation();
                     handleGoToMenu();
@@ -112,9 +118,9 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
                             draggable={false}
                         />
                         <img
-                            src='/images/pressanybutton.webp'
-                            className='mt-2 h-auto w-[clamp(210px,20vw,300px)] animate-pulse'
-                            alt='Presiona cualquier botón'
+                            src={promptImage}
+                            className='mt-1 h-auto w-[clamp(260px,28vw,430px)] animate-pulse select-none'
+                            alt={t("press_any_button")}
                             draggable={false}
                         />
                     </div>

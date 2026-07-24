@@ -101,7 +101,7 @@ export default function Settings() {
                     <DialoguesSettings />
 
                     <Typography level='title-md' fontWeight='bold'>
-                        Audio
+                        {t("audio")}
                     </Typography>
                     <AudioSettings />
 

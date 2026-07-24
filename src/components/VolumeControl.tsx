@@ -4,22 +4,9 @@ import VolumeOffRoundedIcon from "@mui/icons-material/VolumeOffRounded";
 import VolumeUpRoundedIcon from "@mui/icons-material/VolumeUpRounded";
 import { Box, IconButton, Sheet, Slider, Tooltip, Typography } from "@mui/joy";
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import useAudioSettingsStore from "../stores/useAudioSettingsStore";
-
-const floatingButtonSx = {
-    width: 42,
-    height: 42,
-    borderRadius: "9px",
-    border: "1px solid rgba(244, 163, 125, 0.72)",
-    color: "#fff8f1",
-    backgroundColor: "rgba(34, 27, 37, 0.82)",
-    boxShadow: "0 6px 18px rgba(24, 15, 29, 0.28), inset 0 1px rgba(255, 255, 255, 0.12)",
-    backdropFilter: "blur(12px) saturate(135%)",
-    "&:hover": {
-        backgroundColor: "rgba(73, 46, 61, 0.94)",
-        borderColor: "rgba(255, 188, 139, 0.92)",
-    },
-};
+import { floatingControlButtonSx } from "./floatingControlStyles";
 
 export function MasterVolumeIcon({ volume }: { volume: number }) {
     if (volume <= 0) return <VolumeOffRoundedIcon />;
@@ -29,6 +16,7 @@ export function MasterVolumeIcon({ volume }: { volume: number }) {
 }
 
 export function MasterVolumeSlider({ compact = false }: { compact?: boolean }) {
+    const { t } = useTranslation(["ui"]);
     const volume = useAudioSettingsStore((state) => state.volume);
     const setVolume = useAudioSettingsStore((state) => state.setVolume);
     const toggleMuted = useAudioSettingsStore((state) => state.toggleMuted);
@@ -38,7 +26,7 @@ export function MasterVolumeSlider({ compact = false }: { compact?: boolean }) {
         <Box sx={{ display: "grid", gap: compact ? 0.75 : 1.1 }}>
             <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 1 }}>
                 <Typography level={compact ? "body-sm" : "title-sm"} sx={{ color: "inherit" }}>
-                    Volumen general
+                    {t("master_volume")}
                 </Typography>
                 <Typography level="body-xs" sx={{ color: "rgba(255, 244, 235, 0.72)", minWidth: 36, textAlign: "right" }}>
                     {percentage}%
@@ -48,7 +36,7 @@ export function MasterVolumeSlider({ compact = false }: { compact?: boolean }) {
                 <IconButton
                     size="sm"
                     variant="plain"
-                    aria-label={volume > 0 ? "Silenciar" : "Activar sonido"}
+                    aria-label={volume > 0 ? t("mute") : t("unmute")}
                     onClick={toggleMuted}
                     sx={{ color: "#f3ad84", flex: "0 0 auto" }}
                 >
@@ -59,7 +47,7 @@ export function MasterVolumeSlider({ compact = false }: { compact?: boolean }) {
                     min={0}
                     max={100}
                     step={1}
-                    aria-label="Volumen general"
+                    aria-label={t("master_volume")}
                     onChange={(_, value) => setVolume((value as number) / 100)}
                     sx={{
                         color: "#f3ad84",
@@ -72,6 +60,7 @@ export function MasterVolumeSlider({ compact = false }: { compact?: boolean }) {
 }
 
 export default function FloatingVolumeControl() {
+    const { t } = useTranslation(["ui"]);
     const volume = useAudioSettingsStore((state) => state.volume);
     const [open, setOpen] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -99,12 +88,12 @@ export default function FloatingVolumeControl() {
             ref={containerRef}
             sx={{ position: "fixed", top: { xs: 10, sm: 16 }, right: { xs: 10, sm: 16 }, zIndex: 9500, pointerEvents: "auto" }}
         >
-            <Tooltip title="Volumen general" placement="bottom">
+            <Tooltip title={t("master_volume")} placement="bottom">
                 <IconButton
-                    aria-label="Volumen general"
+                    aria-label={t("master_volume")}
                     aria-expanded={open}
                     onClick={() => setOpen((current) => !current)}
-                    sx={floatingButtonSx}
+                    sx={floatingControlButtonSx}
                 >
                     <MasterVolumeIcon volume={volume} />
                 </IconButton>
@@ -112,7 +101,7 @@ export default function FloatingVolumeControl() {
             {open && (
                 <Sheet
                     component="section"
-                    aria-label="Volumen general"
+                    aria-label={t("master_volume")}
                     sx={{
                         position: "absolute",
                         top: 50,
@@ -133,4 +122,3 @@ export default function FloatingVolumeControl() {
         </Box>
     );
 }
-

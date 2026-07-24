@@ -36,7 +36,7 @@ Terminos usados:
 | Recursos previos al viaje del capitulo 2 | LISTO | 6 de 6 activos e integrados |
 | Fondos del ryokan y aguas termales | LISTO | 10 BG numerados + 1 variante de lluvia |
 | Integracion de BG del arco termal | LISTO | Usados entre capitulos 2 y 7; BG_010 abre tambien el capitulo 8 |
-| Sprites principales | LISTO como referencia | 11 personajes con varias poses disponibles |
+| Sprites principales | LISTO como referencia | 12 personajes con varias poses; Isanari joven tiene 5 expresiones y Fuutarou nino 3 |
 | CG del arco capitulos 2-7 | EN CURSO | 26 definidos; CG_001 dibujado e integrado |
 | Fondos propios del capitulo 8 | LISTO | BG_011, BG_012 y BG_012_Rain producidos e integrados |
 | Capitulos 9-11 | EN CURSO | Capitulo 9 ya cuenta con BG_013 y BG_014; faltan sus escenas previas y los capitulos 10-11 |
@@ -259,8 +259,8 @@ Estos sprites sirven para continuidad de rostro, cabello, ropa y color, pero un 
 Tambien faltan referencias especificas para:
 
 - Aoi joven, adulta y hospitalizada.
-- Isanari adolescente y joven adulto.
-- Fuutarou y Yotsuba infantiles para `CG_016`.
+- Isanari joven adulto; su set adolescente de 5 expresiones ya esta producido e integrado.
+- Yotsuba infantil para `CG_016`; el set de Fuutarou nino ya tiene 3 expresiones integradas.
 - Vestuario especial de Rena para `CG_007-CG_011`.
 - Variantes de yukata y ropa de viaje cuando no coincidan con los sprites actuales.
 

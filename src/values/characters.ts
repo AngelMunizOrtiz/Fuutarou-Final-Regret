@@ -14,6 +14,7 @@ const storyCharacters = [
     new Character("itsuki", { name: "Itsuki", color: "#ff786f" }),
     new Character("raiha", { name: "Raiha", color: "#f5b46f" }),
     new Character("isanari", { name: "Isanari", color: "#d8d8d8" }),
+    new Character("isanari_young", { name: "Isanari", color: "#d8d8d8" }),
     new Character("isanari_whispers", { name: "Isanari", color: "#bdbdbd" }),
     new Character("maruo", { name: "Maruo", color: "#b7b7c9" }),
     new Character("grandpa", { name: "Grandpa", color: "#c9bea3" }),

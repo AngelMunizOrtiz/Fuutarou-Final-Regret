@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="116" viewBox="0 0 820 116" role="img" aria-labelledby="title">
+  <title id="title">Press any button</title>
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#251b31" stop-opacity=".92"/>
+      <stop offset=".52" stop-color="#151426" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#2c172a" stop-opacity=".92"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#f5bdcf"/>
+      <stop offset=".5" stop-color="#fff0bd"/>
+      <stop offset="1" stop-color="#d8c5ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-40%" width="140%" height="180%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#08050f" flood-opacity=".55"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <rect x="8" y="10" width="804" height="96" rx="48" fill="url(#panel)" stroke="url(#edge)" stroke-width="2"/>
+    <path d="M57 16h706" stroke="#fff" stroke-opacity=".18" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(327 17)">
+    <circle cx="0" cy="0" r="5" fill="#f3c56a"/>
+    <circle cx="34" cy="0" r="5" fill="#8d72d9"/>
+    <circle cx="68" cy="0" r="5" fill="#67a8df"/>
+    <circle cx="102" cy="0" r="5" fill="#65c894"/>
+    <circle cx="136" cy="0" r="5" fill="#ef6c6f"/>
+  </g>
+  <text x="410" y="76" text-anchor="middle" fill="#fffaf3" stroke="#4c2946" stroke-width="1.5"
+        paint-order="stroke fill" font-family="'Arial Rounded MT Bold','M PLUS Rounded 1c',sans-serif"
+        font-size="29" font-weight="800" letter-spacing="5">PRESS ANY BUTTON</text>
+</svg>

@@ -81,6 +81,8 @@ A girl is running.
 She makes it under a banner next to another store.
 …
 …
+# sprite hide all
+# show image bg onsen-cg-027-miku-rainy-bench-reunion align 0 with fade
 As she sits on the bench, she pulls back her hair. With a small gust of wind, her hair flows freely. She is not wearing headphones, but Fuutarou could tell right away.
 fuutarou: Miku.
 narrator: Miku Nakano(20):Currently an apprentice at her culinary school. Through the skills gained during her first year there, she's become an ambassador for the school for when it has big events. Promised a job at Nino's restaurant. Her wish is to open her bakery.
@@ -88,6 +90,7 @@ As soon as he sees her, Fuutarou's mind starts to jumble. Despite all the prepar
 …
 …
 As Miku recollected her posture, she began to get lost in her own thoughts.
+# show image bg ch08-yuzine-eien-street-rain align 0 with fade
 # sprite right miku thoughtful
 miku: \[Ah, what bad luck for it to be raining like this during our vacation. It's a good thing I took off my headphones in time, I hope they're fine, I already had one pair go because of water...Oh well, it doesn't matter too much. I hope we get to enjoy the hot springs when it comes to it. Haha, I can't wait to see everyone again...Has it really been a year? I can't wait to see how everyone is doing. Ichika, Nino, Yotsuba, Itsuki, Raiha, both my and her dad, grandpa and Fuutarou! I'll have to apologize for coming so late and making Ebata come pick me up like thi-kya!\]
 A cold feeling touches her cheek causing a chill to go through her body. Miku almost falls out of the bench. In her panic, she turns her head to see who could have snuck up behind her. As soon as she sees who it is, she yells
@@ -311,6 +314,8 @@ nino: I guess you have to chase love after all.
 miku: Kiss me.
 fuutarou: "Huh? I did say you don't have to be so reserved, but...how did that come out from the conversation? In the first place-"\[I'm not good enough\]
 miku: Ah, sorry. I'll listen to your reply afterwards, okay?
+# sprite hide all
+# show image bg onsen-cg-028-fuutarou-miku-bell-confession-kiss align 0 with fade
 As Miku's lips touched Fuutarou's, refusing to let go, he realized right away that she was, indeed, the girl who kissed her on that day. He had tried to deny it over and over. But, there was no escaping the truth...It was Miku...It couldn't have been anyone but her…
 narrator: *DING DONG*
 miku: Okay, okay. I got it! You love me, you've let that be very well known! Please stop before someone sees us! Then...at least let me think of my answer…
@@ -319,6 +324,8 @@ Fuutarou had finally gotten across. But, in order to really make an impression, 
 miku: Honestly, Fuutarou. What's wrong with y-
 fuutarou: Ah, sorry. I'll listen to your reply afterwards, okay?
 Fuutarou then kissed Miku mid-sentence.
+# show image bg ch08-yuzine-eien-street-rain align 0 with fade
+# sprite right miku teary_smile
 narrator: *DING DONG*
 miku: I won't hesitate anymore.
 fuutarou: ...Wer-Were you...holding back that one too…?
@@ -386,10 +393,12 @@ fuutarou: Let's go, Miku!
 miku: Yeah!
 Though the sun had come out, it was still raining. So, Fuutarou got the umbrella out and put it over himself and Miku.
 miku: So you had that the whole time?
+# sprite hide all
+# show image bg onsen-cg-029-fuutarou-miku-umbrella-walk align 0 with fade
 Fuutarou nervously laughs. Miku notices that he is giving her more of the umbrella than him, causing his shoulder to get rain. She pushes up against him and puts her hand over his that's holding the umbrella. Fuutarou is startled, but he accepts it pretty quickly. As they walk towards the motorcycle, the rain stops. Fuutarou tries to put the umbrella down but Miku places it back up.
-# show image bg ch08-yuzine-eien-street align 0 with fade
 miku: It's fine, I like it like this...I don't want to let you go anymore.
 Fuutarou simply smiles.
+# show image bg ch08-yuzine-eien-street align 0 with fade
 …
 …
 fuutarou: Man, your dad is gonna kill me. He told me to bring you back fully dry.

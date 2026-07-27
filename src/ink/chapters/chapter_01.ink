@@ -9,7 +9,7 @@
 
 === chapter_1_after_notes ===
 # show image bg ch01-university-walkway-afternoon align 0 with fade
-# sprite left fuutarou neutral
+# sprite left fuutarou chapter_01_neutral
 # sprite right takeda enthusiastic
 Fuutarou is walking back from his afternoon classes.
 Takeda catches up to him in glorious fashion.
@@ -24,25 +24,25 @@ Takeda falls to the ground in exhaustion, still sparkling as he attempts to move
 Fuutarou stops looking at his notes to see Takeda slowly get up.
 Once he sees he's just fine, he continues walking.
 # show image bg ch01-university-walkway-afternoon align 0 with fade
-# sprite left fuutarou annoyed
+# sprite left fuutarou chapter_01_annoyed
 # sprite right takeda sparkle
 fuutarou: Guess it's hard keeping that up at all times. Wouldn't it be better if you let that go from time to time?
 takeda: Oh, Fuutarou, can you truly say something like that with such a straight face?
 takeda: You're the one constantly bottling up your emotions.
 takeda: Tell me, from the way you're acting, you had a weird dream again, right?
 Fuutarou stops in his tracks and looks back at Takeda, who got back up.
-# sprite left fuutarou surprised
+# sprite left fuutarou chapter_01_surprised
 fuutarou: H-How'd you know?
 As Takeda cleans his face of the dirt, he makes a pose, only to sparkle brighter than before.
 takeda: I've been your friend for so long, I practically know every emotion you have from a few glances.
-# sprite left fuutarou annoyed
+# sprite left fuutarou chapter_01_annoyed
 fuutarou: That's creepy.
 takeda: I like to call it "true friendship".
 takeda: Ah, that face you're making is your "I'm disgusted" face.
 takeda: You first made it when I came out of the shower naked that first day.
 fuutarou: Honestly, have you no shame...?
 Fuutarou stops walking, he puts his hand over his mouth.
-# sprite left fuutarou hand_cover
+# sprite left fuutarou chapter_01_hand_cover
 takeda: Hmm? What's wrong, was your breakfast bread not good this morning?
 fuutarou: There it is again, how did you know I ate bread?
 takeda: Fuutarou, my friend. That's the only thing you know how to make.
@@ -50,7 +50,7 @@ fuutarou: Well, it's what I was taught, it's what's keeping me alive on a budget
 takeda: Ah, yes. Your boss from that bakery taught you, right?
 fuutarou: Huh? Well, yes, he was an influence, but...
 Fuutarou places his hand over his mouth again.
-# sprite left fuutarou hand_cover
+# sprite left fuutarou chapter_01_hand_cover
 fuutarou: I got...extra help at another bakery.
 Takeda shone brighter than ever before.
 takeda: Yes, help from those you cherish is truly the most wonderful thing a man can have.
@@ -58,7 +58,7 @@ takeda: It's from those experiences that you can rise and become the greatest yo
 takeda: Wouldn't you agree, my dea-
 takeda: Hey, wait for me!
 # show image bg ch01-arched-passage-afternoon align 0 with fade
-# sprite left fuutarou annoyed
+# sprite left fuutarou chapter_01_annoyed
 # sprite right takeda supportive
 As they went back to their dorm, Fuutarou kept thinking about that dream.
 fuutarou: Honestly...it's probably not even a dream anymore.
@@ -75,31 +75,31 @@ fuutarou: She needed someone like me and I helped her.
 fuutarou: That's...that's what anyone would have done.
 takeda: Oh? Did I ever mention someone in particular?
 Having realized his mistake, Fuutarou begins to grit his teeth.
-# sprite left fuutarou neck_scratch
+# sprite left fuutarou chapter_01_neck_scratch
 takeda: \[Ah, that's his "Unsure" face.\]
 takeda: Well, if you're happy, that's all that matters in the end, is it not?
 takeda: C'mon now, you don't have to be so reserved with that kind of stuff.
 Fuutarou widens his eyes and slides away from Takeda.
-# sprite left fuutarou surprised
+# sprite left fuutarou chapter_01_surprised
 fuutarou: Are you just messing with me at this point?
 Takeda's sparkles turn into question marks as he tilts his head.
 # sprite right takeda arms_crossed
 takeda: Now, whatever could you mean..?
 Fuutarou blushes as he puts one hand over his mouth while the other is used to keep Takeda at bay.
-# sprite left fuutarou hand_cover
+# sprite left fuutarou chapter_01_hand_cover
 fuutarou: No, never mind, just remembering something that happened long ago,but...it's not...it shouldn't be important.
 # show image bg ch01-student-residence-approach align 0 with fade
-# sprite left fuutarou neutral
+# sprite left fuutarou chapter_01_neutral
 # sprite right takeda sheepish
 takeda: Hmm, how confusing. Ah! That reminds me, you're going back home this upcoming vacation, correct?
 fuutarou: Uhh, yeah, I've been invited to go to the same hot springs I won a trip to a few years ago.
 takeda: Hehe, that smile says you're excited to meet them again.
 Fuutarou looks at Takeda, not realizing the massive grin on his face.
-# sprite left fuutarou surprised
+# sprite left fuutarou chapter_01_surprised
 fuutarou: H-Huh? What are you talking about?
 takeda: You can't fool me, you're going to see the quintuplets again, aren't you?
 Fuutarou hesitates for a second, then finally notices his unconscious smile. Realizing there was no backing out of this, he responds
-# sprite left fuutarou neutral
+# sprite left fuutarou chapter_01_neutral
 fuutarou: Yeah...of course I'm excited.
 fuutarou: They're my irreplaceable friends...
 fuutarou: Though, why did they just tell me!?
@@ -118,7 +118,7 @@ End of Chapter 1
 === chapter_1_extra ===
 # sprite hide all
 # show image bg ch01-student-residence-restroom align 0 with fade
-# sprite left fuutarou annoyed
+# sprite left fuutarou chapter_01_annoyed
 # sprite right takeda sparkle
 narrator: Chapter 1 Extra
 Fuutarou goes to the restroom, Takeda swiftly follows behind.

@@ -1,6 +1,6 @@
 === chapter_9 ===
 # sprite hide all
-# show image bg bg01-hallway align 0 with fade
+# show image bg ch09-miku-pickup-street-late-morning align 0 with fade
 narrator: Chapter 9: 5-Star Proposal, a quintessential quintuplets fanfic
 \[The feeling of love...Our relationship can overcome distance, it can overcome time...No matter what happens, I will always love you. I...want to be with you forever.\]
 …
@@ -26,6 +26,7 @@ fuutarou: Please spare me. I promise I'll give you more when we're alone…
 Miku smiles. Even though she was embarrassed as well, she loved these moments too much to pass them up.
 …
 …
+# show image bg ch09-date-restaurant-interior-late-morning align 0 with fade
 narrator: Before getting to the place they'd be working together, they decide to get something to eat. Ever since that first date, Fuutarou had been adamant about paying for everything. Miku felt bad that she couldn't contribute, but she knew what he was doing was out of love. In exchange, she would send him different materials needed for his university projects. If Fuutarou ever protested, she would say \{Miku:You can make it up to me on our next date! Just be warned, I may order the whole menu, teehee!\}
 miku: Delicious!
 fuutarou: It's food like this that makes me glad I can taste again.
@@ -44,6 +45,7 @@ miku: I don't need to be seen as different by many, as long as the one I love se
 Fuutarou tries to give her a confident gesture, but he can't help but blush intensely. Miku giggles at his attempt.
 …
 …
+# show image bg ch09-local-library-interior-afternoon align 0 with fade
 Once they finished eating, they went to a local library while waiting for the designated time.
 miku: Have you kept up with everyone?
 fuutarou: Yeah, the workload has gotten even worse, but I've made sure to talk with them.
@@ -66,6 +68,7 @@ fuutarou: I'm surprised this place was an option.
 narrator: *Asahiyama High School*
 …
 …
+# show image bg ch07-asahiyama-high-school-corridor-afternoon align 0 with fade
 miku: I'll be your cooking teacher for today!
 fuutarou: I'll be your math teacher today.
 …
@@ -118,6 +121,8 @@ fuutarou: C-Come on, don't tease me like that, I jus-huh?
 He turns his head to see Miku holding his hand.
 miku: I accept your offer. Let's dance, fuutarou!
 fuutarou: Right!
+# sprite hide all
+# show image bg onsen-cg-030-fuutarou-miku-rooftop-dance align 0 with fade
 The two began to dance. Fuutarou, while a little awkward, was able to avoid stepping on her shoes too much, though it still happened from time to time.
 fuutarou: You're pretty good at dancing…
 miku: Ah..well, before the Sunrise Festival, I knew about the dance...So I practiced a bunch…
@@ -133,6 +138,7 @@ fuutarou: Not as good as you...I'm glad you could finally use your skills.
 miku: As long as it's with you, I'll have fun doing anything.
 fuutarou: ...That's good.
 The two continue to dance as the sun was setting on the two of them. With time, their movements became more in sync. Fuutarou couldn't help but look at Miku's eyes. The previously lifeless eyes that she had felt like a distant dream. Now, they were as bright and full of life as they could be. Once the sun fully set and the stars began to show...He knew it was time, this was Fuutarou's biggest shot.
+# show image bg ch09-asahiyama-rooftop-sunset align 0 with fade
 fuutarou: These times I've spent with you have become the happiest moments of my life. From my student, to my friend, to the one I love...I can't believe I've changed into someone like this. But I don't regret it, I never will. I love seeing you, I love talking with you, I love being with you. I love it all.
 Fuutarou starts to distance himself a little from Miku, signaling the end of the dance.
 fuutarou: ...and I want it to last forever.
@@ -141,6 +147,8 @@ fuutarou: Will you marry me?
 …
 …
 Miku simply stands there for a moment, unable to process it. She tries to respond with a quip, a joke, anything, but she can't. Her stoic face slowly begins to change. Her eyes narrow just a bit as tears begin to flow. She shakes her head in an attempt to not let her feelings overflow. She begins to shake as she bites her lip. Small sounds come out, unable to fully hold them back, she looks up slightly...After a small gulp, she calms down. She gives a faint smile.
+# sprite hide all
+# show image bg onsen-cg-031-miku-accepts-rooftop-proposal align 0 with fade
 Fuutarou, waiting for an answer, begins to shake as well. Before he can say anything, Miku borderline tackles him, causing them both to fall over.
 fuutarou: Miku, are you alri-
 miku: Of course I do!
@@ -152,6 +160,7 @@ miku: F-Fuutarou...I love you!
 While Fuutarou tries to clean his tears, he attempts to respond but is interrupted by Miku's lips blocking his words.
 They kiss. For a long time.
 Once they separate, both of them can't help but grin through their tears.
+# show image bg ch09-asahiyama-rooftop-sunset align 0 with fade
 miku: You did promise a longer one earlier.
 fuutarou: Always outside. Honestly, have you no shame? Although, I wouldn't mind another one.
 Miku got up to help him get back up.
@@ -168,7 +177,7 @@ Chapter 9 End
 
 === chapter_9_extra ===
 # sprite hide all
-# show image bg bg01-hallway align 0 with fade
+# show image bg ch09-asahiyama-rooftop-early-night align 0 with fade
 narrator: Chapter 9 Extra
 miku: By the way, was the reason for asking about the headphones going to be part of your proposal?
 fuutarou: Yeah, well...I was...going to put them around you when I asked, kind of like a wedding ring. It's lame, I know!

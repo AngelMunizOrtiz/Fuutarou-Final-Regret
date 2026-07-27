@@ -11,8 +11,11 @@ yotsuba: I'm sorry, but I need to know.
 fuutarou: Why's that, is there anything wrong with our relationship?
 Yotsuba puts her hand on her chin, thinking.
 yotsuba: I've never been in a relationship before, I always just thought that the confession was good enough, even if they don't go on many dates, as long as the two love each other, it should be fine...But, I think that only works when the two people in a relationship love each other mutually.
+# sprite hide all
+# show image bg onsen-cg-012-fuutarou-approaches-yotsuba align 0 with fade
 Fuutarou starts to walk up the stairs, but Yotsuba keeps her distance.
 yotsuba: So, I'll ask once again, why did you pick me that day?
+# show image bg ch02-onsen-stairwell-landing align 0 with fade
 Fuutarou remembers that day of the festival. The words continue to ring in his head.
 Hey, F-, I believe that Yotsuba needs your help…
 My help…?
@@ -68,10 +71,13 @@ But he couldn't.
 Fuutarou's body refused to move, his mouth felt snapped shut...He couldn't stop Yotsuba.
 yotsuba: That's why…
 Fuutarou's eyes widened.
+# sprite hide all
+# show image bg onsen-cg-013-yotsuba-breakup align 0 with fade
 yotsuba: I'm breaking up with you, Uesugi-san!
 …
 …
 fuutarou: Eh?
+# show image bg ch02-onsen-stairwell-landing align 0 with fade
 Fuutarou stays still, expecting either an explanation or for Yotsuba to announce she's joking, but she simply stands there. As time goes on, her expression changes from a pained scowl to a more confident and sure expression.
 fuutarou: Ah
 Fuutarou can only mutter a simple stutter, unable to speak.
@@ -95,12 +101,15 @@ fuutarou: ...
 yotsuba: The Uesugi-san that I like...The Fuutarou-kun that I love...He is his own person. He's stubborn, selfish, and acts like a bad person. But underneath, he's caring, selfless, and is actually a really great person! So, I ask this of you, please follow your heart, and go after the one you really love!
 Fuutarou tries to counter what Yotsuba just said, but he couldn't find the words.
 yotsuba: Ah! Are you still being stubborn about this!? I'll slap sense into you if I have to!
+# sprite hide all
+# show image bg onsen-cg-014-yotsuba-pushes-fuutarou align 0 with fade
 Yotsuba starts smacking Fuutarou, clearly without any power behind each slap. As Fuutarou stands there and takes it, he mutters the only words he can.
 fuutarou: Is...Is this what you truly want?
 Yotsuba stops as her hand reaches Fuutarou's chest.
 yotsuba: Of course not…
 fuutarou: Then…
 Yotsuba pushes Fuutarou, increasing their distance yet again.
+# show image bg ch02-onsen-stairwell-landing align 0 with fade
 yotsuba: I know what your dream is, Fuutarou-kun. You wanted to be needed, a wish that started with your love for Raiha. A dream that started from the loss of your mother. It's a great dream! Dreams are what can help you take the first step to a better future, they're what keep your feelings from collapsing. But, overreliance on said dreams can be detrimental...My wish is to be a bride...and while I still cling to that dream, I know...I know if I fulfill that wish with you by my side, it will hurt you far more than I can imagine. Dreams are meant to evolve, not from the will of a past you that has ceased to exist, but from the future you that has yet to exist.
 Fuutarou realizes that no matter what he says, he won't be able to change her mind. Not since she met her had he seen such resolve from her. This whole time, he had followed his sense of self he had since he was a kid.
 \[Tell her she's wrong.\]
@@ -114,8 +123,11 @@ Fuutarou's head shot back up to see Yotsuba holding her face with both her hands
 yotsuba: I'm so glad you've looked my way. I'm so glad I was special to you, even if for a bit. I've never been so happy, but now...It's your turn.
 Fuutarou's eyes widen, all he can do now is cover his mouth.
 yotsuba: The one you're looking for...she should be here at noon. It's around 8:30 right now, but she'll be dropped off at the bottom of the hill, in that little remote town. So, go get her!
+# sprite hide all
+# show image bg onsen-cg-015-fuutarou-yotsuba-farewell-hug align 0 with fade
 Fuutarou's body starts moving on its own, he gives Yotsuba a hug.
 yotsuba: Eh? Fuutarou-kun!?
+# show image bg ch02-onsen-stairwell-landing align 0 with fade
 Fuutarou lets go of her and bows.
 fuutarou: Thank you for everything!
 He turns around and begins walking towards the check-in area.
@@ -127,12 +139,15 @@ yotsuba: Huh?
 fuutarou: I know.
 Yotsuba stopped, she couldn't believe it...when had he found out? Even though she wanted to ask, there was only one thing she could honestly do.
 yotsuba: Fuutarou-kun!
+# sprite hide all
+# show image bg onsen-cg-016-present-childhood-farewell align 0 with fade
 Fuutarou turns, for a split second, he could have sworn that the Yotsuba that met him on that fateful day eight years ago, was right there, next to the current Yotsuba. With the same pose, at the same time, they both speak.
 yotsuba: Be careful!
 yotsuba: Be careful!
 As she says this, Fuutarou responds. For a split second, she could have sworn that the Fuutarou that she met on that fateful day eight years ago, was right there, next to the current Fuutarou. With the same pose, at the same time, they both say...
 fuutarou: Of course!
 fuutarou_past: Of course!
+# show image bg ch02-onsen-stairwell-landing align 0 with fade
 Fuutarou leaves.
 …
 …
@@ -152,6 +167,8 @@ yotsuba: ...
 …
 …
 yotsuba: Miku…Ah...I see...I'm surprised I was able to hold them back for so long.
+# sprite hide all
+# show image bg onsen-cg-017-sisters-hold-crying-yotsuba align 0 with fade
 Tears start flowing down Yotsuba's face, even when she tries to clean them, more tears keep flowing out.
 yotsuba: I'm so glad...I'm so glad I was born!
 As she breaks down, Ichika, Nino and Itsuki catch up to her.
@@ -170,6 +187,8 @@ Check-in room
 Once Fuutarou gets there. He sees Maruo and Ebata.
 ebata: Ah, Fuutarou-san. I've been told ahead of time. You'll be picking up Miku today,yes?
 fuutarou: \[I see, so this was planned too.\]
+# sprite hide all
+# show image bg onsen-cg-018-maruo-throws-umbrella align 0 with fade
 An object is thrown at Fuutarou, he barely catches it as it nearly hits him in the head. An umbrella, thrown by Maruo.
 fuutarou: Da-
 maruo: You've made my daughter cry again, haven't you? If you don't leave right now, I will change my mind!
@@ -177,6 +196,7 @@ Maruo gives the most intimidating face he's ever given. While scared, Fuutarou d
 fuutarou: Finally acting like a real father, huh?
 maruo: It's never too late to do the right thing, isn't that right, boy!?
 Fuutarou nods. He exits the check-in area.
+# show image bg ch02-onsen-reception-staircase align 0 with fade
 ebata: I shall get breakfast ready.
 Maruo is left alone. A can of beer slowly goes towards him, but Maruo stops it before it reaches his cheek.
 maruo: ..And what do you want, Uesugi-kun!?

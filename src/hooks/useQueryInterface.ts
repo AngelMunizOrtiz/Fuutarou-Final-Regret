@@ -1,8 +1,22 @@
 import { CharacterInterface, narration, stepHistory } from "@drincs/pixi-vn";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
+import type { TFunction } from "i18next";
 import { useTranslation } from "react-i18next";
 
 export const INTERFACE_DATA_USE_QUEY_KEY = "interface_data_use_quey_key";
+
+function translateDialogueText(
+    t: TFunction<"narration">,
+    text: string,
+    character?: CharacterInterface | string,
+) {
+    const characterId = typeof character === "string" ? character : character?.id;
+    if (!characterId) return t(text);
+
+    const prefix = `${characterId}:`;
+    const translated = t(`${prefix} ${text}`, { defaultValue: text });
+    return translated.startsWith(prefix) ? translated.slice(prefix.length).trimStart() : translated;
+}
 
 const CAN_GO_BACK_USE_QUEY_KEY = "can_go_back_use_quey_key";
 export function useQueryCanGoBack() {
@@ -14,9 +28,9 @@ export function useQueryCanGoBack() {
 
 const CHOICE_MENU_OPTIONS_USE_QUEY_KEY = "choice_menu_options_use_quey_key";
 export function useQueryChoiceMenuOptions() {
-    const { t } = useTranslation(["narration"]);
+    const { t, i18n } = useTranslation(["narration"]);
     return useQuery({
-        queryKey: [INTERFACE_DATA_USE_QUEY_KEY, CHOICE_MENU_OPTIONS_USE_QUEY_KEY],
+        queryKey: [INTERFACE_DATA_USE_QUEY_KEY, CHOICE_MENU_OPTIONS_USE_QUEY_KEY, i18n.resolvedLanguage],
         queryFn: async () =>
             narration.choices?.map((option) => ({
                 ...option,
@@ -44,18 +58,18 @@ type DialogueModel = {
 };
 const DIALOGUE_USE_QUEY_KEY = "dialogue_use_quey_key";
 export function useQueryDialogue() {
-    const { t } = useTranslation(["narration"]);
+    const { t, i18n } = useTranslation(["narration"]);
     const queryClient = useQueryClient();
 
     return useQuery<DialogueModel>({
-        queryKey: [INTERFACE_DATA_USE_QUEY_KEY, DIALOGUE_USE_QUEY_KEY],
+        queryKey: [INTERFACE_DATA_USE_QUEY_KEY, DIALOGUE_USE_QUEY_KEY, i18n.resolvedLanguage],
         queryFn: async ({ queryKey }) => {
             let dialogue = narration.dialogue;
             let text = dialogue?.text;
             if (Array.isArray(text)) {
-                text = text.map((text) => t(text)).join(" ");
+                text = text.map((part) => translateDialogueText(t, part, dialogue?.character)).join(" ");
             } else if (typeof text === "string") {
-                text = t(text);
+                text = translateDialogueText(t, text, dialogue?.character);
             }
             let character = dialogue?.character;
             if (typeof character === "string") {
@@ -97,10 +111,15 @@ export function useQueryCanGoNext() {
 
 const NARRATIVE_HISTORY_USE_QUEY_KEY = "narrative_history_use_quey_key";
 export function useQueryNarrativeHistory({ searchString }: { searchString?: string }) {
-    const { t } = useTranslation(["narration"]);
+    const { t, i18n } = useTranslation(["narration"]);
 
     return useQuery({
-        queryKey: [INTERFACE_DATA_USE_QUEY_KEY, NARRATIVE_HISTORY_USE_QUEY_KEY, searchString],
+        queryKey: [
+            INTERFACE_DATA_USE_QUEY_KEY,
+            NARRATIVE_HISTORY_USE_QUEY_KEY,
+            searchString,
+            i18n.resolvedLanguage,
+        ],
         queryFn: async () => {
             const promises = stepHistory.narrativeHistory.map(async (step) => {
                 let character = step.dialogue?.character;
@@ -116,9 +135,9 @@ export function useQueryNarrativeHistory({ searchString }: { searchString?: stri
                 }
                 let text = step.dialogue?.text;
                 if (Array.isArray(text)) {
-                    text = text.map((text) => t(text)).join(" ");
+                    text = text.map((part) => translateDialogueText(t, part, step.dialogue?.character)).join(" ");
                 } else if (typeof text === "string") {
-                    text = t(text);
+                    text = translateDialogueText(t, text, step.dialogue?.character);
                 }
                 return {
                     character: characterName,

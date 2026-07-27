@@ -1,33 +1,28 @@
 === chapter_7 ===
 # sprite hide all
-# show image bg bg01-hallway align 0 with fade
+# show image bg ch07-asahiyama-high-school-corridor-afternoon align 0 with fade
 narrator: Chapter 7: Aoi and Isanari, a quintessential quintuplets fanfic
-# show image bg ch07-cg-019-young-isanari-confession align 0 with fade
+# sprite hide all
+# show image bg onsen-cg-019-young-isanari-confession align 0 with fade
 Please go out with me!
 A young blonde boy, in his teens, bows as he confesses to the girl he had a crush on. The short-haired girl responds.
 Um, who are you again?
 The boy blushes as he shoots up in embarrassment.
-# show image bg bg01-hallway align 0 with fade
-# sprite left isanari_young flustered
 isanari: I'm Uesugi Isanari! The boy who sits next to you in class!
-# sprite right aoi curious
 Ah, I see. I think I remember someone like that...My name's Yutori Aoi, nice to meet you!
 isanari: I...I know that.
 aoi: Oh! Then...why did you call me here?
-# sprite left isanari_young determined
 isanari: To confess!
 aoi: Confess? Did you do something bad?
 isanari: No, I...I love you!
 aoi: Eh?
 isanari: I want to go out with you!
 Aoi starts thinking, although there's not much going on in that head of hers, even she could tell what Isanari wanted, to be her friend!
-# sprite right aoi cheerful_peace
 aoi: Alright! I'll go out with you!
-# sprite left isanari_young warm_smile
 isanari: Really? Alright!
+# show image bg ch07-asahiyama-high-school-corridor-afternoon align 0 with fade
 …
 …
-# sprite left isanari_young neutral
 # sprite right aoi bashful
 aoi: I failed another test, teehee!
 isanari: Aoi, if you keep failing like that, you won't be able to fulfill your dream...What is your dream anyway?
@@ -37,7 +32,8 @@ isanari: I see, so what can you bake?
 aoi: Well…
 …
 …
-# sprite left isanari_young shocked
+# sprite hide all
+# show image bg ch07-asahiyama-school-nurse-office-afternoon align 0 with fade
 isanari: Huh!? Where am I?
 maruo: In the nurse's office, one of the teachers found you foaming out the mouth in the hallway.
 isanari: Oh..Well, I wonder what happened.
@@ -48,7 +44,7 @@ shimoda: That damned bread is why you're here, dumbass!
 isanari: Huh!?
 …
 …
-# sprite left isanari_young determined
+# show image bg ch07-asahiyama-high-school-corridor-afternoon align 0 with fade
 isanari: Hey, Maruo...I think I'm gonna stop being a delinquent.
 maruo: Good for you, Uesugi-kun. Now you can get that hair back to normal.
 isanari: Hell no, the hair is staying. It's just...Argh, that girl, she won't be able to see her dream through...Not without me.
@@ -59,8 +55,8 @@ isanari: Ho? Is that the stare of love I see?
 maruo: Hmph. I cannot see what you're getting at.
 …
 …
-# sprite right aoi determined
-# sprite left isanari_young warm_smile
+# sprite hide all
+# show image bg onsen-cg-020-aoi-isanari-life-montage align 0 with fade
 aoi: Isanari! I did it, I passed!
 isanari: That's great, our efforts paid off!
 Aoi hugs Isanari, shocking him. But, knowing this is a great chance, he hugs her back.
@@ -69,14 +65,11 @@ Aoi hugs Isanari, shocking him. But, knowing this is a great chance, he hugs her
 Congratulations on Graduating!
 …
 …
-# sprite left isanari_young neutral
 isanari: Are you sure about this store? This place is pretty expensive to keep clean.
-# sprite right aoi determined
 aoi: Yep, I've been getting better and better at baking!
 isanari: ...I guess I haven't had to go to the hospital as often.
 …
 …
-# sprite right aoi cheerful_peace
 aoi: Come to our bakery! We're open for business! We're the "Legendary Bakery That Won't Make You Puke!
 isanari: That's a terrible name!
 aoi: Oh, then what do you have in mind?
@@ -85,55 +78,43 @@ aoi: Eh!? That's even worse!
 isanari: Even worse? So, you admit the name is bad!
 …
 …
-# sprite left isanari_young flustered
 isanari: Will you marry me!?
 No response. As Isanari looks up, he notices Aoi in tears.
 isanari: Aoi, what's wrong?
-# sprite right aoi maternal
 aoi: I don't know, I don't know. I'm just, I just...I can't stop crying...Even though I've never been happier!
-# sprite left isanari_young warm_smile
 isanari: Ah, haha...Hahaha!
 …
 …
-# sprite right aoi determined
 aoi: Hmm, we haven't had many customers this month. Oh, well! I just need to keep trying harder!
 …
 ...
-# sprite left isanari_young shocked
 isanari: Aoi! Why are you putting salt in the flour!?
 Aoi doesn't respond. Before long, she jumps in Isanari's arms.
 isanari: What's wrong, are you feeling okay?
-# sprite right aoi pregnancy_joy
 aoi: Isanari...I think I'm pregnant!
 isanari: Eh..EEEHHH!?
 …
 …
 aoi: His name will be...Fuutarou!
 isanari: Look at that scowl...I can tell he's not gonna be great at parties.
-# sprite hide all
-# show image bg ch07-cg-020-aoi-isanari-life-montage align 0 with fade
 ...
 …
-# show image bg bg01-hallway align 0 with fade
 isanari: The bakery's not doing so hot, even though Aoi has only gotten better and better. I knew I should have taken a Business major.
 …
 …
-# sprite center fuutarou_child cheerful
 fuutarou_child: Your hair is so cool, dad! I want it like that!
 isanari: Uh, no, you don't.
-# sprite right aoi cheerful_peace
 aoi: What's the harm? I think it looks cool! Maybe I should dye my hair too.
 isanari: You will do no such thing!
-# sprite hide center
 …
 …
 aoi: Um, Isanari?
 isanari: "What's up? Oh, did we finally get a customer?'
 aoi: Um...Well, you could call it that...This customer is a little small, though.
 isanari: What are you-
-# sprite right aoi pregnancy_joy
 aoi: I'm pregnant again!
 isanari: Eh..EEEHHH!?
+# show image bg ch07-aoi-isanari-bakery-interior-struggling align 0 with fade
 …
 …
 isanari: Aoi, please don't overwork yourself. I'll take care of the store today, alright?
@@ -151,6 +132,7 @@ aoi: It's okay, Isanari. As long as we pay what we owe this month, they'll forgi
 …
 …
 # sprite right aoi ill
+# show image bg ch07-aoi-isanari-bakery-exterior-struggling align 0 with fade
 aoi: Please come to our bakery! *cough**cough*
 Isn't that the store Mr. - got food poisoning from?
 Yeah, and I hear the husband used to be part of the Yakuza, I mean look at his hair.
@@ -158,6 +140,7 @@ Not to mention the placement of the store is suspicious. We shouldn't go there�
 isanari: What was that!? Come and eat her bread and you'll see how incredible it is, you bastards!
 …
 …
+# show image bg ch07-aoi-isanari-bakery-interior-struggling align 0 with fade
 isanari: Aoi! Did you do Raiha's hair?
 # sprite right aoi cheerful_peace
 aoi: Yep, is there something wrong?
@@ -173,12 +156,17 @@ isanari: What? But this is your dream, right? We just need to believe! Soon, eve
 aoi: ...You're right! Let's keep working hard!
 …
 …
+# show image bg ch07-aoi-isanari-bakery-exterior-struggling align 0 with fade
 aoi_isanari: Please come to our store!
 …
 ...
+# sprite hide all
+# show image bg ch07-aoi-isanari-bakery-interior-struggling align 0 with fade
 isanari: Damn it, DAMN IT! We won't be able to make it this month either...No, I just need to take out more loans! I will have her dream flourish! I can do it! I'll make sure Fuutarou and Raiha have great lives, no matter what! Aoi needs me more than ever right now, I will...I will help her succe-
 …
 …
+# sprite hide all
+# show image bg ch07-aoi-hospital-room-night align 0 with fade
 isanari: Huh?
 doctor: Your wife is in critical condition. She's overworked herself far too much. It seems she's had a horrible fever for a while now, but never came for a check-up.
 …
@@ -190,9 +178,9 @@ isanari: How're you doing today, Aoi?
 …
 …
 isanari: Alright, Aoi! I'll come to see you again tomorrow!
-Aoi grabs Isanari's arm.
 # sprite hide all
-# show image bg ch07-cg-021-aoi-hospital-farewell align 0 with fade
+# show image bg onsen-cg-021-aoi-hospital-farewell align 0 with fade
+Aoi grabs Isanari's arm.
 aoi: Isanari...I don't think I can go on for much longer...
 isanari: What? No, that's not right...I'm sure you're just-
 aoi: Isanari…
@@ -204,8 +192,8 @@ isanari: Aoi...Aoi! Everything will be alright...I swear everything will be-
 # sprite hide all
 …
 …
+# show image bg ch07-uesugi-main-room-night align 0 with fade
 Isanari returns home one night, with cans of beer and bottles of wine. Fuutarou and Raiha are there to meet him.
-# sprite center fuutarou_child worried
 fuutarou_child: Dad! How's mom? Is she doing fine?
 Isanari stays silent.
 fuutarou: Dad?
@@ -213,9 +201,10 @@ isanari_whispers: Go...go to your room...:
 fuutarou: Huh? What was that?
 Isanari bites his lips.
 isanari: I said, GO TO YOUR ROOM!
+Startled and scared, Fuutarou takes Raiha with him to their room.
 # sprite hide all
-# show image bg ch07-cg-022-isanari-home-breakdown align 0 with fade
-Startled and scared, Fuutarou takes Raiha with him to their room. As he closes the door, Isanari starts drinking...for the very first time. He breaks down, crying Aoi's name. That night, in the Uesugi household, only the pained screams of Isanari could be heard.
+# show image bg onsen-cg-022-isanari-breakdown-at-home align 0 with fade
+As he closes the door, Isanari starts drinking...for the very first time. He breaks down, crying Aoi's name. That night, in the Uesugi household, only the pained screams of Isanari could be heard.
 …
 …
 …
@@ -231,11 +220,11 @@ isanari: It's just an idea, nothing more! Did you know that Raiha wants to becom
 Isanari's voice begins to stutter.
 isanari: Even though she's not here...I know that she would be so proud of her children...Just as proud as I am…
 # sprite hide all
-# show image bg ch07-cg-023-isanari-maruo-grief align 0 with fade
+# show image bg onsen-cg-023-isanari-cries-before-maruo align 0 with fade
 Isanari covers his eyes as he begins to tear up.
 isanari: I loved her...I loved her so much…
-As Isanari calms down, he looks towards Maruo. For that second, Isanari could have sworn that Maruo had been smiling, but it left as soon as it came. Before Isanari could talk, Maruo replaced the can of beer in his hand with a card.
 # show image bg ch02-onsen-reception-staircase align 0 with fade
+As Isanari calms down, he looks towards Maruo. For that second, Isanari could have sworn that Maruo had been smiling, but it left as soon as it came. Before Isanari could talk, Maruo replaced the can of beer in his hand with a card.
 isanari: Huh? What is this?
 maruo: It's my business card. If your daughter wishes to receive some help, I would be willing to lend a hand.
 Maruo begrudgingly whispers."This also applies to your son…"
@@ -245,11 +234,16 @@ maruo: Please let me go, Uesu...Isanari-kun, I still need to do something.
 …
 …
 # show image bg ch02-onsen-upper-ryokan-motorcycle-forecourt align 0 with fade
+# sprite hide all
+# show image bg onsen-cg-024-raiha-motorcycle-farewell align 0 with fade
 As Fuutarou gets his manager's motorcycle ready, he sees Raiha.
 raiha: Are you going to get Miku?
 fuutarou: Yeah, take care of Yotsuba, I'm sure she's going through a lot right now.
 raiha: You got it! Just make sure you make it back safely!
 fuutarou: Of course, thanks, Raiha!
+# show image bg ch02-onsen-upper-ryokan-motorcycle-forecourt align 0 with fade
+# sprite hide all
+# show image bg onsen-cg-025-fuutarou-meets-ren align 0 with fade
 Fuutarou gets out of the Inn Front Gate, where he sees Grandpa.
 grandpa: Well, I knew I mentioned it...But I wasn't expecting it to happen so soon. Perhaps my age has begun to mess with my sense of time
 fuutarou: Really? To me, you're doing quite well for an old man. Thank you, I swear I won't have their efforts go to waste.
@@ -257,7 +251,9 @@ grandpa: That's good...I can't say I'm not a little mad that my granddaughter is
 fuutarou: Yeah. Say... I never got your name.
 Grandpa Nakano raises his head, seeing the figure of a more confident Maruo overlap with Fuutarou, he smiles.
 grandpa: It's Ren, Uesugi Fuutarou.
-Fuutarou smiled back. He turned on the motorcycle and began to ride down the hill. Soon, Maruo went up to Grandpa.
+Fuutarou smiled back.
+# show image bg ch02-onsen-upper-ryokan-motorcycle-forecourt align 0 with fade
+He turned on the motorcycle and began to ride down the hill. Soon, Maruo went up to Grandpa.
 maruo: Well, it's unlike you to be so friendly. It seems that boy has won you over as well.
 grandpa_ren: Tell me, Maruo. Do you regret becoming their father?
 As soon as he stops talking, Maruo responds immediately, with no hesitation.
@@ -270,7 +266,10 @@ maruo: At this stage...Whether Miku accepts him or not is up to her. However, I 
 grandpa_ren: Did you just…?
 maruo: You heard no such thing!
 grandpa_ren: It seems he's gained your trust enough for you to genuinely care about him.
-Maruo couldn't find the words to counter with. Despite his best efforts, he eventually gives a small smile, one that he'll never admit, but one he could never deny he had. Both Maruo and Ren watch as Fuutarou rides down the hill until he's out of their sight…
+Maruo couldn't find the words to counter with. Despite his best efforts, he eventually gives a small smile, one that he'll never admit, but one he could never deny he had.
+# sprite hide all
+# show image bg onsen-cg-026-maruo-ren-watch-descent align 0 with fade
+Both Maruo and Ren watch as Fuutarou rides down the hill until he's out of their sight…
 End of Chapter 7
 
 * Leer extra del capitulo 7

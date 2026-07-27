@@ -1,11 +1,13 @@
 === chapter_10 ===
 # sprite hide all
-# show image bg bg02-dorm align 0 with fade
+# show image bg ch10-sutekina-church-interior-altar align 0 with fade
 narrator: Chapter 10: Wedding, a quintessential quintuplets fanfic
 narrator: *Sutekina Church*
+# show image bg wedding-cg-032-miku-fuutarou-wedding-kiss align 0 with fade
 You may kiss the bride.
 …
 …
+# show image bg ch10-sutekina-reception-hall-evening align 0 with fade
 The newlyweds are taken to take their pictures. During this time, the guests began to go into the Reception Hall. Raiha is first to take a group picture with them. Once she herself gets to the hall, she notices the four sisters, Ichika, Nino, Yotsuba, and Itsuki.
 # sprite left raiha bright_laugh
 raiha: There you are! I'm so glad to see you again!
@@ -67,9 +69,12 @@ Maruo and Fuutarou kept watching the dance. After a while, they had to switch da
 maruo: Please...take care of my daughter.
 Maruo walked towards Miku.
 fuutarou: Heh. Like you had to ask.
+# sprite hide all
+# show image bg wedding-cg-033-miku-maruo-family-dance align 0 with fade
 As Maruo and Miku danced slowly, Isanari drew out his party animal and began to throw Fuutarou around in their dance. The girls laughed watching Fuutarou be so defenceless when it came to his dad.
 …
 …
+# show image bg ch10-sutekina-reception-hall-evening align 0 with fade
 Once the dancing was over, the reception could officially begin. Miku sat down on her chair while Fuutarou grabbed a microphone, ready to begin the party.
 fuutarou: Thank you all for taking the time out of your busy schedules to come to our wedding reception today. We are truly grateful. We're very happy to be able to hold this ceremony with everyone who has supported us until now. It really has been a long time coming.
 …
@@ -82,12 +87,15 @@ fuutarou: You what? What for?
 miku: I thought it'd be good to test myself for such an event. I mean, I'll start baking on a bigger scale soon, won't I?
 fuutarou: I don't know about scale. But what kind of bride bakes her own wedding cake? I could have at least helped.
 miku: It's fine. You can make it up to me later.
+# sprite hide all
+# show image bg wedding-cg-034-miku-kisses-frosting-from-fuutarou align 0 with fade
 Miku cleans the frosting on Fuutarou's cheek with a kiss.
 miku: Yummy.
 fuutarou: Honestly, have you no shame...?
 miku: Not when it comes to you, Fuutarou!
 …
 …
+# show image bg ch10-sutekina-reception-hall-evening align 0 with fade
 Now, some words from the Best Man.
 Maeda went up on stage. As he gave his speech, Fuutarou and Miku gave him their full attention.
 matsui: He's so bad at this, it's funny!
@@ -104,9 +112,12 @@ Takeda went into Tsubaki's arms in his state of sadness. The sisters couldn't he
 …
 …
 Before we see the bride and groom on their way to their honeymoon. The newly wedded will now convey a message of gratitude to her family.
+# sprite hide all
+# show image bg wedding-cg-035-miku-thanks-her-sisters align 0 with fade
 miku: To my dad. Thank you for looking after me. I'm glad you became our dad. To my mom and grandpa in heaven, without you, I wouldn't have been able to become the woman I am now. Even though you aren't here with us anymore, I'll always hold you dear to my heart. Ichika. Thank you for being the sister we could all rely on. We may have had our rivalries, but I always looked up to you so much. Nino. Thank you for being the sister who would always take charge when the going got rough. We may have argued and bickered a lot, but you never stopped being there when I needed a shoulder to cry on. Yotsuba. Thank you for being the sister that always gave energy to the mood around us. There were some...complications here and there, but you always helped me from the goodness of your heart. Itsuki. Thank you for being the sister that always tried to keep us on the right path. I'm sure there were plenty of times you were stumped on how we could move forward, but your willingness to always work hard inspired me so much. For a long time, I believed that I was lesser than my sisters in every way. But, we're just different. We all have our pros and cons, we help each other in things the other can't solve on their own. We may drift apart in our daily lives, but we'll always be five parts of something big. Thank you for loving me, I'm so glad you were my sisters.
 …
 …
+# show image bg ch10-sutekina-church-exterior-courtyard-dusk align 0 with fade
 Soon, the bride and groom shall exit.
 The guests were waiting for the final part of the ceremony outside of the church. Takeda and Maeda were talking with each other, while Isanari kept tricking Maruo to drink more than he had planned. Shimoda and Ebata knew they should probably stop him, but they wanted to see a drunk Maruo they hadn't seen since their university days.
 yotsuba: The ceremonies ending soon, huh? After their honeymoon, we won't see them again for another year…
@@ -120,12 +131,15 @@ fuutarou: Thank you for everything.
 They continued their walk. Once they reached the car, it was time to throw the bouquet. Miku threw it with all of her might to the clamoring hopes of the crowd.
 ichika: I wonder who's gonn-
 A gust of wind passes by Ichika. With incredible speed, the figure runs through any opening in the crowd that it sees. With a jump the size of its height, the figure catches the bouquet flawlessly.
+# sprite hide all
+# show image bg wedding-cg-036-yotsuba-catches-wedding-bouquet align 0 with fade
 yotsuba: Alright! I'm getting married!
 nino: That girl!
 itsuki: That's our athletic prodigy for you.
 Miku and Fuutarou wave their goodbyes to all the guests before getting in and driving away.
 …
 …
+# show image bg ch10-sutekina-church-exterior-courtyard-dusk align 0 with fade
 nino: Well, that's over. What now?
 raiha: Heeey!
 As the sisters turn, they see Raiha with three envelopes.
@@ -178,10 +192,13 @@ Dear Itsuki,
 This was such a pain to find. There were many times where I thought I would never find it again. Thanks to Yuusuke and Maeda, we were able to find it a week before graduation. I had planned to give you this during the last hot spring trip, but I forgot. I never looked inside...I didn't think I was good enough even after graduation. Now, during these times, I realized I didn't need to look inside it anyway. I already believe in myself thanks to the five of you. Thank you for everything, Itsuki. Thank you for helping me, Rena.
 From, Fuutarou
 Itsuki simply smiled.
+# sprite hide all
+# show image bg wedding-cg-037-sisters-receive-wedding-keepsakes align 0 with fade
 The sisters all turned in the direction Miku and Fuutarou's ride went. Together, they all said…
 Miku! Fuutarou! Congratulations on your marriage!
 …
 …
+# show image bg ch10-wedding-limousine-interior-eien-street-evening align 0 with fade
 The limousine soon went through Eien Street. As they passed the very place Fuutarou confessed, Miku attempted to tease him but was countered with Fuutarou kissing her. Knowing two could play at that game, she kissed him back. This back and forth kept going as the limousine drove to where they would plan their honeymoon...
 Chapter 10 End
 

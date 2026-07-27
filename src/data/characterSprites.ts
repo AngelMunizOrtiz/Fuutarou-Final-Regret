@@ -8,6 +8,26 @@ const spritePreloadCache = new Map<string, Promise<void>>();
 
 export const characterSprites = {
     fuutarou: {
+        chapter_01_neutral: {
+            src: "/images/characters/fuutarou/chapter_01/fuutarou_neutral.webp",
+            scale: 1.04,
+        },
+        chapter_01_annoyed: {
+            src: "/images/characters/fuutarou/chapter_01/fuutarou_annoyed.webp",
+            scale: 1.04,
+        },
+        chapter_01_surprised: {
+            src: "/images/characters/fuutarou/chapter_01/fuutarou_surprised.webp",
+            scale: 1.04,
+        },
+        chapter_01_hand_cover: {
+            src: "/images/characters/fuutarou/chapter_01/fuutarou_hand_cover.webp",
+            scale: 1.04,
+        },
+        chapter_01_neck_scratch: {
+            src: "/images/characters/fuutarou/chapter_01/fuutarou_neck_scratch.webp",
+            scale: 1.04,
+        },
         neutral: {
             src: "/images/characters/fuutarou/fuutarou_neutral.webp",
             scale: 1.04,
@@ -184,6 +204,26 @@ export const characterSprites = {
         },
     },
     maruo: {
+        onsen_travel_neutral: {
+            src: "/images/characters/maruo/onsen_travel/maruo_neutral.webp",
+            scale: 1,
+        },
+        onsen_travel_stern: {
+            src: "/images/characters/maruo/onsen_travel/maruo_stern.webp",
+            scale: 1,
+        },
+        onsen_travel_composed: {
+            src: "/images/characters/maruo/onsen_travel/maruo_composed.webp",
+            scale: 1,
+        },
+        onsen_travel_concerned: {
+            src: "/images/characters/maruo/onsen_travel/maruo_concerned.webp",
+            scale: 1,
+        },
+        onsen_travel_soft_smile: {
+            src: "/images/characters/maruo/onsen_travel/maruo_soft_smile.webp",
+            scale: 1,
+        },
         neutral: {
             src: "/images/characters/maruo/maruo_neutral.webp",
             scale: 1,
@@ -286,6 +326,22 @@ export const characterSprites = {
         },
     },
     ichika: {
+        onsen_yukata_neutral: {
+            src: "/images/characters/ichika/onsen_yukata/ichika_neutral.webp",
+            scale: 1,
+        },
+        onsen_yukata_concerned: {
+            src: "/images/characters/ichika/onsen_yukata/ichika_concerned.webp",
+            scale: 1,
+        },
+        onsen_yukata_sad_reflective: {
+            src: "/images/characters/ichika/onsen_yukata/ichika_sad_reflective.webp",
+            scale: 1,
+        },
+        onsen_yukata_teasing: {
+            src: "/images/characters/ichika/onsen_yukata/ichika_teasing.webp",
+            scale: 1,
+        },
         neutral: {
             src: "/images/characters/ichika/ichika_neutral.webp",
             scale: 1,
@@ -320,6 +376,22 @@ export const characterSprites = {
         },
     },
     nino: {
+        onsen_yukata_neutral: {
+            src: "/images/characters/nino/onsen_yukata/nino_neutral.webp",
+            scale: 1,
+        },
+        onsen_yukata_annoyed: {
+            src: "/images/characters/nino/onsen_yukata/nino_annoyed.webp",
+            scale: 1,
+        },
+        onsen_yukata_soft: {
+            src: "/images/characters/nino/onsen_yukata/nino_soft.webp",
+            scale: 1,
+        },
+        onsen_yukata_proud: {
+            src: "/images/characters/nino/onsen_yukata/nino_proud.webp",
+            scale: 1,
+        },
         neutral: {
             src: "/images/characters/nino/nino_neutral.webp",
             scale: 1,
@@ -388,6 +460,14 @@ export const characterSprites = {
         },
     },
     yotsuba: {
+        onsen_yukata_nervous: {
+            src: "/images/characters/yotsuba/onsen_yukata/yotsuba_nervous.webp",
+            scale: 1,
+        },
+        onsen_yukata_wave: {
+            src: "/images/characters/yotsuba/onsen_yukata/yotsuba_wave.webp",
+            scale: 1,
+        },
         neutral: {
             src: "/images/characters/yotsuba/yotsuba_neutral.webp",
             scale: 1,
@@ -422,6 +502,26 @@ export const characterSprites = {
         },
     },
     itsuki: {
+        onsen_yukata_neutral: {
+            src: "/images/characters/itsuki/onsen_yukata/itsuki_neutral.webp",
+            scale: 1,
+        },
+        onsen_yukata_joyful: {
+            src: "/images/characters/itsuki/onsen_yukata/itsuki_joyful.webp",
+            scale: 1,
+        },
+        onsen_yukata_surprised: {
+            src: "/images/characters/itsuki/onsen_yukata/itsuki_surprised.webp",
+            scale: 1,
+        },
+        onsen_yukata_thoughtful: {
+            src: "/images/characters/itsuki/onsen_yukata/itsuki_thoughtful.webp",
+            scale: 1,
+        },
+        onsen_yukata_flustered: {
+            src: "/images/characters/itsuki/onsen_yukata/itsuki_flustered.webp",
+            scale: 1,
+        },
         neutral: {
             src: "/images/characters/itsuki/itsuki_neutral.webp",
             scale: 1,

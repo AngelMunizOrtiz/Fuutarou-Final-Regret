@@ -110,6 +110,9 @@ export async function initializeI18n() {
                 interpolation: {
                     escapeValue: false,
                 },
+                // Ink dialogue keys use the `character: dialogue` format.
+                // Treat the colon as content instead of an i18next namespace separator.
+                nsSeparator: false,
                 load: "languageOnly",
                 backend: {
                     backends: [

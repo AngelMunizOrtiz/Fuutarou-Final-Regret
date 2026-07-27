@@ -49,7 +49,7 @@ isanari: Alright! We're back here! Time to drink till I pass out!
 # sprite right raiha concerned_scold
 raiha: Dad, just because it's a trip doesn't mean you should go overboard.
 # show image bg ch02-onsen-ryokan-forest-entrance align 0 with fade
-# sprite right maruo neutral
+# sprite right maruo onsen_travel_neutral
 maruo: I concur with your daughter.
 Raiha and Isanari see the very serious Maruo in his suit, coming out of the front door of the inn. Behind him are three of the five quintuplets. Itsuki, Nino, and Ichika
 # sprite hide all
@@ -68,7 +68,7 @@ ichika_itsuki_nino: RAIHA!
 The three rush to hug Raiha. At the same time, Isanari goes to Maruo
 # show image bg ch02-onsen-ryokan-forest-entrance align 0 with fade
 # sprite left isanari cheerful
-# sprite right maruo stern
+# sprite right maruo onsen_travel_stern
 isanari: Aaaand what do you mean by that? Life is all about the moment, you can't have fun if you're constantly second-guessing yourself.
 maruo: Only a fool would see the world in such a light.
 # sprite left isanari awkward
@@ -116,7 +116,7 @@ yotsuba: No no, it's not his fault, we just haven't seen each other much.
 raiha: Hmm? Do you guys not talk to each other?
 ichika: Of course she does, we all do. We're friends after all, we always stay in touch.
 yotsuba: Yeah, it's just...when I talk to him, it's like his mind is in-
-# sprite right maruo soft_smile
+# sprite right maruo onsen_travel_soft_smile
 maruo: I'm glad you're safe, Yotsuba-kun. Come, let us meet your Grandpa.
 yotsuba: O-Oh, right. C'mon, Raiha, let's go.
 # sprite hide all

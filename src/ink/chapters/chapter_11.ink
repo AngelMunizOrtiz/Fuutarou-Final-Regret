@@ -1,9 +1,10 @@
 === chapter_11 ===
 # sprite hide all
-# show image bg bg01-hallway align 0 with fade
+# show image bg wedding-cg-038-sisters-career-montage align 0 with fade
 narrator: Chapter 11: Epilogue, a quintessential quintuplets fanfic
 …
 …
+# sprite hide all
 \[Man, this really has been a journey. I thought tutoring those five would be the worst experience of my life.\]
 …
 …
@@ -35,6 +36,7 @@ mr_jirou: Ms. Nakano is still doing great, I see. With enough work, I could easi
 \[Haha. Quintuplets are such a pain.\]
 …
 …
+# show image bg ch11-uesugi-bakery-exterior-renovated align 0 with fade
 narrator: *1 year later*
 yotsuba: It's finally open?
 ichika: Yeah, it's also going to double as their home. The renovations did wonders for the place.
@@ -43,7 +45,10 @@ nino: I wonder if they'll have her in a maid outfit, heh.
 As the four sisters reach their destination, they see a store that had recently opened for business.
 yotsuba: Looks like they've yet to put up a logo.
 nino: They say they had an idea, they really should get on it.
+# sprite hide all
+# show image bg ch11-uesugi-bakery-interior-renovated align 0 with fade
 The girls open the door. They're greeted by a marvelous variety of different baked goods. The atmosphere was inviting and happy. Soon, two people came to greet them with a smile.
+# show image bg wedding-cg-039-family-visits-new-bakery align 0 with fade
 miku_fuutarou: Welcome to 'The Raided Bread of Uesugi Kenshin'!
 …
 itsuki: The what now?
@@ -68,6 +73,8 @@ yotsuba: Wait, what!? Miku, you have to give me details. What happened!?
 miku: Fufu, you know I can't give you details. Go on now, I'll catch up.
 yotsuba: Fweh. Fine, but we'll get something out of you!
 miku: Fufu, you can try.
+# sprite hide all
+# show image bg wedding-cg-040-miku-memory-desk-finale align 0 with fade
 As Yotsuba went upstairs with the rest, Miku put the gift on a desk near the corner of the store. Miku looked at the rest of the items in said desk and developed a soft smile. On the desk were pictures from their high school graduation and wedding. A picture of the sisters from when they went to Kyoto 11 years ago was next to an old pair of headphones. Looking at these memories, Miku began to tear up.
 fuutarou: Miku! Come on up, we can't start without you!
 Miku wipes her tears and responds in an energetic fashion.
@@ -79,4 +86,3 @@ The End
 * Terminar
 # sprite hide all
 -> END
-

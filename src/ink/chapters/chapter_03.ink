@@ -8,27 +8,29 @@ While the quints went into the building, Fuutarou was making his way to the hot 
 fuutarou: That can't be good. I wonder if the springs have a roof.
 As soon as he said that, small droplets started to come down. Soon, it was raining hard. Fuutarou was able to get to the top before the thunder started coming down.
 # show image bg ch02-onsen-womens-bath-vestibule align 0 with fade
+# sprite hide all
+# show image bg onsen-cg-002-bath-door-accident align 0 with fade
 As he walked in, he could hear some screams. Even though he ran to see who it was, he had an idea of what would happen. The screams came from the Woman's side. As soon as he got to the door, it opened, showing all four girls in towels with their hair down. Fuutarou got one look at them and, knowing the consequences, shut the door as quickly as it opened.
-# sprite center fuutarou surprised
 yotsuba: H-Huh!? Uesugi-san!?
 The others jumped in surprise, unaware that Fuutarou had seen them like that.
 nino: Fuu-kun!?
 itsuki: You're already here?
 ichika: Haha. I'm feeling a slight sense of deja vu.
+# show image bg ch02-onsen-womens-bath-vestibule align 0 with fade
 # sprite center fuutarou hand_cover
 fuutarou: I'm sorry, it wasn't on purpose, I just heard screams.
 yotsuba: Ah, sorry, it just started to rain hard as we were getting in, it caught us off guard.
 # sprite center fuutarou neutral
 fuutarou: Yeah, I was afraid of that...wait, is Miku not here?
 Nino and Ichika looked at each other. Itsuki, along with the rest soon came out, now fully dressed, though with their hair still down.
-# sprite left nino neutral
-# sprite right yotsuba nervous
+# sprite left nino onsen_yukata_neutral
+# sprite right yotsuba onsen_yukata_nervous
 yotsuba: Yeah, Miku had some problems on her trip, she should be here tomorrow.
-# sprite right ichika neutral
+# sprite right ichika onsen_yukata_neutral
 fuutarou: Right, she did mention having a lot of work... I hope she makes it all right. Thanks for telling me, Ichika.
 The girls gave him a death stare, soon Fuutarou realized his mistake.
-# sprite left nino annoyed
-# sprite right ichika concerned
+# sprite left nino onsen_yukata_annoyed
+# sprite right ichika onsen_yukata_concerned
 fuutarou: Uh, sorry.
 Fuutarou looks closer, trying to see who he just got wrong, Yotsuba starts blushing. Nino looks at Fuutarou.
 nino: \[Was that just a fluke?\]
@@ -38,22 +40,22 @@ fuutarou: Hmmm...Ah! Are you Yot-
 Before Fuutarou can answer, Maruo shows up with Grandpa by his side. Each of his steps create a loud echo in the hallway. As Fuutarou turns towards him, he suddenly feels unbelievable pressure. Fuutatou gathers his courage and decides to walk towards him.
 # sprite left fuutarou neutral
 # sprite center grandpa neutral
-# sprite right maruo stern
+# sprite right maruo onsen_travel_stern
 fuutarou: Ah, Dad, Grandpa, nice to see you ag-
 Maruo walks past him. Grandpa stops just short.
 # sprite left fuutarou surprised
 fuutarou: Eh?
 # sprite center grandpa gentle
 grandpa: Nice to see you again, young man.
-# sprite right maruo concerned
+# sprite right maruo onsen_travel_concerned
 maruo: Itsuki-kun, Ichika-kun, Nino-kun, Yotsuba-kun. Are you quite all right?
 nino: Yeah, we were just startled from the sudden downpour.
 # sprite center grandpa gentle
 grandpa: I told you you should have waited to come, hehe.
-# sprite right maruo composed
+# sprite right maruo onsen_travel_composed
 maruo: No, it's fine, simply a minor setback. Come, let us go back to our rooms, the rain shouldn't last another day.
 sisters: Riiight.
-# sprite right yotsuba wave
+# sprite right yotsuba onsen_yukata_wave
 yotsuba: I'll go get some snacks! I'm...I'm glad you're here, Uesugi-san!
 As the rest leave, Fuutarou speaks up.
 # sprite hide all
@@ -90,7 +92,12 @@ grandpa: Ever since I lost Rena, I couldn't bear to think about what my granddau
 Grandpa gives Fuutarou a look. Afraid, but determined, he looks back. There, he sees a gentle smile in the old man. As Grandpa wipes his eyes, he finishes.
 # sprite right grandpa grateful
 grandpa: But...seeing them now, I won't make such regretful decisions, not anymore. Ichika, Nino, Yotsuba, and Itsuki. I can see that they've grown up to be exceptional women. I haven't seen Miku face-to-face yet, but from the letters and photos she's sent, I can tell she's changed the most...to think that a girl such as herself could have such a bright smile. They used to all dress the same, possibly for my benefit, but now, their beautiful individuality shines through each and every one of them. That's why...Uesugi Fuutarou...I thank you. I thank you for making my daughters happy.
+# sprite hide all
+# show image bg onsen-cg-003-grandpa-thanks-fuutarou align 0 with fade
 Grandpa bows to Fuutarou, after getting over the initial shock, he bows back.
+# show image bg ch02-onsen-courtyard-window-corridor align 0 with fade
+# sprite left fuutarou neutral
+# sprite right grandpa grateful
 grandpa: Well, I should be going back now, I need to make sure this storm is manageable.
 fuutarou: Right..I... I should go too.
 As they turn away from each other, their distance in the hallway grows and grows, when Grandpa suddenly stops.
@@ -107,11 +114,14 @@ Once Fuutarou berates Isanari for leaving him behind, he takes a stroll around t
 # show image bg ch02-onsen-destiny-bell-overlook align 0 with fade
 Soon, the rain stops and he decides to go outside. He notices the bell and goes towards it.
 fuutarou: Ah, this place, such a great view…Looks like the floor's still slippery...
+# sprite hide all
+# show image bg onsen-cg-004-fuutarou-destiny-bell align 0 with fade
 Fuutarou looks at the bell for a long time, simply standing there.
 fuutarou: This was where she...Yeah, it couldn't have been anyone else.
 Grandpa's words cross his mind.
 \[What I want...isn't necessary. Yotsuba needed me, so helping her is what I must do. She...she doesn't need me.\]
 Fuutarou touches his lips, then blushes as he turns around. He slowly walks to the handlebars and slams his head onto them as hard as he can. Once Fuutarou got over the intense pain, he started to walk back towards the inn.
+# show image bg ch02-onsen-destiny-bell-overlook align 0 with fade
 # sprite center fuutarou annoyed
 fuutarou: I've spent enough time, I should...I should go back.
 # sprite hide all

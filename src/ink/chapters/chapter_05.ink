@@ -37,12 +37,15 @@ fuutarou: That's right, when is Miku supposed to be here?
 Right as he said that, he noticed a girl in a dress run across the hallway.
 fuutarou: \[Was that Yotsuba? No, that girl's hair was longer.\]
 As Fuutarou turned the corner, he saw 4 Renas standing there, all wearing their hats in a way that covered their faces.
+# sprite hide all
+# show image bg onsen-cg-007-four-rena-lineup align 0 with fade
 fuutarou: You...have got to be kidding me.
 rena_1: Uesugi Fuutarou-kun
 rena_2: Have you missed me?
 rena_3: We haven't seen each other in a long time.
 rena_4: What do you say we-
 fuutarou: What are you idiots doing!?
+# show image bg ch02-onsen-courtyard-window-corridor align 0 with fade
 Fuutarou starts running towards them.
 rena_4: H-Hey, no runni-
 fuutarou: I've had enough of your disguise crap!
@@ -73,12 +76,15 @@ nino: \[I love my sisters. I loved that man. Even though I pushed him away, he c
 fuutarou: Ah, Nino.
 nino: hmm?
 fuutarou: It's embarrassing to admit, especially since I know you'll just tease me...But..You were the reason I began to look at love differently.
+# sprite hide all
+# show image bg onsen-cg-008-nino-covers-fuutarou-eyes align 0 with fade
 No response. Fuutarou began to wonder why there was no response, as he turned to see what Nino could be doing, his eyes were covered by her hands.
 nino: You can't see me right now...If you saw how red my face is right now, I'd never forgive you.
 fuutarou: ...Alright, I get it. I'm quite pathetic, aren't I?
 nino: Hell yeah, you are! You tactless loser! If you get your heart broken, just know that you'll have to beg for me to pick your sorry ass up!
 fuutarou: Yeah, I know. Thank you, Nino.
 nino: "Ah! Stop being so sappy and just go!"\[I'm sure these feelings will change, for better or worse, but as of right now, I love my sisters and I love Fuu-kun. I love them so much.\]
+# show image bg ch02-onsen-courtyard-window-corridor align 0 with fade
 Fuutarou runs away, ready to find the second Rena.
 …
 ...
@@ -92,10 +98,12 @@ ichika: My my, not bad, Fuutarou-kun. To think that before, you had no idea how 
 fuutarou: Heh, there was no mistaking you, you lazy bum with the mask of beauty.
 ichika: Oh, are you trying to flatter your big sister~?
 fuutarou: In a way, I guess. I mean, you are the "Ace" of the family after all.
+# sprite hide all
+# show image bg onsen-cg-009-ichika-head-pat align 0 with fade
 Ichika's eyes widened, as she looked up at Fuutarou, he had a grin reminiscent of the one Ichika would often give Fuutarou. Ichika simply laughed once she realized what Fuutarou was doing. Once she stopped, she walked towards Fuutarou and patted him on the head. Surprised, Fuutarou took a step back.
-# sprite right ichika laughing
 ichika: Hehe, What's wrong? It's natural for the big sister to worry.
 fuutarou: That part of you will never change, huh?
+# show image bg ch02-onsen-quintuplets-tatami-room align 0 with fade
 # sprite right ichika sad_reflective
 ichika: You know...I was scared when Y-...when the other Rena suggested we do this...The last time I put on a disguise, it was to hurt my sister.
 As her voice stutters, Fuutarou gathers his courage and returns the head pat he had received earlier.
@@ -139,10 +147,12 @@ itsuki: If you don't already know, then you'll have to find the last Rena.
 fuutarou: Ugh, what a pain...Everything has been a pain since I met you losers!
 itsuki: Eek!
 As Itsuki stepped back, Fuutarou calmed down.
+# sprite hide all
+# show image bg onsen-cg-010-itsuki-grateful-smile align 0 with fade
 fuutarou: Even though you guys have put me in this hell, I can't help but feel thankful. I was your tutor, but I learned far more from you guys than I could ever teach you. I don't take pride in many things, but you guys are the greatest people I could have met. So...Thank you, Itsuki.
-# sprite right itsuki joyful
 itsuki: Hehe, You're welcome, Uesugi-kun!
 Fuutarou leaves with a smile.
+# show image bg ch02-onsen-reception-staircase align 0 with fade
 # sprite right itsuki thoughtful
 itsuki: We've taught you a lot, huh? Well, if what she said is true...It's time for your final lesson, Uesugi-kun.
 …
@@ -153,6 +163,8 @@ fuutarou: There you are, the final Rena.
 He looks up to see the fourth and final Rena.
 rena_4: Good to see you again, Uesugi Fuutarou-kun. I assume you're familiar with the process now?
 fuutarou: Yeeep, let's get this over with."\[This feeling...It's childish, caring, and optimistic. But underneath, there's a feeling that doesn't sit right. It's not like Miku's self-image issues, nor like Ichika's regret, it's something else, and I know it has to do with me\] "Ichika slipped up, so I demand an explanation. What's the point of this, Yotsuba!?
+# sprite hide all
+# show image bg onsen-cg-011-yotsuba-final-rena-reveal align 0 with fade
 yotsuba: Ahaha, you did it, huh? Tell me, Uesugi-san, do you doubt your ability to find us now? Do you think you can tell Grandpa you're able to tell us apart?
 fuutarou: Ah, so you were the eavesdropper... But I guess you're right...I was able to tell you all apart. Was that the whole reason for this?
 yotsuba: Well, part of it. You being able to do this means you like us all. You told us the same thing back during the festival, but now I see that you're finally able to live up to that statement. For that reason, I can ask you this with confidence…

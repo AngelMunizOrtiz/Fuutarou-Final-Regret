@@ -3,10 +3,27 @@
 # show image bg ch02-onsen-upper-ryokan-motorcycle-forecourt align 0 with fade
 narrator: Chapter 8: Fuutarou and Miku, a quintessential quintuplets fanfic
 # show image bg ch08-mountain-descent-road align 0 with fade
-Fuutarou rides down the mountain, his thoughts all over the place. He began to wonder if he had simply been following the flow of the situation, just as he had done on that fateful festival. Fuutarou began to let the previous fears that perpetuated during that time rear their head once again. Was Fuutarou truly ready for what he was about to do, or was he going off the adrenaline? Even now, Fuutarou's concept of love had not yet been completed. Ever since the concept had gone past his mental barrier so long ago, even after the events in this very same hot springs 3 years ago, after the events in Kyoto, after he had bought that book on love, after he confessed and had been dating Yotsuba. Fuutarou was scared...scared of failing both himself and her.
-Fuutarou had known he was not the best boyfriend to Yotsuba. Was it because he had known that she was not the one he was destined to be with, or rather, is that just how he truly handles such a relationship? Could he become a person worthy of such a responsibility? Fuutarou had thought of this before…
-Would Miku be on board with this? Despite Miku clearly being in love with Fuutarou, she still tried to help Yotsuba on that day. Yotsuba declaring her love was not what Fuutarou was expecting, but...in order to help her...in order to not be in Miku's way, he went along with such a thing, he wanted to be needed, to help the sisters to continue to live with no regrets. This blinded Fuutarou, as he was the one with the biggest regret. Miku and Fuutarou stayed in touch throughout his first year at Tokyo University, however, whenever they talked, Fuutarou would keep the topic of love out of the conversations, something he did not do for whenever Nino or Itsuki asked about Yotsuba. Fuutarou never disclosed too much as he found it to be the sisters prying their way into subjects that he simply was not comfortable disclosing to others. But, Miku never asked...Perhaps she had been dodging the subject similar to Fuutarou, or maybe, she thought that as long as Yotsuba was with him, she would be happy. Now, it had been over a year since he chose Yotsuba...It had been more than a year since he broke Miku's heart. He could see how Miku felt during his time with Yotsuba, as she tried to move on from her first love.
-Over a year later, being their first time meeting face to face, how would Miku react to the Fuutarou's break up and subsequent confession from him? Fuutarou began to think the best course of action would be to start again from scratch, a new start that would hopefully blossom into a new love...But they wouldn't see each other every day like before, they had taken different choices in life, thus increasing their distance. Would Fuutarou create a new feeling of love from Miku while so far away? What if she finds someone else during that time?
+Fuutarou rides down the mountain with his thoughts in turmoil.
+He wonders if he is merely following the flow of the situation, just as he did during that fateful festival.
+The fears he carried back then begin to surface again. Is he truly ready for what he is about to do, or is he acting on adrenaline?
+Even now, Fuutarou's understanding of love remains incomplete. Neither the hot springs three years ago, Kyoto, the book about love, nor his relationship with Yotsuba had given him a clear answer.
+Fuutarou is scared...scared of failing both himself and her.
+Fuutarou knows he was not the best boyfriend to Yotsuba.
+Was that because he knew she was not the person he was meant to be with, or is this simply how he behaves in a relationship?
+Could he ever become someone worthy of that responsibility?
+Fuutarou has asked himself these questions before...
+Would Miku accept any of this? Even though she clearly loved Fuutarou, she still tried to help Yotsuba that day.
+Yotsuba's confession was not what he expected. Still, he went along with it because he wanted to help her, stay out of Miku's way and feel needed.
+He wanted the sisters to live without regrets. That desire blinded him to the fact that he carried the greatest regret of all.
+Miku and Fuutarou stayed in touch during his first year at Tokyo University, but he always kept love out of their conversations.
+He did not avoid the subject when Nino or Itsuki asked about Yotsuba. With Miku, however, neither of them dared to bring it up.
+Perhaps she was avoiding it just like him. Perhaps she believed that as long as Yotsuba was with him, she could be happy.
+More than a year had passed since he chose Yotsuba...more than a year since he broke Miku's heart and watched her try to move on from her first love.
+Now they were about to meet face to face for the first time since then. How would Miku react to his breakup and a confession from him?
+Fuutarou considers starting again from scratch and hoping that a new beginning might blossom into love.
+But they no longer see each other every day. Their different paths have placed more distance between them.
+Could he make Miku fall in love with him again from so far away?
+What if she finds someone else first?
 Fuutarou was almost halfway down the mountain before this thought popped in his head, the one he became scared of.
 What if Miku had already moved on...What if she already found someone else?
 thump thump
@@ -14,24 +31,46 @@ At that moment, Fuutarou's heart skipped a beat. He simply wouldn't be able to h
 …
 …
 fuutarou: How hypocritical…
-Fuutarou had made her wait so long. From the moment she fell in love with him to the moment he chose Yotsuba...he had made her run around for him. She had done everything to have Fuutarou see her as someone special, all while he made her wait. It wasn't just her...Nino and Ichika as well. He would dodge their advances, he would keep his inner thoughts secret...And now, Fuutarou had the gall to not want that to happen to him. He hated that feeling, the feeling of the one he loved going to someone else. Not only had he done that very thing to Miku...he made her live with that decision for over a year now…
+Fuutarou had made her wait for so long. From the moment she fell in love with him until the moment he chose Yotsuba, he kept her running after him.
+Miku did everything she could to make him see her as someone special, while he continued to keep her waiting.
+It was not only Miku. He also dodged Nino and Ichika's advances and kept his own thoughts hidden.
+Now he had the nerve to fear the same thing happening to him. He hated imagining the person he loved choosing someone else.
+Not only had he done that to Miku...he had forced her to live with his decision for more than a year.
 fuutarou: Who the hell do I think I am?
 He didn't want to let those that paved the way to this moment down, but his guilt had begun to take over. At this point, and many before, he felt that he did not deserve her...Fuutarou, despite his best efforts...was simply selfish.
 Let's make memories we won't regret!
-Yes...that's it. Fuutarou began to ready himself. He understood that everything he did to her was terrible, that he made her wait, that he broke her heart, and now, after so long, he was going to go back on all of that to try and have her by his side yet again, as she had done so many times before. Fuutarou realized something within him just by being with Miku, he had tried to become a sign of selflessness, most likely to continue the legacy his late mother had left behind...But he had begun to come to terms with who he really was. Fuutarou wanted her by his side, he wanted her to only look at him with those compassionate eyes of hers...Even though he had done so many terrible things to her...He wanted to be with her. Right now, Fuutarou was the most selfish man in the world.
+Yes...that's it. Fuutarou begins to prepare himself.
+He knows what he did to her was terrible. He made her wait and broke her heart.
+Now, after all this time, he intends to ask her to stand beside him again, just as she had tried to do so many times before.
+Being with Miku makes Fuutarou realize something about himself. He had tried to embody selflessness, perhaps to continue the legacy of his late mother.
+But he is finally beginning to accept who he really is.
+He wants Miku by his side. He wants those compassionate eyes of hers to look only at him.
+Even after all the pain he caused her...he still wants to be with her.
+Right now, Fuutarou is the most selfish man in the world.
 …
 …
-Once Fuutarou was almost done with riding down the mountain, he began to contemplate his relationship with Yotsuba. In the end, he had simply been lying to her with his fake feelings for such a long time, to the point where it was her that had to end the relationship. Fuutarou also wondered about the past she had with him. He had found out on the third day of the festival. While Miku did not outright tell him, he was able to come to the conclusion on his own after putting Miku's clues together, but he questioned as to why she didn't bring it up.
+As Fuutarou nears the end of the descent, he reflects on his relationship with Yotsuba.
+He had lied to her with feelings that were not real for so long that she had to be the one to end their relationship.
+He also thinks about the past they shared. He discovered the truth on the third day of the festival by piecing together Miku's clues.
+Even so, he still wonders why Yotsuba never told him herself.
 fuutarou: \[Did she think I would hate her if she came clean? There's no way that would happen.
 I could never hate Yotsuba because of that.
 I could never hate Ichika, even after what happened in Kyoto.
 I could never hate Nino, even after all she tried to do to keep me away.
 I could never hate Itsuki, even after introducing me to this life.
 I could never hate any of them.\]
-He began to wonder if, under different circumstances, he could have fallen in love with Yotsuba. She was seemingly everything that Fuutarou looked for in a woman. Fuutarou could have really fallen for her...no, maybe, just maybe, there actually was a point where Fuutarou had feelings for her.
+He wonders whether he could have fallen in love with Yotsuba under different circumstances.
+She appeared to be everything Fuutarou wanted in a woman.
+Perhaps he truly could have loved her...or perhaps there was already a moment when he did.
 But…
-Fuutarou's memories become flooded with thoughts of her. Her smiles, her actions, her soft words. Everything that she had done not only for him but for herself, to improve as a person. From when he chased her, their new years, the play date, the first hot springs trip, the Kyoto trip, the aquarium, the pool, the Sunrise Festival…
-Fuutarou smiles as he remembers her. That girl...She was so stubborn, so hard to understand, so clumsy. She truly was an idiot. There truly was nothing special about her...but along the way, through her tenacity, her willingness to improve herself...She became special to Fuutarou. No matter what, in this act of selfishness, Fuutarou was ready.
+Memories of her flood Fuutarou's mind: her smiles, her actions and her gentle words.
+He remembers everything she did for him and for herself as she struggled to become a better person.
+He remembers chasing her, New Year's, their play date, the first hot springs trip, Kyoto, the aquarium, the pool and the Sunrise Festival...
+Fuutarou smiles.
+That girl was stubborn, difficult to understand and unbelievably clumsy. She truly was an idiot.
+There had once been nothing special about her.
+But through her tenacity and desire to improve, she became special to Fuutarou.
+Whatever happened next, he was ready to commit this selfish act.
 …
 …
 # show image bg ch08-yuzine-eien-street align 0 with fade
@@ -92,7 +131,11 @@ As soon as he sees her, Fuutarou's mind starts to jumble. Despite all the prepar
 As Miku recollected her posture, she began to get lost in her own thoughts.
 # show image bg ch08-yuzine-eien-street-rain align 0 with fade
 # sprite right miku thoughtful
-miku: \[Ah, what bad luck for it to be raining like this during our vacation. It's a good thing I took off my headphones in time, I hope they're fine, I already had one pair go because of water...Oh well, it doesn't matter too much. I hope we get to enjoy the hot springs when it comes to it. Haha, I can't wait to see everyone again...Has it really been a year? I can't wait to see how everyone is doing. Ichika, Nino, Yotsuba, Itsuki, Raiha, both my and her dad, grandpa and Fuutarou! I'll have to apologize for coming so late and making Ebata come pick me up like thi-kya!\]
+miku: \[What terrible luck, having this much rain during our vacation.\]
+miku: \[At least I removed my headphones in time. I hope they're all right; I already lost one pair to water.\]
+miku: \[I can't wait to see everyone again. Has it really been a year?\]
+miku: \[Ichika, Nino, Yotsuba, Itsuki, Raiha, our dads, Grandpa...and Fuutarou.\]
+miku: \[I'll have to apologize for arriving so late and making Ebata come pick me up like thi-kya!\]
 A cold feeling touches her cheek causing a chill to go through her body. Miku almost falls out of the bench. In her panic, she turns her head to see who could have snuck up behind her. As soon as she sees who it is, she yells
 miku: Fuutarou!
 Fuutarou greets her with a grin.
@@ -167,13 +210,19 @@ miku: Oh...I see. Ah! I'm sorry about the proposal, I...I didn't know.
 fuutarou: It's fine, there's no hard feelings.
 miku: That's good. Oh, Yotsuba...What could have happened? Were you being a good boyfriend, Fuutarou!? Maybe she got sick of you!
 fuutarou: Haha, I can't deny that first part. I really have no idea how to deal with love, even now.
-Miku has a slightly puzzled look, as she wonders if Fuutarou does regret it. She decides that it's best to try and cheer him up. With her best efforts, she tries to soothe him, even if she didn't know what words to use. Fuutarou starts smiling. Even after all this time, Miku still cares so much for him and her sisters. He looks back to the clearer sky.
+Miku looks puzzled, wondering whether Fuutarou truly regrets the breakup.
+She decides to cheer him up, doing her best to comfort him even though she does not know what to say.
+Fuutarou begins to smile. Even after all this time, Miku still cares deeply about him and her sisters.
+He looks back toward the clearing sky.
 fuutarou: \[Come on man, this is the chance. What are you waiting for? Just tell her, you can do it! All you need to say is...!\]
 Fuutarou shoots up, startling Miku. In a dramatic fashion, he opens the can and starts chugging down the whole thing. His back arches back as he finishes. Once Fuutarou finishes, he starts panting from the exertion of drinking it all.
 miku: A-Are you okay?
 fuutarou: This drink…
 miku: Huh?
-fuutarou: What an enigma! I don't understand it at all! It's far too complex of a taste to put into words. Ever since I started eating well, my palate has completely changed. It's too aromatic, with it's odd vegetal taste within all it's acids! At first taste, it truly is something I could never see myself liking...But, once the initial wave ends...I can taste the sweetness. Truly something that confuses me. It's not quite bittersweet, but at the end of the day, I think I like it. I...
+fuutarou: What an enigma! I don't understand it at all! The taste is far too complex to put into words.
+fuutarou: Ever since I started eating properly, my palate has completely changed. It is aromatic, but there is also an odd vegetal taste beneath all that acidity.
+fuutarou: At first, it tastes like something I could never enjoy...but once that initial wave passes, I can taste the sweetness.
+fuutarou: It isn't exactly bittersweet. It confuses me, but in the end, I think I like it. I...
 Miku, not expecting the full review of the drink, begins to giggle.
 # sprite right miku warm_laugh
 miku: When did you become such a food critic? I'm glad you ended up liking it though. Did you know that the creation of the modern soda was because of-
@@ -192,7 +241,10 @@ Fuutarou's body moved on its own, unable to handle its emotions. In his haste, h
 At the same time, the clock strikes 12.
 narrator: *DING DONG*
 fuutarou: When I was able to tell it was Miku that time…
-A girl in a white dress starts running. Fuutarou, who had stayed behind, was bragging to himself under the bell, having successfully identified Miku. Due to this, he didn't notice the girl who was running towards him until she was right in front of him. The girl, dressed as Itsuki, stands on her toes as she leans against Fuutarou.
+A girl in a white dress begins to run.
+Fuutarou remains beneath the bell, congratulating himself for having successfully identified Miku earlier that day.
+He is so distracted that he does not notice the girl racing toward him until she is already there.
+Still disguised as Itsuki, the girl rises onto her toes and leans into Fuutarou.
 narrator: *DING DONG*
 May the groom enter
 Fuutarou bows, as he walks toward the altar. He greets Maeda and Takeda before reaching it.
@@ -210,20 +262,29 @@ As Raiha alerted Fuutarou, the girl got up and started jogging away.
 fuutarou: \[Who was that!? Was that...was that Miku!? No, that couldn't have been her, she wouldn't do something like...that…It must have been one of the other girls\]"Yeah. I can't tell who that was after all…"
 As Fuutarou got up, he began to repress the feeling of the kiss. But, deep down, he already had an idea.
 narrator: *DING DONG*
-\{"We gather here to unite these two people in marriage. Their decision to marry has not been entered into lightly and today they publicly declare their private devotion to each other. The essence of this commitment is the acceptance of each other in entirety, as lover, companion, and friend. A good and balanced relationship is one in which neither person is overpowered nor absorbed by the other, one in which neither person is possessive of the other, one in which
+\{"We gather here to unite these two people in marriage.
+Their decision to marry has not been entered into lightly, and today they publicly declare their private devotion to each other.
+The essence of this commitment is the acceptance of each other in entirety, as lover, companion, and friend.
+A good and balanced relationship is one in which neither person is overpowered, absorbed by, or possessive of the other; one in which
 both give their love freely and without jealousy.
 Marriage, ideally, is a sharing of responsibilities, hopes, and dreams. It takes a special effort to grow together, survive hard times, and be loving and unselfish."\}
 narrator: *DING DONG*
 fuutarou: Are you okay?
 miku: Yeah, I'm fine…*gasp*
-Miku covers her face, making sure that Fuutarou can't see it. There, he sees a slight blush showing on her ears, the one part she couldn't cover. Fuutarou felt incredibly relieved. Could Miku still like him after so long? He had hurt her enough, and now, he was going to make sure he would never hurt her again. Thus, he repeated his words.
+Miku covers her face so Fuutarou cannot see her expression.
+He notices a faint blush on her ears, the one part she cannot hide.
+Relief floods through him. Could Miku still love him after all this time?
+He has hurt her enough. This time, he will make sure he never hurts her again.
+Fuutarou repeats his words.
 fuutarou: I love you.
 narrator: *DING DONG*
 The girl in the dress passes by Raiha as she wondered why she was crying. The girl in the dress went towards the trees to make sure she wouldn't run into the other sisters.
 narrator: *DING DONG*
 \[Was it Ichika? Was it Nino? They didn't seem to mind...It feels like Miku is ignoring me,though. But… It couldn't be her, right?\]
 narrator: *DING DONG*
-"Do you both pledge to share your lives openly with one another, and to speak the truth in love? Do you promise to honor and tenderly care for one another, cherish and encourage each other, stand together, through sorrows and joys, hardships and triumphs for all the days of your lives?'
+"Do you both pledge to share your lives openly and speak the truth in love?
+Do you promise to honor and care for each other, to cherish and encourage one another?
+Will you stand together through sorrow and joy, hardship and triumph, for all the days of your lives?"
 We do
 narrator: *DING DONG*
 yotsuba: You knew? Knew what?
@@ -262,7 +323,12 @@ yotsuba: What is it, Raiha?
 raiha: I don't know why, but Miku fell on top of brother, and when she got up, she was crying.
 yotsuba: Huh, Miku?
 Miku continued to cry.
-miku: I messed up, I messed up...Why did I think he could find me? Just because he did it once before? I'm such an idiot...I hate it! Stupid Miku, why did you have to do something like that? Now, my first kiss...I accidentally gave it to someone who doesn't love me...Why did I think he would see someone like me as special? I'm such an idiot!
+miku: I messed up...I really messed up.
+miku: Why did I think he would recognize me just because he managed it once before?
+miku: I'm such an idiot. Why did I have to do something like that?
+miku: Now I've given my first kiss to someone who doesn't love me...
+miku: Why did I think he would ever see someone like me as special?
+miku: I'm such an idiot!
 …
 …
 As Miku came back to Ebata's limousine. Ichika notices the marks under her eyes.
@@ -277,7 +343,11 @@ fuutarou: "Oh, come on, Raiha! Don't tease your big brother like that!
 narrator: *DING DONG*
 miku: Please. Stop this…
 Fuutarou stops talking.
-miku: If...if you're doing this because you broke up with her, please stop. On that day, I'm the one who told you about Yotsuba. I knew what could happen if I led you to her...I was prepared for the worst. This past year...I've tried my hardest to get over you...Please, I've tried keeping those feelings in check. If you just come and tell me that you l-love me...It hurts...It feels like my heart is being ripped in two...Please, Fuutarou..It can't take it…
+miku: If...if you're doing this because you broke up with her, please stop.
+miku: I was the one who told you about Yotsuba that day. I knew what might happen if I led you to her, and I prepared myself for the worst.
+miku: This past year, I've tried my hardest to get over you. Please...I've tried so hard to keep those feelings under control.
+miku: If you suddenly come here and tell me that you l-love me...it hurts.
+miku: It feels like my heart is being torn in two. Please, Fuutarou...I can't take it.
 Miku's eyes start to develop tears. Fuutarou notices immediately.
 # sprite right miku teary_smile
 \[You've done it again, you hurt her...But I can't stop...I…I refuse to hold back!\]
@@ -351,18 +421,52 @@ fuutarou: I guess...that was a little weird of me…I'm sorry for k-kissing you 
 miku: I-It's fine, It's not like I haven't done the same thing.
 fuutarou: ...I know all of this is me being selfish. I know you might reject me especially after what I've done...and it scares me. This feeling of hopelessness that I know I made you feel is eating at me. I'm nothing but a selfish hypocrite.
 Miku doesn't respond.
-fuutarou: Failure...is scary. I've tried so hard to be perfect with many things while also ignoring others, both of which came from my fear of failing. Love...was one such thing...Miku, you always tried your best to improve yourself. There were many points where you failed, despite trying with all your might. Because of that, you might have felt you weren't good enough, that the pressure from expectations would crush you...and yet, you never let it keep you down. You always saw a light at the end of the tunnel, you never stopped moving. Your failures were nothing more than rocks to step over on your path to success. To think that such a small, frail girl could be like that, while I would simply run away at points was...inspiring. There were points where I wanted to be like you. Your dreams, feelings, and your love for others were always present even through your hardest times. But...because of your love for both me and your sisters, your path was blocked off, and it resulted in me hurting you. So, I want to make things right!
-miku: ...I'm...flattered that you've seen me in such a way. But, your viewpoint of me is skewed. I was never great at showing my feelings, my true emotions...Anytime I tried something new, I felt scared, I felt a sense of dread. I never saw myself as someone on equal terms with my sisters. But, you changed me. It was because of you that I was able to change. You were always there for us when we were at our lowest points. Much of what I did wasn't my own strength.
+fuutarou: Failure...is frightening. My need to be perfect, and the things I chose to ignore, both came from my fear of failing.
+fuutarou: Love was one of those things.
+fuutarou: Miku, you always did your best to improve. You failed many times despite giving everything you had.
+fuutarou: You may have felt that you weren't good enough or that the weight of expectations would crush you...but you never let that stop you.
+fuutarou: You always found a light at the end of the tunnel and kept moving. Your failures became nothing more than stones to step over on your way forward.
+fuutarou: Watching someone as small and fragile as you keep trying while I ran away was...inspiring. There were times when I wanted to be like you.
+fuutarou: Your dreams, your feelings and your love for others survived even your hardest moments.
+fuutarou: But your love for your sisters and for me blocked your path, and I ended up hurting you.
+fuutarou: That's why I want to make things right!
+miku: ...I'm flattered that you see me that way. But your view of me is distorted.
+miku: I was never good at showing my true feelings. Whenever I tried something new, I felt fear and dread.
+miku: I never saw myself as an equal to my sisters.
+miku: But you changed me. I was able to change because you were there for us at our lowest points.
+miku: Much of what I accomplished wasn't through my strength alone.
 fuutarou: What's wrong with that?
 miku: Huh?
-fuutarou: What's wrong with depending on others? There's nothing wrong with relying on others in your time of need. When I started teaching the five of you...I wanted to give up. My fear of failure came as soon as it could. But it was you that helped me change my mind. Even if you say you were scared, it doesn't change the fact that you still tried with all your heart. That courage and passion, it made me believe...I was an idiot to my feelings...Even since that day happened.
+fuutarou: What's wrong with depending on others? There is nothing wrong with relying on someone when you need them.
+fuutarou: When I started teaching the five of you, I wanted to give up. My fear of failure appeared immediately.
+fuutarou: But you changed my mind. Being afraid does not change the fact that you still tried with all your heart.
+fuutarou: Your courage and passion made me believe. I was an idiot about my feelings...even after what happened that day.
 miku: That day?
 fuutarou: I figured out how you felt about me on the last day of our last hot springs trip. I probably realized my own feelings then too. Those feelings did their best to be reinforced when you kissed me under the bell.
 Miku jumped a little. She had thought he wasn't able to tell her apart the whole time.
-fuutarou: I always wondered why you would do something so bold...But when remembering the time you tackled me, the reason became clear. You wanted me to find you...But, you were too hasty, huh? During that time, I couldn't believe you'd do something like that. The very thing that helped me find you earlier that day became the very reason I was blinded. I developed a fear of my feelings...I became stuck in a nightmare of my own doing. I always knew you were the girl who kissed me, but I didn't want it to be you. I didn't want to disappoint you, I didn't think I was good enough to accept your love. I was fearful of how I would handle such a relationship...and Yotsuba took the full brunt of that. She didn't deserve the horrible relationship I had with her...she just wanted the two of us to be happy, and it resulted in her getting hurt. But...seeing her do something like break up with me, I was a little glad that she grew and changed enough to do such a thing. All of you have changed so much. In turn, the five of you changed me, into the selfish man I am today. The days we shared together, from our joy, our sadness or our anger helped develop the love I had for you five, my irreplaceable friends. I can tell all five of you apart, but when I see you, I feel something different...something special. I was, and still am nothing but an idiot. But, at this moment, I shall put my true feelings forward. Miku Nakano, I love you!
+fuutarou: I always wondered why you would do something so bold. But when I remembered the time you tackled me, the reason became clear.
+fuutarou: You wanted me to find you...although you were a little too hasty, weren't you?
+fuutarou: I couldn't believe you would do something like that. The very thing that helped me recognize you earlier that day became the reason I was blinded.
+fuutarou: I became afraid of my feelings and trapped myself in a nightmare of my own making.
+…
+fuutarou: I always knew you were the girl who kissed me.
+fuutarou: But I didn't want it to be you.
+fuutarou: I didn't want to disappoint you. I didn't believe I was worthy of accepting your love, and I was terrified of how I would handle a relationship with you.
+fuutarou: Yotsuba suffered because of that fear. She didn't deserve the terrible relationship I gave her; she only wanted the two of us to be happy.
+fuutarou: But when she found the strength to break up with me, part of me was glad. She had grown enough to make that choice for herself.
+…
+fuutarou: All five of you have changed so much. In turn, you changed me into the selfish man standing here today.
+fuutarou: The joy, sadness and anger we shared made me love all five of you as my irreplaceable friends.
+fuutarou: I can tell all five of you apart.
+fuutarou: But when I look at you, I feel something different...something special.
+fuutarou: I was an idiot, and I still am. But this time, I will finally say what I truly feel.
+fuutarou: Miku Nakano...I love you!
 Miku's already intense blush only got worse as he finished.
 fuutarou: These are my feelings...my feelings which will never change! All I want...is to know what yours are.
-Miku began to recall everything that she'd been through with Fuutarou. She had tried to lock her feelings away...It had been way too late, she thought. Now, Fuutarou was trying to reach into her heart to retrieve those emotions she had given up, and he was ready to keep trying. The very same tenacity and unwillingness to give up that made her fall in love in the first place was making her fall in love all over again. Fuutarou really was the worst guy...If there truly are no hard feelings, if she can honestly be selfish, then...
+Miku recalls everything she has been through with Fuutarou. She tried to lock her feelings away because she believed it was already too late.
+Now Fuutarou is reaching into her heart to recover the emotions she abandoned, and he is prepared to keep trying.
+The same tenacity that made her fall in love with him the first time is making her fall in love all over again.
+Fuutarou really is the worst...but if there are truly no hard feelings, and if she can finally allow herself to be selfish, then...
 miku: You idiot…
 fuutarou: hmm?
 narrator: *DING DONG*
@@ -395,7 +499,9 @@ Though the sun had come out, it was still raining. So, Fuutarou got the umbrella
 miku: So you had that the whole time?
 # sprite hide all
 # show image bg onsen-cg-029-fuutarou-miku-umbrella-walk align 0 with fade
-Fuutarou nervously laughs. Miku notices that he is giving her more of the umbrella than him, causing his shoulder to get rain. She pushes up against him and puts her hand over his that's holding the umbrella. Fuutarou is startled, but he accepts it pretty quickly. As they walk towards the motorcycle, the rain stops. Fuutarou tries to put the umbrella down but Miku places it back up.
+Fuutarou laughs nervously. Miku notices that he is giving her most of the umbrella and leaving his own shoulder exposed to the rain.
+She presses against his side and places her hand over the one holding the umbrella. Fuutarou is startled, but quickly accepts her closeness.
+The rain stops as they walk toward the motorcycle. Fuutarou tries to lower the umbrella, but Miku raises it again.
 miku: It's fine, I like it like this...I don't want to let you go anymore.
 Fuutarou simply smiles.
 # show image bg ch08-yuzine-eien-street align 0 with fade

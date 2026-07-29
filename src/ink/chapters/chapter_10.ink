@@ -114,14 +114,33 @@ Takeda went into Tsubaki's arms in his state of sadness. The sisters couldn't he
 Before we see the bride and groom on their way to their honeymoon. The newly wedded will now convey a message of gratitude to her family.
 # sprite hide all
 # show image bg wedding-cg-035-miku-thanks-her-sisters align 0 with fade
-miku: To my dad. Thank you for looking after me. I'm glad you became our dad. To my mom and grandpa in heaven, without you, I wouldn't have been able to become the woman I am now. Even though you aren't here with us anymore, I'll always hold you dear to my heart. Ichika. Thank you for being the sister we could all rely on. We may have had our rivalries, but I always looked up to you so much. Nino. Thank you for being the sister who would always take charge when the going got rough. We may have argued and bickered a lot, but you never stopped being there when I needed a shoulder to cry on. Yotsuba. Thank you for being the sister that always gave energy to the mood around us. There were some...complications here and there, but you always helped me from the goodness of your heart. Itsuki. Thank you for being the sister that always tried to keep us on the right path. I'm sure there were plenty of times you were stumped on how we could move forward, but your willingness to always work hard inspired me so much. For a long time, I believed that I was lesser than my sisters in every way. But, we're just different. We all have our pros and cons, we help each other in things the other can't solve on their own. We may drift apart in our daily lives, but we'll always be five parts of something big. Thank you for loving me, I'm so glad you were my sisters.
+miku: To my dad...thank you for looking after me. I'm glad you became our father.
+miku: To my mother and Grandpa in heaven...without you, I could never have become the woman I am today.
+miku: Even though you are no longer here, I will always hold you close to my heart.
+miku: Ichika, thank you for being the sister we could always rely on.
+miku: We may have been rivals, but I have always looked up to you.
+miku: Nino, thank you for taking charge whenever things became difficult.
+miku: We argued often, but you never stopped offering me a shoulder when I needed to cry.
+miku: Yotsuba, thank you for bringing energy and joy wherever you went.
+miku: We had our...complications, but you always helped me out of the goodness of your heart.
+miku: Itsuki, thank you for always trying to guide us toward the right path.
+miku: Even when you did not know how we could move forward, your determination to keep trying inspired me.
+miku: For a long time, I believed I was inferior to my sisters in every way.
+miku: But we are simply different. Each of us has strengths and weaknesses, and we help one another with the things we cannot overcome alone.
+miku: Our daily lives may pull us apart, but we will always be five parts of something greater.
+miku: Thank you for loving me.
+miku: I'm so glad you were my sisters.
 …
 …
 # show image bg ch10-sutekina-church-exterior-courtyard-dusk align 0 with fade
 Soon, the bride and groom shall exit.
-The guests were waiting for the final part of the ceremony outside of the church. Takeda and Maeda were talking with each other, while Isanari kept tricking Maruo to drink more than he had planned. Shimoda and Ebata knew they should probably stop him, but they wanted to see a drunk Maruo they hadn't seen since their university days.
+The guests wait outside the church for the final part of the ceremony.
+Takeda and Maeda talk nearby while Isanari tricks Maruo into drinking more than he planned.
+Shimoda and Ebata know they should probably intervene, but neither wants to miss seeing the drunken Maruo they remember from university.
 yotsuba: The ceremonies ending soon, huh? After their honeymoon, we won't see them again for another year…
-nino: Yep. While Fuu-kun was able to take his classes in such a way that he'll graduate in just a few months, Miku still has a full year. Soon, she'll begin her final phase of Stagiaires. This time, she'll be coming to my restaurant. Haha! When I brought the idea of having her be a maid, Fuu-kun got jealous. That guy gets weirdly passionate sometimes.
+nino: Yep. Fuu-kun arranged his classes so that he'll graduate in only a few months, but Miku still has a full year left.
+nino: Soon she'll begin the final stage of her training at my restaurant.
+nino: I suggested putting her in a maid outfit, and Fuu-kun became jealous. That guy gets strangely passionate sometimes.
 ichika: After Fuutarou-kun graduates, he's supposedly going to start living with her before moving back here once she graduates.
 itsuki: Yeah. Our Father-in-Law is seemingly doing something big for them. He says he's already begun remodeling.
 yotsuba: I wonder what it is.
@@ -149,7 +168,13 @@ itsuki: I wonder what's inside.
 yotsuba: Only one way to find out!
 Yotsuba opened hers and Ichika's first. She pulled the letter out. She could feel something was inside, but she decided to read the letter first.
 Dear Yotsuba and Ichika,
-I don't really know what to put in this letter, but I'll try my best. Miku and I wondered on how to thank you guys for what you guys did for us. Nino and Itsuki were easy to do, however, there was a lot of confusion for you guys. Eventually, we came up with the answer. You guys might freak out, but don't fret! My dad agreed to this. Think of this as my personal thank you to the two girls that helped me change into the person I am today, from that fateful day in Kyoto. Besides, didn't you say you wanted to be a bride, Yotsuba? You can save it until your time comes.
+I don't really know what to write in this letter, but I'll do my best.
+Miku and I spent a long time wondering how to thank you for everything you did for us.
+Nino and Itsuki were easy. Finding an answer for the two of you was much harder.
+You may be shocked, but don't worry. My father agreed to this.
+Think of it as my personal thanks to the two girls who helped me become who I am, beginning with that fateful day in Kyoto.
+Besides, didn't you say you wanted to be a bride, Yotsuba?
+You can keep these until your own time comes.
 From,
 Miku and Fuutarou
 yotsuba: That's weird, what could it be?
@@ -177,7 +202,14 @@ nino: Geh! Fine! But if it's something too big, I'm throwing it back at them.
 Nino opens her envelope and reaches in. She pulls out a bracelet.
 nino: This is…!
 Dear Nino,
-This will be a weird letter. From the day I met you, you really tried to get in my way of teaching you girls. I got so scared of you, it culminated in me using my very own disguise. But now, you've become one of my best friends. The bracelet was originally made by Raiha to give me a piece of mind. I even wore it today thanks to how nervous I was. However, a lot of memories I have with it include you. Thank you, Nino. You helped change me so much. I hope we're friends forever.
+This is going to be a strange letter.
+From the day we met, you did everything possible to stop me from teaching you.
+I became so afraid of you that I even created my own disguise.
+Now, however, you have become one of my best friends.
+Raiha originally made this bracelet to put my mind at ease. I even wore it today because I was so nervous.
+But many of the memories attached to it also belong to you.
+Thank you, Nino. You helped me change more than you know.
+I hope we remain friends forever.
 From,
 Fuutarou and Kintarou
 nino: ...That idiot.
@@ -189,7 +221,14 @@ She reaches into her envelope. Once she grabs the object, she sees what it is.
 itsuki: No way…
 Itsuki was holding the charm that he had given Fuutarou. The letter read…
 Dear Itsuki,
-This was such a pain to find. There were many times where I thought I would never find it again. Thanks to Yuusuke and Maeda, we were able to find it a week before graduation. I had planned to give you this during the last hot spring trip, but I forgot. I never looked inside...I didn't think I was good enough even after graduation. Now, during these times, I realized I didn't need to look inside it anyway. I already believe in myself thanks to the five of you. Thank you for everything, Itsuki. Thank you for helping me, Rena.
+This was incredibly difficult to find. Many times, I thought I would never see it again.
+Thanks to Yuusuke and Maeda, we found it one week before graduation.
+I planned to return it during our last hot springs trip, but I forgot.
+I never looked inside. Even after graduation, I didn't believe I was good enough.
+Now I understand that I never needed to see what was inside.
+Thanks to the five of you, I already believe in myself.
+Thank you for everything, Itsuki.
+Thank you for helping me, Rena.
 From, Fuutarou
 Itsuki simply smiled.
 # sprite hide all
@@ -199,7 +238,11 @@ Miku! Fuutarou! Congratulations on your marriage!
 …
 …
 # show image bg ch10-wedding-limousine-interior-eien-street-evening align 0 with fade
-The limousine soon went through Eien Street. As they passed the very place Fuutarou confessed, Miku attempted to tease him but was countered with Fuutarou kissing her. Knowing two could play at that game, she kissed him back. This back and forth kept going as the limousine drove to where they would plan their honeymoon...
+The limousine soon passes through Eien Street.
+As they approach the place where Fuutarou confessed, Miku tries to tease him.
+Fuutarou answers by kissing her.
+Knowing that two can play that game, Miku kisses him back.
+Their affectionate battle continues as the limousine carries them toward their honeymoon...
 Chapter 10 End
 
 * Continuar al capitulo 11

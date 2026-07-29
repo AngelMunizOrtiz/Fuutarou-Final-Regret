@@ -162,7 +162,10 @@ aoi_isanari: Please come to our store!
 ...
 # sprite hide all
 # show image bg ch07-aoi-isanari-bakery-interior-struggling align 0 with fade
-isanari: Damn it, DAMN IT! We won't be able to make it this month either...No, I just need to take out more loans! I will have her dream flourish! I can do it! I'll make sure Fuutarou and Raiha have great lives, no matter what! Aoi needs me more than ever right now, I will...I will help her succe-
+isanari: Damn it...DAMN IT! We won't make it through this month either.
+isanari: No. I just need to take out more loans. I will make her dream flourish!
+isanari: I can do this. I'll make sure Fuutarou and Raiha have wonderful lives, no matter what it takes!
+isanari: Aoi needs me more than ever. I will...I will help her succe-
 …
 …
 # sprite hide all
@@ -187,7 +190,15 @@ aoi: Isanari…
 Isanari quiets down. It's rare, but there are times when Aoi gets really serious. In those moments, Isanari makes sure to listen.
 aoi: I'm so grateful for everything you've done for me...I never thought that the delinquent that confessed to me on that day would be with me for the rest of my life...I want to say that even with our grievances, that I have no regrets, but...I'd be lying if I said that…
 Aoi starts to cry.
-aoi: I don't like that I might not see Fuutarou and Raiha grow up. Passing Elementary and middle school...Graduating High School...Graduating College. I don't like that I won't be able to give them advice, even if I'm not the best role model...I don't like that I won't be there to give them a shoulder to cry on when they're feeling sad...I don't like that I won't see that cheerful Raiha brighten up everyone's day with her smile...I don't like that I won't see Fuutarou grow into a dependable man...I don't like that I won't give them love tips...I hate that I won't be able to see them get married. I hate it.
+aoi: I don't want to miss Fuutarou and Raiha growing up.
+aoi: Elementary school, middle school, high school, college...I want to see every step.
+aoi: I want to give them advice, even if I'm not the best role model.
+aoi: I want to be there when they're sad and need a shoulder to cry on.
+aoi: I want to see cheerful little Raiha brighten everyone's day with her smile.
+aoi: I want to see Fuutarou grow into a dependable man.
+aoi: I even want to give them terrible love advice.
+aoi: I want to see them get married...
+aoi: I hate that I won't be there. I hate it.
 isanari: Aoi...Aoi! Everything will be alright...I swear everything will be-
 # sprite hide all
 …

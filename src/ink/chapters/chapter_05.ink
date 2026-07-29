@@ -100,7 +100,9 @@ ichika: Oh, are you trying to flatter your big sister~?
 fuutarou: In a way, I guess. I mean, you are the "Ace" of the family after all.
 # sprite hide all
 # show image bg onsen-cg-009-ichika-head-pat align 0 with fade
-Ichika's eyes widened, as she looked up at Fuutarou, he had a grin reminiscent of the one Ichika would often give Fuutarou. Ichika simply laughed once she realized what Fuutarou was doing. Once she stopped, she walked towards Fuutarou and patted him on the head. Surprised, Fuutarou took a step back.
+Ichika's eyes widen when she looks up at Fuutarou. He is wearing the same kind of grin she so often gives him.
+Once Ichika realizes what he is doing, she begins to laugh.
+When her laughter settles, she walks over and pats Fuutarou on the head. Surprised, he takes a step back.
 ichika: Hehe, What's wrong? It's natural for the big sister to worry.
 fuutarou: That part of you will never change, huh?
 # show image bg ch02-onsen-quintuplets-tatami-room align 0 with fade
@@ -127,7 +129,10 @@ fuutarou: I'll keep it in mind!
 # show image bg ch02-onsen-reception-staircase align 0 with fade
 After more looking, Fuutarou notices one of the Renas standing in the middle of the check-in hall. As Fuutarou gets closer, she turns around.
 rena_3: Good job finding me, Uesugi Fuutarou-kun. Tell me, can you tell who I am?
-fuutarou: \[This feeling, it's calm, but childish, yet mature. Her easy-going expression that clearly wants to take care of you..It's clear who this is.\] "Heh, of course I can. If you think I can't recognize the whole reason I got into this mess to begin with, you're mistaken! You're Itsuki!"
+fuutarou: \[This feeling is calm and childish, yet somehow mature.\]
+fuutarou: \[That easy-going expression clearly belongs to someone who wants to take care of everyone. I know exactly who this is.\]
+fuutarou: Heh, of course I can. If you think I wouldn't recognize the reason I got dragged into this mess, you're mistaken!
+fuutarou: You're Itsuki!
 rena_3: Eh?
 fuutarou: Hmm, what is it?
 rena_3: Fuutarou, I'm Miku…
@@ -149,7 +154,10 @@ itsuki: Eek!
 As Itsuki stepped back, Fuutarou calmed down.
 # sprite hide all
 # show image bg onsen-cg-010-itsuki-grateful-smile align 0 with fade
-fuutarou: Even though you guys have put me in this hell, I can't help but feel thankful. I was your tutor, but I learned far more from you guys than I could ever teach you. I don't take pride in many things, but you guys are the greatest people I could have met. So...Thank you, Itsuki.
+fuutarou: Even though you girls put me through hell, I can't help but feel grateful.
+fuutarou: I was your tutor, but I learned far more from you than I could ever teach.
+fuutarou: I don't take pride in many things, but meeting the five of you is one of them.
+fuutarou: So...thank you, Itsuki.
 itsuki: Hehe, You're welcome, Uesugi-kun!
 Fuutarou leaves with a smile.
 # show image bg ch02-onsen-reception-staircase align 0 with fade
@@ -162,7 +170,11 @@ Fuutarou's stamina finally runs out, making him walk in his quest for the final 
 fuutarou: There you are, the final Rena.
 He looks up to see the fourth and final Rena.
 rena_4: Good to see you again, Uesugi Fuutarou-kun. I assume you're familiar with the process now?
-fuutarou: Yeeep, let's get this over with."\[This feeling...It's childish, caring, and optimistic. But underneath, there's a feeling that doesn't sit right. It's not like Miku's self-image issues, nor like Ichika's regret, it's something else, and I know it has to do with me\] "Ichika slipped up, so I demand an explanation. What's the point of this, Yotsuba!?
+fuutarou: Yeeep, let's get this over with.
+fuutarou: \[This feeling is childish, caring and optimistic.\]
+fuutarou: \[But something beneath it doesn't sit right. It isn't Miku's insecurity or Ichika's regret.\]
+fuutarou: \[It is something else...and I know it has to do with me.\]
+fuutarou: Ichika slipped up, so I demand an explanation. What's the point of this, Yotsuba!?
 # sprite hide all
 # show image bg onsen-cg-011-yotsuba-final-rena-reveal align 0 with fade
 yotsuba: Ahaha, you did it, huh? Tell me, Uesugi-san, do you doubt your ability to find us now? Do you think you can tell Grandpa you're able to tell us apart?

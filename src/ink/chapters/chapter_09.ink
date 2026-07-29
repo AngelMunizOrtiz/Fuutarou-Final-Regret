@@ -8,13 +8,26 @@ narrator: Chapter 9: 5-Star Proposal, a quintessential quintuplets fanfic
 19 months after the hot springs trip
 …
 …
-Fuutarou is riding around on his rented motorcycle. Thanks to Mr. Adachi having settled down with his wife, he let Fuutarou use his ride with no consequence. While he felt grateful, Fuutarou had created a rental system with him. Thanks to this, whenever he came back to visit during vacations, he could simply use that. Today, he was using it with a big purpose...As part of his project with Takeda, he was required to be a "Student-teacher" for a couple of days at some point during his career. While normally, Fuutarou would have done such a project as soon as possible, a certain someone also had to do something similar as part of a series of Stagiaire projects. Thanks to that, Fuutarou made sure to have his schedule match up perfectly. Now, he was on his way to pick her up. However, for one reason or another, he was especially nervous.
+Fuutarou rides through town on Mr. Adachi's motorcycle.
+Now that Mr. Adachi has settled down with his wife, he and Fuutarou have arranged a simple rental system for every visit home.
+Today, however, Fuutarou needs the motorcycle for something important.
+His university project with Takeda requires him to work as a student teacher for several days.
+Normally, Fuutarou would have completed the assignment as early as possible.
+This time, he waited until a certain someone began a similar stage of her culinary training.
+He carefully matched their schedules and is now on his way to pick her up.
+For one reason or another, he is especially nervous.
 fuutarou: Can I really do this? No, no doubting yourself, Fuutarou! You just have to make sure not to mess it up this time.
 Fuutarou took a deep breath, he had made it to his destination.
 fuutarou: 'Well, at least I knew where she was going this time."
-After a few minutes, Fuutarou noticed the long-haired girl. He waved to her. The girl notices Fuutarou and smiled at him. Fuutarou blushed at seeing her beautiful face, no longer obstructed by hair. He becomes so entranced that he doesn't notice go to him. Before long, Fuutarou notices that she's much closer than before. Once she gets close enough, she jumps into his arms to his surprise.
+After a few minutes, Fuutarou spots the long-haired girl and waves.
+Miku notices him and smiles. Her beautiful face is no longer hidden behind her hair, and the sight makes Fuutarou blush.
+He becomes so entranced that he fails to notice her approaching.
+By the time he realizes how close she is, Miku is already leaping into his arms.
 miku: Fuutarou!
-The sudden hug almost causes both of them to fall over, but Fuutarou stands his ground. Once he had made sure they wouldn't fall, he hugged her back. It was their first time in 7 months that they had seen each other face to face. But, they were never strangers, having kept in touch pretty much every day.
+The sudden hug nearly knocks them over, but Fuutarou manages to keep them upright.
+Once he is sure they will not fall, he hugs her back.
+It is the first time they have seen each other face to face in seven months.
+Even so, they were never strangers; they had spoken almost every day.
 miku: I missed you!
 They both stand there for a little bit. Miku looks up at Fuutarou. He knew what this meant.
 fuutarou: M-Miku, I know you want one, but should we really do it in public like this?
@@ -27,7 +40,12 @@ Miku smiles. Even though she was embarrassed as well, she loved these moments to
 …
 …
 # show image bg ch09-date-restaurant-interior-late-morning align 0 with fade
-narrator: Before getting to the place they'd be working together, they decide to get something to eat. Ever since that first date, Fuutarou had been adamant about paying for everything. Miku felt bad that she couldn't contribute, but she knew what he was doing was out of love. In exchange, she would send him different materials needed for his university projects. If Fuutarou ever protested, she would say \{Miku:You can make it up to me on our next date! Just be warned, I may order the whole menu, teehee!\}
+narrator: Before going to work, they decide to get something to eat.
+narrator: Ever since their first date, Fuutarou has insisted on paying for everything.
+narrator: Miku feels guilty that she cannot contribute, but understands that this is one of the ways he expresses his love.
+narrator: In return, she sends him materials for his university projects.
+narrator: Whenever Fuutarou protests, Miku always gives him the same answer.
+miku: You can make it up to me on our next date! Just be warned, I may order the entire menu. Teehee!
 miku: Delicious!
 fuutarou: It's food like this that makes me glad I can taste again.
 miku: How'd you know of this place? It seems new.
@@ -37,7 +55,10 @@ miku: Haha, is my neck that interesting?
 fuutarou: Well, it's just...I asked you this before, but are you sure you don't want a new pair of headphones?
 miku: Hmm? Yeah, my old pair work just fine. Even then, while I still listen to music, I don't do it nearly as much as before...well, not like I did it too much to begin with.
 Miku gives a look towards Fuutarou. Her gentle smile continues to surprise him.
-miku: I started wearing them during middle school...Yotsuba started wearing a ribbon in hopes of being special. After our mother's death, I began to think that I should do the same. Even if I wasn't the most social, definitely not on Yotsuba's level, but perhaps I felt the need to be seen as different from my sisters. The question is, did I do it to be special or to not be seen on the same level as them?
+miku: I started wearing them in middle school. Yotsuba had begun wearing a ribbon because she wanted to be special.
+miku: After our mother's death, I thought that perhaps I should do something similar.
+miku: I wasn't very social, certainly not like Yotsuba. Maybe I simply wanted people to see me as different from my sisters.
+miku: But did I want to feel special...or did I just not want to be compared to them?
 Fuutarou grabs his head.
 miku: But...none of that matters anymore.
 Miku puts her head on the back of her hands, looking up at Fuutarou.
@@ -107,10 +128,17 @@ miku: Really?
 fuutarou: Yeah, this is the place where I began to learn about you…
 miku: Haha, this is the place where I had my first real conversation with you…
 miku_fuutarou: I thought you were such a horrible person!
-Fuutarou and Miku start laughing as soon as they finish. Miku sits down on a bench and invites Fuutarou. Fuutarou stares at the seat. He wonders if he'll really be able to do it for a bit, but he recovers his confidence. This is the time! He sits next to her as they see the sun begin to set.
+Fuutarou and Miku begin laughing the moment they finish speaking.
+Miku sits on the bench and invites him to join her.
+Fuutarou stares at the empty seat, wondering whether he will really be able to go through with his plan.
+He gathers his courage. This is the moment.
+Fuutarou sits beside Miku as the sun begins to set.
 fuutarou: The sunset sure is pretty.
 miku: Yeah.
-fuutarou: ...You know...Being back here got me thinking about the two years we spent together...Having you find your goals, your dreams, and your feelings...While I did some dumb things, I will never regret my school life with you. Though, that got me thinking...We never danced, have we?
+fuutarou: Being back here made me think about the two years we spent together.
+fuutarou: I watched you discover your goals, your dreams and your feelings.
+fuutarou: I did some stupid things, but I will never regret the school life I shared with you.
+fuutarou: And that made me realize something...we never danced, did we?
 miku: Huh?
 fuutarou: Well, you know...During both our school trip and the Sunrise Festival, there were great opportunities to dance. But, I got sick during the trip and...well, there wasn't a good time during the festival...So, I want to make it up to you.
 miku: Make it up to me? You don't really need to do that. Not to mention, we don't have a bonfire
@@ -137,16 +165,29 @@ miku: You did great, all things considered.
 fuutarou: Not as good as you...I'm glad you could finally use your skills.
 miku: As long as it's with you, I'll have fun doing anything.
 fuutarou: ...That's good.
-The two continue to dance as the sun was setting on the two of them. With time, their movements became more in sync. Fuutarou couldn't help but look at Miku's eyes. The previously lifeless eyes that she had felt like a distant dream. Now, they were as bright and full of life as they could be. Once the sun fully set and the stars began to show...He knew it was time, this was Fuutarou's biggest shot.
+They continue dancing as the sun sinks behind them.
+With every step, their movements become more synchronized.
+Fuutarou cannot look away from Miku's eyes. The lifeless gaze she once carried now feels like a distant dream.
+Her eyes are brighter and fuller of life than ever before.
+When the sun disappears and the first stars emerge, Fuutarou knows it is time.
 # show image bg ch09-asahiyama-rooftop-sunset align 0 with fade
-fuutarou: These times I've spent with you have become the happiest moments of my life. From my student, to my friend, to the one I love...I can't believe I've changed into someone like this. But I don't regret it, I never will. I love seeing you, I love talking with you, I love being with you. I love it all.
+fuutarou: The time I spend with you has become the happiest part of my life.
+fuutarou: You went from my student, to my friend, to the person I love.
+fuutarou: I can hardly believe I became someone capable of feeling this way, but I will never regret it.
+fuutarou: I love seeing you. I love talking to you. I love being with you.
+fuutarou: I love all of it.
 Fuutarou starts to distance himself a little from Miku, signaling the end of the dance.
 fuutarou: ...and I want it to last forever.
 miku: Huh, what do you…?
 fuutarou: Will you marry me?
 …
 …
-Miku simply stands there for a moment, unable to process it. She tries to respond with a quip, a joke, anything, but she can't. Her stoic face slowly begins to change. Her eyes narrow just a bit as tears begin to flow. She shakes her head in an attempt to not let her feelings overflow. She begins to shake as she bites her lip. Small sounds come out, unable to fully hold them back, she looks up slightly...After a small gulp, she calms down. She gives a faint smile.
+Miku stands perfectly still, unable to process the question.
+She tries to answer with a quip, a joke...anything. No words come.
+Her composed expression slowly begins to break. Her eyes narrow as the first tears fall.
+Miku shakes her head, trying to keep her emotions from overflowing, but her body begins to tremble.
+She bites her lip and lets out a few quiet, broken sounds.
+After one small breath, she looks up and manages a faint smile.
 # sprite hide all
 # show image bg onsen-cg-031-miku-accepts-rooftop-proposal align 0 with fade
 Fuutarou, waiting for an answer, begins to shake as well. Before he can say anything, Miku borderline tackles him, causing them both to fall over.
@@ -164,7 +205,11 @@ Once they separate, both of them can't help but grin through their tears.
 miku: You did promise a longer one earlier.
 fuutarou: Always outside. Honestly, have you no shame? Although, I wouldn't mind another one.
 Miku got up to help him get back up.
-miku: You've helped change me. Studying, cooking, friendships, love...You've always been there. I was able to gain my courage thanks to you, my awkward tutor. Our relationship has changed a lot, but my feelings for you will never change. I trust you and believe in you. But, I ask that if you ever feel like you can't do something alone, I hope you'll believe in me as well.
+miku: You helped me change. Studying, cooking, friendship, love...you were always there.
+miku: I found my courage because of you, my awkward tutor.
+miku: Our relationship has changed many times, but my feelings for you never will.
+miku: I trust you and believe in you.
+miku: If you ever feel that you cannot do something alone, I hope you will believe in me as well.
 fuutarou: I wouldn't have it any other way.
 miku: \[Fuutarou is no longer my teacher and I'm no longer his student. That won't change. But everything else changed. Thank you for finding me...Thank you for loving me.\]
 Miku and Fuutarou began to leave the rooftop, hand in hand.

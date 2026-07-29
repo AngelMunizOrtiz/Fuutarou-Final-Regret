@@ -10,7 +10,9 @@ fuutarou: You're really putting me on the spot here.
 yotsuba: I'm sorry, but I need to know.
 fuutarou: Why's that, is there anything wrong with our relationship?
 Yotsuba puts her hand on her chin, thinking.
-yotsuba: I've never been in a relationship before, I always just thought that the confession was good enough, even if they don't go on many dates, as long as the two love each other, it should be fine...But, I think that only works when the two people in a relationship love each other mutually.
+yotsuba: I've never been in a relationship before. I always thought the confession alone would be enough.
+yotsuba: Even without many dates, everything should be fine as long as both people love each other.
+yotsuba: But I think that only works when the love is truly mutual.
 # sprite hide all
 # show image bg onsen-cg-012-fuutarou-approaches-yotsuba align 0 with fade
 Fuutarou starts to walk up the stairs, but Yotsuba keeps her distance.
@@ -19,7 +21,10 @@ yotsuba: So, I'll ask once again, why did you pick me that day?
 Fuutarou remembers that day of the festival. The words continue to ring in his head.
 Hey, F-, I believe that Yotsuba needs your help…
 My help…?
-"I'm sure you've noticed it, but ever since middle school, Yotsuba has had this feeling around her...She's helped me out so much, even when I can tell it's been eating at her...I want to help her back, but she'll most likely deny anything I say...so, please….F-, help her. Yotsuba is -
+"I'm sure you've noticed it, but Yotsuba has carried something painful with her since middle school.
+She's helped me so much, even when I could tell it was eating away at her.
+I want to help her in return, but she will probably deny anything I say.
+So, please...F-, help her. Yotsuba is -
 \[What could she have meant by that? She even told me the room that Yotsuba is staying at...Is she telling me to pick her? ….That must be it...If what she said is true…then Yotsuba must be…\]
 fuutarou: Kept you waiting, huh?
 ….
@@ -65,7 +70,12 @@ yotsuba: You know...the whole "you can find us with love" thing also works the o
 Yotsuba grabs her skirt.
 yotsuba: Miku warned me...she let me know that I needed to strengthen our relationship...But I was scared...Of course I wanted to go on more dates. Of course I wanted to kiss you...I wanted to be with you forever!
 fuutarou: Yotsuba…
-yotsuba: I didn't want to admit it, I was so happy when you confessed...when you proposed...For the first time, I thought...if it was alright for me to be happier than my sisters...I was running away the whole time. Miku has always believed in you to do the right thing, but there are times when even you need someone to push you forward. I wanted all of us to live without any regrets, for my sisters to look to the future with a smile...but you had the biggest regret of us all, didn't you?
+yotsuba: I didn't want to admit it. I was so happy when you confessed...when you proposed.
+yotsuba: For the first time, I wondered whether it was all right for me to be happier than my sisters.
+yotsuba: But I was running away the whole time.
+yotsuba: Miku has always trusted you to do the right thing, but sometimes even you need someone to push you forward.
+yotsuba: I wanted all of us to live without regrets. I wanted my sisters to look toward the future with a smile.
+yotsuba: But you were carrying the greatest regret of us all, weren't you?
 Fuutarou looks down again, he wanted to stop Yotsuba, he wanted to tell her that it didn't need to be like this, he wanted to tell her he loved her.
 But he couldn't.
 Fuutarou's body refused to move, his mouth felt snapped shut...He couldn't stop Yotsuba.
@@ -98,7 +108,10 @@ yotsuba: They never saw me as anything less...They always saw me as equal to the
 Yotsuba turns towards Fuutarou.
 yotsuba: This applies to you too...Right now, you're not the Uesugi-san I fell in love with...You're nothing but a shell!
 fuutarou: ...
-yotsuba: The Uesugi-san that I like...The Fuutarou-kun that I love...He is his own person. He's stubborn, selfish, and acts like a bad person. But underneath, he's caring, selfless, and is actually a really great person! So, I ask this of you, please follow your heart, and go after the one you really love!
+yotsuba: The Uesugi-san I like...the Fuutarou-kun I love...is his own person.
+yotsuba: He is stubborn, selfish and pretends to be a bad person.
+yotsuba: But beneath that, he is caring, selfless and genuinely wonderful.
+yotsuba: So please, follow your heart and go after the person you truly love!
 Fuutarou tries to counter what Yotsuba just said, but he couldn't find the words.
 yotsuba: Ah! Are you still being stubborn about this!? I'll slap sense into you if I have to!
 # sprite hide all
@@ -110,7 +123,14 @@ yotsuba: Of course not…
 fuutarou: Then…
 Yotsuba pushes Fuutarou, increasing their distance yet again.
 # show image bg ch02-onsen-stairwell-landing align 0 with fade
-yotsuba: I know what your dream is, Fuutarou-kun. You wanted to be needed, a wish that started with your love for Raiha. A dream that started from the loss of your mother. It's a great dream! Dreams are what can help you take the first step to a better future, they're what keep your feelings from collapsing. But, overreliance on said dreams can be detrimental...My wish is to be a bride...and while I still cling to that dream, I know...I know if I fulfill that wish with you by my side, it will hurt you far more than I can imagine. Dreams are meant to evolve, not from the will of a past you that has ceased to exist, but from the future you that has yet to exist.
+yotsuba: I know what your dream is, Fuutarou-kun. You wanted to be needed.
+yotsuba: That wish began with your love for Raiha, and it grew from the pain of losing your mother.
+yotsuba: It is a wonderful dream. Dreams help us take the first step toward a better future and keep our feelings from collapsing.
+yotsuba: But relying on a dream too much can also hurt us.
+yotsuba: My dream is to become a bride, and part of me still clings to it.
+yotsuba: But if I fulfill that dream with you beside me, I know it will hurt you more than I can imagine.
+yotsuba: Dreams are meant to evolve.
+yotsuba: They should not be controlled by a past version of us that no longer exists, but shaped by the future still waiting for us.
 Fuutarou realizes that no matter what he says, he won't be able to change her mind. Not since she met her had he seen such resolve from her. This whole time, he had followed his sense of self he had since he was a kid.
 \[Tell her she's wrong.\]
 Fuutarou knew she wasn't wrong.

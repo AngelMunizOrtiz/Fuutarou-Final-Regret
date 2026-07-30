@@ -140,6 +140,8 @@ Fuutarou knew he didn't love her.
 Fuutarou stopped his thoughts, and as he was trying to regain his words, the only thing that came out of his mouth was but a whisper of a name. A name...that wasn't Yotsuba's. She smiles.
 yotsuba: The one you love...isn't here right now, is she?
 Fuutarou's head shot back up to see Yotsuba holding her face with both her hands.
+# sprite hide all
+# show image bg onsen-cg-053-yotsuba-hears-miku-name align 0 with fade
 yotsuba: I'm so glad you've looked my way. I'm so glad I was special to you, even if for a bit. I've never been so happy, but now...It's your turn.
 Fuutarou's eyes widen, all he can do now is cover his mouth.
 yotsuba: The one you're looking for...she should be here at noon. It's around 8:30 right now, but she'll be dropped off at the bottom of the hill, in that little remote town. So, go get her!

@@ -25,10 +25,13 @@ He becomes so entranced that he fails to notice her approaching.
 By the time he realizes how close she is, Miku is already leaping into his arms.
 miku: Fuutarou!
 The sudden hug nearly knocks them over, but Fuutarou manages to keep them upright.
+# sprite hide all
+# show image bg onsen-cg-046-miku-fuutarou-seven-month-reunion align 0 with fade
 Once he is sure they will not fall, he hugs her back.
 It is the first time they have seen each other face to face in seven months.
 Even so, they were never strangers; they had spoken almost every day.
 miku: I missed you!
+# show image bg ch09-miku-pickup-street-late-morning align 0 with fade
 They both stand there for a little bit. Miku looks up at Fuutarou. He knew what this meant.
 fuutarou: M-Miku, I know you want one, but should we really do it in public like this?
 Miku pouts. No matter how much he resists, her pout causes his defenses to go down, with no exception.
@@ -179,11 +182,14 @@ fuutarou: I love all of it.
 Fuutarou starts to distance himself a little from Miku, signaling the end of the dance.
 fuutarou: ...and I want it to last forever.
 miku: Huh, what do you…?
+# sprite hide all
+# show image bg onsen-cg-047-fuutarou-rooftop-proposal-question align 0 with fade
 fuutarou: Will you marry me?
 …
 …
 Miku stands perfectly still, unable to process the question.
 She tries to answer with a quip, a joke...anything. No words come.
+# show image bg onsen-cg-048-miku-processes-rooftop-proposal align 0 with fade
 Her composed expression slowly begins to break. Her eyes narrow as the first tears fall.
 Miku shakes her head, trying to keep her emotions from overflowing, but her body begins to tremble.
 She bites her lip and lets out a few quiet, broken sounds.
@@ -199,6 +205,7 @@ As Miku tears up. Fuutarou can't contain himself. A single tear rolls down his f
 fuutarou: Ah? What...what is this? Am I...am I really crying?
 miku: F-Fuutarou...I love you!
 While Fuutarou tries to clean his tears, he attempts to respond but is interrupted by Miku's lips blocking his words.
+# show image bg onsen-cg-049-miku-fuutarou-rooftop-yes-kiss align 0 with fade
 They kiss. For a long time.
 Once they separate, both of them can't help but grin through their tears.
 # show image bg ch09-asahiyama-rooftop-sunset align 0 with fade
@@ -227,6 +234,8 @@ narrator: Chapter 9 Extra
 miku: By the way, was the reason for asking about the headphones going to be part of your proposal?
 fuutarou: Yeah, well...I was...going to put them around you when I asked, kind of like a wedding ring. It's lame, I know!
 miku: Even when you're lame, you're still the coolest guy in the world. But…
+# sprite hide all
+# show image bg onsen-cg-050-miku-listens-to-fuutarou-heartbeat align 0 with fade
 Miku presses herself on Fuutarou's chest. She begins to hear his heartbeat.
 miku: This sound, it's more than enough for me...Oh? It's starting to get faster. Fufu~ I hope you start to get used to it since I'm gonna do it a bunch from now on...whether it's in public...or in private.
 …

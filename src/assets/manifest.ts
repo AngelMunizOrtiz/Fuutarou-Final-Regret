@@ -107,6 +107,7 @@ const manifest: AssetsManifest = {
                 { alias: "onsen-cg-002-bath-door-accident", src: "/images/cg/onsen_arc/cg_002_bath_door_accident.webp" },
                 { alias: "onsen-cg-003-grandpa-thanks-fuutarou", src: "/images/cg/onsen_arc/cg_003_grandpa_thanks_fuutarou.webp" },
                 { alias: "onsen-cg-004-fuutarou-destiny-bell", src: "/images/cg/onsen_arc/cg_004_fuutarou_destiny_bell.webp" },
+                { alias: "onsen-cg-054-grandpa-asks-if-fuutarou-is-happy", src: "/images/cg/onsen_arc/cg_054_grandpa_asks_if_fuutarou_is_happy.webp" },
             ],
         },
         {
@@ -139,6 +140,7 @@ const manifest: AssetsManifest = {
                 { alias: "onsen-cg-016-present-childhood-farewell", src: "/images/cg/onsen_arc/cg_016_present_childhood_farewell.webp" },
                 { alias: "onsen-cg-017-sisters-hold-crying-yotsuba", src: "/images/cg/onsen_arc/cg_017_sisters_hold_crying_yotsuba.webp" },
                 { alias: "onsen-cg-018-maruo-throws-umbrella", src: "/images/cg/onsen_arc/cg_018_maruo_throws_umbrella.webp" },
+                { alias: "onsen-cg-053-yotsuba-hears-miku-name", src: "/images/cg/onsen_arc/cg_053_yotsuba_hears_miku_name.webp" },
             ],
         },
         {
@@ -159,6 +161,8 @@ const manifest: AssetsManifest = {
                 { alias: "onsen-cg-024-raiha-motorcycle-farewell", src: "/images/cg/onsen_arc/cg_024_raiha_motorcycle_farewell.webp" },
                 { alias: "onsen-cg-025-fuutarou-meets-ren", src: "/images/cg/onsen_arc/cg_025_fuutarou_meets_ren.webp" },
                 { alias: "onsen-cg-026-maruo-ren-watch-descent", src: "/images/cg/onsen_arc/cg_026_maruo_ren_watch_descent.webp" },
+                { alias: "ch07-cg-051-isanari-proposes-to-aoi", src: "/images/cg/chapter_07/cg_051_isanari_proposes_to_aoi.webp" },
+                { alias: "ch07-cg-052-uesugi-family-bakery-memory", src: "/images/cg/chapter_07/cg_052_uesugi_family_bakery_memory.webp" },
             ],
         },
         {
@@ -170,6 +174,12 @@ const manifest: AssetsManifest = {
                 { alias: "onsen-cg-027-miku-rainy-bench-reunion", src: "/images/cg/onsen_arc/cg_027_miku_rainy_bench_reunion.webp" },
                 { alias: "onsen-cg-028-fuutarou-miku-bell-confession-kiss", src: "/images/cg/onsen_arc/cg_028_fuutarou_miku_bell_confession_kiss.webp" },
                 { alias: "onsen-cg-029-fuutarou-miku-umbrella-walk", src: "/images/cg/onsen_arc/cg_029_fuutarou_miku_umbrella_walk.webp" },
+                { alias: "onsen-cg-041a-miku-initiates-rain-kiss", src: "/images/cg/onsen_arc/cg_041a_miku_initiates_rain_kiss.webp" },
+                { alias: "onsen-cg-041b-fuutarou-returns-rain-kiss", src: "/images/cg/onsen_arc/cg_041b_fuutarou_returns_rain_kiss.webp" },
+                { alias: "onsen-cg-042-miku-bell-kiss-flashback", src: "/images/cg/onsen_arc/cg_042_miku_bell_kiss_flashback.webp" },
+                { alias: "onsen-cg-043-miku-removes-wig-crying", src: "/images/cg/onsen_arc/cg_043_miku_removes_wig_crying.webp" },
+                { alias: "onsen-cg-044-fuutarou-reveals-miku-face", src: "/images/cg/onsen_arc/cg_044_fuutarou_reveals_miku_face.webp" },
+                { alias: "onsen-cg-045-fuutarou-initiates-rain-kiss", src: "/images/cg/onsen_arc/cg_045_fuutarou_initiates_rain_kiss.webp" },
             ],
         },
         {
@@ -183,6 +193,11 @@ const manifest: AssetsManifest = {
                 { alias: "ch09-asahiyama-high-school-exterior", src: "/images/backgrounds/chapter_09/asahiyama_high_school_exterior_bg_014.webp" },
                 { alias: "onsen-cg-030-fuutarou-miku-rooftop-dance", src: "/images/cg/onsen_arc/cg_030_fuutarou_miku_rooftop_dance.webp" },
                 { alias: "onsen-cg-031-miku-accepts-rooftop-proposal", src: "/images/cg/onsen_arc/cg_031_miku_accepts_rooftop_proposal.webp" },
+                { alias: "onsen-cg-046-miku-fuutarou-seven-month-reunion", src: "/images/cg/onsen_arc/cg_046_miku_fuutarou_seven_month_reunion.webp" },
+                { alias: "onsen-cg-047-fuutarou-rooftop-proposal-question", src: "/images/cg/onsen_arc/cg_047_fuutarou_rooftop_proposal_question.webp" },
+                { alias: "onsen-cg-048-miku-processes-rooftop-proposal", src: "/images/cg/onsen_arc/cg_048_miku_processes_rooftop_proposal.webp" },
+                { alias: "onsen-cg-049-miku-fuutarou-rooftop-yes-kiss", src: "/images/cg/onsen_arc/cg_049_miku_fuutarou_rooftop_yes_kiss.webp" },
+                { alias: "onsen-cg-050-miku-listens-to-fuutarou-heartbeat", src: "/images/cg/onsen_arc/cg_050_miku_listens_to_fuutarou_heartbeat.webp" },
             ],
         },
         {
@@ -198,6 +213,9 @@ const manifest: AssetsManifest = {
                 { alias: "wedding-cg-035-miku-thanks-her-sisters", src: "/images/cg/wedding_epilogue/cg_035_miku_thanks_her_sisters.webp" },
                 { alias: "wedding-cg-036-yotsuba-catches-wedding-bouquet", src: "/images/cg/wedding_epilogue/cg_036_yotsuba_catches_wedding_bouquet.webp" },
                 { alias: "wedding-cg-037-sisters-receive-wedding-keepsakes", src: "/images/cg/wedding_epilogue/cg_037_sisters_receive_wedding_keepsakes.webp" },
+                { alias: "wedding-cg-055-family-photo", src: "/images/cg/wedding_epilogue/cg_055_wedding_family_photo.webp" },
+                { alias: "wedding-cg-056-farewell-to-ryokan", src: "/images/cg/wedding_epilogue/cg_056_miku_fuutarou_farewell_to_ryokan.webp" },
+                { alias: "wedding-cg-057-limousine-kiss", src: "/images/cg/wedding_epilogue/cg_057_miku_fuutarou_limousine_kiss.webp" },
             ],
         },
         {
@@ -208,6 +226,8 @@ const manifest: AssetsManifest = {
                 { alias: "wedding-cg-038-sisters-career-montage", src: "/images/cg/wedding_epilogue/cg_038_sisters_career_montage.webp" },
                 { alias: "wedding-cg-039-family-visits-new-bakery", src: "/images/cg/wedding_epilogue/cg_039_family_visits_new_bakery.webp" },
                 { alias: "wedding-cg-040-miku-memory-desk-finale", src: "/images/cg/wedding_epilogue/cg_040_miku_memory_desk_finale.webp" },
+                { alias: "wedding-cg-058-miku-ring-new-family-reveal", src: "/images/cg/wedding_epilogue/cg_058_miku_ring_new_family_reveal.webp" },
+                { alias: "wedding-cg-059-fuutarou-leads-miku-to-future", src: "/images/cg/wedding_epilogue/cg_059_fuutarou_leads_miku_to_future.webp" },
             ],
         },
     ],

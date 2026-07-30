@@ -66,6 +66,8 @@ yotsuba: Hm? I just noticed. Did Fuutarou-kun buy you another ring?
 Yotsuba makes note of the ring Miku is wearing.
 miku: He made it himself. It took a long time, but he never gave up. Looks great, doesn't it?
 yotsuba: Yeah! Congrats on the grand opening.
+# sprite hide all
+# show image bg wedding-cg-058-miku-ring-new-family-reveal align 0 with fade
 miku: Thank you. We're debating on whether we should expand to house more food in the future. My culinary school helped me expand my skills by a lot...It's a great thing, considering our household is going to gain a new mouth to feed soon.
 yotsuba: That's great!
 …
@@ -83,6 +85,8 @@ As Miku takes in all those memories, tears begin to gather in her eyes.
 fuutarou: Miku! Come on up, we can't start without you!
 Miku wipes her tears and responds in an energetic fashion.
 miku: On my way!
+# sprite hide all
+# show image bg wedding-cg-059-fuutarou-leads-miku-to-future align 0 with fade
 …
 …
 The End

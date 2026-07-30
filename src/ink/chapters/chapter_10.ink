@@ -8,7 +8,12 @@ You may kiss the bride.
 …
 …
 # show image bg ch10-sutekina-reception-hall-evening align 0 with fade
-The newlyweds are taken to take their pictures. During this time, the guests began to go into the Reception Hall. Raiha is first to take a group picture with them. Once she herself gets to the hall, she notices the four sisters, Ichika, Nino, Yotsuba, and Itsuki.
+The newlyweds are taken to have their pictures taken. Before the reception begins, both families gather around them.
+# sprite hide all
+# show image bg wedding-cg-055-family-photo align 0 with fade
+For one brief moment, the Uesugi and Nakano families stand together as one.
+# show image bg ch10-sutekina-reception-hall-evening align 0 with fade
+After the photo session, the guests begin entering the reception hall. Raiha soon notices the four sisters—Ichika, Nino, Yotsuba and Itsuki.
 # sprite left raiha bright_laugh
 raiha: There you are! I'm so glad to see you again!
 yotsuba: Raiha!
@@ -144,9 +149,12 @@ nino: I suggested putting her in a maid outfit, and Fuu-kun became jealous. That
 ichika: After Fuutarou-kun graduates, he's supposedly going to start living with her before moving back here once she graduates.
 itsuki: Yeah. Our Father-in-Law is seemingly doing something big for them. He says he's already begun remodeling.
 yotsuba: I wonder what it is.
+# sprite hide all
+# show image bg wedding-cg-056-farewell-to-ryokan align 0 with fade
 Miku and Fuutarou began to exit the church. Surrounded by cheers and flower petals, they walked together on their way to the limousine. On their way, they stopped for a little bit to look toward the hill where the hot springs resided.
 miku: We'll be going now, grandpa.
 fuutarou: Thank you for everything.
+# show image bg ch10-sutekina-church-exterior-courtyard-dusk align 0 with fade
 They continued their walk. Once they reached the car, it was time to throw the bouquet. Miku threw it with all of her might to the clamoring hopes of the crowd.
 ichika: I wonder who's gonn-
 A gust of wind passes by Ichika. With incredible speed, the figure runs through any opening in the crowd that it sees. With a jump the size of its height, the figure catches the bouquet flawlessly.
@@ -240,6 +248,8 @@ Miku! Fuutarou! Congratulations on your marriage!
 # show image bg ch10-wedding-limousine-interior-eien-street-evening align 0 with fade
 The limousine soon passes through Eien Street.
 As they approach the place where Fuutarou confessed, Miku tries to tease him.
+# sprite hide all
+# show image bg wedding-cg-057-limousine-kiss align 0 with fade
 Fuutarou answers by kissing her.
 Knowing that two can play that game, Miku kisses him back.
 Their affectionate battle continues as the limousine carries them toward their honeymoon...

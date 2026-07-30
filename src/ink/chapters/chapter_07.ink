@@ -79,10 +79,13 @@ isanari: Even worse? So, you admit the name is bad!
 …
 …
 isanari: Will you marry me!?
+# sprite hide all
+# show image bg ch07-cg-051-isanari-proposes-to-aoi align 0 with fade
 No response. As Isanari looks up, he notices Aoi in tears.
 isanari: Aoi, what's wrong?
 aoi: I don't know, I don't know. I'm just, I just...I can't stop crying...Even though I've never been happier!
 isanari: Ah, haha...Hahaha!
+# show image bg onsen-cg-020-aoi-isanari-life-montage align 0 with fade
 …
 …
 aoi: Hmm, we haven't had many customers this month. Oh, well! I just need to keep trying harder!
@@ -122,10 +125,13 @@ isanari: Aoi, please don't overwork yourself. I'll take care of the store today,
 aoi: Right...Thank you...Isanari.
 …
 …
+# sprite hide all
+# show image bg ch07-cg-052-uesugi-family-bakery-memory align 0 with fade
 aoi: Her name will be...*cough* Raiha!
 isanari: Look at her, isn't she cute?
 …
 …
+# show image bg ch07-aoi-isanari-bakery-interior-struggling align 0 with fade
 isanari: Goddammit!
 # sprite right aoi maternal
 aoi: It's okay, Isanari. As long as we pay what we owe this month, they'll forgive us next month!

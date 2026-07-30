@@ -250,9 +250,13 @@ May the groom enter
 Fuutarou bows, as he walks toward the altar. He greets Maeda and Takeda before reaching it.
 narrator: *DING DONG*
 fuutarou: Like, seriously, what do you want?
+# sprite hide all
+# show image bg onsen-cg-042-miku-bell-kiss-flashback align 0 with fade
 As Fuutarou says this, both him and the girl slip. The girl's lips accidentally touch Fuutarou's, both of them blush as the bell rings.
 fuutarou: A ki-why?
 narrator: *DING DONG*
+# show image bg ch08-yuzine-eien-street-rain align 0 with fade
+# sprite right miku hurt
 Miku and Fuutarou fall on the ground, with Miku hitting her back on the wet floor. Fuutarou drops his empty can.
 miku: Ow!
 narrator: *DING DONG*
@@ -295,6 +299,8 @@ fuutarou: Like...You know...That...M-Miku thinks...fondly of me.
 miku: Love
 fuutarou: "Yeah. I know. But-"\[I don't know if I'm ready for a relationship\]
 narrator: *DING DONG*
+# sprite hide all
+# show image bg onsen-cg-043-miku-removes-wig-crying align 0 with fade
 The girl in the dress pressed her back against a tree. After catching her breath...she started to cry. The girl began to take off her wig as her knees began to crumble.
 narrator: *DING DONG*
 "Do you pledge to share your love and the joys of your marriage with all those around you, so that they may learn from your love and be encouraged to grow in their own lives?'
@@ -329,6 +335,8 @@ miku: I'm such an idiot. Why did I have to do something like that?
 miku: Now I've given my first kiss to someone who doesn't love me...
 miku: Why did I think he would ever see someone like me as special?
 miku: I'm such an idiot!
+# show image bg ch08-yuzine-eien-street-rain align 0 with fade
+# sprite right miku hurt
 …
 …
 As Miku came back to Ebata's limousine. Ichika notices the marks under her eyes.
@@ -352,6 +360,8 @@ Miku's eyes start to develop tears. Fuutarou notices immediately.
 # sprite right miku teary_smile
 \[You've done it again, you hurt her...But I can't stop...I…I refuse to hold back!\]
 fuutarou: Miku, if you have even the slightest bit of regret over that day...I'm sorry, it's all my fault...I'm sorry for being such an idiot...If you honestly don't feel that way right now, I'll stop...but I can tell through your actions...that's not the case, is it?
+# sprite hide all
+# show image bg onsen-cg-044-fuutarou-reveals-miku-face align 0 with fade
 Miku keeps trying to hide her face, but she doesn't put any strength behind them, so Fuutarou gently pushes them away. Now, face to face, both of them are blushing...He continues. With each one, Miku's face slowly shows more and more signs of happiness.
 narrator: *DING DONG*
 ...For richer, for poorer, in sickness and in health?.
@@ -381,18 +391,24 @@ nino: I guess you have to chase love after all.
 \[It wasn't Ichika, It wasn't Nino. Could it have really been Miku?\]
 …
 …
+# sprite hide all
+# show image bg onsen-cg-028-fuutarou-miku-bell-confession-kiss align 0 with fade
+narrator: One year earlier…
 miku: Kiss me.
 fuutarou: "Huh? I did say you don't have to be so reserved, but...how did that come out from the conversation? In the first place-"\[I'm not good enough\]
 miku: Ah, sorry. I'll listen to your reply afterwards, okay?
-# sprite hide all
-# show image bg onsen-cg-028-fuutarou-miku-bell-confession-kiss align 0 with fade
 As Miku's lips touched Fuutarou's, refusing to let go, he realized right away that she was, indeed, the girl who kissed her on that day. He had tried to deny it over and over. But, there was no escaping the truth...It was Miku...It couldn't have been anyone but her…
 narrator: *DING DONG*
+# show image bg ch08-yuzine-eien-street-rain align 0 with fade
+# sprite right miku teary_smile
+narrator: Back in the present…
 miku: Okay, okay. I got it! You love me, you've let that be very well known! Please stop before someone sees us! Then...at least let me think of my answer…
 Fuutarou had finally gotten across. But, in order to really make an impression, he remembered something very important, and he knew he had to do it.
 \[I'm sorry for this, Miku.\]
 miku: Honestly, Fuutarou. What's wrong with y-
 fuutarou: Ah, sorry. I'll listen to your reply afterwards, okay?
+# sprite hide all
+# show image bg onsen-cg-045-fuutarou-initiates-rain-kiss align 0 with fade
 Fuutarou then kissed Miku mid-sentence.
 # show image bg ch08-yuzine-eien-street-rain align 0 with fade
 # sprite right miku teary_smile
@@ -483,9 +499,14 @@ Fuutarou took a good hold of her shoulders, and…
 narrator: *DING DONG*
 fuutarou: Uh, sure...So, what's your answer?
 Miku ran up to him, stood on her toes and…
+# sprite hide all
+# show image bg onsen-cg-041a-miku-initiates-rain-kiss align 0 with fade
 narrator: *DING DONG*
 Fuutarou took Miku's shoulders and kissed her to seal their vows.
+# show image bg onsen-cg-041b-fuutarou-returns-rain-kiss align 0 with fade
 narrator: *DING DONG*
+# show image bg ch08-yuzine-eien-street-rain align 0 with fade
+# sprite right miku teary_smile
 Fuutarou stepped back. Miku had given him her answer clearly. Miku bends down a little, looking up at him with a smile.
 miku: Well, Fuutarou? Could you tell I got a little taller?
 Fuutarou covered his mouth...but soon, he let go of it to welcome Miku's answer with a smile.

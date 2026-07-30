@@ -120,8 +120,10 @@ fuutarou: Right..I... I should go too.
 As they turn away from each other, their distance in the hallway grows and grows, when Grandpa suddenly stops.
 # sprite right grandpa concerned
 grandpa: But tell me, Uesugi Fuutarou...Are you truly happy right now?
+# sprite hide all
+# show image bg onsen-cg-054-grandpa-asks-if-fuutarou-is-happy align 0 with fade
 Fuutarou's body jolts towards Grandpa as he turns the corner, before he can chase after him, he hears running near him. Embarrassed that someone might have overheard, he goes to check, but sees that no one is there.
-# sprite hide right
+# show image bg ch02-onsen-courtyard-window-corridor align 0 with fade
 # sprite center fuutarou hand_cover
 fuutarou: *sigh* I might as well take a tour.
 # show image bg ch02-onsen-uesugi-family-tatami-room align 0 with fade

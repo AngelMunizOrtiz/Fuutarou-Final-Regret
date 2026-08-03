@@ -203,6 +203,20 @@ export const characterSprites = {
             scale: 0.96,
         },
     },
+    maruo_young: {
+        neutral: {
+            src: "/images/characters/maruo_young/maruo_young_neutral.webp",
+            scale: 0.96,
+        },
+        stern: {
+            src: "/images/characters/maruo_young/maruo_young_stern.webp",
+            scale: 0.96,
+        },
+        awkward: {
+            src: "/images/characters/maruo_young/maruo_young_awkward.webp",
+            scale: 0.96,
+        },
+    },
     maruo: {
         onsen_travel_neutral: {
             src: "/images/characters/maruo/onsen_travel/maruo_neutral.webp",
@@ -292,6 +306,22 @@ export const characterSprites = {
         },
     },
     aoi: {
+        bakery_cheerful_peace: {
+            src: "/images/characters/aoi/bakery/aoi_cheerful_peace.webp",
+            scale: 1,
+        },
+        bakery_determined: {
+            src: "/images/characters/aoi/bakery/aoi_determined.webp",
+            scale: 1,
+        },
+        bakery_maternal: {
+            src: "/images/characters/aoi/bakery/aoi_maternal.webp",
+            scale: 1,
+        },
+        bakery_ill: {
+            src: "/images/characters/aoi/bakery/aoi_ill.webp",
+            scale: 1,
+        },
         cheerful_peace: {
             src: "/images/characters/aoi/aoi_cheerful_peace.webp",
             scale: 1,
@@ -325,7 +355,37 @@ export const characterSprites = {
             scale: 1,
         },
     },
+    rena: {
+        hidden: {
+            src: "/images/characters/rena/rena_hidden.webp",
+            scale: 1,
+        },
+    },
     ichika: {
+        rena_disguise_neutral: {
+            src: "/images/characters/ichika/rena_disguise/ichika_neutral.webp",
+            scale: 1,
+        },
+        rena_disguise_teasing: {
+            src: "/images/characters/ichika/rena_disguise/ichika_teasing.webp",
+            scale: 1,
+        },
+        rena_disguise_sad_reflective: {
+            src: "/images/characters/ichika/rena_disguise/ichika_sad_reflective.webp",
+            scale: 1,
+        },
+        rena_disguise_warm_smile: {
+            src: "/images/characters/ichika/rena_disguise/ichika_warm_smile.webp",
+            scale: 1,
+        },
+        rena_disguise_embarrassed: {
+            src: "/images/characters/ichika/rena_disguise/ichika_embarrassed.webp",
+            scale: 1,
+        },
+        rena_disguise_laughing: {
+            src: "/images/characters/ichika/rena_disguise/ichika_laughing.webp",
+            scale: 1,
+        },
         onsen_yukata_neutral: {
             src: "/images/characters/ichika/onsen_yukata/ichika_neutral.webp",
             scale: 1,
@@ -376,6 +436,30 @@ export const characterSprites = {
         },
     },
     nino: {
+        rena_disguise_neutral: {
+            src: "/images/characters/nino/rena_disguise/nino_neutral.webp",
+            scale: 1,
+        },
+        rena_disguise_proud: {
+            src: "/images/characters/nino/rena_disguise/nino_proud.webp",
+            scale: 1,
+        },
+        rena_disguise_annoyed: {
+            src: "/images/characters/nino/rena_disguise/nino_annoyed.webp",
+            scale: 1,
+        },
+        rena_disguise_happy: {
+            src: "/images/characters/nino/rena_disguise/nino_happy.webp",
+            scale: 1,
+        },
+        rena_disguise_soft: {
+            src: "/images/characters/nino/rena_disguise/nino_soft.webp",
+            scale: 1,
+        },
+        rena_disguise_embarrassed: {
+            src: "/images/characters/nino/rena_disguise/nino_embarrassed.webp",
+            scale: 1,
+        },
         onsen_yukata_neutral: {
             src: "/images/characters/nino/onsen_yukata/nino_neutral.webp",
             scale: 1,
@@ -460,8 +544,48 @@ export const characterSprites = {
         },
     },
     yotsuba: {
+        rena_disguise_neutral: {
+            src: "/images/characters/yotsuba/rena_disguise/yotsuba_neutral.webp",
+            scale: 1,
+        },
+        rena_disguise_cheerful: {
+            src: "/images/characters/yotsuba/rena_disguise/yotsuba_cheerful.webp",
+            scale: 1,
+        },
+        rena_disguise_nervous: {
+            src: "/images/characters/yotsuba/rena_disguise/yotsuba_nervous.webp",
+            scale: 1,
+        },
+        rena_disguise_determined: {
+            src: "/images/characters/yotsuba/rena_disguise/yotsuba_determined.webp",
+            scale: 1,
+        },
+        rena_disguise_sad_smile: {
+            src: "/images/characters/yotsuba/rena_disguise/yotsuba_sad_smile.webp",
+            scale: 1,
+        },
+        rena_disguise_shocked: {
+            src: "/images/characters/yotsuba/rena_disguise/yotsuba_shocked.webp",
+            scale: 1,
+        },
+        rena_disguise_crying: {
+            src: "/images/characters/yotsuba/rena_disguise/yotsuba_crying.webp",
+            scale: 1,
+        },
+        onsen_yukata_neutral: {
+            src: "/images/characters/yotsuba/onsen_yukata/yotsuba_neutral.webp",
+            scale: 1,
+        },
         onsen_yukata_nervous: {
             src: "/images/characters/yotsuba/onsen_yukata/yotsuba_nervous.webp",
+            scale: 1,
+        },
+        onsen_yukata_sad_smile: {
+            src: "/images/characters/yotsuba/onsen_yukata/yotsuba_sad_smile.webp",
+            scale: 1,
+        },
+        onsen_yukata_determined: {
+            src: "/images/characters/yotsuba/onsen_yukata/yotsuba_determined.webp",
             scale: 1,
         },
         onsen_yukata_wave: {
@@ -502,6 +626,26 @@ export const characterSprites = {
         },
     },
     itsuki: {
+        rena_disguise_neutral: {
+            src: "/images/characters/itsuki/rena_disguise/itsuki_neutral.webp",
+            scale: 1,
+        },
+        rena_disguise_indignant: {
+            src: "/images/characters/itsuki/rena_disguise/itsuki_indignant.webp",
+            scale: 1,
+        },
+        rena_disguise_flustered: {
+            src: "/images/characters/itsuki/rena_disguise/itsuki_flustered.webp",
+            scale: 1,
+        },
+        rena_disguise_warm: {
+            src: "/images/characters/itsuki/rena_disguise/itsuki_warm.webp",
+            scale: 1,
+        },
+        rena_disguise_thoughtful: {
+            src: "/images/characters/itsuki/rena_disguise/itsuki_thoughtful.webp",
+            scale: 1,
+        },
         onsen_yukata_neutral: {
             src: "/images/characters/itsuki/onsen_yukata/itsuki_neutral.webp",
             scale: 1,

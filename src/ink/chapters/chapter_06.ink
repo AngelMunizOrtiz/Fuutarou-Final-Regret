@@ -2,11 +2,13 @@
 # sprite hide all
 # show image bg ch02-onsen-stairwell-landing align 0 with fade
 narrator: Chapter 6: Fuutarou and Yotsuba, a quintessential quintuplets fanfic
+# sprite right yotsuba rena_disguise_neutral
 Fuutarou looks around in a panic, to see if anyone could see them. After confirming his family, the other sisters and especially Maruo weren't there, he turned back to Yotsuba.
 fuutarou: What...are you talking about?
 yotsuba: I want you to tell me...Why did you pick me that day?
 Fuutarou starts scratching his head.
 fuutarou: You're really putting me on the spot here.
+# sprite right yotsuba rena_disguise_nervous
 yotsuba: I'm sorry, but I need to know.
 fuutarou: Why's that, is there anything wrong with our relationship?
 Yotsuba puts her hand on her chin, thinking.
@@ -64,6 +66,7 @@ fuutarou: love…
 \[You needed me\]
 fuutarou: y-
 \[I wanted to be needed\]
+# sprite right yotsuba rena_disguise_sad_smile
 yotsuba: Stop right there!
 Fuutarou, not noticing that he was looking down, raised his head to a Yotsuba that, while smiling, clearly had a pained look.
 yotsuba: You know...the whole "you can find us with love" thing also works the other way...I love you, Uesugi-san...but it's because of that love, I can tell.
@@ -88,14 +91,17 @@ yotsuba: I'm breaking up with you, Uesugi-san!
 …
 fuutarou: Eh?
 # show image bg ch02-onsen-stairwell-landing align 0 with fade
+# sprite right yotsuba rena_disguise_determined
 Fuutarou stays still, expecting either an explanation or for Yotsuba to announce she's joking, but she simply stands there. As time goes on, her expression changes from a pained scowl to a more confident and sure expression.
 fuutarou: Ah
 Fuutarou can only mutter a simple stutter, unable to speak.
 …
 …
 fuutarou: Ah!
+# sprite right yotsuba rena_disguise_shocked
 Yotsuba jumps a little, not expecting Fuutarou to raise his voice out of nowhere.
 fuutarou: I got it! Man, Yotsuba, I can't believe y-you're still not confident...I told you before, I want to have you by my side. I know you want to live with no regrets. So please, don't…
+# sprite right yotsuba rena_disguise_determined
 yotsuba: None of what I said is a joke.
 Yotsuba turns around.
 yotsuba: Ichika, Nino, Itsuki...Miku. My wonderful sisters have all helped me through so much…
@@ -123,6 +129,7 @@ yotsuba: Of course not…
 fuutarou: Then…
 Yotsuba pushes Fuutarou, increasing their distance yet again.
 # show image bg ch02-onsen-stairwell-landing align 0 with fade
+# sprite right yotsuba rena_disguise_determined
 yotsuba: I know what your dream is, Fuutarou-kun. You wanted to be needed.
 yotsuba: That wish began with your love for Raiha, and it grew from the pain of losing your mother.
 yotsuba: It is a wonderful dream. Dreams help us take the first step toward a better future and keep our feelings from collapsing.
@@ -138,6 +145,7 @@ Fuutarou knew she wasn't wrong.
 Fuutarou knew he didn't love her.
 \[Tell her…\]
 Fuutarou stopped his thoughts, and as he was trying to regain his words, the only thing that came out of his mouth was but a whisper of a name. A name...that wasn't Yotsuba's. She smiles.
+# sprite right yotsuba rena_disguise_sad_smile
 yotsuba: The one you love...isn't here right now, is she?
 Fuutarou's head shot back up to see Yotsuba holding her face with both her hands.
 # sprite hide all
@@ -150,6 +158,7 @@ yotsuba: The one you're looking for...she should be here at noon. It's around 8:
 Fuutarou's body starts moving on its own, he gives Yotsuba a hug.
 yotsuba: Eh? Fuutarou-kun!?
 # show image bg ch02-onsen-stairwell-landing align 0 with fade
+# sprite right yotsuba rena_disguise_nervous
 Fuutarou lets go of her and bows.
 fuutarou: Thank you for everything!
 He turns around and begins walking towards the check-in area.
@@ -157,9 +166,11 @@ yotsuba: \[There he goes...I'm relieved I was able to tell him everything I want
 Once Fuutarou makes it down the stairs, Yotsuba yells to him from the top of the stairs.
 yotsuba: Fuutarou-kun! I...I'm the one who…!
 fuutarou: Yotsuba!
+# sprite right yotsuba rena_disguise_shocked
 yotsuba: Huh?
 fuutarou: I know.
 Yotsuba stopped, she couldn't believe it...when had he found out? Even though she wanted to ask, there was only one thing she could honestly do.
+# sprite right yotsuba rena_disguise_cheerful
 yotsuba: Fuutarou-kun!
 # sprite hide all
 # show image bg onsen-cg-016-present-childhood-farewell align 0 with fade
@@ -170,6 +181,7 @@ As she says this, Fuutarou responds. For a split second, she could have sworn th
 fuutarou: Of course!
 fuutarou_past: Of course!
 # show image bg ch02-onsen-stairwell-landing align 0 with fade
+# sprite center yotsuba rena_disguise_cheerful
 Fuutarou leaves.
 …
 …
@@ -188,6 +200,7 @@ miku: I hope you try your best...I consider you my rival.
 yotsuba: ...
 …
 …
+# sprite center yotsuba rena_disguise_crying
 yotsuba: Miku…Ah...I see...I'm surprised I was able to hold them back for so long.
 # sprite hide all
 # show image bg onsen-cg-017-sisters-hold-crying-yotsuba align 0 with fade
@@ -243,6 +256,7 @@ End of Chapter 6
 # show image bg ch02-onsen-stairwell-landing align 0 with fade
 narrator: Chapter 6 Extra
 narrator: *5 minutes later*
+# sprite center yotsuba rena_disguise_crying
 nino: Alright, Yotsuba. Stop crying so we can ea-I can't get out of her grip.
 ichika: S-She's pretty strong.
 itsuki: I had a feeling this might happen, so I came prepared!

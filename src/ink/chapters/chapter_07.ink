@@ -23,8 +23,10 @@ isanari: Really? Alright!
 # show image bg ch07-asahiyama-high-school-corridor-afternoon align 0 with fade
 …
 …
+# sprite left isanari_young neutral
 # sprite right aoi bashful
 aoi: I failed another test, teehee!
+# sprite left isanari_young determined
 isanari: Aoi, if you keep failing like that, you won't be able to fulfill your dream...What is your dream anyway?
 # sprite right aoi determined
 aoi: To open my own bakery!
@@ -34,6 +36,8 @@ aoi: Well…
 …
 # sprite hide all
 # show image bg ch07-asahiyama-school-nurse-office-afternoon align 0 with fade
+# sprite left isanari_young shocked
+# sprite right maruo_young neutral
 isanari: Huh!? Where am I?
 maruo: In the nurse's office, one of the teachers found you foaming out the mouth in the hallway.
 isanari: Oh..Well, I wonder what happened.
@@ -45,13 +49,17 @@ isanari: Huh!?
 …
 …
 # show image bg ch07-asahiyama-high-school-corridor-afternoon align 0 with fade
+# sprite left isanari_young determined
+# sprite right maruo_young neutral
 isanari: Hey, Maruo...I think I'm gonna stop being a delinquent.
 maruo: Good for you, Uesugi-kun. Now you can get that hair back to normal.
 isanari: Hell no, the hair is staying. It's just...Argh, that girl, she won't be able to see her dream through...Not without me.
+# sprite right maruo_young stern
 maruo: Are you sure it's fine to indulge her like that? If she's unable to keep something like a bakery, then what's the point?
 isanari: I get what you're getting at...But, I'll help her! Man, love is so confusing. Don't you have someone similar you want to take care of?
 Maruo looks towards the end of the hall to see Shimoda talking with her role model, a teacher known as Ms. Nakano.
 isanari: Ho? Is that the stare of love I see?
+# sprite right maruo_young awkward
 maruo: Hmph. I cannot see what you're getting at.
 …
 …
@@ -121,7 +129,7 @@ isanari: Eh..EEEHHH!?
 …
 …
 isanari: Aoi, please don't overwork yourself. I'll take care of the store today, alright?
-# sprite right aoi ill
+# sprite right aoi bakery_ill
 aoi: Right...Thank you...Isanari.
 …
 …
@@ -133,11 +141,11 @@ isanari: Look at her, isn't she cute?
 …
 # show image bg ch07-aoi-isanari-bakery-interior-struggling align 0 with fade
 isanari: Goddammit!
-# sprite right aoi maternal
+# sprite right aoi bakery_maternal
 aoi: It's okay, Isanari. As long as we pay what we owe this month, they'll forgive us next month!
 …
 …
-# sprite right aoi ill
+# sprite right aoi bakery_ill
 # show image bg ch07-aoi-isanari-bakery-exterior-struggling align 0 with fade
 aoi: Please come to our bakery! *cough**cough*
 Isn't that the store Mr. - got food poisoning from?
@@ -148,17 +156,17 @@ isanari: What was that!? Come and eat her bread and you'll see how incredible it
 …
 # show image bg ch07-aoi-isanari-bakery-interior-struggling align 0 with fade
 isanari: Aoi! Did you do Raiha's hair?
-# sprite right aoi cheerful_peace
+# sprite right aoi bakery_cheerful_peace
 aoi: Yep, is there something wrong?
 isanari: Just look at it! It looks like she has an antenna!
 raiha: Wahahaha!
 aoi: She seems happy about it, what's the harm?
 …
 …
-# sprite right aoi ill
+# sprite right aoi bakery_ill
 aoi: Isanari, I'm starting to worry about the state of the bakery... *cough* *cough* Should we close it down for a bit?
 isanari: What? But this is your dream, right? We just need to believe! Soon, everyone will see how great your bread is!
-# sprite right aoi determined
+# sprite right aoi bakery_determined
 aoi: ...You're right! Let's keep working hard!
 …
 …

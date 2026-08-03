@@ -21,6 +21,15 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--png-out", required=True, help="Normalized master PNG.")
     parser.add_argument("--webp-out", required=True, help="Normalized runtime WebP.")
     parser.add_argument("--alpha-threshold", type=int, default=8)
+    parser.add_argument(
+        "--scale-multiplier",
+        type=float,
+        default=1.0,
+        help=(
+            "Optional adjustment after matching the anchor width. Useful for "
+            "sprites whose silhouette is widened by props such as large hats."
+        ),
+    )
     parser.add_argument("--quality", type=int, default=92)
     return parser.parse_args()
 
@@ -43,7 +52,10 @@ def main() -> None:
     content = source.crop(source_bbox)
 
     target_width = anchor_bbox[2] - anchor_bbox[0]
-    scale = target_width / content.width
+    if args.scale_multiplier <= 0:
+        raise ValueError("--scale-multiplier must be greater than zero.")
+
+    scale = (target_width / content.width) * args.scale_multiplier
     resized_width = max(1, round(content.width * scale))
     resized_height = max(1, round(content.height * scale))
     resized = content.resize(
@@ -83,6 +95,7 @@ def main() -> None:
         f"{png_out.name}: canvas={canvas.width}x{canvas.height}, "
         f"source_bbox={source_bbox}, anchor_bbox={anchor_bbox}, "
         f"output_bbox={output_bbox}, scale={scale:.4f}, "
+        f"scale_multiplier={args.scale_multiplier:.4f}, "
         f"corner_alpha={corner_alpha}"
     )
 

@@ -82,7 +82,7 @@ Desde el capítulo 2 hasta el capítulo 8, justo antes de que Fuutarou diga «I 
 - Yukata de Ichika: `neutral`, `concerned`, `sad_reflective` y `teasing`.
 - Yukata de Nino: `neutral`, `annoyed`, `soft` y `proud`.
 - Yukata de Itsuki: `neutral`, `joyful`, `surprised`, `thoughtful` y `flustered`.
-- Yukata de Yotsuba: `nervous`.
+- Yukata de Yotsuba: `neutral`, `nervous`, `sad_smile`, `determined` y `wave`.
 
 ### Opcionales
 

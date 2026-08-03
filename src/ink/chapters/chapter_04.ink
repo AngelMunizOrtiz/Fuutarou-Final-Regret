@@ -60,7 +60,7 @@ nino: Oh, Itsuki, with your body, you'll find hundreds of men willing to be with
 As Itsuki started fighting back, Ichika had a sigh of relief.
 # sprite left ichika onsen_yukata_teasing
 ichika: That startled me, here I thought Itsuki was really in love. So, Yotsuba, why did you suddenly bring this up?
-# sprite center yotsuba onsen_yukata_nervous
+# sprite center yotsuba onsen_yukata_sad_smile
 yotsuba: Well, I was wondering how Uesugi-san really felt. It's as though there isn't anything between us...Ah, I wish I could ask Miku as well.
 ichika: What's stopping you from just calling her?
 yotsuba: I'm afraid of what her answer will be.
@@ -75,6 +75,7 @@ miku: Yotsuba, I'm sure you've already noticed...Just try everything you can to 
 As she shone a smile at Yotsuba, the next song started.
 …
 ...
+# sprite center yotsuba onsen_yukata_determined
 yotsuba: I couldn't tell exactly what she was talking about, but after thinking about it for so long, I came to a conclusion…
 As Yotsuba closes her eyes, she remembers something
 \["But tell me, Uesugi Fuutarou...Are you truly happy right now?"\]
@@ -97,6 +98,7 @@ End of Chapter 4
 # sprite hide all
 # show image bg ch02-onsen-quintuplets-tatami-room align 0 with fade
 narrator: Chapter 4 Extra
+# sprite center yotsuba onsen_yukata_neutral
 yotsuba: Say, Ichika. Why did you say that you were experiencing deja vu?
 ichika: Remember how he had us take a test because he ran into me naked?
 nino: Fuu-kun also saw me naked when those books fell on us.

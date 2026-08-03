@@ -137,8 +137,10 @@ miku: \[I can't wait to see everyone again. Has it really been a year?\]
 miku: \[Ichika, Nino, Yotsuba, Itsuki, Raiha, our dads, Grandpa...and Fuutarou.\]
 miku: \[I'll have to apologize for arriving so late and making Ebata come pick me up like thi-kya!\]
 A cold feeling touches her cheek causing a chill to go through her body. Miku almost falls out of the bench. In her panic, she turns her head to see who could have snuck up behind her. As soon as she sees who it is, she yells
+# sprite right miku chapter_08_startled_retreat
 miku: Fuutarou!
 Fuutarou greets her with a grin.
+# sprite left fuutarou chapter_01_neutral
 fuutarou: Yo. Looks like you got here early. What's got you so focused that you didn't see me coming, Miku?
 Fuutarou sits down next to her.
 miku: Why are you here? Did you not come with your family?
@@ -146,7 +148,10 @@ fuutarou: Well, no, I mean, yes? They left me behind, but I made it here yesterd
 miku: Ah, that sounds like a situation...hm? How will we get there?
 fuutarou: We'll go on the motorcycle that my old manager let me borrow.
 Miku gives a happy look towards Fuutarou. He almost jumps back from the shock.
+# sprite right miku gentle
+# sprite left fuutarou chapter_01_surprised
 miku: Mr. Adachi? Are he and Mrs. Adachi doing fine? I haven't been able to see them, I'd like to thank them for everything!
+# sprite left fuutarou chapter_01_neck_scratch
 fuutarou: "O-oh, I don't know. I didn't see them, I'll make sure to tell you once I give it back."\[Holy crap, my heart almost stopped there, was she always so cute?\]
 miku: That's a shame…
 Fuutarou, with the umbrella hidden, continues.
@@ -163,6 +168,8 @@ fuutarou: You see, it was something I wanted to taste for a while now...Is this 
 miku: Ahaha. I'm the only person I know who drinks it, so maybe it's a biased viewpoint...But, it's better late than never, right?
 fuutarou: Yeah...It's never too late to do the right thing…
 Miku giggles. Fuutarou has to look away from embarrassment.
+# sprite right miku warm_laugh
+# sprite left fuutarou chapter_01_neck_scratch
 miku: That's a little dramatic.
 Fuutarou and Miku began to catch up with each other as the rain continued.
 …
@@ -184,19 +191,24 @@ fuutarou: It's fine, you've always tried your hardest, I'm glad you were able to
 …
 fuutarou: Then that bastard made me work out! Just because I told him I had experience!
 miku: Ahaha! All because you went with me to the gym that one time.
+# sprite left fuutarou chapter_01_annoyed
 fuutarou: Though, thanks to that, my stamina is greater. I hope you're not getting fat from all that bread.
 Miku pouts.
+# sprite right miku serious
 miku: Fuutarou! You don't need to worry about me! If Itsuki's body can handle it, so can mine!
 …
 …
 fuutarou: That guy, Maeda. I hear he's already engaged with his girlfriend…
 Miku looks at Fuutarou with a smile.
+# sprite right miku gentle
+# sprite left fuutarou chapter_01_neutral
 miku: Looks like you're not the only one who jumped the gun anymore.
 Fuutarou stops. He looks to the sky, as it starts to clear slowly.
 fuutarou: The rain won't last forever, huh?
 miku: Well, the sun has to come out eventually, right?
 As he continues to grab his Matcha soda, Miku begins to wonder when he'll drink it.
 miku: Matcha soda doesn't taste great when warm, so you shoul-
+# sprite left fuutarou chapter_01_worried
 fuutarou: Yotsuba and I broke up.
 Complete silence from both of them. The only sound that could be heard was the pouring, which was beginning to slow down.
 …
@@ -208,14 +220,18 @@ miku: Oh! Are you just having a fight with her? You two sure like to overreact. 
 fuutarou: Don't worry, she ended it on her own terms. We didn't have a fight.
 miku: Oh...I see. Ah! I'm sorry about the proposal, I...I didn't know.
 fuutarou: It's fine, there's no hard feelings.
+# sprite right miku serious
 miku: That's good. Oh, Yotsuba...What could have happened? Were you being a good boyfriend, Fuutarou!? Maybe she got sick of you!
 fuutarou: Haha, I can't deny that first part. I really have no idea how to deal with love, even now.
 Miku looks puzzled, wondering whether Fuutarou truly regrets the breakup.
+# sprite right miku gentle
 She decides to cheer him up, doing her best to comfort him even though she does not know what to say.
 Fuutarou begins to smile. Even after all this time, Miku still cares deeply about him and her sisters.
 He looks back toward the clearing sky.
+# sprite left fuutarou chapter_01_hand_cover
 fuutarou: \[Come on man, this is the chance. What are you waiting for? Just tell her, you can do it! All you need to say is...!\]
 Fuutarou shoots up, startling Miku. In a dramatic fashion, he opens the can and starts chugging down the whole thing. His back arches back as he finishes. Once Fuutarou finishes, he starts panting from the exertion of drinking it all.
+# sprite right miku thoughtful
 miku: A-Are you okay?
 fuutarou: This drink…
 miku: Huh?
@@ -229,6 +245,8 @@ miku: When did you become such a food critic? I'm glad you ended up liking it th
 fuutarou: I love you.
 …
 ...
+# sprite right miku chapter_08_startled_retreat
+# sprite left fuutarou chapter_01_surprised
 miku_fuutarou: HUH!?
 miku: W-Wait, what!?
 fuutarou: \[What the hell was that!? Did I just...Did I just confess!? Crap, oh crap! I just said it without thinking, did I mess up? What in the hell, can I back out of this?\]
@@ -236,6 +254,7 @@ Miku gets up and starts walking backward.
 miku: Um, I know you're probably feeling sad with your break up, but there's no reason to suddenly confess, haha. Let's go, the weather's clearing up.
 At that moment, Fuutarou's doubts couldn't stop his movement.
 \[Are you truly ready to see her get away? Move your ass, Fuutarou! Even though you botched that confession, this is the time!\]
+# sprite left fuutarou chapter_01_determined
 fuutarou: Wait, Miku!
 Fuutarou's body moved on its own, unable to handle its emotions. In his haste, he makes it to Miku too fast, and they both lose their footing as they slip on the wet floor.
 At the same time, the clock strikes 12.
@@ -256,6 +275,7 @@ As Fuutarou says this, both him and the girl slip. The girl's lips accidentally 
 fuutarou: A ki-why?
 narrator: *DING DONG*
 # show image bg ch08-yuzine-eien-street-rain align 0 with fade
+# sprite left fuutarou chapter_01_worried
 # sprite right miku hurt
 Miku and Fuutarou fall on the ground, with Miku hitting her back on the wet floor. Fuutarou drops his empty can.
 miku: Ow!
@@ -275,11 +295,13 @@ Marriage, ideally, is a sharing of responsibilities, hopes, and dreams. It takes
 narrator: *DING DONG*
 fuutarou: Are you okay?
 miku: Yeah, I'm fine…*gasp*
+# sprite right miku embarrassed
 Miku covers her face so Fuutarou cannot see her expression.
 He notices a faint blush on her ears, the one part she cannot hide.
 Relief floods through him. Could Miku still love him after all this time?
 He has hurt her enough. This time, he will make sure he never hurts her again.
 Fuutarou repeats his words.
+# sprite left fuutarou chapter_01_determined
 fuutarou: I love you.
 narrator: *DING DONG*
 The girl in the dress passes by Raiha as she wondered why she was crying. The girl in the dress went towards the trees to make sure she wouldn't run into the other sisters.
@@ -296,6 +318,7 @@ fuutarou: Like...You know...That...M-Miku thinks...fondly of me.
 \[Miku would never do that...Could she? Ever since the day I was able to tell her apart at the inn...I can't stop thinking about her...Could I...?\]
 …
 …
+# sprite right miku hurt
 miku: Love
 fuutarou: "Yeah. I know. But-"\[I don't know if I'm ready for a relationship\]
 narrator: *DING DONG*
@@ -336,6 +359,7 @@ miku: Now I've given my first kiss to someone who doesn't love me...
 miku: Why did I think he would ever see someone like me as special?
 miku: I'm such an idiot!
 # show image bg ch08-yuzine-eien-street-rain align 0 with fade
+# sprite left fuutarou chapter_01_worried
 # sprite right miku hurt
 …
 …
@@ -349,6 +373,7 @@ fuutarou: Huh!? Who told you such a thing?
 raiha: I was told not to say
 fuutarou: "Oh, come on, Raiha! Don't tease your big brother like that!
 narrator: *DING DONG*
+# sprite right miku chapter_08_crying_guarded
 miku: Please. Stop this…
 Fuutarou stops talking.
 miku: If...if you're doing this because you broke up with her, please stop.
@@ -357,8 +382,9 @@ miku: This past year, I've tried my hardest to get over you. Please...I've tried
 miku: If you suddenly come here and tell me that you l-love me...it hurts.
 miku: It feels like my heart is being torn in two. Please, Fuutarou...I can't take it.
 Miku's eyes start to develop tears. Fuutarou notices immediately.
-# sprite right miku teary_smile
+# sprite right miku chapter_08_crying_guarded
 \[You've done it again, you hurt her...But I can't stop...I…I refuse to hold back!\]
+# sprite left fuutarou chapter_01_determined
 fuutarou: Miku, if you have even the slightest bit of regret over that day...I'm sorry, it's all my fault...I'm sorry for being such an idiot...If you honestly don't feel that way right now, I'll stop...but I can tell through your actions...that's not the case, is it?
 # sprite hide all
 # show image bg onsen-cg-044-fuutarou-reveals-miku-face align 0 with fade
@@ -400,28 +426,35 @@ miku: Ah, sorry. I'll listen to your reply afterwards, okay?
 As Miku's lips touched Fuutarou's, refusing to let go, he realized right away that she was, indeed, the girl who kissed her on that day. He had tried to deny it over and over. But, there was no escaping the truth...It was Miku...It couldn't have been anyone but her…
 narrator: *DING DONG*
 # show image bg ch08-yuzine-eien-street-rain align 0 with fade
+# sprite left fuutarou chapter_01_determined
 # sprite right miku teary_smile
 narrator: Back in the present…
 miku: Okay, okay. I got it! You love me, you've let that be very well known! Please stop before someone sees us! Then...at least let me think of my answer…
 Fuutarou had finally gotten across. But, in order to really make an impression, he remembered something very important, and he knew he had to do it.
 \[I'm sorry for this, Miku.\]
+# sprite right miku embarrassed
 miku: Honestly, Fuutarou. What's wrong with y-
 fuutarou: Ah, sorry. I'll listen to your reply afterwards, okay?
 # sprite hide all
 # show image bg onsen-cg-045-fuutarou-initiates-rain-kiss align 0 with fade
 Fuutarou then kissed Miku mid-sentence.
 # show image bg ch08-yuzine-eien-street-rain align 0 with fade
-# sprite right miku teary_smile
+# sprite left fuutarou chapter_01_hand_cover
+# sprite right miku embarrassed
 narrator: *DING DONG*
+# sprite right miku chapter_08_playful_resolved
 miku: I won't hesitate anymore.
+# sprite left fuutarou chapter_01_surprised
 fuutarou: ...Wer-Were you...holding back that one too…?
 miku: Yep. But to be honest...There's still a lot I'm holding back.
 fuutarou: Eh? Whoaaa!
 …
 …
+# sprite left fuutarou chapter_01_hand_cover
 Fuutarou simply lay there, panting, he could only stare upwards…
 fuutarou: So...so many kisses…
 As Miku got her thoughts in check, she finally decided to tell Fuutarou something else.
+# sprite right miku serious
 miku: Hey, Fuutarou. Did you know that Yotsuba…
 …
 …
@@ -429,12 +462,15 @@ narrator: *DING DONG*
 \["You may kiss the bride."\]
 narrator: *DING DONG*
 As Fuutarou let Miku's lips go, he tried to act confident while wearing a red face similar to a tomato.
+# sprite left fuutarou chapter_01_hand_cover
 fuutarou: I-I-I-I-I-I-I-I-I-I-I won't hesitate anymore.
 Miku, also more red than a normal person could comprehend, tried to reply but nothing came out. After some time, Fuutarou finally realized that Miku had been laying on the wet floor.
+# sprite right miku embarrassed
 fuutarou: S-sorry! Let's get you up.
 Miku got up with Fuutarou's help.
 fuutarou: I guess...that was a little weird of me…I'm sorry for k-kissing you out of nowhere.
 miku: I-It's fine, It's not like I haven't done the same thing.
+# sprite left fuutarou chapter_01_worried
 fuutarou: ...I know all of this is me being selfish. I know you might reject me especially after what I've done...and it scares me. This feeling of hopelessness that I know I made you feel is eating at me. I'm nothing but a selfish hypocrite.
 Miku doesn't respond.
 fuutarou: Failure...is frightening. My need to be perfect, and the things I chose to ignore, both came from my fear of failing.
@@ -446,54 +482,68 @@ fuutarou: Watching someone as small and fragile as you keep trying while I ran a
 fuutarou: Your dreams, your feelings and your love for others survived even your hardest moments.
 fuutarou: But your love for your sisters and for me blocked your path, and I ended up hurting you.
 fuutarou: That's why I want to make things right!
+# sprite right miku hurt
 miku: ...I'm flattered that you see me that way. But your view of me is distorted.
 miku: I was never good at showing my true feelings. Whenever I tried something new, I felt fear and dread.
 miku: I never saw myself as an equal to my sisters.
+# sprite right miku gentle
 miku: But you changed me. I was able to change because you were there for us at our lowest points.
 miku: Much of what I accomplished wasn't through my strength alone.
 fuutarou: What's wrong with that?
 miku: Huh?
+# sprite left fuutarou chapter_01_determined
 fuutarou: What's wrong with depending on others? There is nothing wrong with relying on someone when you need them.
 fuutarou: When I started teaching the five of you, I wanted to give up. My fear of failure appeared immediately.
 fuutarou: But you changed my mind. Being afraid does not change the fact that you still tried with all your heart.
 fuutarou: Your courage and passion made me believe. I was an idiot about my feelings...even after what happened that day.
+# sprite right miku thoughtful
 miku: That day?
 fuutarou: I figured out how you felt about me on the last day of our last hot springs trip. I probably realized my own feelings then too. Those feelings did their best to be reinforced when you kissed me under the bell.
+# sprite right miku embarrassed
 Miku jumped a little. She had thought he wasn't able to tell her apart the whole time.
 fuutarou: I always wondered why you would do something so bold. But when I remembered the time you tackled me, the reason became clear.
 fuutarou: You wanted me to find you...although you were a little too hasty, weren't you?
 fuutarou: I couldn't believe you would do something like that. The very thing that helped me recognize you earlier that day became the reason I was blinded.
 fuutarou: I became afraid of my feelings and trapped myself in a nightmare of my own making.
 …
+# sprite left fuutarou chapter_01_worried
+# sprite right miku hurt
 fuutarou: I always knew you were the girl who kissed me.
 fuutarou: But I didn't want it to be you.
 fuutarou: I didn't want to disappoint you. I didn't believe I was worthy of accepting your love, and I was terrified of how I would handle a relationship with you.
 fuutarou: Yotsuba suffered because of that fear. She didn't deserve the terrible relationship I gave her; she only wanted the two of us to be happy.
 fuutarou: But when she found the strength to break up with me, part of me was glad. She had grown enough to make that choice for herself.
 …
+# sprite left fuutarou chapter_01_determined
 fuutarou: All five of you have changed so much. In turn, you changed me into the selfish man standing here today.
 fuutarou: The joy, sadness and anger we shared made me love all five of you as my irreplaceable friends.
 fuutarou: I can tell all five of you apart.
 fuutarou: But when I look at you, I feel something different...something special.
 fuutarou: I was an idiot, and I still am. But this time, I will finally say what I truly feel.
 fuutarou: Miku Nakano...I love you!
+# sprite right miku embarrassed
 Miku's already intense blush only got worse as he finished.
 fuutarou: These are my feelings...my feelings which will never change! All I want...is to know what yours are.
+# sprite right miku thoughtful
 Miku recalls everything she has been through with Fuutarou. She tried to lock her feelings away because she believed it was already too late.
 Now Fuutarou is reaching into her heart to recover the emotions she abandoned, and he is prepared to keep trying.
 The same tenacity that made her fall in love with him the first time is making her fall in love all over again.
 Fuutarou really is the worst...but if there are truly no hard feelings, and if she can finally allow herself to be selfish, then...
+# sprite right miku teary_smile
 miku: You idiot…
 fuutarou: hmm?
 narrator: *DING DONG*
+# sprite right miku chapter_08_playful_resolved
 miku: Fufu-Fuutarou, are you feeling nervous? Try to recall that day five years ago. It's not like this is the first time.
 narrator: *DING DONG*
 miku: Fuutarou, is it alright if I give you an answer right now?
 narrator: *DING DONG*
+# sprite left fuutarou chapter_01_hand_cover
 fuutarou: We've never done this in front of a crowd…
 miku: Hmm, really?
 fuutarou: I know… I know we did that in the street two years ago, and then there was the rooftop-oh you know what I mean!
 miku: Fufu-Would you like me to do it, like back then?
+# sprite left fuutarou chapter_01_determined
 fuutarou: No, I can do it.
 Fuutarou took a good hold of her shoulders, and…
 narrator: *DING DONG*
@@ -506,8 +556,10 @@ Fuutarou took Miku's shoulders and kissed her to seal their vows.
 # show image bg onsen-cg-041b-fuutarou-returns-rain-kiss align 0 with fade
 narrator: *DING DONG*
 # show image bg ch08-yuzine-eien-street-rain align 0 with fade
+# sprite left fuutarou chapter_01_soft_smile
 # sprite right miku teary_smile
 Fuutarou stepped back. Miku had given him her answer clearly. Miku bends down a little, looking up at him with a smile.
+# sprite right miku chapter_08_playful_resolved
 miku: Well, Fuutarou? Could you tell I got a little taller?
 Fuutarou covered his mouth...but soon, he let go of it to welcome Miku's answer with a smile.
 fuutarou: Yeah! You truly have grown!
@@ -526,15 +578,20 @@ The rain stops as they walk toward the motorcycle. Fuutarou tries to lower the u
 miku: It's fine, I like it like this...I don't want to let you go anymore.
 Fuutarou simply smiles.
 # show image bg ch08-yuzine-eien-street align 0 with fade
+# sprite left fuutarou chapter_01_soft_smile
+# sprite right miku gentle
 …
 …
+# sprite left fuutarou chapter_01_neck_scratch
 fuutarou: Man, your dad is gonna kill me. He told me to bring you back fully dry.
+# sprite right miku warm_laugh
 miku: Haha, don't worry. I'll help you fight him off...but if we're already going against dad…
 Miku points to a restaurant across the street.
 miku: We've been there before, it's a great place.
 fuutarou: Oh, um... I don't have any more money…
 miku: It's fine, I'll pay for it.
 fuutarou: Urk! I...I swear I'll pay it in full next time!
+# sprite right miku chapter_08_playful_resolved
 miku: Already thinking about the second date, Fuutarou? You truly are a villain. Fufu...
 Miku began to repeat the words that Fuutarou couldn't stop saying to her. Now that they were together, Miku thought, she would do everything she wanted to do this whole time, with no regret.
 miku: I love you.
@@ -551,14 +608,22 @@ End of Chapter 8
 # sprite hide all
 # show image bg ch08-yuzine-eien-street align 0 with fade
 narrator: Chapter 8 Extra
+# sprite left fuutarou chapter_01_soft_smile
+# sprite right miku chapter_08_playful_resolved
 miku: I love you. I love you. I love you. I love you. I love you.
+# sprite left fuutarou chapter_01_hand_cover
 fuutarou: Please stop that, it's embarrassing…
 miku: Oh, and after you did the very same thing? Come on, let me get a little revenge.
 fuutarou: Oh yeah? Well, two can play that game.
+# sprite left fuutarou chapter_01_neck_scratch
 Fuutarou moved the hair covering Miku's eye.
 fuutarou: Y-You know...You shouldn't be afraid of showing your beautiful face…
+# sprite right miku embarrassed
+# sprite left fuutarou chapter_01_hand_cover
 Miku blushes from it massively, Fuutarou responds with a similar blush after seeing what he's done.
 fuutarou_miku: \[This is so embarrassing...\]
+# sprite right miku warm_laugh
+# sprite left fuutarou chapter_01_soft_smile
 They both begin to laugh it off as they continue walking. Miku grabs his hand, Fuutarou, while shocked at first, accepts it. Under the umbrella, walking alone with each other by their side. They wish this little moment could last an eternity.
 
 * Continuar al capitulo 9

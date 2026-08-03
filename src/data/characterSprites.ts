@@ -28,6 +28,18 @@ export const characterSprites = {
             src: "/images/characters/fuutarou/chapter_01/fuutarou_neck_scratch.webp",
             scale: 1.04,
         },
+        chapter_01_worried: {
+            src: "/images/characters/fuutarou/chapter_01/fuutarou_worried.webp",
+            scale: 1.04,
+        },
+        chapter_01_determined: {
+            src: "/images/characters/fuutarou/chapter_01/fuutarou_determined.webp",
+            scale: 1.04,
+        },
+        chapter_01_soft_smile: {
+            src: "/images/characters/fuutarou/chapter_01/fuutarou_soft_smile.webp",
+            scale: 1.04,
+        },
         neutral: {
             src: "/images/characters/fuutarou/fuutarou_neutral.webp",
             scale: 1.04,
@@ -540,6 +552,18 @@ export const characterSprites = {
         },
         teary_smile: {
             src: "/images/characters/miku/miku_teary_smile.webp",
+            scale: 1,
+        },
+        chapter_08_startled_retreat: {
+            src: "/images/characters/miku/chapter_08/miku_startled_retreat.webp",
+            scale: 1,
+        },
+        chapter_08_crying_guarded: {
+            src: "/images/characters/miku/chapter_08/miku_crying_guarded.webp",
+            scale: 1,
+        },
+        chapter_08_playful_resolved: {
+            src: "/images/characters/miku/chapter_08/miku_playful_resolved.webp",
             scale: 1,
         },
     },

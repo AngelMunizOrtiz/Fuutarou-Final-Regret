@@ -40,6 +40,38 @@ export const characterSprites = {
             src: "/images/characters/fuutarou/chapter_01/fuutarou_soft_smile.webp",
             scale: 1.04,
         },
+        chapter_08_neutral: {
+            src: "/images/characters/fuutarou/chapter_08/fuutarou_neutral.webp",
+            scale: 1.04,
+        },
+        chapter_08_annoyed: {
+            src: "/images/characters/fuutarou/chapter_08/fuutarou_annoyed.webp",
+            scale: 1.04,
+        },
+        chapter_08_surprised: {
+            src: "/images/characters/fuutarou/chapter_08/fuutarou_surprised.webp",
+            scale: 1.04,
+        },
+        chapter_08_hand_cover: {
+            src: "/images/characters/fuutarou/chapter_08/fuutarou_hand_cover.webp",
+            scale: 1.04,
+        },
+        chapter_08_neck_scratch: {
+            src: "/images/characters/fuutarou/chapter_08/fuutarou_neck_scratch.webp",
+            scale: 1.04,
+        },
+        chapter_08_worried: {
+            src: "/images/characters/fuutarou/chapter_08/fuutarou_worried.webp",
+            scale: 1.04,
+        },
+        chapter_08_determined: {
+            src: "/images/characters/fuutarou/chapter_08/fuutarou_determined.webp",
+            scale: 1.04,
+        },
+        chapter_08_soft_smile: {
+            src: "/images/characters/fuutarou/chapter_08/fuutarou_soft_smile.webp",
+            scale: 1.04,
+        },
         neutral: {
             src: "/images/characters/fuutarou/fuutarou_neutral.webp",
             scale: 1.04,
@@ -552,6 +584,34 @@ export const characterSprites = {
         },
         teary_smile: {
             src: "/images/characters/miku/miku_teary_smile.webp",
+            scale: 1,
+        },
+        chapter_08_gentle: {
+            src: "/images/characters/miku/chapter_08/miku_gentle.webp",
+            scale: 1,
+        },
+        chapter_08_serious: {
+            src: "/images/characters/miku/chapter_08/miku_serious.webp",
+            scale: 1,
+        },
+        chapter_08_embarrassed: {
+            src: "/images/characters/miku/chapter_08/miku_embarrassed.webp",
+            scale: 1,
+        },
+        chapter_08_warm_laugh: {
+            src: "/images/characters/miku/chapter_08/miku_warm_laugh.webp",
+            scale: 1,
+        },
+        chapter_08_thoughtful: {
+            src: "/images/characters/miku/chapter_08/miku_thoughtful.webp",
+            scale: 1,
+        },
+        chapter_08_hurt: {
+            src: "/images/characters/miku/chapter_08/miku_hurt.webp",
+            scale: 1,
+        },
+        chapter_08_teary_smile: {
+            src: "/images/characters/miku/chapter_08/miku_teary_smile.webp",
             scale: 1,
         },
         chapter_08_startled_retreat: {

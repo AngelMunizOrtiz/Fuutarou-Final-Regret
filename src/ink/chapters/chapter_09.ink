@@ -16,13 +16,17 @@ Normally, Fuutarou would have completed the assignment as early as possible.
 This time, he waited until a certain someone began a similar stage of her culinary training.
 He carefully matched their schedules and is now on his way to pick her up.
 For one reason or another, he is especially nervous.
+# sprite center fuutarou chapter_09_worried
 fuutarou: Can I really do this? No, no doubting yourself, Fuutarou! You just have to make sure not to mess it up this time.
 Fuutarou took a deep breath, he had made it to his destination.
+# sprite center fuutarou chapter_09_annoyed
 fuutarou: 'Well, at least I knew where she was going this time."
 After a few minutes, Fuutarou spots the long-haired girl and waves.
 Miku notices him and smiles. Her beautiful face is no longer hidden behind her hair, and the sight makes Fuutarou blush.
 He becomes so entranced that he fails to notice her approaching.
 By the time he realizes how close she is, Miku is already leaping into his arms.
+# sprite left fuutarou chapter_09_surprised
+# sprite right miku chapter_09_bright_reunion
 miku: Fuutarou!
 The sudden hug nearly knocks them over, but Fuutarou manages to keep them upright.
 # sprite hide all
@@ -32,37 +36,49 @@ It is the first time they have seen each other face to face in seven months.
 Even so, they were never strangers; they had spoken almost every day.
 miku: I missed you!
 # show image bg ch09-miku-pickup-street-late-morning align 0 with fade
+# sprite left fuutarou chapter_09_embarrassed
+# sprite right miku chapter_09_pout
 They both stand there for a little bit. Miku looks up at Fuutarou. He knew what this meant.
 fuutarou: M-Miku, I know you want one, but should we really do it in public like this?
 Miku pouts. No matter how much he resists, her pout causes his defenses to go down, with no exception.
 fuutarou: Come on...You know it's not fair when you do that...All right.
 They have a small kiss.
 miku: I thought it'd last longer.
+# sprite left fuutarou chapter_09_hand_cover
 fuutarou: Please spare me. I promise I'll give you more when we're alone…
 Miku smiles. Even though she was embarrassed as well, she loved these moments too much to pass them up.
 …
 …
 # show image bg ch09-date-restaurant-interior-late-morning align 0 with fade
+# sprite left fuutarou chapter_09_soft_smile
+# sprite right miku chapter_09_playful
 narrator: Before going to work, they decide to get something to eat.
 narrator: Ever since their first date, Fuutarou has insisted on paying for everything.
 narrator: Miku feels guilty that she cannot contribute, but understands that this is one of the ways he expresses his love.
 narrator: In return, she sends him materials for his university projects.
 narrator: Whenever Fuutarou protests, Miku always gives him the same answer.
 miku: You can make it up to me on our next date! Just be warned, I may order the entire menu. Teehee!
+# sprite right miku chapter_09_bright_reunion
 miku: Delicious!
 fuutarou: It's food like this that makes me glad I can taste again.
+# sprite right miku chapter_09_gentle
 miku: How'd you know of this place? It seems new.
 fuutarou: Raiha always sends pictures of her going here with her friends.
 As they continue talking, Fuutarou occasionally looks to where Miku's headphones would normally be. Miku notices this and moves her hair to let him get a better look. Fuutarou blushes once he's caught.
+# sprite right miku chapter_09_playful
 miku: Haha, is my neck that interesting?
+# sprite left fuutarou chapter_09_embarrassed
 fuutarou: Well, it's just...I asked you this before, but are you sure you don't want a new pair of headphones?
+# sprite right miku chapter_09_thoughtful
 miku: Hmm? Yeah, my old pair work just fine. Even then, while I still listen to music, I don't do it nearly as much as before...well, not like I did it too much to begin with.
 Miku gives a look towards Fuutarou. Her gentle smile continues to surprise him.
 miku: I started wearing them in middle school. Yotsuba had begun wearing a ribbon because she wanted to be special.
 miku: After our mother's death, I thought that perhaps I should do something similar.
 miku: I wasn't very social, certainly not like Yotsuba. Maybe I simply wanted people to see me as different from my sisters.
+# sprite right miku chapter_09_vulnerable
 miku: But did I want to feel special...or did I just not want to be compared to them?
 Fuutarou grabs his head.
+# sprite right miku chapter_09_gentle
 miku: But...none of that matters anymore.
 Miku puts her head on the back of her hands, looking up at Fuutarou.
 miku: I don't need to be seen as different by many, as long as the one I love sees me as special.
@@ -70,65 +86,95 @@ Fuutarou tries to give her a confident gesture, but he can't help but blush inte
 …
 …
 # show image bg ch09-local-library-interior-afternoon align 0 with fade
+# sprite left fuutarou chapter_09_soft_smile
+# sprite right miku chapter_09_gentle
 Once they finished eating, they went to a local library while waiting for the designated time.
 miku: Have you kept up with everyone?
 fuutarou: Yeah, the workload has gotten even worse, but I've made sure to talk with them.
+# sprite right miku chapter_09_playful
 miku: Hehe, to think that this is the same Fuutarou that would always keep his head in the books, no matter what.
+# sprite left fuutarou chapter_09_annoyed
 fuutarou: Ugh, I can't deny I still don't do that...It's great seeing everyone grow. Though Ichika keeps teasing me about something, I wonder if she got a huge deal or something?
 miku: Ah? She hasn't told you, huh? Ichika sure likes to tease. She wouldn't stop doing so when we went back together…
 fuutarou: Not just her, everyone was teasing us. Not only was your dad on our ass, Ebata wanted me gone when he found out we already ate…But such a noisy environment isn't bad once in a while...I just hope I can-
 As Fuutarou keeps talking, Miku grabs his hand, interlocking his fingers with hers.
+# sprite left fuutarou chapter_09_surprised
 fuutarou: Mi-Miku?
+# sprite right miku chapter_09_gentle
 miku: Being here, like this...It reminds me of our tutoring days, I'm so happy you were our tutor, Fuutarou. Our teacher-student relationship might be over, but I'm glad we've continued to stay together. Our relationships will continue to evolve, and I'm glad.
 Miku goes to lean on him. Fuutarou accepts it.
+# sprite left fuutarou chapter_09_determined
 fuutarou: \[Yeah...Today, I'll take my next step forward…\]
 …
 …
 # show image bg ch09-asahiyama-high-school-exterior align 0 with fade
+# sprite left fuutarou chapter_09_teacher_neutral
+# sprite right miku chapter_09_neutral
 It's finally time.
 fuutarou: We're here…
+# sprite right miku chapter_09_gentle
 miku: It's been a while, huh?
 fuutarou: I'm surprised this place was an option.
 narrator: *Asahiyama High School*
 …
 …
 # show image bg ch07-asahiyama-high-school-corridor-afternoon align 0 with fade
+# sprite left fuutarou chapter_09_teacher_neutral
+# sprite right miku chapter_09_teacher_enthusiastic
 miku: I'll be your cooking teacher for today!
 fuutarou: I'll be your math teacher today.
 …
 …
 Once their first classes were over, they decided to visit each other. Miku and Raiha were walking together
+# sprite left fuutarou chapter_09_teacher_neutral
+# sprite center raiha chapter_09_cheerful_wave
+# sprite right miku chapter_09_gentle
 raiha: Hey, brother.
+# sprite left fuutarou chapter_09_soft_smile
 fuutarou: Raiha! You get bigger every time I see you.
 miku: On our way here, Raiha mentioned something about Mr. Jirou, the old history teacher, being promoted to principal.
 fuutarou: The principal? Wasn't Yuusuke's dad in that position?
+# sprite center raiha chapter_09_neutral
 raiha: Both Takeda and Ichika came together to expose his abuse of his position, so Mr. Jirou was promoted.
+# sprite left fuutarou chapter_09_annoyed
 fuutarou: That damned Yuusuke! He never tells me anything, I could have-Wait, Ichika?
+# sprite center raiha chapter_09_surprised_shy
 raiha: Ah! She never told you? Then forget I said anything.
 fuutarou: C'mon, Raiha! Don't tease your brother like that!
+# sprite right miku chapter_09_playful
 miku: *giggle*"I think it's fine. It was gonna be a surprise, but the secret's out. Ichika came back to finish her third year. She finally graduated in between all her work."
+# sprite left fuutarou chapter_09_surprised
 fuutarou: Really? Ugh, she should have told me, I could have helped with her studying!
 miku: She would have refused anyway, she wanted to show you her progress. That reminds me, I have to ask if I can take over the history class too. I'd like to give a full lesson on historical warlords!
+# sprite left fuutarou chapter_09_soft_smile
 fuutarou: \[Heh, it's good to see her love for history hasn't changed…\]"I hoped Ichika could have graduated with us, though."
 miku: Me too.. But it's better late than never!
+# sprite left fuutarou chapter_09_determined
 fuutarou: "Yeah…"\[I'll do it today...no matter what!\]
 …
 …
+# sprite hide all
+# sprite center fuutarou chapter_09_teacher_neutral
 fuutarou: Alright, it's finally over.
 Fuutarou calls Miku.
 fuutarou: Hey, Miku. Where are you? Let's go somewhere for the night.
 miku: I'm on...Why don't you find the answer to that? I'm sure your answer will be as swift as the wind. I'll be as hard to find as a shadow, so make sure your raid is as fierce as fire...hehe, that was fun. Anyway, It's a place that's become important to me…
 As Miku hung up, Fuutarou could already tell he knew the answer.
+# sprite center fuutarou chapter_09_determined
 fuutarou: \[Too easy...That place is as special to me as it is for her...That's it! That's where I'll do it! Fuutarou, you're a genius!\]
 …
 …
 # show image bg ch09-asahiyama-rooftop-sunset align 0 with fade
+# sprite left fuutarou chapter_09_worried
+# sprite right miku chapter_09_playful
 Fuutarou opens the door after going up the stairs. He sees Miku standing in the middle waiting for him.
 miku: You found me pretty quickly.
 narrator: *The rooftop*
+# sprite left fuutarou chapter_09_soft_smile
 fuutarou: This place isn't special to you exclusively.
 miku: Really?
 fuutarou: Yeah, this is the place where I began to learn about you…
+# sprite right miku chapter_09_bright_reunion
 miku: Haha, this is the place where I had my first real conversation with you…
 miku_fuutarou: I thought you were such a horrible person!
 Fuutarou and Miku begin laughing the moment they finish speaking.
@@ -141,16 +187,24 @@ miku: Yeah.
 fuutarou: Being back here made me think about the two years we spent together.
 fuutarou: I watched you discover your goals, your dreams and your feelings.
 fuutarou: I did some stupid things, but I will never regret the school life I shared with you.
+# sprite left fuutarou chapter_09_neck_scratch
 fuutarou: And that made me realize something...we never danced, did we?
+# sprite right miku chapter_09_startled
 miku: Huh?
+# sprite left fuutarou chapter_09_embarrassed
 fuutarou: Well, you know...During both our school trip and the Sunrise Festival, there were great opportunities to dance. But, I got sick during the trip and...well, there wasn't a good time during the festival...So, I want to make it up to you.
+# sprite right miku chapter_09_thoughtful
 miku: Make it up to me? You don't really need to do that. Not to mention, we don't have a bonfire
+# sprite left fuutarou chapter_09_hand_cover
 fuutarou: "Please, indulge me for a bit. There's a really wonderful and huge bonfire known as the sun...There was the "Sunrise Festival'', so we'll make our own...called the "Sunset Festival''!
+# sprite right miku chapter_09_bright_reunion
 miku: Haha...hahaha! That's a little lame, isn't it?
 Fuutarou looks away in embarrassment.
 fuutarou: C-Come on, don't tease me like that, I jus-huh?
 He turns his head to see Miku holding his hand.
+# sprite right miku chapter_09_gentle
 miku: I accept your offer. Let's dance, fuutarou!
+# sprite left fuutarou chapter_09_soft_smile
 fuutarou: Right!
 # sprite hide all
 # show image bg onsen-cg-030-fuutarou-miku-rooftop-dance align 0 with fade
@@ -174,6 +228,8 @@ Fuutarou cannot look away from Miku's eyes. The lifeless gaze she once carried n
 Her eyes are brighter and fuller of life than ever before.
 When the sun disappears and the first stars emerge, Fuutarou knows it is time.
 # show image bg ch09-asahiyama-rooftop-sunset align 0 with fade
+# sprite left fuutarou chapter_09_determined
+# sprite right miku chapter_09_gentle
 fuutarou: The time I spend with you has become the happiest part of my life.
 fuutarou: You went from my student, to my friend, to the person I love.
 fuutarou: I can hardly believe I became someone capable of feeling this way, but I will never regret it.
@@ -181,6 +237,7 @@ fuutarou: I love seeing you. I love talking to you. I love being with you.
 fuutarou: I love all of it.
 Fuutarou starts to distance himself a little from Miku, signaling the end of the dance.
 fuutarou: ...and I want it to last forever.
+# sprite right miku chapter_09_startled
 miku: Huh, what do you…?
 # sprite hide all
 # show image bg onsen-cg-047-fuutarou-rooftop-proposal-question align 0 with fade
@@ -209,7 +266,10 @@ While Fuutarou tries to clean his tears, he attempts to respond but is interrupt
 They kiss. For a long time.
 Once they separate, both of them can't help but grin through their tears.
 # show image bg ch09-asahiyama-rooftop-sunset align 0 with fade
+# sprite left fuutarou chapter_09_teary_relief
+# sprite right miku chapter_09_teary_smile
 miku: You did promise a longer one earlier.
+# sprite left fuutarou chapter_09_embarrassed
 fuutarou: Always outside. Honestly, have you no shame? Although, I wouldn't mind another one.
 Miku got up to help him get back up.
 miku: You helped me change. Studying, cooking, friendship, love...you were always there.
@@ -230,8 +290,11 @@ Chapter 9 End
 === chapter_9_extra ===
 # sprite hide all
 # show image bg ch09-asahiyama-rooftop-early-night align 0 with fade
+# sprite left fuutarou chapter_09_embarrassed
+# sprite right miku chapter_09_playful
 narrator: Chapter 9 Extra
 miku: By the way, was the reason for asking about the headphones going to be part of your proposal?
+# sprite left fuutarou chapter_09_hand_cover
 fuutarou: Yeah, well...I was...going to put them around you when I asked, kind of like a wedding ring. It's lame, I know!
 miku: Even when you're lame, you're still the coolest guy in the world. But…
 # sprite hide all

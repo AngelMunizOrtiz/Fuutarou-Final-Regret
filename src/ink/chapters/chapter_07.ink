@@ -42,12 +42,15 @@ isanari: Huh!? Where am I?
 maruo: In the nurse's office, one of the teachers found you foaming out the mouth in the hallway.
 isanari: Oh..Well, I wonder what happened.
 Shimoda enters in a pure panic.
+# sprite center shimoda_young frantic_warning
 shimoda: Oi, this is bad! That punk girlfriend of yours is trying to hand bread out to people!
 isanari: Hmm? What's so bad about that?
+# sprite center shimoda_young exasperated_scolding
 shimoda: That damned bread is why you're here, dumbass!
 isanari: Huh!?
 …
 …
+# sprite hide all
 # show image bg ch07-asahiyama-high-school-corridor-afternoon align 0 with fade
 # sprite left isanari_young determined
 # sprite right maruo_young neutral

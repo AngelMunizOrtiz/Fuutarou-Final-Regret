@@ -40,7 +40,12 @@ fuutarou: That's creepy.
 takeda: I like to call it "true friendship".
 takeda: Ah, that face you're making is your "I'm disgusted" face.
 takeda: You first made it when I came out of the shower naked that first day.
+# sprite hide all
+# show image bg ch01-cg-060-takeda-shower-flashback align 0 with fade
 fuutarou: Honestly, have you no shame...?
+# show image bg ch01-university-walkway-afternoon align 0 with fade
+# sprite left fuutarou chapter_01_annoyed
+# sprite right takeda sparkle
 Fuutarou stops walking, he puts his hand over his mouth.
 # sprite left fuutarou chapter_01_hand_cover
 takeda: Hmm? What's wrong, was your breakfast bread not good this morning?
@@ -92,10 +97,15 @@ fuutarou: No, never mind, just remembering something that happened long ago,but.
 # sprite left fuutarou chapter_01_neutral
 # sprite right takeda sheepish
 takeda: Hmm, how confusing. Ah! That reminds me, you're going back home this upcoming vacation, correct?
+# sprite hide all
+# show image bg ch01-cg-061-fuutarou-nostalgic-smile align 0 with fade
 fuutarou: Uhh, yeah, I've been invited to go to the same hot springs I won a trip to a few years ago.
+# show image bg ch01-cg-062-takeda-notices-smile align 0 with fade
 takeda: Hehe, that smile says you're excited to meet them again.
 Fuutarou looks at Takeda, not realizing the massive grin on his face.
+# show image bg ch01-student-residence-approach align 0 with fade
 # sprite left fuutarou chapter_01_surprised
+# sprite right takeda sheepish
 fuutarou: H-Huh? What are you talking about?
 takeda: You can't fool me, you're going to see the quintuplets again, aren't you?
 Fuutarou hesitates for a second, then finally notices his unconscious smile. Realizing there was no backing out of this, he responds
@@ -106,6 +116,8 @@ fuutarou: Though, why did they just tell me!?
 fuutarou: I was supposed to get a 2-week notice, but I have to be there in a couple of days!
 takeda: Oh my, was Fuutarou forgotten?
 fuutarou: I guess so, Yotsuba was supposed to remind me. But, Miku had to go and tell me instead...
+# sprite hide all
+# show image bg ch01-cg-063-takeda-teases-fuutarou align 0 with fade
 takeda: \[Ah, now that's a grin\]
 # sprite hide all
 End of Chapter 1

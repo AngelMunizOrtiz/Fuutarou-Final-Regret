@@ -220,6 +220,7 @@ The sisters all hugged, the only thing heard for a while were the echoes of Yots
 # show image bg ch02-onsen-reception-staircase align 0 with fade
 Check-in room
 Once Fuutarou gets there. He sees Maruo and Ebata.
+# sprite right ebata polite_greeting
 ebata: Ah, Fuutarou-san. I've been told ahead of time. You'll be picking up Miku today,yes?
 fuutarou: \[I see, so this was planned too.\]
 # sprite hide all
@@ -232,7 +233,9 @@ fuutarou: Finally acting like a real father, huh?
 maruo: It's never too late to do the right thing, isn't that right, boy!?
 Fuutarou nods. He exits the check-in area.
 # show image bg ch02-onsen-reception-staircase align 0 with fade
+# sprite right ebata service_bow
 ebata: I shall get breakfast ready.
+# sprite hide all
 Maruo is left alone. A can of beer slowly goes towards him, but Maruo stops it before it reaches his cheek.
 maruo: ..And what do you want, Uesugi-kun!?
 isanari: I wanted to give you a reward for not killing my son.

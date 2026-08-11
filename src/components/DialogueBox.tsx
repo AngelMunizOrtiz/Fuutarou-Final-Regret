@@ -56,10 +56,10 @@ export default function DialogueBox({ text, speaker, variant, isThought }: Dialo
                     zIndex: 100,
                     ...(isDream
                         ? {
-                              bottom: "40px",
-                              width: "90vw",
+                              bottom: "clamp(18px, 3.7cqh, 40px)",
+                              width: "90cqw",
                               maxWidth: "1400px",
-                              minHeight: "160px",
+                              minHeight: "clamp(112px, 14.8cqh, 160px)",
                               backgroundColor: "rgba(255, 255, 255, 0.12)",
                               backdropFilter: "blur(15px) saturate(160%)",
                               borderRadius: "20px",
@@ -106,8 +106,8 @@ export default function DialogueBox({ text, speaker, variant, isThought }: Dialo
                         overflowY: isDream ? "visible" : "auto",
                         fontFamily: "'MPLUSRounded', sans-serif",
                         fontSize: isDream
-                            ? "2.3rem"
-                            : { xs: "0.95rem", sm: "1.1rem", md: "1.3rem", lg: "1.45rem" },
+                            ? "clamp(1.15rem, 2.2cqw, 2.3rem)"
+                            : "clamp(0.88rem, 1.18cqw, 1.45rem)",
                         color: isDream ? "white" : isThought ? "rgba(60,60,60,0.8)" : "black",
                         fontStyle: !isDream && isThought ? "italic" : "normal",
                         fontWeight: 500,
@@ -137,7 +137,7 @@ export default function DialogueBox({ text, speaker, variant, isThought }: Dialo
                         ...(isDream
                             ? {
                                   left: "8%",
-                                  bottom: "200px",
+                                  bottom: "clamp(146px, 18.5cqh, 200px)",
                                   px: 4,
                                   py: 0.5,
                                   backgroundColor: "rgba(255, 165, 0, 0.25)",
@@ -184,8 +184,8 @@ export default function DialogueBox({ text, speaker, variant, isThought }: Dialo
                             whiteSpace: "nowrap",
                             fontFamily: isDream ? "'Sawarabi', sans-serif" : "'ConteScript', cursive",
                             fontSize: isDream
-                                ? "1.8rem"
-                                : { xs: "1.04rem", sm: "1.28rem", md: "1.48rem", lg: "1.58rem" },
+                                ? "clamp(1rem, 1.7cqw, 1.8rem)"
+                                : "clamp(1rem, 1.45cqw, 1.58rem)",
                             color: isDream ? "white" : "rgba(20, 18, 24, 0.94)",
                             mt: isDream ? 0 : -1,
                             textShadow: isDream

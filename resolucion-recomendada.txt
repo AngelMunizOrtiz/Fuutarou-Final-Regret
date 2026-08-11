@@ -1,0 +1,6 @@
+Recurso	Archivo maestro de trabajo	Exportación para el juego
+Fondo nuevo	2560 × 1440	1920 × 1080
+CG nuevo	2560 × 1440	1920 × 1080
+CG con zoom o movimiento	3840 × 2160 opcional	1920 × 1080
+Sprite normal	1240 × 1752 transparente	620 × 876
+Elementos UI	SVG/CSS si es posible	Tamaño requerido por la interfaz

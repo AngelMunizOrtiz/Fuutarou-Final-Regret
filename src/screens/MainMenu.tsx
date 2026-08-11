@@ -183,7 +183,7 @@ export default function MainMenu() {
     const menuIconStyle = { fontSize: "inherit" };
 
     return (
-        <Box sx={{ position: "fixed", inset: 0, overflow: "hidden", backgroundColor: "black" }}>
+        <Box sx={{ position: "absolute", inset: 0, overflow: "hidden", backgroundColor: "black" }}>
 
             {/* 1. VIDEO DE FONDO */}
             <video
@@ -244,7 +244,7 @@ export default function MainMenu() {
                     position: "absolute",
                     left: 0,
                     top: 0,
-                    height: "100vh",
+                    height: "100%",
                     zIndex: 1,
                     display: "flex",
                     alignItems: "center",

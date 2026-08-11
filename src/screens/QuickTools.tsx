@@ -74,8 +74,8 @@ const panelSx = {
     position: "absolute",
     top: 48,
     right: 0,
-    width: { xs: "min(340px, calc(100vw - 24px))", sm: 340 },
-    maxHeight: "calc(100vh - 76px)",
+    width: "min(340px, calc(100cqw - 24px))",
+    maxHeight: "calc(100cqh - 76px)",
     overflowY: "auto",
     p: 1.25,
     borderRadius: "8px",
@@ -200,11 +200,11 @@ export default function QuickTools() {
     return (
         <Box
             ref={hudRef}
-            className={hudVariants}
+            className={`vn-quick-tools ${hudVariants}`}
             sx={{
                 position: "absolute",
-                top: { xs: 10, sm: 16 },
-                right: { xs: 10, sm: 16 },
+                top: "clamp(8px, 1.1cqw, 16px)",
+                right: "clamp(8px, 1.1cqw, 16px)",
                 zIndex: 180,
                 pointerEvents: hidden ? "none" : "auto",
             }}
@@ -238,12 +238,18 @@ export default function QuickTools() {
                         onClick={toggleAuto}
                         sx={{
                             ...hudButtonSx,
-                            minWidth: 82,
+                            minWidth: "var(--quick-auto-width)",
+                            px: 1,
                             backgroundColor: autoEnabled ? "rgba(184, 73, 86, 0.94)" : hudButtonSx.backgroundColor,
                             borderColor: autoEnabled ? "rgba(255, 197, 137, 0.96)" : "rgba(244, 163, 125, 0.72)",
+                            "& .MuiButton-startDecorator": {
+                                mr: "var(--quick-auto-decorator-margin)",
+                            },
                         }}
                     >
-                        {t("auto_forward_time_restricted")}
+                        <Box component="span" sx={{ display: "var(--quick-auto-label-display)" }}>
+                            {t("auto_forward_time_restricted")}
+                        </Box>
                     </Button>
                 </Tooltip>
                 <Tooltip title={t("playback_timing")} placement="bottom">

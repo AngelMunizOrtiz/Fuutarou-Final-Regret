@@ -26,6 +26,143 @@ body {
   background: var(--loading-ink);
 }
 
+#root {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+#canvas {
+  display: block;
+}
+
+.vn-game-ui-layer {
+  container-name: game;
+  container-type: size;
+  overflow: hidden;
+  isolation: isolate;
+  touch-action: manipulation;
+}
+
+.vn-landscape-guard {
+  position: fixed;
+  inset: 0;
+  z-index: 20000;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding:
+    max(24px, env(safe-area-inset-top))
+    max(24px, env(safe-area-inset-right))
+    max(24px, env(safe-area-inset-bottom))
+    max(24px, env(safe-area-inset-left));
+  color: #fff8f1;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(240, 141, 184, 0.24), transparent 34%),
+    radial-gradient(circle at 22% 78%, rgba(114, 184, 236, 0.18), transparent 32%),
+    linear-gradient(145deg, #090916, #24112f 58%, #100916);
+  pointer-events: auto;
+}
+
+.vn-landscape-guard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.38;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(circle at center, black, transparent 78%);
+  pointer-events: none;
+}
+
+.vn-landscape-guard__card {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: min(88vw, 460px);
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  box-sizing: border-box;
+  padding: clamp(24px, 7vw, 42px);
+  border: 1px solid rgba(255, 216, 177, 0.36);
+  border-radius: 26px;
+  text-align: center;
+  background: rgba(31, 22, 38, 0.82);
+  box-shadow: 0 24px 72px rgba(0, 0, 0, 0.42), inset 0 1px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px) saturate(135%);
+}
+
+.vn-landscape-guard__device {
+  display: grid;
+  width: 84px;
+  height: 84px;
+  place-items: center;
+  border: 1px solid rgba(255, 205, 148, 0.4);
+  border-radius: 24px;
+  color: #ffd8a6;
+  background: linear-gradient(145deg, rgba(240, 141, 184, 0.22), rgba(114, 184, 236, 0.12));
+  box-shadow: 0 0 34px rgba(240, 141, 184, 0.2);
+  animation: vn-landscape-device-turn 2.2s ease-in-out infinite;
+}
+
+.vn-landscape-guard__device svg {
+  font-size: 52px;
+}
+
+.vn-landscape-guard__title {
+  color: #fff8f1;
+  font-family: "MPLUSRounded", sans-serif;
+  font-size: clamp(1.45rem, 6vw, 2rem);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.vn-landscape-guard__description,
+.vn-landscape-guard__hint {
+  color: rgba(255, 248, 241, 0.8);
+  font-family: "MPLUSRounded", sans-serif;
+  line-height: 1.5;
+}
+
+.vn-landscape-guard__description {
+  font-size: clamp(0.94rem, 3.8vw, 1.06rem);
+}
+
+.vn-landscape-guard__hint {
+  font-size: 0.78rem;
+  color: rgba(255, 236, 215, 0.62);
+}
+
+.vn-landscape-guard__button {
+  min-height: 48px;
+  color: #2c1d2a;
+  background: linear-gradient(135deg, #f3ce62, #f08db8);
+  box-shadow: 0 12px 28px rgba(240, 141, 184, 0.26);
+}
+
+.vn-quick-tools {
+  --quick-auto-width: 82px;
+  --quick-auto-label-display: inline;
+  --quick-auto-decorator-margin: 6px;
+}
+
+@container game (max-width: 720px) {
+  .vn-quick-tools {
+    --quick-auto-width: 40px;
+    --quick-auto-label-display: none;
+    --quick-auto-decorator-margin: 0px;
+  }
+}
+
+@keyframes vn-landscape-device-turn {
+  0%, 18%, 100% { transform: rotate(0deg); }
+  48%, 72% { transform: rotate(90deg); }
+}
+
 .vn-loading-screen {
   position: fixed;
   inset: 0;

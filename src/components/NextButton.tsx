@@ -35,7 +35,7 @@ export default function NextButton() {
                 position: "absolute",
                 bottom: 0,
                 right: 0,
-                width: { xs: 70, sm: 100, md: 150 },
+                width: "clamp(70px, 7.8cqw, 150px)",
                 border: 3,
                 zIndex: 100,
             }}

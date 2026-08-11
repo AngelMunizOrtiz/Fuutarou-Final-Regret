@@ -53,6 +53,7 @@ Game.init(body, {
     if (!htmlLayout) {
         throw new Error("htmlLayout not found");
     }
+    htmlLayout.classList.add("vn-game-ui-layer");
     const reactRoot = createRoot(htmlLayout);
     const queryClient = new QueryClient();
 

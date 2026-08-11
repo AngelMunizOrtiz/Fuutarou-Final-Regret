@@ -60,8 +60,8 @@ export default function CharacterStage() {
                             ...slotPositions[slot],
                             position: "absolute",
                             bottom: 0,
-                            width: { xs: "66vw", sm: "50vw", md: "40vw", lg: "36vw" },
-                            maxWidth: { xs: 420, sm: 560, md: 680, lg: 740 },
+                            width: "clamp(250px, 36cqw, 740px)",
+                            maxWidth: "72cqw",
                         }}
                     >
                         <Box
@@ -92,7 +92,7 @@ export default function CharacterStage() {
                                         display: "block",
                                         width: "100%",
                                         height: "auto",
-                                        maxHeight: { xs: "88vh", sm: "90vh", md: "92vh", lg: "94vh" },
+                                        maxHeight: "94cqh",
                                         objectFit: "contain",
                                     }}
                                 />

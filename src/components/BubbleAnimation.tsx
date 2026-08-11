@@ -53,7 +53,7 @@ export default function BubbleAnimation() {
 
     return (
         <Box sx={{
-            position: "fixed",
+            position: "absolute",
             inset: 0,
             overflow: "hidden",
             pointerEvents: "none",
@@ -74,7 +74,7 @@ export default function BubbleAnimation() {
                         position: "absolute",
                         left: b.x,
                         top: "10%",
-                        width: "120vw",
+                        width: "120cqw",
                         height: "auto",
                         maxWidth: "none",
                         mixBlendMode: "screen",

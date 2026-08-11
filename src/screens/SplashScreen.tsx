@@ -86,7 +86,7 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
 
     return (
         <main
-            className={`pointer-events-auto fixed inset-0 z-[9000] overflow-hidden bg-[#090916] transition-opacity duration-700 ${
+            className={`pointer-events-auto absolute inset-0 z-[9000] overflow-hidden bg-[#090916] transition-opacity duration-700 ${
                 isExiting ? "opacity-0" : "opacity-100"
             }`}
             onClick={handleGoToMenu}
@@ -113,13 +113,13 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
                     <div className='absolute right-[5%] bottom-[10%] flex flex-col items-center gap-2'>
                         <img
                             src='/images/logo_game.webp'
-                            className='h-auto w-[clamp(190px,18vw,280px)] motion-blur-in-md'
+                            className='h-auto w-[clamp(190px,18cqw,280px)] motion-blur-in-md'
                             alt='Fuutarou Final Regret'
                             draggable={false}
                         />
                         <img
                             src={promptImage}
-                            className='mt-1 h-auto w-[clamp(260px,28vw,430px)] animate-pulse select-none'
+                            className='mt-1 h-auto w-[clamp(260px,28cqw,430px)] animate-pulse select-none'
                             alt={t("press_any_button")}
                             draggable={false}
                         />

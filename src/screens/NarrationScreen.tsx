@@ -75,8 +75,8 @@ export default function NarrationScreen() {
                         alignItems: "center",
                         justifyContent: "center",
                         px: DIALOGUE_CONTENT_PADDING_X,
-                        pt: { xs: 3, sm: 3.25, md: 4 },
-                        pb: { xs: 2.75, sm: 3, md: 3.5 },
+                        pt: "clamp(1.25rem, 3.7cqh, 2rem)",
+                        pb: "clamp(1.1rem, 3.25cqh, 1.75rem)",
                     }}
                 >
                     <Box
@@ -105,7 +105,7 @@ export default function NarrationScreen() {
                             overflow: "auto",
                             color: "rgba(25, 20, 28, 0.94)",
                             fontFamily: "'MPLUSRounded', sans-serif",
-                            fontSize: { xs: "0.88rem", sm: "0.98rem", md: "1.08rem", lg: "1.14rem" },
+                            fontSize: "clamp(0.82rem, 1.05cqw, 1.14rem)",
                             fontStyle: "normal",
                             fontWeight: 500,
                             lineHeight: 1.52,
@@ -137,7 +137,7 @@ export default function NarrationScreen() {
                     <Box
                         sx={{
                             position: "absolute",
-                            left: { xs: "4%", md: "5%" },
+                            left: "clamp(4%, 5cqw, 5%)",
                             bottom: "calc(var(--dialog-box-height) - 20px)",
                             width: NAME_BOX_WIDTH,
                             aspectRatio: "480 / 90",
@@ -166,17 +166,17 @@ export default function NarrationScreen() {
                                 zIndex: 1,
                                 width: "82%",
                                 mr: "18%",
-                                px: { xs: 1, sm: 1.5, md: 2 },
+                                px: "clamp(0.5rem, 1cqw, 1rem)",
                                 overflow: "hidden",
                                 color: character?.color || "rgba(20, 18, 24, 0.94)",
                                 fontFamily: "'ConteScript', cursive",
-                                fontSize: { xs: "1.04rem", sm: "1.28rem", md: "1.48rem", lg: "1.58rem" },
+                                fontSize: "clamp(1rem, 1.45cqw, 1.58rem)",
                                 lineHeight: 1,
                                 textAlign: "center",
                                 textOverflow: "ellipsis",
                                 whiteSpace: "nowrap",
                                 textShadow: "0 1px 0 rgba(255,255,255,0.7), 0 2px 3px rgba(71,45,82,0.18)",
-                                mt: { xs: -0.5, md: -1 },
+                                mt: "clamp(-0.5rem, -0.35cqh, -0.25rem)",
                             }}
                         >
                             {speakerName}

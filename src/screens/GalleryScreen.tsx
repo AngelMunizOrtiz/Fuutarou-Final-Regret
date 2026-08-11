@@ -127,7 +127,7 @@ export default function GalleryScreen() {
             animate={{ opacity: isLeaving ? 0 : 1, scale: isLeaving ? 0.985 : 1 }}
             transition={{ duration: 0.32, ease: "easeInOut" }}
             sx={{
-                position: "fixed",
+                position: "absolute",
                 inset: 0,
                 overflowY: "auto",
                 overflowX: "hidden",
@@ -159,7 +159,7 @@ export default function GalleryScreen() {
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.55 }}
                     sx={{
-                        position: "fixed",
+                        position: "absolute",
                         inset: 0,
                         backgroundImage: `url("${selectedVisual}")`,
                         backgroundSize: "cover",
@@ -171,7 +171,7 @@ export default function GalleryScreen() {
 
             <Box
                 sx={{
-                    position: "fixed",
+                    position: "absolute",
                     inset: 0,
                     opacity: 1,
                     backgroundImage: `
@@ -187,7 +187,7 @@ export default function GalleryScreen() {
 
             <Box
                 sx={{
-                    position: "fixed",
+                    position: "absolute",
                     inset: 0,
                     background:
                         "linear-gradient(90deg, rgba(96,46,112,0.64) 0%, rgba(255,255,255,0.18) 50%, rgba(112,54,126,0.58) 100%)",
@@ -198,7 +198,7 @@ export default function GalleryScreen() {
                 sx={{
                     position: "relative",
                     zIndex: 1,
-                    minHeight: "100vh",
+                    minHeight: "100%",
                     height: "auto",
                     display: "flex",
                     flexDirection: "column",
@@ -288,8 +288,8 @@ export default function GalleryScreen() {
                 >
                     <Box
                         sx={{
-                            minHeight: { xs: 360, sm: 460, lg: "calc(100vh - 150px)" },
-                            height: { xs: "62vh", sm: "64vh", lg: "calc(100vh - 150px)" },
+                            minHeight: "min(460px, calc(100cqh - 150px))",
+                            height: "calc(100cqh - 150px)",
                             maxHeight: { xs: 640, lg: "none" },
                             position: "relative",
                             top: { lg: 24 },

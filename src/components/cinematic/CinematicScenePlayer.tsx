@@ -88,7 +88,7 @@ export default function CinematicScenePlayer({ sceneId, frames, onComplete }: Ci
     return (
         <Box
             sx={{
-                position: "fixed",
+                position: "absolute",
                 inset: 0,
                 overflow: "hidden",
                 backgroundColor: "black",
@@ -247,7 +247,7 @@ function NoteFrame({ frame }: { frame: DreamFragment }) {
                     position: "absolute",
                     left: { xs: "17%", sm: "18%", md: "19%" },
                     top: { xs: "34%", sm: "33%", md: "32%" },
-                    width: { xs: "36vw", sm: "33vw", md: "30vw" },
+                    width: "clamp(220px, 30cqw, 560px)",
                     maxWidth: "560px",
                     color: "rgba(76, 72, 74, 0.76)",
                     fontFamily: "'ConteScript', 'Comic Sans MS', cursive",
@@ -299,7 +299,7 @@ function NoteFrame({ frame }: { frame: DreamFragment }) {
                         left: "50%",
                         bottom: { xs: "8.5%", md: "9.5%" },
                         transform: "translateX(-50%)",
-                        width: "min(780px, 84vw)",
+                        width: "min(780px, 84cqw)",
                         px: { xs: 2.4, sm: 3.2 },
                         py: { xs: 1.2, sm: 1.45 },
                         borderRadius: "18px",
@@ -352,8 +352,8 @@ function InfoFrame({ frame }: { frame: DreamFragment }) {
                 transition={{ duration: 0.7, ease: "easeOut" }}
                 sx={{
                     position: "relative",
-                    width: "min(840px, 90vw)",
-                    maxHeight: "min(68vh, 560px)",
+                    width: "min(840px, 90cqw)",
+                    maxHeight: "min(68cqh, 560px)",
                     overflow: "auto",
                     borderRadius: { xs: "18px", md: "28px" },
                     border: "2px solid transparent",
@@ -536,7 +536,7 @@ function IntroFrame({ frame }: { frame: DreamFragment }) {
                 transition={{ duration: 0.7, ease: "easeOut" }}
                 sx={{
                     position: "relative",
-                    width: "min(900px, 92vw)",
+                    width: "min(900px, 92cqw)",
                     overflow: "hidden",
                     borderRadius: { xs: "20px", md: "30px" },
                     border: "2px solid transparent",

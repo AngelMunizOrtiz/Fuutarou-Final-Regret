@@ -35,8 +35,8 @@ export default function VisibilityButton() {
                 onClick={editHideInterface}
                 sx={{
                     position: "absolute",
-                    top: { xs: 10, sm: 16 },
-                    right: { xs: 10, sm: 16 },
+                    top: "clamp(8px, 1.1cqw, 16px)",
+                    right: "clamp(8px, 1.1cqw, 16px)",
                     zIndex: 190,
                     width: 40,
                     height: 40,

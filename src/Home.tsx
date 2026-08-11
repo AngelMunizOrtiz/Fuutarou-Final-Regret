@@ -1,4 +1,5 @@
 import Routes from "./AppRoutes";
+import LandscapeOrientationGuard from "./components/LandscapeOrientationGuard";
 import useClosePageDetector from "./hooks/useClosePageDetector";
 import useInkInitialization from "./hooks/useInkInitialization";
 import useKeyboardDetector from "./hooks/useKeyboardDetector";
@@ -23,6 +24,7 @@ function HomeChild() {
 
     return (
         <>
+            <LandscapeOrientationGuard />
             <Routes />
             <Settings />
             <GameSaveScreen />

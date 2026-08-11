@@ -97,10 +97,7 @@ fuutarou: No, never mind, just remembering something that happened long ago,but.
 # sprite left fuutarou chapter_01_neutral
 # sprite right takeda sheepish
 takeda: Hmm, how confusing. Ah! That reminds me, you're going back home this upcoming vacation, correct?
-# sprite hide all
-# show image bg ch01-cg-061-fuutarou-nostalgic-smile align 0 with fade
 fuutarou: Uhh, yeah, I've been invited to go to the same hot springs I won a trip to a few years ago.
-# show image bg ch01-cg-062-takeda-notices-smile align 0 with fade
 takeda: Hehe, that smile says you're excited to meet them again.
 Fuutarou looks at Takeda, not realizing the massive grin on his face.
 # show image bg ch01-student-residence-approach align 0 with fade
@@ -115,10 +112,13 @@ fuutarou: They're my irreplaceable friends...
 fuutarou: Though, why did they just tell me!?
 fuutarou: I was supposed to get a 2-week notice, but I have to be there in a couple of days!
 takeda: Oh my, was Fuutarou forgotten?
-fuutarou: I guess so, Yotsuba was supposed to remind me. But, Miku had to go and tell me instead...
 # sprite hide all
+# show image bg ch01-cg-061-fuutarou-nostalgic-smile align 0 with fade
+fuutarou: I guess so, Yotsuba was supposed to remind me. But, Miku had to go and tell me instead...
+# show image bg ch01-cg-062-takeda-notices-smile align 0 with fade
+takeda: Ah...
 # show image bg ch01-cg-063-takeda-teases-fuutarou align 0 with fade
-takeda: \[Ah, now that's a grin\]
+takeda: Now that's a grin
 # sprite hide all
 End of Chapter 1
 

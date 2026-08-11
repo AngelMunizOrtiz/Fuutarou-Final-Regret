@@ -163,6 +163,13 @@ body {
   48%, 72% { transform: rotate(90deg); }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .vn-landscape-guard__device {
+    animation: none;
+    transform: rotate(90deg);
+  }
+}
+
 .vn-loading-screen {
   position: fixed;
   inset: 0;

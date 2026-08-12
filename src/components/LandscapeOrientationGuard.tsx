@@ -88,10 +88,31 @@ export default function LandscapeOrientationGuard() {
                 <Box className="vn-landscape-guard__device" aria-hidden="true">
                     <ScreenRotationAltRoundedIcon />
                 </Box>
-                <Typography id="landscape-title" component="h1" className="vn-landscape-guard__title">
+                <Typography
+                    id="landscape-title"
+                    component="h1"
+                    className="vn-landscape-guard__title"
+                    sx={{
+                        color: "#fff8f1",
+                        fontFamily: '"MPLUSRounded", sans-serif',
+                        fontSize: "clamp(1.45rem, 6vw, 2rem)",
+                        fontWeight: 800,
+                        lineHeight: 1.15,
+                        textAlign: "center",
+                    }}
+                >
                     {t("landscape_required_title")}
                 </Typography>
-                <Typography className="vn-landscape-guard__description">
+                <Typography
+                    className="vn-landscape-guard__description"
+                    sx={{
+                        color: "rgba(255, 248, 241, 0.8)",
+                        fontFamily: '"MPLUSRounded", sans-serif',
+                        fontSize: "clamp(0.94rem, 3.8vw, 1.06rem)",
+                        lineHeight: 1.5,
+                        textAlign: "center",
+                    }}
+                >
                     {t("landscape_required_description")}
                 </Typography>
                 <Button
@@ -103,7 +124,18 @@ export default function LandscapeOrientationGuard() {
                 >
                     {t("landscape_fullscreen_action")}
                 </Button>
-                <Typography className="vn-landscape-guard__hint">{t("landscape_required_hint")}</Typography>
+                <Typography
+                    className="vn-landscape-guard__hint"
+                    sx={{
+                        color: "rgba(255, 236, 215, 0.62)",
+                        fontFamily: '"MPLUSRounded", sans-serif',
+                        fontSize: "0.78rem",
+                        lineHeight: 1.5,
+                        textAlign: "center",
+                    }}
+                >
+                    {t("landscape_required_hint")}
+                </Typography>
             </Box>
         </Box>,
         document.body,

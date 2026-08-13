@@ -97,7 +97,10 @@ fuutarou: No, never mind, just remembering something that happened long ago,but.
 # sprite left fuutarou chapter_01_neutral
 # sprite right takeda sheepish
 takeda: Hmm, how confusing. Ah! That reminds me, you're going back home this upcoming vacation, correct?
+# sprite hide all
+# show image bg ch01-cg-064-fuutarou-hot-springs-smile align 0 with fade
 fuutarou: Uhh, yeah, I've been invited to go to the same hot springs I won a trip to a few years ago.
+# show image bg ch01-cg-064-5-takeda-chibi-teases align 0 with fade
 takeda: Hehe, that smile says you're excited to meet them again.
 Fuutarou looks at Takeda, not realizing the massive grin on his face.
 # show image bg ch01-student-residence-approach align 0 with fade

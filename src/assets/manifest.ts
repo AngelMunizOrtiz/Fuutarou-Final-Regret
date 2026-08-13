@@ -81,6 +81,8 @@ const manifest: AssetsManifest = {
                 { alias: "ch01-cg-061-fuutarou-nostalgic-smile", src: "/images/cg/chapter_01/cg_061_fuutarou_nostalgic_smile.webp" },
                 { alias: "ch01-cg-062-takeda-notices-smile", src: "/images/cg/chapter_01/cg_062_takeda_notices_smile.webp" },
                 { alias: "ch01-cg-063-takeda-teases-fuutarou", src: "/images/cg/chapter_01/cg_063_takeda_teases_fuutarou.webp" },
+                { alias: "ch01-cg-064-fuutarou-hot-springs-smile", src: "/images/cg/chapter_01/cg_064_fuutarou_hot_springs_smile_v8.png" },
+                { alias: "ch01-cg-064-5-takeda-chibi-teases", src: "/images/cg/chapter_01/cg_064_5_takeda_chibi_teases_v3.png" },
                 { alias: "ch01-arched-passage-afternoon", src: "/images/backgrounds/chapter_01/arched_passage_afternoon.webp" },
                 { alias: "ch01-student-residence-approach", src: "/images/backgrounds/chapter_01/student_residence_approach_afternoon.webp" },
                 { alias: "ch01-student-residence-corridor-reverse-l", src: "/images/backgrounds/chapter_01/student_residence_corridor_reverse_l_afternoon.webp" },

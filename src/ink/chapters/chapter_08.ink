@@ -536,8 +536,12 @@ narrator: *DING DONG*
 # sprite right miku chapter_08_playful_resolved
 miku: Fufu-Fuutarou, are you feeling nervous? Try to recall that day five years ago. It's not like this is the first time.
 narrator: *DING DONG*
+# sprite hide all
+# show image bg ch08-cg-041a-miku-answer-permission align 0 with fade
 miku: Fuutarou, is it alright if I give you an answer right now?
 narrator: *DING DONG*
+# show image bg ch08-yuzine-eien-street-rain align 0 with fade
+# sprite right miku chapter_08_playful_resolved
 # sprite left fuutarou chapter_08_hand_cover
 fuutarou: We've never done this in front of a crowd…
 miku: Hmm, really?
@@ -545,15 +549,20 @@ fuutarou: I know… I know we did that in the street two years ago, and then the
 miku: Fufu-Would you like me to do it, like back then?
 # sprite left fuutarou chapter_08_determined
 fuutarou: No, I can do it.
-Fuutarou took a good hold of her shoulders, and…
 narrator: *DING DONG*
 fuutarou: Uh, sure...So, what's your answer?
-Miku ran up to him, stood on her toes and…
 # sprite hide all
-# show image bg onsen-cg-041a-miku-initiates-rain-kiss align 0 with fade
+# show image bg ch08-cg-041b-miku-steps-closer align 0 with fade
+Miku closed the distance between them.
+# show image bg ch08-cg-041c-miku-embraces-fuutarou align 0 with fade
+She wrapped both arms around him. Fuutarou froze, too surprised to respond.
+# show image bg ch08-cg-041d-miku-almost-kiss align 0 with fade
+Miku slowly rose onto the tips of her toes.
+# show image bg ch08-cg-041e-miku-initiates-kiss align 0 with fade
 narrator: *DING DONG*
-Fuutarou took Miku's shoulders and kissed her to seal their vows.
-# show image bg onsen-cg-041b-fuutarou-returns-rain-kiss align 0 with fade
+Her lips met his before he could react.
+# show image bg ch08-cg-041f-fuutarou-returns-kiss align 0 with fade
+The surprise left him. Fuutarou closed his eyes and returned her kiss.
 narrator: *DING DONG*
 # show image bg ch08-yuzine-eien-street-rain align 0 with fade
 # sprite left fuutarou chapter_08_soft_smile

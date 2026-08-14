@@ -56,7 +56,16 @@ takeda: Ah, yes. Your boss from that bakery taught you, right?
 fuutarou: Huh? Well, yes, he was an influence, but...
 Fuutarou places his hand over his mouth again.
 # sprite left fuutarou chapter_01_hand_cover
-fuutarou: I got...extra help at another bakery.
+# sprite hide all
+# show image bg ch01-cg-068-fuutarou-bakery-memory-hesitation align 0 with fade
+fuutarou: I got...
+# show image bg ch01-cg-069-miku-bakery-training-hands-close align 0 with fade
+fuutarou: extra help...
+# show image bg ch01-cg-070-miku-bakery-training-counter-close align 0 with fade
+fuutarou: ...at another bakery.
+# show image bg ch01-university-walkway-afternoon align 0 with fade
+# sprite left fuutarou chapter_01_hand_cover
+# sprite right takeda sparkle
 Takeda shone brighter than ever before.
 takeda: Yes, help from those you cherish is truly the most wonderful thing a man can have.
 takeda: It's from those experiences that you can rise and become the greatest you can be!

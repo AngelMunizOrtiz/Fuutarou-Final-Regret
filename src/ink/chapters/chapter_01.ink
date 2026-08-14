@@ -75,6 +75,8 @@ takeda: Hey, wait for me!
 # sprite left fuutarou chapter_01_annoyed
 # sprite right takeda supportive
 As they went back to their dorm, Fuutarou kept thinking about that dream.
+# sprite hide all
+# show image bg ch01-cg-065-walk-denial align 0 with fade
 fuutarou: Honestly...it's probably not even a dream anymore.
 fuutarou: It might be more of a nightmare at this point.
 fuutarou: It's practically haunting me.
@@ -82,14 +84,18 @@ fuutarou: Why?
 fuutarou: Even though I'm already...
 fuutarou: Why can't I stop having it?
 takeda: Sounds like someone's in a state of denial.
+# show image bg ch01-cg-066-walk-denial-continuation align 0 with fade
 fuutarou: Shut it, you.
 fuutarou: I'm not regretting anything.
 fuutarou: I know...I know I made the right choice.
 fuutarou: She needed someone like me and I helped her.
 fuutarou: That's...that's what anyone would have done.
 takeda: Oh? Did I ever mention someone in particular?
+# show image bg ch01-cg-067-walk-denial-exposed align 0 with fade
 Having realized his mistake, Fuutarou begins to grit his teeth.
+# show image bg ch01-arched-passage-afternoon align 0 with fade
 # sprite left fuutarou chapter_01_neck_scratch
+# sprite right takeda supportive
 takeda: \[Ah, that's his "Unsure" face.\]
 takeda: Well, if you're happy, that's all that matters in the end, is it not?
 takeda: C'mon now, you don't have to be so reserved with that kind of stuff.
@@ -151,6 +157,8 @@ takeda: I always believe in true friendship.
 takeda: Being like this is wonderful for relationships.
 takeda: I'm truly glad our friendship has blossomed so well.
 Takeda, overflowing with emotions, goes to hug Fuutarou.
+# sprite hide all
+# show image bg ch01-cg-071-takeda-hug-attempt-extra align 0 with fade
 fuutarou: Don't you dare! Two stalls, Takeda!
 # sprite hide all
 

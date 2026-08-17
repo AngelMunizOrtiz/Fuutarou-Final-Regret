@@ -45,3 +45,4 @@ lerna-debug.log*
 *.sln
 *.sw?
 /Suno mp3
+/artifacts/windows

@@ -1,4 +1,5 @@
 import type { TFunction } from "i18next";
+import { performanceProfile } from "../utils/performance-profile";
 
 export type GalleryItem =
     | {
@@ -46,7 +47,7 @@ export const galleryItems: GalleryItem[] = [
         kind: "video",
         title: "Menu principal",
         subtitle: "Animacion de fondo",
-        src: "/videos/menu/menu.mp4",
+        src: performanceProfile.menuVideoSrc,
         poster: "/images/bg_title.webp",
     },
     {

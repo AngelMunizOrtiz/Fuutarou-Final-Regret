@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/joy";
 import { AnimatePresence, motion } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { DreamFragment } from "../../data/dreamSequence";
+import { performanceProfile } from "../../utils/performance-profile";
 import { preloadImages } from "../../utils/preload-utility";
 import BubbleAnimation from "../BubbleAnimation";
 import DialogueBox from "../DialogueBox";
@@ -49,7 +50,7 @@ export default function CinematicScenePlayer({ sceneId, frames, onComplete }: Ci
 
     useEffect(() => {
         const upcomingImages = frames
-            .slice(currentIndex + 1, currentIndex + 3)
+            .slice(currentIndex + 1, currentIndex + 1 + performanceProfile.cinematicPreloadCount)
             .filter((frame) => frame.mediaType !== "video")
             .map((frame) => frame.image);
 
@@ -111,16 +112,24 @@ export default function CinematicScenePlayer({ sceneId, frames, onComplete }: Ci
                     initial={{
                         opacity: 0,
                         scale: isAwakeningPhase ? 1 : 1.05,
-                        filter: isAwakeningPhase ? "blur(10px) brightness(0)" : "none",
+                        filter: performanceProfile.lite
+                            ? "none"
+                            : isAwakeningPhase
+                              ? "blur(10px) brightness(0)"
+                              : "none",
                     }}
                     animate={{
                         opacity: 1,
                         scale: 1,
-                        filter: isAwakeningPhase ? "blur(0px) brightness(1)" : currentFrame.filter || "none",
+                        filter: performanceProfile.lite
+                            ? "none"
+                            : isAwakeningPhase
+                              ? "blur(0px) brightness(1)"
+                              : currentFrame.filter || "none",
                     }}
                     exit={{ opacity: 0 }}
                     transition={{
-                        duration: isAwakeningPhase ? 0.3 : 1.5,
+                        duration: performanceProfile.lite ? 0.22 : isAwakeningPhase ? 0.3 : 1.5,
                         ease: "easeInOut",
                     }}
                     style={{ position: "absolute", inset: 0, zIndex: 1 }}
@@ -131,6 +140,7 @@ export default function CinematicScenePlayer({ sceneId, frames, onComplete }: Ci
                             autoPlay
                             playsInline
                             muted
+                            preload='metadata'
                             onEnded={() => {
                                 if (currentFrame.advanceOnVideoEnd) {
                                     void advance();
@@ -142,13 +152,14 @@ export default function CinematicScenePlayer({ sceneId, frames, onComplete }: Ci
                         <img
                             src={currentFrame.image}
                             alt='Cinematic Scene'
+                            decoding='async'
                             style={{ width: "100%", height: "100%", objectFit: "cover" }}
                         />
                     )}
                 </motion.div>
             </AnimatePresence>
 
-            {currentFrame.isDream && (
+            {currentFrame.isDream && !performanceProfile.lite && (
                 <Box sx={{ position: "absolute", inset: 0, zIndex: 50, pointerEvents: "none" }}>
                     <BubbleAnimation />
                 </Box>
@@ -158,10 +169,10 @@ export default function CinematicScenePlayer({ sceneId, frames, onComplete }: Ci
                 {currentFrame.layout === "intro" && (
                     <motion.div
                         key={`intro-${sceneId}`}
-                        initial={{ opacity: 0, y: 18, filter: "blur(8px)" }}
-                        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                        exit={{ opacity: 0, y: -12, filter: "blur(8px)" }}
-                        transition={{ duration: 0.75, ease: "easeOut" }}
+                        initial={{ opacity: 0, y: 18, filter: performanceProfile.lite ? "none" : "blur(8px)" }}
+                        animate={{ opacity: 1, y: 0, filter: "none" }}
+                        exit={{ opacity: 0, y: -12, filter: performanceProfile.lite ? "none" : "blur(8px)" }}
+                        transition={{ duration: performanceProfile.lite ? 0.24 : 0.75, ease: "easeOut" }}
                         style={{ position: "absolute", inset: 0, zIndex: 100, pointerEvents: "none" }}
                     >
                         <IntroFrame frame={currentFrame} />
@@ -170,10 +181,10 @@ export default function CinematicScenePlayer({ sceneId, frames, onComplete }: Ci
                 {currentFrame.layout === "info" && (
                     <motion.div
                         key={`info-${sceneId}-${currentFrame.id}`}
-                        initial={{ opacity: 0, scale: 0.97, filter: "blur(10px)" }}
-                        animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                        exit={{ opacity: 0, scale: 0.985, filter: "blur(8px)" }}
-                        transition={{ duration: 0.64, ease: "easeOut" }}
+                        initial={{ opacity: 0, scale: 0.97, filter: performanceProfile.lite ? "none" : "blur(10px)" }}
+                        animate={{ opacity: 1, scale: 1, filter: "none" }}
+                        exit={{ opacity: 0, scale: 0.985, filter: performanceProfile.lite ? "none" : "blur(8px)" }}
+                        transition={{ duration: performanceProfile.lite ? 0.24 : 0.64, ease: "easeOut" }}
                         style={{ position: "absolute", inset: 0, zIndex: 100, pointerEvents: "none" }}
                     >
                         <InfoFrame frame={currentFrame} />
@@ -182,10 +193,10 @@ export default function CinematicScenePlayer({ sceneId, frames, onComplete }: Ci
                 {currentFrame.layout === "note" && (
                     <motion.div
                         key={`note-${sceneId}-${currentFrame.id}`}
-                        initial={{ opacity: 0, y: 12, filter: "blur(6px)" }}
-                        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                        exit={{ opacity: 0, y: -8, filter: "blur(6px)" }}
-                        transition={{ duration: 0.58, ease: "easeOut" }}
+                        initial={{ opacity: 0, y: 12, filter: performanceProfile.lite ? "none" : "blur(6px)" }}
+                        animate={{ opacity: 1, y: 0, filter: "none" }}
+                        exit={{ opacity: 0, y: -8, filter: performanceProfile.lite ? "none" : "blur(6px)" }}
+                        transition={{ duration: performanceProfile.lite ? 0.24 : 0.58, ease: "easeOut" }}
                         style={{ position: "absolute", inset: 0, zIndex: 100, pointerEvents: "none" }}
                     >
                         <NoteFrame frame={currentFrame} />

@@ -7,9 +7,11 @@ import checker from "vite-plugin-checker";
 import { VitePWA } from "vite-plugin-pwa";
 
 const host = process.env.TAURI_DEV_HOST;
+const enablePwa = !process.env.TAURI_ENV_PLATFORM && process.env.VITE_DISABLE_PWA !== "true";
 
 // https://vite.dev/config/
 export default defineConfig({
+    publicDir: process.env.VITE_PUBLIC_DIR || "public",
     plugins: [
         react(),
         checker({
@@ -17,7 +19,7 @@ export default defineConfig({
             enableBuild: false,
         }),
         tailwindcss(),
-        VitePWA({
+        ...(enablePwa ? [VitePWA({
             // you can generate the icons using: https://favicon.io/favicon-converter/
             // and the maskable icon using: https://progressier.com/maskable-icons-editor
             includeAssets: ["favicon.ico", "apple-touch-icon.png", "mask-icon.svg"],
@@ -42,7 +44,7 @@ export default defineConfig({
                     },
                 ],
             },
-        }),
+        })] : []),
         vitePluginPixivn(),
         vitePluginInk(),
     ],

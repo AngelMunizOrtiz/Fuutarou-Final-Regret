@@ -90,6 +90,7 @@ const manifest: AssetsManifest = {
                 { alias: "ch01-cg-069-miku-bakery-training-hands-close", src: "/images/cg/chapter_01/cg_069_miku_bakery_training_hands_close.png" },
                 { alias: "ch01-cg-070-miku-bakery-training-counter-close", src: "/images/cg/chapter_01/cg_070_miku_bakery_training_counter_close.png" },
                 { alias: "ch01-cg-071-takeda-hug-attempt-extra", src: "/images/cg/chapter_01/cg_071_takeda_hug_attempt_extra.png" },
+                { alias: "ch01-cg-072-miku-fuutarou-rooftop-close-memory", src: "/images/cg/chapter_01/cg_072_miku_fuutarou_rooftop_close_memory.png" },
                 { alias: "ch01-arched-passage-afternoon", src: "/images/backgrounds/chapter_01/arched_passage_afternoon.webp" },
                 { alias: "ch01-student-residence-approach", src: "/images/backgrounds/chapter_01/student_residence_approach_afternoon.webp" },
                 { alias: "ch01-student-residence-corridor-reverse-l", src: "/images/backgrounds/chapter_01/student_residence_corridor_reverse_l_afternoon.webp" },
@@ -252,5 +253,36 @@ const manifest: AssetsManifest = {
         },
     ],
 };
+
+export interface StoryAssetEntry {
+    alias: string;
+    src: string;
+}
+
+export function getStoryAssetEntries(): StoryAssetEntry[] {
+    const storyBundleNames = new Set<string>(Object.values(STORY_ASSET_BUNDLES));
+
+    return manifest.bundles
+        .filter((bundle) => storyBundleNames.has(bundle.name))
+        .flatMap((bundle) => bundle.assets)
+        .flatMap((asset) => {
+            if (!asset || typeof asset !== "object" || Array.isArray(asset)) return [];
+
+            const descriptor = asset as { alias?: string | string[]; src?: string | string[] };
+            const aliases: Array<string | undefined> = Array.isArray(descriptor.alias)
+                ? descriptor.alias
+                : [descriptor.alias];
+            const sources: Array<string | undefined> = Array.isArray(descriptor.src)
+                ? descriptor.src
+                : [descriptor.src];
+            const src = sources.find((source): source is string => typeof source === "string");
+
+            if (!src) return [];
+
+            return aliases
+                .filter((alias): alias is string => typeof alias === "string")
+                .map((alias) => ({ alias, src }));
+        });
+}
 
 export default manifest;

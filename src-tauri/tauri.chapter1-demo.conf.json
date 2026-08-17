@@ -1,0 +1,5 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Fuutarou Final Regret - Demo Capitulo 1",
+  "identifier": "com.xenotime.fuutarou-final-regret.chapter1-demo"
+}

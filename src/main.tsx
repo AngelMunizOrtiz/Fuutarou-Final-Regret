@@ -4,13 +4,16 @@ import { createRoot } from "react-dom/client";
 import App from "./App";
 import { CANVAS_UI_LAYER_NAME, HTML_CANVAS_LAYER_NAME, HTML_UI_LAYER_NAME, SCENE_ROUTE } from "./constans";
 import useCharacterStageStore from "./stores/useCharacterStageStore";
-import { loadStoryAssetsForLabel } from "./utils/assets-utility";
+import { loadStoryAssetsForLabel, trimStoryAssetCache } from "./utils/assets-utility";
 import { isStorySceneTransition } from "./utils/ink-utility";
+import { applyPerformanceProfile, performanceProfile } from "./utils/performance-profile";
+
+applyPerformanceProfile();
 
 // Keep PWA caching out of dev so layout and asset tweaks are visible immediately.
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
-        if (import.meta.env.PROD) {
+        if (import.meta.env.PROD && !performanceProfile.isTauriRuntime) {
             navigator.serviceWorker.register("/sw.js").catch(console.error);
             return;
         }
@@ -39,7 +42,14 @@ Game.init(body, {
     width: 1920,
     backgroundColor: "#090916",
     resizeMode: "contain",
+    resolution: performanceProfile.canvasResolution,
+    autoDensity: true,
+    antialias: !performanceProfile.lite,
+    preference: "webgl",
+    powerPreference: "high-performance",
 }).then(() => {
+    canvas.app.ticker.maxFPS = performanceProfile.maxFps;
+
     // Pixi.JS UI Layer
     canvas.addLayer(CANVAS_UI_LAYER_NAME, new Container());
 
@@ -80,6 +90,7 @@ Game.onError((type, error, { notify, uiTransition }) => {
 });
 
 Game.onLoadingLabel((_stepId, { id }) => loadStoryAssetsForLabel(id));
+Game.onStepEnd(() => trimStoryAssetCache());
 
 if (import.meta.hot) {
     import.meta.hot.on("ink-updated", () => window.location.reload());

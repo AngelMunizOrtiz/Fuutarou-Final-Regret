@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { MAIN_MENU_ROUTE } from "../constans";
 import useAudioSettingsStore from "../stores/useAudioSettingsStore";
+import { performanceProfile } from "../utils/performance-profile";
 
 interface SplashScreenProps {
     onFinish: () => void;
@@ -22,7 +23,7 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
 
     useEffect(() => {
         const audio = new Audio();
-        audio.src = "/audio/bgm/splash.wav";
+        audio.src = performanceProfile.splashAudioSrc;
         audio.preload = "metadata";
         audio.loop = true;
         audio.volume = 0.55 * useAudioSettingsStore.getState().volume;

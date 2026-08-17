@@ -898,3 +898,85 @@ body {
   font-weight: normal;
   font-style: normal;
 }
+
+/* Android/tablet profile: preserve composition while avoiding costly full-screen
+   blur, repeated shadows and perpetual animations inside an embedded WebView. */
+html.vn-performance-lite .vn-game-ui-layer,
+html.vn-performance-lite .vn-game-ui-layer * {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html.vn-performance-lite .vn-character-body,
+html.vn-performance-lite .vn-character-body.is-active-speaker,
+html.vn-performance-lite .vn-character-body.is-listening {
+  filter: none !important;
+  animation: none !important;
+  transition: opacity 120ms ease !important;
+}
+
+html.vn-performance-lite .vn-character-body.is-listening {
+  opacity: 0.86;
+}
+
+html.vn-performance-lite .vn-loading-screen::after,
+html.vn-performance-lite .vn-loading-aurora,
+html.vn-performance-lite .vn-marble-stage::before,
+html.vn-performance-lite .vn-marble-orbit,
+html.vn-performance-lite .vn-marble-horizon,
+html.vn-performance-lite .vn-marble::before,
+html.vn-performance-lite .vn-marble-core,
+html.vn-performance-lite .vn-marble-trail,
+html.vn-performance-lite .vn-marble-floor-shadow,
+html.vn-performance-lite .vn-loading-label::after {
+  animation: none !important;
+  filter: none !important;
+}
+
+html.vn-performance-lite .vn-loading-aurora,
+html.vn-performance-lite .vn-marble-stage::before,
+html.vn-performance-lite .vn-marble-orbit,
+html.vn-performance-lite .vn-marble-trail {
+  display: none;
+}
+
+html.vn-performance-lite .vn-marble-runner {
+  animation: none !important;
+  filter: none !important;
+  opacity: 1;
+}
+
+html.vn-performance-lite .vn-marble-runner:nth-child(1) { transform: translate3d(calc(-50% - min(30vw, 190px)), 10px, 0) scale(0.68); }
+html.vn-performance-lite .vn-marble-runner:nth-child(2) { transform: translate3d(calc(-50% - min(15vw, 95px)), -28px, 0) scale(0.82); }
+html.vn-performance-lite .vn-marble-runner:nth-child(3) { transform: translate3d(-50%, 8px, 0) scale(1); }
+html.vn-performance-lite .vn-marble-runner:nth-child(4) { transform: translate3d(calc(-50% + min(15vw, 95px)), -28px, 0) scale(0.82); }
+html.vn-performance-lite .vn-marble-runner:nth-child(5) { transform: translate3d(calc(-50% + min(30vw, 190px)), 10px, 0) scale(0.68); }
+
+html.vn-performance-lite .motion-opacity-in-0.motion-translate-y-in,
+html.vn-performance-lite .motion-opacity-out-0.motion-translate-y-out,
+html.vn-performance-lite .motion-opacity-in-0.motion-translate-x-in,
+html.vn-performance-lite .motion-opacity-out-0.motion-translate-x-out,
+html.vn-performance-lite .motion-scale-out-0,
+html.vn-performance-lite .motion-preset-pop,
+html.vn-performance-lite .motion-blur-in-md {
+  animation-duration: 120ms !important;
+  filter: none !important;
+}
+
+html.vn-performance-lite::view-transition-old(root) {
+  animation: vn-route-mobile-fade-out 160ms ease-out both;
+}
+
+html.vn-performance-lite::view-transition-new(root) {
+  animation: vn-route-mobile-fade-in 160ms ease-out both;
+}
+
+@keyframes vn-route-mobile-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes vn-route-mobile-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

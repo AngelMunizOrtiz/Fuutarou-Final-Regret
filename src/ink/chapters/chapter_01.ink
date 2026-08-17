@@ -107,7 +107,10 @@ Takeda's sparkles turn into question marks as he tilts his head.
 takeda: Now, whatever could you mean..?
 Fuutarou blushes as he puts one hand over his mouth while the other is used to keep Takeda at bay.
 # sprite left fuutarou chapter_01_hand_cover
-fuutarou: No, never mind, just remembering something that happened long ago,but...it's not...it shouldn't be important.
+fuutarou: No, never mind, just remembering something that happened long ago, but...
+# sprite hide all
+# show image bg ch01-cg-072-miku-fuutarou-rooftop-close-memory align 0 with fade
+fuutarou: ...it's not... it shouldn't be important.
 # show image bg ch01-student-residence-approach align 0 with fade
 # sprite left fuutarou chapter_01_neutral
 # sprite right takeda sheepish

@@ -9,9 +9,13 @@ const stagedPublicDirectory = join(workspace, ".codex-tmp", "android-chapter1-pu
 const tauriCli = join(workspace, "node_modules", "@tauri-apps", "cli", "tauri.js");
 const generatedOutputsRoot = join(workspace, "src-tauri", "gen", "android", "app", "build", "outputs");
 const apkRoot = join(generatedOutputsRoot, "apk");
+const temporaryRoot = join(workspace, ".codex-tmp");
+const debugBuild = process.argv.includes("--debug");
 const portableJavaHome = await findPortableJavaHome();
 const javaHome = process.env.JAVA_HOME || portableJavaHome || "C:\\Program Files\\Android\\Android Studio\\jbr";
 const androidHome = process.env.ANDROID_HOME || process.env.ANDROID_SDK_ROOT || join(process.env.LOCALAPPDATA || "", "Android", "Sdk");
+const javaExecutable = join(javaHome, "bin", process.platform === "win32" ? "java.exe" : "java");
+const keytoolExecutable = join(javaHome, "bin", process.platform === "win32" ? "keytool.exe" : "keytool");
 
 await run(process.execPath, [join(scriptDirectory, "prepare-chapter1-android-demo.mjs")], process.env);
 
@@ -32,11 +36,11 @@ if (apkRelativePath.startsWith("..") || isAbsolute(apkRelativePath)) {
 }
 await rm(apkRoot, { recursive: true, force: true });
 
-await run(
-    process.execPath,
-    [tauriCli, "android", "build", "--debug", "--target", "aarch64", "--apk", "--ci"],
-    buildEnvironment,
-);
+const androidBuildArguments = [tauriCli, "android", "build"];
+if (debugBuild) androidBuildArguments.push("--debug");
+androidBuildArguments.push("--target", "aarch64", "--apk", "--ci");
+
+await run(process.execPath, androidBuildArguments, buildEnvironment);
 
 const apkFiles = (await collectFiles(apkRoot)).filter((file) => file.toLowerCase().endsWith(".apk"));
 if (apkFiles.length === 0) {
@@ -48,13 +52,94 @@ apkStats.sort((left, right) => right.stats.mtimeMs - left.stats.mtimeMs);
 
 const sourceApk = apkStats[0].file;
 const artifactDirectory = join(workspace, "artifacts", "android");
-const destinationApk = join(artifactDirectory, "Fuutarou-Final-Regret-capitulo-1-extra-arm64-debug.apk");
+const destinationApk = join(
+    artifactDirectory,
+    debugBuild
+        ? "Fuutarou-Final-Regret-capitulo-1-extra-arm64-debug.apk"
+        : "Fuutarou-Final-Regret-capitulo-1-extra-arm64-release-test.apk",
+);
 await mkdir(artifactDirectory, { recursive: true });
-await copyFile(sourceApk, destinationApk);
+
+if (debugBuild) {
+    await copyFile(sourceApk, destinationApk);
+} else {
+    await signReleaseApk(sourceApk, destinationApk);
+}
 
 const destinationStats = await stat(destinationApk);
 console.log(`APK ready: ${destinationApk}`);
 console.log(`APK size: ${(destinationStats.size / 1024 / 1024).toFixed(1)} MB`);
+
+async function signReleaseApk(sourceApk, destinationApk) {
+    const apksigner = await findApkSigner();
+    const keystore = await resolveTestKeystore();
+    const storePassword = process.env.ANDROID_DEMO_KEYSTORE_PASSWORD || "android";
+    const keyPassword = process.env.ANDROID_DEMO_KEY_PASSWORD || storePassword;
+    const keyAlias = process.env.ANDROID_DEMO_KEY_ALIAS || "androiddebugkey";
+
+    await run(javaExecutable, [
+        "-jar", apksigner,
+        "sign",
+        "--ks", keystore,
+        "--ks-key-alias", keyAlias,
+        "--ks-pass", `pass:${storePassword}`,
+        "--key-pass", `pass:${keyPassword}`,
+        "--out", destinationApk,
+        sourceApk,
+    ], process.env);
+
+    await run(javaExecutable, ["-jar", apksigner, "verify", "--verbose", destinationApk], process.env);
+}
+
+async function findApkSigner() {
+    const buildToolsRoot = join(androidHome, "build-tools");
+    const entries = await readdir(buildToolsRoot, { withFileTypes: true });
+    const versions = entries
+        .filter((entry) => entry.isDirectory())
+        .map((entry) => entry.name)
+        .sort((left, right) => right.localeCompare(left, undefined, { numeric: true }));
+
+    for (const version of versions) {
+        const candidate = join(buildToolsRoot, version, "lib", "apksigner.jar");
+        try {
+            await stat(candidate);
+            return candidate;
+        } catch {
+            // Try the next installed Android build-tools version.
+        }
+    }
+
+    throw new Error(`apksigner.jar was not found under ${buildToolsRoot}`);
+}
+
+async function resolveTestKeystore() {
+    const defaultKeystore = join(process.env.USERPROFILE || "", ".android", "debug.keystore");
+    const requestedKeystore = process.env.ANDROID_DEMO_KEYSTORE || defaultKeystore;
+
+    try {
+        await stat(requestedKeystore);
+        return requestedKeystore;
+    } catch {
+        if (process.env.ANDROID_DEMO_KEYSTORE) {
+            throw new Error(`ANDROID_DEMO_KEYSTORE does not exist: ${requestedKeystore}`);
+        }
+    }
+
+    const generatedKeystore = join(temporaryRoot, "android-demo-debug.keystore");
+    await mkdir(dirname(generatedKeystore), { recursive: true });
+    await run(keytoolExecutable, [
+        "-genkeypair",
+        "-keystore", generatedKeystore,
+        "-storepass", "android",
+        "-alias", "androiddebugkey",
+        "-keypass", "android",
+        "-dname", "CN=Android Debug,O=Android,C=US",
+        "-keyalg", "RSA",
+        "-keysize", "2048",
+        "-validity", "10000",
+    ], process.env);
+    return generatedKeystore;
+}
 
 function run(command, args, env) {
     return new Promise((resolveRun, rejectRun) => {

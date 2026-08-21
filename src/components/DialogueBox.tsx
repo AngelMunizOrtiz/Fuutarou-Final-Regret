@@ -11,6 +11,7 @@ import {
     NAME_BOX_WIDTH,
     dialogueFrameFilter,
 } from "../values/dialogueUi";
+import { performanceProfile } from "../utils/performance-profile";
 
 interface DialogueBoxProps {
     text: string;
@@ -26,12 +27,13 @@ export default function DialogueBox({ text, speaker, variant, isThought }: Dialo
     useEffect(() => {
         setDisplayedText("");
         let i = 0;
-        const speed = 25;
+        const frameDelay = performanceProfile.lite ? 50 : 25;
+        const charactersPerFrame = performanceProfile.lite ? 2 : 1;
         const timer = setInterval(() => {
-            setDisplayedText(text.slice(0, i + 1));
-            i++;
+            i = Math.min(text.length, i + charactersPerFrame);
+            setDisplayedText(text.slice(0, i));
             if (i >= text.length) clearInterval(timer);
-        }, speed);
+        }, frameDelay);
         return () => clearInterval(timer);
     }, [text]);
 
@@ -114,7 +116,9 @@ export default function DialogueBox({ text, speaker, variant, isThought }: Dialo
                         textAlign: "center",
                         lineHeight: isDream ? 1.4 : 1.5,
                         textShadow: isDream
-                            ? `
+                            ? performanceProfile.lite
+                              ? "0 1px 3px rgba(0,0,0,0.9)"
+                              : `
                                 -1.5px -1.5px 0 rgba(0,0,0,0.8),
                                  1.5px -1.5px 0 rgba(0,0,0,0.8),
                                 -1.5px  1.5px 0 rgba(0,0,0,0.8),
@@ -182,7 +186,11 @@ export default function DialogueBox({ text, speaker, variant, isThought }: Dialo
                             textAlign: "center",
                             textOverflow: "ellipsis",
                             whiteSpace: "nowrap",
-                            fontFamily: isDream ? "'Sawarabi', sans-serif" : "'ConteScript', cursive",
+                            fontFamily: isDream
+                                ? performanceProfile.lite
+                                    ? "'MPLUSRounded', sans-serif"
+                                    : "'Sawarabi', sans-serif"
+                                : "'ConteScript', cursive",
                             fontSize: isDream
                                 ? "clamp(1rem, 1.7cqw, 1.8rem)"
                                 : "clamp(1rem, 1.45cqw, 1.58rem)",

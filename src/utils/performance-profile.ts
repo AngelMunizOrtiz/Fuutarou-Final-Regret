@@ -26,12 +26,25 @@ export const performanceProfile = Object.freeze({
     isAndroid,
     isTauriRuntime,
     lite,
-    canvasResolution: lite ? 0.67 : 1,
-    maxFps: lite ? 30 : 60,
+    // Android WebView renders the DOM UI at the device resolution, so lowering
+    // only Pixi's internal canvas keeps text crisp while substantially reducing
+    // the amount of background pixels the GPU has to draw every frame.
+    canvasResolution: isAndroid ? 0.5 : lite ? 0.67 : 1,
+    // A visual novel does not benefit from a permanently running 60 FPS
+    // renderer. 45 FPS keeps fades fluid on desktop while cutting the idle
+    // WebGL workload by roughly a quarter; constrained devices stay lower.
+    maxFps: isAndroid ? 24 : lite ? 30 : 45,
     cinematicPreloadCount: lite ? 1 : 2,
+    storyWarmAssetCount: lite ? 1 : 2,
+    storyTextureRetainCount: isAndroid ? 0 : lite ? 1 : 2,
+    imagePreloadCacheLimit: lite ? 12 : 32,
+    typewriterFrameMs: lite ? 40 : 25,
+    initialLoaderMinimumMs: lite ? 700 : 500,
     menuVideoSrc: lite ? "/videos/menu/menu-mobile.mp4" : "/videos/menu/menu.mp4",
-    menuAudioSrc: lite ? "/audio/bgm/menu-mobile.m4a" : "/audio/bgm/menu.wav",
-    splashAudioSrc: lite ? "/audio/bgm/splash-mobile.m4a" : "/audio/bgm/splash.wav",
+    // AAC is transparent for these tracks and streams efficiently. The WAV
+    // versions add more than 50 MB to a chapter-one desktop package.
+    menuAudioSrc: "/audio/bgm/menu-mobile.m4a",
+    splashAudioSrc: "/audio/bgm/splash-mobile.m4a",
 });
 
 export function applyPerformanceProfile() {

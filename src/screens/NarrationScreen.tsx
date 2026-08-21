@@ -1,16 +1,15 @@
 import { useColorScheme } from "@mui/joy";
 import Box from "@mui/joy/Box";
 import Typography from "@mui/joy/Typography";
-import { RefObject, useCallback, useMemo, useRef } from "react";
+import { RefObject, useEffect, useMemo, useRef, useState } from "react";
 import Markdown from "react-markdown";
-import { MarkdownTypewriterHooks } from "react-markdown-typewriter";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import { useShallow } from "zustand/react/shallow";
-import AnimatedDots from "../components/AnimatedDots";
 import { useQueryDialogue } from "../hooks/useQueryInterface";
 import useInterfaceStore from "../stores/useInterfaceStore";
 import useTypewriterStore from "../stores/useTypewriterStore";
+import { performanceProfile } from "../utils/performance-profile";
 import {
     DIALOGUE_BOX_HEIGHT,
     DIALOGUE_BOX_IMAGE,
@@ -195,16 +194,6 @@ function NarrationScreenText({ paragraphRef }: { paragraphRef: RefObject<HTMLDiv
     const { data: { animatedText, text } = {} } = useQueryDialogue();
     const { mode } = useColorScheme();
 
-    const handleCharacterAnimationComplete = useCallback((ref: { current: HTMLSpanElement | null }) => {
-        if (paragraphRef.current && ref.current) {
-            const scrollTop = ref.current.offsetTop - paragraphRef.current.clientHeight / 2;
-            paragraphRef.current.scrollTo({
-                top: scrollTop,
-                behavior: "auto",
-            });
-        }
-    }, [paragraphRef]);
-
     return (
         <p
             className={`prose ${mode === "dark" ? "dark:prose-invert" : ""}`}
@@ -231,24 +220,90 @@ function NarrationScreenText({ paragraphRef }: { paragraphRef: RefObject<HTMLDiv
             </span>
             <span>
                 <span> </span>
-                <MarkdownTypewriterHooks
-                    remarkPlugins={[remarkGfm]}
-                    rehypePlugins={[rehypeRaw]}
+                <EfficientTypewriterText
+                    text={animatedText || ""}
                     delay={typewriterDelay}
-                    motionProps={{
-                        onAnimationStart: startTypewriter,
-                        onAnimationComplete: (definition: "visible" | "hidden") => {
-                            if (definition == "visible") {
-                                endTypewriter();
-                            }
-                        },
-                        onCharacterAnimationComplete: handleCharacterAnimationComplete,
-                    }}
-                    fallback={<AnimatedDots />}
-                >
-                    {animatedText}
-                </MarkdownTypewriterHooks>
+                    paragraphRef={paragraphRef}
+                    onStart={startTypewriter}
+                    onEnd={endTypewriter}
+                />
             </span>
         </p>
     );
+}
+
+/**
+ * Efficient typewriter for every profile. It keeps one text node and reveals a
+ * small batch on each frame instead of mounting and animating one Motion span
+ * per character. Reading speed and the shared in-progress state are preserved.
+ */
+function EfficientTypewriterText({
+    text,
+    delay,
+    paragraphRef,
+    onStart,
+    onEnd,
+}: {
+    text: string;
+    delay: number;
+    paragraphRef: RefObject<HTMLDivElement | null>;
+    onStart: () => void;
+    onEnd: () => void;
+}) {
+    const characters = useMemo(() => Array.from(text), [text]);
+    const [visibleCount, setVisibleCount] = useState(characters.length);
+
+    useEffect(() => {
+        let timer: number | undefined;
+        setVisibleCount(0);
+
+        if (characters.length === 0 || delay <= 0) {
+            setVisibleCount(characters.length);
+            onEnd();
+            return undefined;
+        }
+
+        onStart();
+        const startedAt = performance.now();
+        const updateInterval = Math.max(performanceProfile.typewriterFrameMs, delay);
+
+        const revealNextChunk = () => {
+            const elapsed = performance.now() - startedAt;
+            const nextCount = Math.min(characters.length, Math.max(1, Math.floor(elapsed / delay)));
+            setVisibleCount((currentCount) => currentCount === nextCount ? currentCount : nextCount);
+
+            if (nextCount >= characters.length) {
+                onEnd();
+                return;
+            }
+
+            timer = window.setTimeout(revealNextChunk, updateInterval);
+        };
+
+        timer = window.setTimeout(revealNextChunk, Math.min(updateInterval, Math.max(8, delay)));
+
+        return () => {
+            if (timer !== undefined) window.clearTimeout(timer);
+            onEnd();
+        };
+    }, [characters, delay, onEnd, onStart]);
+
+    useEffect(() => {
+        const paragraph = paragraphRef.current;
+        if (paragraph) paragraph.scrollTop = paragraph.scrollHeight;
+    }, [paragraphRef, visibleCount]);
+
+    if (visibleCount >= characters.length) {
+        return (
+            <Markdown
+                remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeRaw]}
+                components={{ p: (props) => <span {...props} /> }}
+            >
+                {text}
+            </Markdown>
+        );
+    }
+
+    return <>{characters.slice(0, visibleCount).join("")}</>;
 }

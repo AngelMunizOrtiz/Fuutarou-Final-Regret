@@ -5,6 +5,7 @@ export type CharacterSpriteDefinition = {
 };
 
 const spritePreloadCache = new Map<string, Promise<void>>();
+const SPRITE_PRELOAD_CACHE_LIMIT = 24;
 
 export const characterSprites = {
     fuutarou: {
@@ -1222,6 +1223,10 @@ export async function preloadCharacterSprite(characterId: string, expression = "
     }
 
     let preload = spritePreloadCache.get(sprite.src);
+    if (preload) {
+        spritePreloadCache.delete(sprite.src);
+        spritePreloadCache.set(sprite.src, preload);
+    }
     if (!preload) {
         preload = new Promise<void>((resolve, reject) => {
             const image = new Image();
@@ -1234,6 +1239,11 @@ export async function preloadCharacterSprite(characterId: string, expression = "
             console.warn(error);
         });
         spritePreloadCache.set(sprite.src, preload);
+        while (spritePreloadCache.size > SPRITE_PRELOAD_CACHE_LIMIT) {
+            const oldestSource = spritePreloadCache.keys().next().value;
+            if (typeof oldestSource !== "string") break;
+            spritePreloadCache.delete(oldestSource);
+        }
     }
 
     await preload;

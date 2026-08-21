@@ -5,6 +5,7 @@ import LoadingScreen from "./screens/LoadingScreen";
 import { defineAssets } from "./utils/assets-utility";
 import { initializeIndexedDB } from "./utils/indexedDB-utility";
 import { importAllInkLabels } from "./utils/ink-utility";
+import { performanceProfile } from "./utils/performance-profile";
 import { preloadImages } from "./utils/preload-utility";
 
 const SPLASH_IMAGE_ASSETS = [
@@ -14,7 +15,7 @@ const SPLASH_IMAGE_ASSETS = [
     "/images/ui/press-any-button-es.svg",
 ] as const;
 
-const INITIAL_LOADER_MINIMUM_MS = 1400;
+const INITIAL_LOADER_MINIMUM_MS = performanceProfile.initialLoaderMinimumMs;
 const INITIAL_LOADER_EXIT_MS = 420;
 const INITIAL_LOADER_STARTED_AT = performance.now();
 

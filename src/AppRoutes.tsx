@@ -1,10 +1,8 @@
 import { Game } from "@drincs/pixi-vn";
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
-import CharacterStage from "./components/CharacterStage";
+import ChapterLoadingOverlay from "./components/ChapterLoadingOverlay";
 import FloatingLanguageControl from "./components/LanguageControl";
-import NextButton from "./components/NextButton";
-import VisibilityButton from "./components/VisibilityButton";
 import FloatingVolumeControl from "./components/VolumeControl";
 import {
     GALLERY_ROUTE,
@@ -15,16 +13,13 @@ import {
     SPLASH_FINISHED_SESSION_STORAGE_KEY,
     SPLASH_ROUTE,
 } from "./constans";
-import useSkipAutoDetector from "./hooks/useSkipAutoDetector";
-import GalleryScreen from "./screens/GalleryScreen";
-import HistoryScreen from "./screens/HistoryScreen";
 import LoadingScreen from "./screens/LoadingScreen";
-import MainMenu from "./screens/MainMenu";
-import SceneScreen from "./screens/SceneScreen";
-import TextInput from "./screens/modals/TextInput";
-import NarrationScreen from "./screens/NarrationScreen";
-import QuickTools from "./screens/QuickTools";
-import SplashScreen from "./screens/SplashScreen";
+
+const GalleryScreen = lazy(() => import("./screens/GalleryScreen"));
+const MainMenu = lazy(() => import("./screens/MainMenu"));
+const NarrationRoute = lazy(() => import("./screens/NarrationRoute"));
+const SceneScreen = lazy(() => import("./screens/SceneScreen"));
+const SplashScreen = lazy(() => import("./screens/SplashScreen"));
 
 export default function AppRoutes() {
     const navigate = useNavigate();
@@ -47,7 +42,8 @@ export default function AppRoutes() {
 
     return (
         <>
-            <Routes>
+            <Suspense fallback={<LoadingScreen />}>
+                <Routes>
             <Route
                 key={"splash"}
                 path={SPLASH_ROUTE}
@@ -66,7 +62,7 @@ export default function AppRoutes() {
             <Route key={"gallery"} path={GALLERY_ROUTE} element={<GalleryScreen />} />
 
             <Route key={"loading"} path={LOADING_ROUTE} element={<LoadingScreen />} />
-            <Route key={"narration"} path={NARRATION_ROUTE} element={<NarrationElement />} />
+            <Route key={"narration"} path={NARRATION_ROUTE} element={<NarrationRoute />} />
             <Route
                 path='*'
                 element={
@@ -78,7 +74,9 @@ export default function AppRoutes() {
                     />
                 }
             />
-            </Routes>
+                </Routes>
+            </Suspense>
+            <ChapterLoadingOverlay />
             {location.pathname !== NARRATION_ROUTE && location.pathname !== LOADING_ROUTE && (
                 <>
                     <FloatingLanguageControl />
@@ -87,24 +85,4 @@ export default function AppRoutes() {
             )}
         </>
     );
-}
-
-function NarrationElement() {
-    return (
-        <>
-            <HistoryScreen />
-            <CharacterStage />
-            <NarrationScreen />
-            <QuickTools />
-            <TextInput />
-            <NextButton />
-            <NarrationDetectors />
-            <VisibilityButton />
-        </>
-    );
-}
-
-function NarrationDetectors() {
-    useSkipAutoDetector();
-    return <></>;
 }

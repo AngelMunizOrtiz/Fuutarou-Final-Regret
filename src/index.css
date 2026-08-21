@@ -847,7 +847,7 @@ body {
     drop-shadow(0 22px 30px rgba(86, 38, 95, 0.34))
     drop-shadow(0 0 18px rgba(255, 232, 177, 0.34))
     drop-shadow(0 4px 0 rgba(255, 255, 255, 0.2));
-  animation: vn-character-active-bounce 880ms ease-in-out infinite;
+  animation: vn-character-active-bounce 880ms ease-in-out 1;
 }
 
 .vn-character-body.is-listening {
@@ -883,6 +883,7 @@ body {
 @font-face {
   font-family: 'ConteScript';
   src: url('/fonts/ContéScriptReduced.ttf') format('truetype');
+  font-display: swap;
 }
 
 @font-face {
@@ -890,6 +891,7 @@ body {
   src: url('/fonts/MPLUSRounded1c-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -897,6 +899,7 @@ body {
   src: url('/fonts/SawarabiGothic-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 /* Android/tablet profile: preserve composition while avoiding costly full-screen

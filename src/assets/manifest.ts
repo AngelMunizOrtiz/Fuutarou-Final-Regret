@@ -31,7 +31,7 @@ const storyBundlesByChapter: Record<number, readonly StoryAssetBundleName[]> = {
     11: [STORY_ASSET_BUNDLES.chapter11],
 };
 
-function getChapterNumber(labelId: string) {
+export function getStoryChapterNumber(labelId: string) {
     if (labelId === "start") {
         return 1;
     }
@@ -41,7 +41,7 @@ function getChapterNumber(labelId: string) {
 }
 
 export function getStoryAssetBundles(labelId: string) {
-    const chapterNumber = getChapterNumber(labelId);
+    const chapterNumber = getStoryChapterNumber(labelId);
     return chapterNumber ? storyBundlesByChapter[chapterNumber] ?? [] : [];
 }
 
@@ -50,7 +50,7 @@ export function getNextStoryAssetBundles(labelId: string) {
         return [];
     }
 
-    const chapterNumber = getChapterNumber(labelId);
+    const chapterNumber = getStoryChapterNumber(labelId);
     return chapterNumber ? storyBundlesByChapter[chapterNumber + 1] ?? [] : [];
 }
 
@@ -260,10 +260,14 @@ export interface StoryAssetEntry {
 }
 
 export function getStoryAssetEntries(): StoryAssetEntry[] {
-    const storyBundleNames = new Set<string>(Object.values(STORY_ASSET_BUNDLES));
+    return getStoryAssetEntriesForBundles(Object.values(STORY_ASSET_BUNDLES));
+}
+
+export function getStoryAssetEntriesForBundles(bundleNames: readonly string[]): StoryAssetEntry[] {
+    const selectedBundleNames = new Set<string>(bundleNames);
 
     return manifest.bundles
-        .filter((bundle) => storyBundleNames.has(bundle.name))
+        .filter((bundle) => selectedBundleNames.has(bundle.name))
         .flatMap((bundle) => bundle.assets)
         .flatMap((asset) => {
             if (!asset || typeof asset !== "object" || Array.isArray(asset)) return [];

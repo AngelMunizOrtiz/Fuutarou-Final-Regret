@@ -1,13 +1,14 @@
 import { Assets, canvas } from "@drincs/pixi-vn";
-import manifest, { getNextStoryAssetBundles, getStoryAssetBundles, getStoryAssetEntries } from "../assets/manifest";
+import manifest, {
+    getStoryAssetBundles,
+    getStoryAssetEntries,
+    getStoryAssetEntriesForBundles,
+} from "../assets/manifest";
 import { performanceProfile } from "./performance-profile";
 
-const loadedStoryBundles = new Set<string>();
-const backgroundRequests = new Map<string, Promise<void>>();
 let activeStoryBundles: readonly string[] = [];
-let previousStoryBundles: readonly string[] = [];
-let assetGeneration = 0;
 let trimRequest: Promise<void> | null = null;
+let recentStoryAliases: string[] = [];
 
 const storyAssetEntries = getStoryAssetEntries();
 const storyAssetAliases = new Set(storyAssetEntries.map(({ alias }) => alias));
@@ -24,77 +25,36 @@ export async function defineAssets() {
 
 export async function loadStoryAssetsForLabel(labelId: string) {
     const currentBundles = getStoryAssetBundles(labelId);
-    const nextBundles = getNextStoryAssetBundles(labelId);
-
-    if (!sameBundles(activeStoryBundles, currentBundles)) {
-        previousStoryBundles = activeStoryBundles;
-        activeStoryBundles = currentBundles;
-    }
-
-    // PixiVN already loads an image on demand when an Ink command shows it.
-    // Loading a complete chapter eagerly is useful on desktop, but on Android it
-    // creates a very large decoded texture cache and can stall the WebView.
-    if (performanceProfile.lite) {
+    if (sameBundles(activeStoryBundles, currentBundles)) {
         return;
     }
+    activeStoryBundles = currentBundles;
 
+    // PixiVN loads visuals on demand. Warming only the first couple of entries
+    // avoids a visible first-frame pause without decoding an entire chapter (and
+    // the following chapter) into RAM/VRAM at once on desktop.
+    const warmAssets = getStoryAssetEntriesForBundles(currentBundles)
+        .slice(0, performanceProfile.storyWarmAssetCount);
     await Promise.all(
-        currentBundles.map(async (bundleName) => {
-            await Assets.loadBundle(bundleName);
-            loadedStoryBundles.add(bundleName);
-        }),
-    );
-
-    for (const bundleName of nextBundles) {
-        if (currentBundles.includes(bundleName) || backgroundRequests.has(bundleName) || loadedStoryBundles.has(bundleName)) {
-            continue;
-        }
-
-        const generation = assetGeneration;
-        const request = Assets.backgroundLoadBundle(bundleName)
-            .then(async () => {
-                if (generation !== assetGeneration) {
-                    await Assets.unloadBundle(bundleName);
-                    return;
+        warmAssets.map(async ({ alias }) => {
+            try {
+                if (!Assets.cache.has(alias)) {
+                    await Assets.load(alias);
                 }
-                loadedStoryBundles.add(bundleName);
-            })
-            .catch((error) => {
-                console.warn(`Unable to preload story bundle: ${bundleName}`, error);
-            })
-            .finally(() => {
-                backgroundRequests.delete(bundleName);
-            });
-
-        backgroundRequests.set(bundleName, request);
-    }
-
-    const retainedBundles = new Set([...previousStoryBundles, ...currentBundles, ...nextBundles]);
-    const staleBundles = [...loadedStoryBundles].filter((bundleName) => !retainedBundles.has(bundleName));
-    await Promise.all(
-        staleBundles.map(async (bundleName) => {
-            await Assets.unloadBundle(bundleName);
-            loadedStoryBundles.delete(bundleName);
+                touchRecentStoryAlias(alias);
+            } catch (error) {
+                console.warn(`Unable to warm chapter asset: ${alias}`, error);
+            }
         }),
     );
 }
 
 export async function releaseStoryAssets() {
-    assetGeneration += 1;
     activeStoryBundles = [];
-    previousStoryBundles = [];
-    backgroundRequests.clear();
+    recentStoryAliases = [];
 
-    const bundles = [...loadedStoryBundles];
-    loadedStoryBundles.clear();
-    if (bundles.length > 0) {
-        await Assets.unloadBundle(bundles);
-    }
-
-    if (performanceProfile.lite) {
-        const cachedAliases = [...storyAssetAliases].filter((alias) => Assets.cache.has(alias));
-        await Promise.allSettled(cachedAliases.map((alias) => Assets.unload(alias)));
-    }
+    const cachedAliases = [...storyAssetAliases].filter((alias) => Assets.cache.has(alias));
+    await Promise.allSettled(cachedAliases.map((alias) => Assets.unload(alias)));
 }
 
 /**
@@ -102,7 +62,6 @@ export async function releaseStoryAssets() {
  * Character sprites are DOM assets and are deliberately not touched here.
  */
 export function trimStoryAssetCache() {
-    if (!performanceProfile.lite) return Promise.resolve();
     if (trimRequest) return trimRequest;
 
     trimRequest = trimUnusedStoryAssets().finally(() => {
@@ -117,11 +76,26 @@ async function trimUnusedStoryAssets() {
         collectCanvasAssetAliases(child, retainedAliases);
     }
 
+    retainedAliases.forEach(touchRecentStoryAlias);
+    const retainedRecentAliases = recentStoryAliases
+        .filter((alias) => !retainedAliases.has(alias))
+        .slice(-performanceProfile.storyTextureRetainCount);
+    retainedRecentAliases.forEach((alias) => retainedAliases.add(alias));
+
     const staleAliases = [...storyAssetAliases].filter(
         (alias) => Assets.cache.has(alias) && !retainedAliases.has(alias),
     );
 
     await Promise.allSettled(staleAliases.map((alias) => Assets.unload(alias)));
+    recentStoryAliases = recentStoryAliases.filter(
+        (alias) => retainedAliases.has(alias) && Assets.cache.has(alias),
+    );
+}
+
+function touchRecentStoryAlias(alias: string) {
+    const previousIndex = recentStoryAliases.indexOf(alias);
+    if (previousIndex >= 0) recentStoryAliases.splice(previousIndex, 1);
+    recentStoryAliases.push(alias);
 }
 
 function collectCanvasAssetAliases(value: unknown, retainedAliases: Set<string>, visited = new Set<unknown>()) {

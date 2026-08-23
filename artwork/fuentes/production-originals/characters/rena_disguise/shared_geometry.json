@@ -1,0 +1,18 @@
+{
+  "source_canvas": {
+    "width": 1054,
+    "height": 1492
+  },
+  "runtime_canvas": {
+    "width": 620,
+    "height": 876
+  },
+  "scale": 0.6036,
+  "offset": {
+    "x": -4,
+    "y": -26
+  },
+  "alpha_threshold": 8,
+  "anchor": "rena_hidden",
+  "notes": "Fixed transform derived from the approved Rena disguise master. Reuse for all revealed bases and expression variants generated on the same source canvas."
+}

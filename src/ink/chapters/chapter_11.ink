@@ -66,6 +66,8 @@ yotsuba: Hm? I just noticed. Did Fuutarou-kun buy you another ring?
 Yotsuba makes note of the ring Miku is wearing.
 miku: He made it himself. It took a long time, but he never gave up. Looks great, doesn't it?
 yotsuba: Yeah! Congrats on the grand opening.
+# sprite hide all
+# show image bg wedding-cg-058-miku-ring-new-family-reveal align 0 with fade
 miku: Thank you. We're debating on whether we should expand to house more food in the future. My culinary school helped me expand my skills by a lot...It's a great thing, considering our household is going to gain a new mouth to feed soon.
 yotsuba: That's great!
 …
@@ -75,10 +77,16 @@ yotsuba: Fweh. Fine, but we'll get something out of you!
 miku: Fufu, you can try.
 # sprite hide all
 # show image bg wedding-cg-040-miku-memory-desk-finale align 0 with fade
-As Yotsuba went upstairs with the rest, Miku put the gift on a desk near the corner of the store. Miku looked at the rest of the items in said desk and developed a soft smile. On the desk were pictures from their high school graduation and wedding. A picture of the sisters from when they went to Kyoto 11 years ago was next to an old pair of headphones. Looking at these memories, Miku began to tear up.
+As Yotsuba follows the others upstairs, Miku places the gift on a desk in the corner of the bakery.
+She looks over the objects gathered there and smiles softly.
+Photographs from their high school graduation and wedding sit beside an older picture of the sisters in Kyoto.
+Her old headphones rest among them.
+As Miku takes in all those memories, tears begin to gather in her eyes.
 fuutarou: Miku! Come on up, we can't start without you!
 Miku wipes her tears and responds in an energetic fashion.
 miku: On my way!
+# sprite hide all
+# show image bg wedding-cg-059-fuutarou-leads-miku-to-future align 0 with fade
 …
 …
 The End

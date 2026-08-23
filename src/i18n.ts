@@ -5,6 +5,7 @@ import Backend from "i18next-chained-backend";
 import resourcesToBackend from "i18next-resources-to-backend";
 import { initReactI18next } from "react-i18next";
 import { convertInkToJson } from "./utils/ink-utility";
+import { isChapterOneDemoBuild } from "./utils/performance-profile";
 
 type LocaleResource = Record<string, unknown> & {
     default?: unknown;
@@ -12,16 +13,20 @@ type LocaleResource = Record<string, unknown> & {
 };
 
 const spanishNarrationModules = import.meta.glob<Record<string, string>>("./locales/narration_es/*.json", {
-    eager: true,
     import: "default",
 });
+let spanishNarrationResourcePromise: Promise<Record<string, string>> | undefined;
 
 function getSpanishNarrationResource() {
-    return Object.fromEntries(
-        Object.entries(spanishNarrationModules)
+    if (!spanishNarrationResourcePromise) {
+        spanishNarrationResourcePromise = Promise.all(
+            Object.entries(spanishNarrationModules)
+            .filter(([path]) => !isChapterOneDemoBuild || path.endsWith("/chapter_01.json"))
             .sort(([pathA], [pathB]) => pathA.localeCompare(pathB, "en"))
-            .flatMap(([, resource]) => Object.entries(resource)),
-    );
+            .map(([, loadResource]) => loadResource()),
+        ).then((resources) => Object.fromEntries(resources.flatMap((resource) => Object.entries(resource))));
+    }
+    return spanishNarrationResourcePromise;
 }
 
 export const GAME_LANGUAGE_STORAGE_KEY = "ffr_game_language";
@@ -70,7 +75,7 @@ function getLocalesResource(lng: string): Promise<LocaleResource> {
 
 async function generateResourceToTranslate(lng: string): Promise<LocaleResource> {
     const res: LocaleResource = { ...(await getLocalesResource(lng)) };
-    res.narration = lng === "es" ? getSpanishNarrationResource() : (res.narration ?? {});
+    res.narration = lng === "es" ? await getSpanishNarrationResource() : (res.narration ?? {});
     if (res.default) {
         delete res.default;
     }

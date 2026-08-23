@@ -1,10 +1,12 @@
 import { ComponentType, lazy, Suspense, useCallback, useEffect, useState } from "react";
 import { ErrorBoundary, FallbackProps } from "react-error-boundary";
+import { MotionConfig } from "motion/react";
 import { getInitialGameLanguage, initializeI18n } from "./i18n";
 import LoadingScreen from "./screens/LoadingScreen";
 import { defineAssets } from "./utils/assets-utility";
 import { initializeIndexedDB } from "./utils/indexedDB-utility";
 import { importAllInkLabels } from "./utils/ink-utility";
+import { performanceProfile } from "./utils/performance-profile";
 import { preloadImages } from "./utils/preload-utility";
 
 const SPLASH_IMAGE_ASSETS = [
@@ -14,7 +16,7 @@ const SPLASH_IMAGE_ASSETS = [
     "/images/ui/press-any-button-es.svg",
 ] as const;
 
-const INITIAL_LOADER_MINIMUM_MS = 1400;
+const INITIAL_LOADER_MINIMUM_MS = performanceProfile.initialLoaderMinimumMs;
 const INITIAL_LOADER_EXIT_MS = 420;
 const INITIAL_LOADER_STARTED_AT = performance.now();
 
@@ -126,11 +128,13 @@ export default function App() {
     }, [homeReady]);
 
     return (
-        <ErrorBoundary FallbackComponent={ErrorFallback}>
-            <Suspense fallback={null}>
-                <HomeReadyMarker onReady={markHomeReady} />
-            </Suspense>
-            {showInitialLoader && <LoadingScreen exiting={initialLoaderExiting} />}
-        </ErrorBoundary>
+        <MotionConfig reducedMotion={performanceProfile.reducedMotion ? "always" : "user"}>
+            <ErrorBoundary FallbackComponent={ErrorFallback}>
+                <Suspense fallback={null}>
+                    <HomeReadyMarker onReady={markHomeReady} />
+                </Suspense>
+                {showInitialLoader && <LoadingScreen exiting={initialLoaderExiting} />}
+            </ErrorBoundary>
+        </MotionConfig>
     );
 }

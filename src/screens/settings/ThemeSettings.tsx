@@ -13,7 +13,6 @@ import {
     Tooltip,
     useColorScheme,
 } from "@mui/joy";
-import { useColorScheme as useColorSchemeMaterial } from "@mui/material";
 import { Hue, useColor } from "react-color-palette";
 import "react-color-palette/css";
 import { useTranslation } from "react-i18next";
@@ -22,7 +21,6 @@ import { useEditColorProvider } from "../../providers/ThemeProvider";
 
 export default function ThemeSettings() {
     const { mode, setMode } = useColorScheme();
-    const { setMode: setModeMaterial } = useColorSchemeMaterial();
     const { primaryColor, setPrimaryColor, setSolidColor, solidColor } = useEditColorProvider();
     const [tempColor, setTempColor] = useColor(primaryColor);
     const { t } = useTranslation(["ui"]);
@@ -40,7 +38,6 @@ export default function ThemeSettings() {
                 onChange={(_, newValue) => {
                     if (newValue) {
                         setMode(newValue);
-                        setModeMaterial(newValue);
                     }
                 }}
             >

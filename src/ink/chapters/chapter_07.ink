@@ -23,8 +23,10 @@ isanari: Really? Alright!
 # show image bg ch07-asahiyama-high-school-corridor-afternoon align 0 with fade
 …
 …
+# sprite left isanari_young neutral
 # sprite right aoi bashful
 aoi: I failed another test, teehee!
+# sprite left isanari_young determined
 isanari: Aoi, if you keep failing like that, you won't be able to fulfill your dream...What is your dream anyway?
 # sprite right aoi determined
 aoi: To open my own bakery!
@@ -34,24 +36,33 @@ aoi: Well…
 …
 # sprite hide all
 # show image bg ch07-asahiyama-school-nurse-office-afternoon align 0 with fade
+# sprite left isanari_young shocked
+# sprite right maruo_young neutral
 isanari: Huh!? Where am I?
 maruo: In the nurse's office, one of the teachers found you foaming out the mouth in the hallway.
 isanari: Oh..Well, I wonder what happened.
 Shimoda enters in a pure panic.
+# sprite center shimoda_young frantic_warning
 shimoda: Oi, this is bad! That punk girlfriend of yours is trying to hand bread out to people!
 isanari: Hmm? What's so bad about that?
+# sprite center shimoda_young exasperated_scolding
 shimoda: That damned bread is why you're here, dumbass!
 isanari: Huh!?
 …
 …
+# sprite hide all
 # show image bg ch07-asahiyama-high-school-corridor-afternoon align 0 with fade
+# sprite left isanari_young determined
+# sprite right maruo_young neutral
 isanari: Hey, Maruo...I think I'm gonna stop being a delinquent.
 maruo: Good for you, Uesugi-kun. Now you can get that hair back to normal.
 isanari: Hell no, the hair is staying. It's just...Argh, that girl, she won't be able to see her dream through...Not without me.
+# sprite right maruo_young stern
 maruo: Are you sure it's fine to indulge her like that? If she's unable to keep something like a bakery, then what's the point?
 isanari: I get what you're getting at...But, I'll help her! Man, love is so confusing. Don't you have someone similar you want to take care of?
 Maruo looks towards the end of the hall to see Shimoda talking with her role model, a teacher known as Ms. Nakano.
 isanari: Ho? Is that the stare of love I see?
+# sprite right maruo_young awkward
 maruo: Hmph. I cannot see what you're getting at.
 …
 …
@@ -79,10 +90,13 @@ isanari: Even worse? So, you admit the name is bad!
 …
 …
 isanari: Will you marry me!?
+# sprite hide all
+# show image bg ch07-cg-051-isanari-proposes-to-aoi align 0 with fade
 No response. As Isanari looks up, he notices Aoi in tears.
 isanari: Aoi, what's wrong?
 aoi: I don't know, I don't know. I'm just, I just...I can't stop crying...Even though I've never been happier!
 isanari: Ah, haha...Hahaha!
+# show image bg onsen-cg-020-aoi-isanari-life-montage align 0 with fade
 …
 …
 aoi: Hmm, we haven't had many customers this month. Oh, well! I just need to keep trying harder!
@@ -118,20 +132,23 @@ isanari: Eh..EEEHHH!?
 …
 …
 isanari: Aoi, please don't overwork yourself. I'll take care of the store today, alright?
-# sprite right aoi ill
+# sprite right aoi bakery_ill
 aoi: Right...Thank you...Isanari.
 …
 …
+# sprite hide all
+# show image bg ch07-cg-052-uesugi-family-bakery-memory align 0 with fade
 aoi: Her name will be...*cough* Raiha!
 isanari: Look at her, isn't she cute?
 …
 …
+# show image bg ch07-aoi-isanari-bakery-interior-struggling align 0 with fade
 isanari: Goddammit!
-# sprite right aoi maternal
+# sprite right aoi bakery_maternal
 aoi: It's okay, Isanari. As long as we pay what we owe this month, they'll forgive us next month!
 …
 …
-# sprite right aoi ill
+# sprite right aoi bakery_ill
 # show image bg ch07-aoi-isanari-bakery-exterior-struggling align 0 with fade
 aoi: Please come to our bakery! *cough**cough*
 Isn't that the store Mr. - got food poisoning from?
@@ -142,17 +159,17 @@ isanari: What was that!? Come and eat her bread and you'll see how incredible it
 …
 # show image bg ch07-aoi-isanari-bakery-interior-struggling align 0 with fade
 isanari: Aoi! Did you do Raiha's hair?
-# sprite right aoi cheerful_peace
+# sprite right aoi bakery_cheerful_peace
 aoi: Yep, is there something wrong?
 isanari: Just look at it! It looks like she has an antenna!
 raiha: Wahahaha!
 aoi: She seems happy about it, what's the harm?
 …
 …
-# sprite right aoi ill
+# sprite right aoi bakery_ill
 aoi: Isanari, I'm starting to worry about the state of the bakery... *cough* *cough* Should we close it down for a bit?
 isanari: What? But this is your dream, right? We just need to believe! Soon, everyone will see how great your bread is!
-# sprite right aoi determined
+# sprite right aoi bakery_determined
 aoi: ...You're right! Let's keep working hard!
 …
 …
@@ -162,7 +179,10 @@ aoi_isanari: Please come to our store!
 ...
 # sprite hide all
 # show image bg ch07-aoi-isanari-bakery-interior-struggling align 0 with fade
-isanari: Damn it, DAMN IT! We won't be able to make it this month either...No, I just need to take out more loans! I will have her dream flourish! I can do it! I'll make sure Fuutarou and Raiha have great lives, no matter what! Aoi needs me more than ever right now, I will...I will help her succe-
+isanari: Damn it...DAMN IT! We won't make it through this month either.
+isanari: No. I just need to take out more loans. I will make her dream flourish!
+isanari: I can do this. I'll make sure Fuutarou and Raiha have wonderful lives, no matter what it takes!
+isanari: Aoi needs me more than ever. I will...I will help her succe-
 …
 …
 # sprite hide all
@@ -187,7 +207,15 @@ aoi: Isanari…
 Isanari quiets down. It's rare, but there are times when Aoi gets really serious. In those moments, Isanari makes sure to listen.
 aoi: I'm so grateful for everything you've done for me...I never thought that the delinquent that confessed to me on that day would be with me for the rest of my life...I want to say that even with our grievances, that I have no regrets, but...I'd be lying if I said that…
 Aoi starts to cry.
-aoi: I don't like that I might not see Fuutarou and Raiha grow up. Passing Elementary and middle school...Graduating High School...Graduating College. I don't like that I won't be able to give them advice, even if I'm not the best role model...I don't like that I won't be there to give them a shoulder to cry on when they're feeling sad...I don't like that I won't see that cheerful Raiha brighten up everyone's day with her smile...I don't like that I won't see Fuutarou grow into a dependable man...I don't like that I won't give them love tips...I hate that I won't be able to see them get married. I hate it.
+aoi: I don't want to miss Fuutarou and Raiha growing up.
+aoi: Elementary school, middle school, high school, college...I want to see every step.
+aoi: I want to give them advice, even if I'm not the best role model.
+aoi: I want to be there when they're sad and need a shoulder to cry on.
+aoi: I want to see cheerful little Raiha brighten everyone's day with her smile.
+aoi: I want to see Fuutarou grow into a dependable man.
+aoi: I even want to give them terrible love advice.
+aoi: I want to see them get married...
+aoi: I hate that I won't be there. I hate it.
 isanari: Aoi...Aoi! Everything will be alright...I swear everything will be-
 # sprite hide all
 …

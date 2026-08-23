@@ -1,4 +1,5 @@
 import type { TFunction } from "i18next";
+import { performanceProfile } from "../utils/performance-profile";
 
 export type GalleryItem =
     | {
@@ -46,7 +47,7 @@ export const galleryItems: GalleryItem[] = [
         kind: "video",
         title: "Menu principal",
         subtitle: "Animacion de fondo",
-        src: "/videos/menu/menu.mp4",
+        src: performanceProfile.menuVideoSrc,
         poster: "/images/bg_title.webp",
     },
     {
@@ -143,9 +144,18 @@ export const galleryItems: GalleryItem[] = [
 ];
 
 export function getGalleryThumbnail(item: GalleryItem) {
+    return getGalleryThumbnailSource(getGalleryVisual(item));
+}
+
+export function getGalleryVisual(item: GalleryItem, sequenceFrame = 0) {
     if (item.kind === "image") return item.src;
     if (item.kind === "video") return item.poster;
-    return item.frames[0];
+    return item.frames[sequenceFrame] || item.frames[0];
+}
+
+export function getGalleryThumbnailSource(source: string) {
+    const fileName = source.slice(source.lastIndexOf("/") + 1).replace(/\.[^.]+$/, ".webp");
+    return `/images/memories/thumbnails/${fileName}`;
 }
 
 export function getLocalizedGalleryItems(t: TFunction<"gallery">) {

@@ -9,6 +9,7 @@ import {
 import { SCENE_ROUTE } from "../constans";
 import { preloadCharacterSprite } from "../data/characterSprites";
 import useCharacterStageStore, { isCharacterStageSlotName } from "../stores/useCharacterStageStore";
+import { isChapterOneDemoBuild } from "./performance-profile";
 
 export const STORY_SCENE_TRANSITION_FLAG = "__pixi_vn_story_scene_transition";
 let inkRuntimeInitialized = false;
@@ -22,7 +23,12 @@ export function isStorySceneTransition() {
 }
 
 async function getInkText() {
-    const files = import.meta.glob<string>("../ink/**/*.ink", { eager: true, import: "default" });
+    const files = isChapterOneDemoBuild
+        ? import.meta.glob<string>(["../ink/start.ink", "../ink/chapters/chapter_01.ink"], {
+              eager: true,
+              import: "default",
+          })
+        : import.meta.glob<string>("../ink/**/*.ink", { eager: true, import: "default" });
     const rootPath = "../ink/start.ink";
     const root = files[rootPath];
 
@@ -32,10 +38,31 @@ async function getInkText() {
 
     const chapters = Object.entries(files)
         .filter(([path]) => path !== rootPath)
+        .filter(([path]) => !isChapterOneDemoBuild || path.endsWith("/chapter_01.ink"))
         .sort(([pathA], [pathB]) => pathA.localeCompare(pathB, "en"))
-        .map(([, content]) => content.trim());
+        .map(([, content]) => {
+            const trimmedContent = content.trim();
+            return isChapterOneDemoBuild ? createChapterOneDemoInk(trimmedContent) : trimmedContent;
+        });
 
     return [`${root.trim()}\n\n${chapters.join("\n\n")}\n\n`];
+}
+
+function createChapterOneDemoInk(chapter: string) {
+    const extraLabel = "=== chapter_1_extra ===";
+    const labelIndex = chapter.indexOf(extraLabel);
+    if (labelIndex < 0) return chapter;
+
+    const mainChapter = chapter
+        .slice(0, labelIndex)
+        .replace(/\n\* Continuar al capitulo 2\s*\n-> chapter_2\s*$/u, "")
+        .trimEnd();
+    const extraChapter = chapter
+        .slice(labelIndex)
+        .replace(/\n\* Continuar al capitulo 2\s*\n-> chapter_2\s*$/u, "\n-> END")
+        .trimEnd();
+
+    return `${mainChapter}\n\n${extraChapter}`;
 }
 
 export async function importAllInkLabels() {

@@ -9,8 +9,14 @@ import { AnimatePresence, motion } from "motion/react";
 import { useCallback, useEffect, useMemo, useRef, useState, type WheelEvent } from "react";
 import { useTranslation } from "react-i18next";
 import { MAIN_MENU_ROUTE } from "../constans";
-import { getGalleryThumbnail, getLocalizedGalleryItems } from "../data/galleryItems";
+import {
+    getGalleryThumbnail,
+    getGalleryThumbnailSource,
+    getGalleryVisual,
+    getLocalizedGalleryItems,
+} from "../data/galleryItems";
 import useMyNavigate from "../hooks/useMyNavigate";
+import { preloadImage } from "../utils/preload-utility";
 import { runViewTransition } from "../utils/view-transition";
 
 const ITEMS_PER_PAGE = 6;
@@ -44,12 +50,11 @@ export default function GalleryScreen() {
         collectionPage * ITEMS_PER_PAGE + ITEMS_PER_PAGE
     );
 
-    const selectedVisual = useMemo(() => {
-        if (selectedItem.kind === "sequence") {
-            return selectedItem.frames[sequenceFrame] || selectedItem.frames[0];
-        }
-        return getGalleryThumbnail(selectedItem);
-    }, [selectedItem, sequenceFrame]);
+    const selectedVisual = useMemo(
+        () => getGalleryVisual(selectedItem, sequenceFrame),
+        [selectedItem, sequenceFrame],
+    );
+    const selectedBackdrop = useMemo(() => getGalleryThumbnailSource(selectedVisual), [selectedVisual]);
 
     const goToItem = useCallback((index: number) => {
         const nextIndex = (index + galleryItems.length) % galleryItems.length;
@@ -86,6 +91,13 @@ export default function GalleryScreen() {
 
         return () => window.clearInterval(timer);
     }, [selectedItem]);
+
+    useEffect(() => {
+        if (selectedItem.kind !== "sequence") return;
+
+        const nextFrame = selectedItem.frames[(sequenceFrame + 1) % selectedItem.frames.length];
+        void preloadImage(nextFrame).catch(() => undefined);
+    }, [selectedItem, sequenceFrame]);
 
     useEffect(() => {
         if (collectionPageCount <= 1) return;
@@ -127,7 +139,7 @@ export default function GalleryScreen() {
             animate={{ opacity: isLeaving ? 0 : 1, scale: isLeaving ? 0.985 : 1 }}
             transition={{ duration: 0.32, ease: "easeInOut" }}
             sx={{
-                position: "fixed",
+                position: "absolute",
                 inset: 0,
                 overflowY: "auto",
                 overflowX: "hidden",
@@ -152,16 +164,16 @@ export default function GalleryScreen() {
         >
             <AnimatePresence mode='wait'>
                 <Box
-                    key={selectedVisual}
+                    key={selectedBackdrop}
                     component={motion.div}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 0.16 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.55 }}
                     sx={{
-                        position: "fixed",
+                        position: "absolute",
                         inset: 0,
-                        backgroundImage: `url("${selectedVisual}")`,
+                        backgroundImage: `url("${selectedBackdrop}")`,
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                         filter: "saturate(1.05) contrast(0.9)",
@@ -171,7 +183,7 @@ export default function GalleryScreen() {
 
             <Box
                 sx={{
-                    position: "fixed",
+                    position: "absolute",
                     inset: 0,
                     opacity: 1,
                     backgroundImage: `
@@ -187,7 +199,7 @@ export default function GalleryScreen() {
 
             <Box
                 sx={{
-                    position: "fixed",
+                    position: "absolute",
                     inset: 0,
                     background:
                         "linear-gradient(90deg, rgba(96,46,112,0.64) 0%, rgba(255,255,255,0.18) 50%, rgba(112,54,126,0.58) 100%)",
@@ -198,7 +210,7 @@ export default function GalleryScreen() {
                 sx={{
                     position: "relative",
                     zIndex: 1,
-                    minHeight: "100vh",
+                    minHeight: "100%",
                     height: "auto",
                     display: "flex",
                     flexDirection: "column",
@@ -288,8 +300,8 @@ export default function GalleryScreen() {
                 >
                     <Box
                         sx={{
-                            minHeight: { xs: 360, sm: 460, lg: "calc(100vh - 150px)" },
-                            height: { xs: "62vh", sm: "64vh", lg: "calc(100vh - 150px)" },
+                            minHeight: "min(460px, calc(100cqh - 150px))",
+                            height: "calc(100cqh - 150px)",
                             maxHeight: { xs: 640, lg: "none" },
                             position: "relative",
                             top: { lg: 24 },
@@ -340,6 +352,7 @@ export default function GalleryScreen() {
                                     <video
                                         src={selectedItem.src}
                                         poster={selectedItem.poster}
+                                        preload='metadata'
                                         controls
                                         autoPlay
                                         loop
@@ -350,6 +363,7 @@ export default function GalleryScreen() {
                                     <img
                                         src={selectedVisual}
                                         alt={selectedItem.title}
+                                        decoding='async'
                                         style={{ width: "100%", height: "100%", objectFit: "contain" }}
                                     />
                                 )}
@@ -498,6 +512,8 @@ export default function GalleryScreen() {
                                                     <img
                                                         src={getGalleryThumbnail(item)}
                                                         alt={item.title}
+                                                        loading='lazy'
+                                                        decoding='async'
                                                         style={{ width: "100%", height: "100%", objectFit: "cover" }}
                                                     />
                                                     <Box

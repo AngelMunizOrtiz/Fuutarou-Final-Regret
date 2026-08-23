@@ -68,7 +68,7 @@ export default function SceneScreen() {
         return (
             <Box
                 sx={{
-                    position: "fixed",
+                    position: "absolute",
                     inset: 0,
                     display: "grid",
                     placeItems: "center",

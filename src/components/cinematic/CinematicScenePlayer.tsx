@@ -2,6 +2,8 @@ import { Box, Typography } from "@mui/joy";
 import { AnimatePresence, motion } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { DreamFragment } from "../../data/dreamSequence";
+import usePointerAdvance from "../../hooks/usePointerAdvance";
+import { performanceProfile } from "../../utils/performance-profile";
 import { preloadImages } from "../../utils/preload-utility";
 import BubbleAnimation from "../BubbleAnimation";
 import DialogueBox from "../DialogueBox";
@@ -49,7 +51,7 @@ export default function CinematicScenePlayer({ sceneId, frames, onComplete }: Ci
 
     useEffect(() => {
         const upcomingImages = frames
-            .slice(currentIndex + 1, currentIndex + 3)
+            .slice(currentIndex + 1, currentIndex + 1 + performanceProfile.cinematicPreloadCount)
             .filter((frame) => frame.mediaType !== "video")
             .map((frame) => frame.image);
 
@@ -79,6 +81,11 @@ export default function CinematicScenePlayer({ sceneId, frames, onComplete }: Ci
         return () => window.removeEventListener("keydown", handleKeyDown);
     }, [advance]);
 
+    usePointerAdvance({
+        disabled: isCompleting || Boolean(currentFrame?.autoAdvanceMs),
+        onAdvance: advance,
+    });
+
     if (!currentFrame) return null;
 
     const isAutoAdvance = Boolean(currentFrame.autoAdvanceMs);
@@ -88,39 +95,40 @@ export default function CinematicScenePlayer({ sceneId, frames, onComplete }: Ci
     return (
         <Box
             sx={{
-                position: "fixed",
+                position: "absolute",
                 inset: 0,
                 overflow: "hidden",
                 backgroundColor: "black",
                 cursor: isAutoAdvance || isCompleting ? "default" : "pointer",
+                pointerEvents: "auto",
+                touchAction: "manipulation",
+                userSelect: "none",
             }}
         >
-            {!isAutoAdvance && !isCompleting && (
-                <Box
-                    onClick={(event) => {
-                        event.stopPropagation();
-                        void advance();
-                    }}
-                    sx={{ position: "absolute", inset: 0, zIndex: 9999, backgroundColor: "transparent" }}
-                />
-            )}
-
             <AnimatePresence mode='wait'>
                 <motion.div
                     key={visualKey}
                     initial={{
                         opacity: 0,
                         scale: isAwakeningPhase ? 1 : 1.05,
-                        filter: isAwakeningPhase ? "blur(10px) brightness(0)" : "none",
+                        filter: performanceProfile.lite
+                            ? "none"
+                            : isAwakeningPhase
+                              ? "blur(10px) brightness(0)"
+                              : "none",
                     }}
                     animate={{
                         opacity: 1,
                         scale: 1,
-                        filter: isAwakeningPhase ? "blur(0px) brightness(1)" : currentFrame.filter || "none",
+                        filter: performanceProfile.lite
+                            ? "none"
+                            : isAwakeningPhase
+                              ? "blur(0px) brightness(1)"
+                              : currentFrame.filter || "none",
                     }}
                     exit={{ opacity: 0 }}
                     transition={{
-                        duration: isAwakeningPhase ? 0.3 : 1.5,
+                        duration: performanceProfile.lite ? 0.22 : isAwakeningPhase ? 0.3 : 1.5,
                         ease: "easeInOut",
                     }}
                     style={{ position: "absolute", inset: 0, zIndex: 1 }}
@@ -131,6 +139,7 @@ export default function CinematicScenePlayer({ sceneId, frames, onComplete }: Ci
                             autoPlay
                             playsInline
                             muted
+                            preload='metadata'
                             onEnded={() => {
                                 if (currentFrame.advanceOnVideoEnd) {
                                     void advance();
@@ -142,13 +151,14 @@ export default function CinematicScenePlayer({ sceneId, frames, onComplete }: Ci
                         <img
                             src={currentFrame.image}
                             alt='Cinematic Scene'
+                            decoding='async'
                             style={{ width: "100%", height: "100%", objectFit: "cover" }}
                         />
                     )}
                 </motion.div>
             </AnimatePresence>
 
-            {currentFrame.isDream && (
+            {currentFrame.isDream && !performanceProfile.lite && (
                 <Box sx={{ position: "absolute", inset: 0, zIndex: 50, pointerEvents: "none" }}>
                     <BubbleAnimation />
                 </Box>
@@ -158,10 +168,10 @@ export default function CinematicScenePlayer({ sceneId, frames, onComplete }: Ci
                 {currentFrame.layout === "intro" && (
                     <motion.div
                         key={`intro-${sceneId}`}
-                        initial={{ opacity: 0, y: 18, filter: "blur(8px)" }}
-                        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                        exit={{ opacity: 0, y: -12, filter: "blur(8px)" }}
-                        transition={{ duration: 0.75, ease: "easeOut" }}
+                        initial={{ opacity: 0, y: 18, filter: performanceProfile.lite ? "none" : "blur(8px)" }}
+                        animate={{ opacity: 1, y: 0, filter: "none" }}
+                        exit={{ opacity: 0, y: -12, filter: performanceProfile.lite ? "none" : "blur(8px)" }}
+                        transition={{ duration: performanceProfile.lite ? 0.24 : 0.75, ease: "easeOut" }}
                         style={{ position: "absolute", inset: 0, zIndex: 100, pointerEvents: "none" }}
                     >
                         <IntroFrame frame={currentFrame} />
@@ -170,10 +180,10 @@ export default function CinematicScenePlayer({ sceneId, frames, onComplete }: Ci
                 {currentFrame.layout === "info" && (
                     <motion.div
                         key={`info-${sceneId}-${currentFrame.id}`}
-                        initial={{ opacity: 0, scale: 0.97, filter: "blur(10px)" }}
-                        animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                        exit={{ opacity: 0, scale: 0.985, filter: "blur(8px)" }}
-                        transition={{ duration: 0.64, ease: "easeOut" }}
+                        initial={{ opacity: 0, scale: 0.97, filter: performanceProfile.lite ? "none" : "blur(10px)" }}
+                        animate={{ opacity: 1, scale: 1, filter: "none" }}
+                        exit={{ opacity: 0, scale: 0.985, filter: performanceProfile.lite ? "none" : "blur(8px)" }}
+                        transition={{ duration: performanceProfile.lite ? 0.24 : 0.64, ease: "easeOut" }}
                         style={{ position: "absolute", inset: 0, zIndex: 100, pointerEvents: "none" }}
                     >
                         <InfoFrame frame={currentFrame} />
@@ -182,10 +192,10 @@ export default function CinematicScenePlayer({ sceneId, frames, onComplete }: Ci
                 {currentFrame.layout === "note" && (
                     <motion.div
                         key={`note-${sceneId}-${currentFrame.id}`}
-                        initial={{ opacity: 0, y: 12, filter: "blur(6px)" }}
-                        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                        exit={{ opacity: 0, y: -8, filter: "blur(6px)" }}
-                        transition={{ duration: 0.58, ease: "easeOut" }}
+                        initial={{ opacity: 0, y: 12, filter: performanceProfile.lite ? "none" : "blur(6px)" }}
+                        animate={{ opacity: 1, y: 0, filter: "none" }}
+                        exit={{ opacity: 0, y: -8, filter: performanceProfile.lite ? "none" : "blur(6px)" }}
+                        transition={{ duration: performanceProfile.lite ? 0.24 : 0.58, ease: "easeOut" }}
                         style={{ position: "absolute", inset: 0, zIndex: 100, pointerEvents: "none" }}
                     >
                         <NoteFrame frame={currentFrame} />
@@ -247,7 +257,7 @@ function NoteFrame({ frame }: { frame: DreamFragment }) {
                     position: "absolute",
                     left: { xs: "17%", sm: "18%", md: "19%" },
                     top: { xs: "34%", sm: "33%", md: "32%" },
-                    width: { xs: "36vw", sm: "33vw", md: "30vw" },
+                    width: "clamp(220px, 30cqw, 560px)",
                     maxWidth: "560px",
                     color: "rgba(76, 72, 74, 0.76)",
                     fontFamily: "'ConteScript', 'Comic Sans MS', cursive",
@@ -299,7 +309,7 @@ function NoteFrame({ frame }: { frame: DreamFragment }) {
                         left: "50%",
                         bottom: { xs: "8.5%", md: "9.5%" },
                         transform: "translateX(-50%)",
-                        width: "min(780px, 84vw)",
+                        width: "min(780px, 84cqw)",
                         px: { xs: 2.4, sm: 3.2 },
                         py: { xs: 1.2, sm: 1.45 },
                         borderRadius: "18px",
@@ -352,8 +362,8 @@ function InfoFrame({ frame }: { frame: DreamFragment }) {
                 transition={{ duration: 0.7, ease: "easeOut" }}
                 sx={{
                     position: "relative",
-                    width: "min(840px, 90vw)",
-                    maxHeight: "min(68vh, 560px)",
+                    width: "min(840px, 90cqw)",
+                    maxHeight: "min(68cqh, 560px)",
                     overflow: "auto",
                     borderRadius: { xs: "18px", md: "28px" },
                     border: "2px solid transparent",
@@ -536,7 +546,7 @@ function IntroFrame({ frame }: { frame: DreamFragment }) {
                 transition={{ duration: 0.7, ease: "easeOut" }}
                 sx={{
                     position: "relative",
-                    width: "min(900px, 92vw)",
+                    width: "min(900px, 92cqw)",
                     overflow: "hidden",
                     borderRadius: { xs: "20px", md: "30px" },
                     border: "2px solid transparent",

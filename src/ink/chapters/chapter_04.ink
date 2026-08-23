@@ -39,9 +39,15 @@ itsuki: It's a hard question!
 yotsuba: Um, are you guys still in love with Uesugi-san?
 The sisters stop. They proceed to look at Yotsuba with slight disgust on their faces.
 # sprite right nino onsen_yukata_soft
-nino: Well, if he got on his knees and begged, then I might take him up on his offer...I really did love him, but as the days go on, that feeling gets smaller and smaller. By this point, I can say that I really do like him...but, only as a best friend! As long as Fuu-kun is happy, I'll be happy too.
+nino: Well, if he got on his knees and begged, I might consider his offer...
+nino: I really did love him, but that feeling grows smaller with every passing day.
+nino: At this point, I can say that I still like him...but only as a best friend!
+nino: As long as Fuu-kun is happy, I'll be happy too.
 # sprite left ichika onsen_yukata_sad_reflective
-ichika: I...took longer than normal getting over him. He really was the worst person I could have fallen for. Fuutarou-kun is such an odd person. Hehe, but if he needs a big sister to lean on, I'll always be there to listen to his problems. As long as Fuutarou-kun is happy, his big sis is happy.
+ichika: I...took longer than the others to get over him. He really was the worst person I could have fallen for.
+ichika: Fuutarou-kun is such a strange person.
+ichika: But if he ever needs a big sister to lean on, I'll always be there to listen.
+ichika: As long as Fuutarou-kun is happy, his big sis is happy.
 Itsuki ponders about her answer.
 # sprite right itsuki onsen_yukata_thoughtful
 itsuki: I've kept wondering if I truly loved Uesugi-kun…
@@ -54,7 +60,7 @@ nino: Oh, Itsuki, with your body, you'll find hundreds of men willing to be with
 As Itsuki started fighting back, Ichika had a sigh of relief.
 # sprite left ichika onsen_yukata_teasing
 ichika: That startled me, here I thought Itsuki was really in love. So, Yotsuba, why did you suddenly bring this up?
-# sprite center yotsuba onsen_yukata_nervous
+# sprite center yotsuba onsen_yukata_sad_smile
 yotsuba: Well, I was wondering how Uesugi-san really felt. It's as though there isn't anything between us...Ah, I wish I could ask Miku as well.
 ichika: What's stopping you from just calling her?
 yotsuba: I'm afraid of what her answer will be.
@@ -69,6 +75,7 @@ miku: Yotsuba, I'm sure you've already noticed...Just try everything you can to 
 As she shone a smile at Yotsuba, the next song started.
 …
 ...
+# sprite center yotsuba onsen_yukata_determined
 yotsuba: I couldn't tell exactly what she was talking about, but after thinking about it for so long, I came to a conclusion…
 As Yotsuba closes her eyes, she remembers something
 \["But tell me, Uesugi Fuutarou...Are you truly happy right now?"\]
@@ -91,6 +98,7 @@ End of Chapter 4
 # sprite hide all
 # show image bg ch02-onsen-quintuplets-tatami-room align 0 with fade
 narrator: Chapter 4 Extra
+# sprite center yotsuba onsen_yukata_neutral
 yotsuba: Say, Ichika. Why did you say that you were experiencing deja vu?
 ichika: Remember how he had us take a test because he ran into me naked?
 nino: Fuu-kun also saw me naked when those books fell on us.

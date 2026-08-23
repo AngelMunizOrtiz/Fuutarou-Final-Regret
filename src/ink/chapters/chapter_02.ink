@@ -20,7 +20,9 @@ He notices a paper on the table, which reads...
 # sprite hide all
 # show image bg ch02-raiha-note-closeup align 0 with fade
 narrator: -"Hey, Fuutarou!
-It seems Maruo got impatient waiting and his butler's giving us a ride there, we couldn't pass up such an offer, so we're going ahead of you! Don't worry, we were able to call your old manager and he's letting you use the motorcycle for you to use. I mean, it's not THAT bad of a trip, you can make it!
+It seems Maruo got impatient waiting, and his butler offered to drive us there. We couldn't pass up the offer, so we're going ahead of you!
+Don't worry, we called your old manager and he agreed to let you use the motorcycle.
+I mean, it isn't THAT bad of a trip. You can make it!
 P.S. Don't worry, we left you some money, it should be enough for a drink or two!
 Underneath, another message
 I'm sorry, brother! Love, Raiha"-

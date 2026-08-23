@@ -10,6 +10,17 @@ coverage/
 # Tauri/Rust build output. Keep src-tauri source, config and lockfile tracked.
 src-tauri/target/
 
+# Tauri CLI schemas are regenerated for each target.
+src-tauri/gen/schemas/
+
+# Android packages and signing secrets must stay local.
+*.apk
+*.aab
+*.jks
+*.keystore
+key.properties
+keystore.properties
+
 # Local generated work files
 .codex-tmp/
 
@@ -34,3 +45,4 @@ lerna-debug.log*
 *.sln
 *.sw?
 /Suno mp3
+/artifacts/windows

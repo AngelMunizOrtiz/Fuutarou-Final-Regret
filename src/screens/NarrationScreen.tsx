@@ -1,16 +1,15 @@
 import { useColorScheme } from "@mui/joy";
 import Box from "@mui/joy/Box";
 import Typography from "@mui/joy/Typography";
-import { RefObject, useCallback, useMemo, useRef } from "react";
+import { RefObject, useEffect, useMemo, useRef, useState } from "react";
 import Markdown from "react-markdown";
-import { MarkdownTypewriterHooks } from "react-markdown-typewriter";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import { useShallow } from "zustand/react/shallow";
-import AnimatedDots from "../components/AnimatedDots";
 import { useQueryDialogue } from "../hooks/useQueryInterface";
 import useInterfaceStore from "../stores/useInterfaceStore";
 import useTypewriterStore from "../stores/useTypewriterStore";
+import { performanceProfile } from "../utils/performance-profile";
 import {
     DIALOGUE_BOX_HEIGHT,
     DIALOGUE_BOX_IMAGE,
@@ -50,7 +49,7 @@ export default function NarrationScreen() {
                 <ChoiceMenu />
             </Box>
             <Box
-                className={dialogueVariants}
+                className={`vn-dialogue-shell ${dialogueVariants}`}
                 sx={{
                     "--dialog-box-height": DIALOGUE_BOX_HEIGHT,
                     position: "absolute",
@@ -75,12 +74,13 @@ export default function NarrationScreen() {
                         alignItems: "center",
                         justifyContent: "center",
                         px: DIALOGUE_CONTENT_PADDING_X,
-                        pt: { xs: 3, sm: 3.25, md: 4 },
-                        pb: { xs: 2.75, sm: 3, md: 3.5 },
+                        pt: "clamp(1.25rem, 3.7cqh, 2rem)",
+                        pb: "clamp(1.1rem, 3.25cqh, 1.75rem)",
                     }}
                 >
                     <Box
                         aria-hidden
+                        className="vn-dialogue-frame"
                         sx={{
                             position: "absolute",
                             inset: 0,
@@ -96,6 +96,7 @@ export default function NarrationScreen() {
                     />
                     <Box
                         ref={paragraphRef}
+                        className="vn-dialogue-copy"
                         sx={{
                             position: "relative",
                             zIndex: 1,
@@ -105,7 +106,7 @@ export default function NarrationScreen() {
                             overflow: "auto",
                             color: "rgba(25, 20, 28, 0.94)",
                             fontFamily: "'MPLUSRounded', sans-serif",
-                            fontSize: { xs: "0.88rem", sm: "0.98rem", md: "1.08rem", lg: "1.14rem" },
+                            fontSize: "clamp(0.82rem, 1.05cqw, 1.14rem)",
                             fontStyle: "normal",
                             fontWeight: 500,
                             lineHeight: 1.52,
@@ -137,7 +138,7 @@ export default function NarrationScreen() {
                     <Box
                         sx={{
                             position: "absolute",
-                            left: { xs: "4%", md: "5%" },
+                            left: "clamp(4%, 5cqw, 5%)",
                             bottom: "calc(var(--dialog-box-height) - 20px)",
                             width: NAME_BOX_WIDTH,
                             aspectRatio: "480 / 90",
@@ -149,6 +150,7 @@ export default function NarrationScreen() {
                     >
                         <Box
                             aria-hidden
+                            className="vn-name-frame"
                             sx={{
                                 position: "absolute",
                                 inset: 0,
@@ -166,17 +168,17 @@ export default function NarrationScreen() {
                                 zIndex: 1,
                                 width: "82%",
                                 mr: "18%",
-                                px: { xs: 1, sm: 1.5, md: 2 },
+                                px: "clamp(0.5rem, 1cqw, 1rem)",
                                 overflow: "hidden",
                                 color: character?.color || "rgba(20, 18, 24, 0.94)",
                                 fontFamily: "'ConteScript', cursive",
-                                fontSize: { xs: "1.04rem", sm: "1.28rem", md: "1.48rem", lg: "1.58rem" },
+                                fontSize: "clamp(1rem, 1.45cqw, 1.58rem)",
                                 lineHeight: 1,
                                 textAlign: "center",
                                 textOverflow: "ellipsis",
                                 whiteSpace: "nowrap",
                                 textShadow: "0 1px 0 rgba(255,255,255,0.7), 0 2px 3px rgba(71,45,82,0.18)",
-                                mt: { xs: -0.5, md: -1 },
+                                mt: "clamp(-0.5rem, -0.35cqh, -0.25rem)",
                             }}
                         >
                             {speakerName}
@@ -194,16 +196,6 @@ function NarrationScreenText({ paragraphRef }: { paragraphRef: RefObject<HTMLDiv
     const endTypewriter = useTypewriterStore(useShallow((state) => state.end));
     const { data: { animatedText, text } = {} } = useQueryDialogue();
     const { mode } = useColorScheme();
-
-    const handleCharacterAnimationComplete = useCallback((ref: { current: HTMLSpanElement | null }) => {
-        if (paragraphRef.current && ref.current) {
-            const scrollTop = ref.current.offsetTop - paragraphRef.current.clientHeight / 2;
-            paragraphRef.current.scrollTo({
-                top: scrollTop,
-                behavior: "auto",
-            });
-        }
-    }, [paragraphRef]);
 
     return (
         <p
@@ -231,24 +223,106 @@ function NarrationScreenText({ paragraphRef }: { paragraphRef: RefObject<HTMLDiv
             </span>
             <span>
                 <span> </span>
-                <MarkdownTypewriterHooks
-                    remarkPlugins={[remarkGfm]}
-                    rehypePlugins={[rehypeRaw]}
+                <EfficientTypewriterText
+                    text={animatedText || ""}
                     delay={typewriterDelay}
-                    motionProps={{
-                        onAnimationStart: startTypewriter,
-                        onAnimationComplete: (definition: "visible" | "hidden") => {
-                            if (definition == "visible") {
-                                endTypewriter();
-                            }
-                        },
-                        onCharacterAnimationComplete: handleCharacterAnimationComplete,
-                    }}
-                    fallback={<AnimatedDots />}
-                >
-                    {animatedText}
-                </MarkdownTypewriterHooks>
+                    paragraphRef={paragraphRef}
+                    onStart={startTypewriter}
+                    onEnd={endTypewriter}
+                />
             </span>
         </p>
     );
+}
+
+/**
+ * Efficient typewriter for every profile. It keeps one text node and reveals a
+ * small batch on each frame instead of mounting and animating one Motion span
+ * per character. Reading speed and the shared in-progress state are preserved.
+ */
+function EfficientTypewriterText({
+    text,
+    delay,
+    paragraphRef,
+    onStart,
+    onEnd,
+}: {
+    text: string;
+    delay: number;
+    paragraphRef: RefObject<HTMLDivElement | null>;
+    onStart: () => void;
+    onEnd: () => void;
+}) {
+    const characters = useMemo(() => Array.from(text), [text]);
+    const [revealState, setRevealState] = useState(() => ({ source: text, count: 0 }));
+    const visibleCount =
+        delay <= 0 ? characters.length : revealState.source === text ? revealState.count : 0;
+    const lastScrollAtRef = useRef(0);
+
+    useEffect(() => {
+        let timer: number | undefined;
+
+        if (characters.length === 0 || delay <= 0) {
+            onEnd();
+            return undefined;
+        }
+
+        onStart();
+        const startedAt = performance.now();
+        const updateInterval = Math.max(performanceProfile.typewriterFrameMs, delay);
+
+        const revealNextChunk = () => {
+            const elapsed = performance.now() - startedAt;
+            const nextCount = Math.min(characters.length, Math.max(1, Math.floor(elapsed / delay)));
+            setRevealState((current) =>
+                current.source === text && current.count === nextCount
+                    ? current
+                    : { source: text, count: nextCount }
+            );
+
+            if (nextCount >= characters.length) {
+                onEnd();
+                return;
+            }
+
+            timer = window.setTimeout(revealNextChunk, updateInterval);
+        };
+
+        timer = window.setTimeout(revealNextChunk, Math.min(updateInterval, Math.max(8, delay)));
+
+        return () => {
+            if (timer !== undefined) window.clearTimeout(timer);
+            onEnd();
+        };
+    }, [characters, delay, onEnd, onStart, text]);
+
+    useEffect(() => {
+        const now = performance.now();
+        if (visibleCount < characters.length && now - lastScrollAtRef.current < 120) return;
+        lastScrollAtRef.current = now;
+
+        const paragraph = paragraphRef.current;
+        if (!paragraph) return;
+
+        const frame = window.requestAnimationFrame(() => {
+            if (paragraph.scrollHeight > paragraph.clientHeight) {
+                paragraph.scrollTop = paragraph.scrollHeight;
+            }
+        });
+        return () => window.cancelAnimationFrame(frame);
+    }, [characters.length, paragraphRef, visibleCount]);
+
+    if (visibleCount >= characters.length) {
+        return (
+            <Markdown
+                remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeRaw]}
+                components={{ p: (props) => <span {...props} /> }}
+            >
+                {text}
+            </Markdown>
+        );
+    }
+
+    return <>{characters.slice(0, visibleCount).join("")}</>;
 }

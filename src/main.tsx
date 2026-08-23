@@ -2,15 +2,21 @@ import { canvas, Container, Game } from "@drincs/pixi-vn";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createRoot } from "react-dom/client";
 import App from "./App";
+import { getStoryChapterNumber } from "./assets/manifest";
 import { CANVAS_UI_LAYER_NAME, HTML_CANVAS_LAYER_NAME, HTML_UI_LAYER_NAME, SCENE_ROUTE } from "./constans";
 import useCharacterStageStore from "./stores/useCharacterStageStore";
-import { loadStoryAssetsForLabel } from "./utils/assets-utility";
+import useChapterTransitionStore from "./stores/useChapterTransitionStore";
+import { loadStoryAssetsForLabel, releaseStoryAssets, trimStoryAssetCache } from "./utils/assets-utility";
 import { isStorySceneTransition } from "./utils/ink-utility";
+import { applyPerformanceProfile, performanceProfile } from "./utils/performance-profile";
+import { configureCanvasRendererPerformance, wakeCanvasRenderer } from "./utils/renderer-performance";
+
+applyPerformanceProfile();
 
 // Keep PWA caching out of dev so layout and asset tweaks are visible immediately.
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
-        if (import.meta.env.PROD) {
+        if (import.meta.env.PROD && !performanceProfile.isTauriRuntime) {
             navigator.serviceWorker.register("/sw.js").catch(console.error);
             return;
         }
@@ -39,7 +45,17 @@ Game.init(body, {
     width: 1920,
     backgroundColor: "#090916",
     resizeMode: "contain",
+    resolution: performanceProfile.canvasResolution,
+    autoDensity: true,
+    antialias: !performanceProfile.lite,
+    preference: "webgl",
+    // Android WebView benefits from the GPU renderer; desktop keeps the
+    // battery-friendly adapter because most frames are static.
+    powerPreference: performanceProfile.powerPreference,
 }).then(() => {
+    canvas.app.ticker.maxFPS = performanceProfile.maxFps;
+    configureCanvasRendererPerformance();
+
     // Pixi.JS UI Layer
     canvas.addLayer(CANVAS_UI_LAYER_NAME, new Container());
 
@@ -53,8 +69,17 @@ Game.init(body, {
     if (!htmlLayout) {
         throw new Error("htmlLayout not found");
     }
+    htmlLayout.classList.add("vn-game-ui-layer");
     const reactRoot = createRoot(htmlLayout);
-    const queryClient = new QueryClient();
+    const queryClient = new QueryClient({
+        defaultOptions: {
+            queries: {
+                refetchOnReconnect: false,
+                refetchOnWindowFocus: false,
+                retry: false,
+            },
+        },
+    });
 
     reactRoot.render(
         <QueryClientProvider client={queryClient}>
@@ -64,6 +89,7 @@ Game.init(body, {
 });
 
 Game.onEnd(async ({ navigate }) => {
+    wakeCanvasRenderer();
     if (isStorySceneTransition() || window.location.pathname.startsWith(SCENE_ROUTE)) {
         return;
     }
@@ -78,7 +104,37 @@ Game.onError((type, error, { notify, uiTransition }) => {
     console.error(`Error occurred: ${type}`, error);
 });
 
-Game.onLoadingLabel((_stepId, { id }) => loadStoryAssetsForLabel(id));
+let activeStoryChapter: number | undefined;
+
+Game.onLoadingLabel(async (_stepId, { id }) => {
+    wakeCanvasRenderer();
+    const nextChapter = getStoryChapterNumber(id);
+    const isChapterBoundary = nextChapter !== undefined && nextChapter !== activeStoryChapter;
+
+    if (!isChapterBoundary) {
+        await loadStoryAssetsForLabel(id);
+        return;
+    }
+
+    activeStoryChapter = nextChapter;
+    useChapterTransitionStore.getState().begin(nextChapter);
+
+    try {
+        // Give React one frame to cover the old scene before destroying its
+        // textures, then begin the next chapter with an empty visual stage.
+        await new Promise<void>((resolve) => window.requestAnimationFrame(() => resolve()));
+        useCharacterStageStore.getState().clear();
+        canvas.removeAll();
+        await releaseStoryAssets();
+        await loadStoryAssetsForLabel(id);
+    } finally {
+        useChapterTransitionStore.getState().end();
+    }
+});
+Game.onStepEnd(() => {
+    wakeCanvasRenderer();
+    void trimStoryAssetCache();
+});
 
 if (import.meta.hot) {
     import.meta.hot.on("ink-updated", () => window.location.reload());

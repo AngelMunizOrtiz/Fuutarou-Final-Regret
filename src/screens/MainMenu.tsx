@@ -24,6 +24,7 @@ import { releaseStoryAssets } from "../utils/assets-utility";
 import { preloadImages } from "../utils/preload-utility";
 import { loadSave } from "../utils/save-utility";
 import { runViewTransition } from "../utils/view-transition";
+import { performanceProfile } from "../utils/performance-profile";
 import LoadingScreen from "./LoadingScreen";
 
 const OPENING_SCENE_ASSETS = [
@@ -69,10 +70,19 @@ export default function MainMenu() {
 
     const closeGame = async () => {
         playRandomSfx();
+        const currentWindow = getCurrentWindow();
+
         try {
-            await getCurrentWindow().close();
-        } catch {
-            window.close();
+            await currentWindow.close();
+        } catch (closeError) {
+            console.warn("Unable to close the Tauri window gracefully; forcing shutdown.", closeError);
+
+            try {
+                await currentWindow.destroy();
+            } catch (destroyError) {
+                console.warn("Unable to destroy the Tauri window.", destroyError);
+                window.close();
+            }
         }
     };
 
@@ -81,7 +91,7 @@ export default function MainMenu() {
         void releaseStoryAssets();
 
         const music = new Audio();
-        music.src = "/audio/bgm/menu.wav";
+        music.src = performanceProfile.menuAudioSrc;
         music.preload = "metadata";
         music.loop = true;
         music.volume = 0.4 * useAudioSettingsStore.getState().volume;
@@ -183,7 +193,7 @@ export default function MainMenu() {
     const menuIconStyle = { fontSize: "inherit" };
 
     return (
-        <Box sx={{ position: "fixed", inset: 0, overflow: "hidden", backgroundColor: "black" }}>
+        <Box sx={{ position: "absolute", inset: 0, overflow: "hidden", backgroundColor: "black" }}>
 
             {/* 1. VIDEO DE FONDO */}
             <video
@@ -194,10 +204,10 @@ export default function MainMenu() {
                 poster="/images/bg_title.webp"
                 className="absolute inset-0 w-full h-full object-cover"
             >
-                <source src="/videos/menu/menu.mp4" type="video/mp4" />
+                <source src={performanceProfile.menuVideoSrc} type="video/mp4" />
             </video>
 
-            <Box
+            {!performanceProfile.lite && <Box
                 sx={{
                     position: "absolute",
                     inset: 0,
@@ -214,9 +224,9 @@ export default function MainMenu() {
                     backgroundPosition: "0 0, 46px 46px, 0 0, 0 0",
                     mixBlendMode: "screen",
                 }}
-            />
+            />}
 
-            <Box
+            {!performanceProfile.lite && <Box
                 component={motion.div}
                 initial={{ opacity: 0, y: -12 }}
                 animate={{ opacity: 0.72, y: 0 }}
@@ -232,7 +242,7 @@ export default function MainMenu() {
                     `,
                     maskImage: "linear-gradient(90deg, transparent 0%, black 18%, black 82%, transparent 100%)",
                 }}
-            />
+            />}
 
             {/* 2. CONTENEDOR PRINCIPAL */}
             <Box
@@ -244,7 +254,7 @@ export default function MainMenu() {
                     position: "absolute",
                     left: 0,
                     top: 0,
-                    height: "100vh",
+                    height: "100%",
                     zIndex: 1,
                     display: "flex",
                     alignItems: "center",

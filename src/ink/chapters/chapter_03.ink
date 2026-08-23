@@ -10,7 +10,9 @@ As soon as he said that, small droplets started to come down. Soon, it was raini
 # show image bg ch02-onsen-womens-bath-vestibule align 0 with fade
 # sprite hide all
 # show image bg onsen-cg-002-bath-door-accident align 0 with fade
-As he walked in, he could hear some screams. Even though he ran to see who it was, he had an idea of what would happen. The screams came from the Woman's side. As soon as he got to the door, it opened, showing all four girls in towels with their hair down. Fuutarou got one look at them and, knowing the consequences, shut the door as quickly as it opened.
+As Fuutarou enters, he hears screams coming from the women's side. He runs toward them, already suspecting what is about to happen.
+The door opens the moment he reaches it, revealing all four girls in towels with their hair down.
+Fuutarou takes one look at them and, knowing the consequences, shuts the door as quickly as it opened.
 yotsuba: H-Huh!? Uesugi-san!?
 The others jumped in surprise, unaware that Fuutarou had seen them like that.
 nino: Fuu-kun!?
@@ -83,15 +85,30 @@ grandpa: And miss my chance to see him worried and a little panicked? I don't th
 fuutarou: Heh, you really are their grandfather.
 Silence fills the hallway.
 # sprite right grandpa frail_tired
-grandpa: Recently, my health has been getting worse, so much so that that boy has become adamant about having my grandchildren visit me. Now that those girls are turning into adults...they've begun to drift apart in their everyday life. Perhaps Maruo did know, but saw this as the only viable time for all of us to get together. I'm happy that he cares so much.
+grandpa: My health has been getting worse. That boy has become quite insistent about having my granddaughters visit me.
+grandpa: Now that they are becoming adults, their daily lives have begun to pull them apart.
+grandpa: Perhaps Maruo knew about the weather after all and simply saw this as our only chance to be together.
+grandpa: I'm happy that he cares so much.
 Fuutarou looks away for a little bit, unaware of how to continue the conversation.
 grandpa: I...I truly am glad.
 As Fuutarou turned towards the old man again, he continued.
 # sprite right grandpa regretful
-grandpa: Ever since I lost Rena, I couldn't bear to think about what my granddaughters felt. I had believed that, if I became more distant, then my eventual death would pass them by as if it were another day. Looking back, I know that was the most foolish thing I could have done. I never gave them advice, I never taught them how to look after themselves. Not to mention, I never helped them after that...horrid man took everything away from Rena. The only reason they were able to continue was because they had each other...even if I'm sure they had bumps along the road. That Maruo...even though he tried to distance himself from them, though I could tell he slowly became an overprotective father...I wonder who had the ability to turn him into that…
+grandpa: Ever since I lost Rena, I couldn't bear to think about what my granddaughters were feeling.
+grandpa: I believed that if I kept my distance, then my eventual death might pass them by like any other day.
+grandpa: Looking back, that was the most foolish decision I could have made.
+grandpa: I never gave them advice or taught them how to look after themselves. I wasn't there after that horrible man took everything away from Rena.
+grandpa: The only reason they were able to continue was because they had each other, even if the road was not always easy.
+grandpa: And Maruo...even though he tried to distance himself from them, I watched him slowly become an overprotective father.
+grandpa: I wonder who could have changed him so much...
 Grandpa gives Fuutarou a look. Afraid, but determined, he looks back. There, he sees a gentle smile in the old man. As Grandpa wipes his eyes, he finishes.
 # sprite right grandpa grateful
-grandpa: But...seeing them now, I won't make such regretful decisions, not anymore. Ichika, Nino, Yotsuba, and Itsuki. I can see that they've grown up to be exceptional women. I haven't seen Miku face-to-face yet, but from the letters and photos she's sent, I can tell she's changed the most...to think that a girl such as herself could have such a bright smile. They used to all dress the same, possibly for my benefit, but now, their beautiful individuality shines through each and every one of them. That's why...Uesugi Fuutarou...I thank you. I thank you for making my daughters happy.
+grandpa: But seeing them now, I know I will not repeat those mistakes.
+grandpa: Ichika, Nino, Yotsuba and Itsuki have all grown into exceptional women.
+grandpa: I have yet to see Miku face to face, but her letters and photographs show that she may have changed the most.
+grandpa: To think that such a withdrawn girl could now smile so brightly...
+grandpa: They once dressed alike, perhaps for my sake. Now their beautiful individuality shines through each of them.
+grandpa: That is why, Uesugi Fuutarou...I thank you.
+grandpa: Thank you for making my daughters happy.
 # sprite hide all
 # show image bg onsen-cg-003-grandpa-thanks-fuutarou align 0 with fade
 Grandpa bows to Fuutarou, after getting over the initial shock, he bows back.
@@ -103,8 +120,10 @@ fuutarou: Right..I... I should go too.
 As they turn away from each other, their distance in the hallway grows and grows, when Grandpa suddenly stops.
 # sprite right grandpa concerned
 grandpa: But tell me, Uesugi Fuutarou...Are you truly happy right now?
+# sprite hide all
+# show image bg onsen-cg-054-grandpa-asks-if-fuutarou-is-happy align 0 with fade
 Fuutarou's body jolts towards Grandpa as he turns the corner, before he can chase after him, he hears running near him. Embarrassed that someone might have overheard, he goes to check, but sees that no one is there.
-# sprite hide right
+# show image bg ch02-onsen-courtyard-window-corridor align 0 with fade
 # sprite center fuutarou hand_cover
 fuutarou: *sigh* I might as well take a tour.
 # show image bg ch02-onsen-uesugi-family-tatami-room align 0 with fade

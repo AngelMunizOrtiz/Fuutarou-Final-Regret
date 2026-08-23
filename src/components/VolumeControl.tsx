@@ -86,7 +86,13 @@ export default function FloatingVolumeControl() {
     return (
         <Box
             ref={containerRef}
-            sx={{ position: "fixed", top: { xs: 10, sm: 16 }, right: { xs: 10, sm: 16 }, zIndex: 9500, pointerEvents: "auto" }}
+            sx={{
+                position: "absolute",
+                top: "clamp(8px, 1.1cqw, 16px)",
+                right: "clamp(8px, 1.1cqw, 16px)",
+                zIndex: 9500,
+                pointerEvents: "auto",
+            }}
         >
             <Tooltip title={t("master_volume")} placement="bottom">
                 <IconButton
@@ -106,7 +112,7 @@ export default function FloatingVolumeControl() {
                         position: "absolute",
                         top: 50,
                         right: 0,
-                        width: 240,
+                        width: "min(240px, calc(100cqw - 24px))",
                         p: 1.5,
                         color: "#fff8f1",
                         borderRadius: "9px",

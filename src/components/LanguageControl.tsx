@@ -184,7 +184,12 @@ export default function FloatingLanguageControl() {
     return (
         <Box
             ref={containerRef}
-            sx={{ position: "fixed", top: { xs: 10, sm: 16 }, right: { xs: 60, sm: 66 }, zIndex: 9500 }}
+            sx={{
+                position: "absolute",
+                top: "clamp(8px, 1.1cqw, 16px)",
+                right: "clamp(58px, 4.6cqw, 66px)",
+                zIndex: 9500,
+            }}
         >
             <Tooltip title={t("language")} placement="bottom">
                 <IconButton
@@ -204,7 +209,7 @@ export default function FloatingLanguageControl() {
                         position: "absolute",
                         top: 50,
                         right: 0,
-                        width: 286,
+                        width: "min(286px, calc(100cqw - 24px))",
                         p: 1.5,
                         color: "#fff8f1",
                         borderRadius: "9px",

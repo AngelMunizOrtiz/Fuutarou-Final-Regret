@@ -1,5 +1,9 @@
 import type { AssetsManifest } from "@drincs/pixi-vn";
 import { MAIN_MENU_ROUTE, SPLASH_ROUTE } from "../constans";
+import {
+    storyAssetSequenceByChapter,
+    storySpriteSequenceByChapter,
+} from "./generatedStoryPrefetchPlan";
 
 export const STORY_ASSET_BUNDLES = {
     chapter1: "story-chapter-1",
@@ -31,7 +35,7 @@ const storyBundlesByChapter: Record<number, readonly StoryAssetBundleName[]> = {
     11: [STORY_ASSET_BUNDLES.chapter11],
 };
 
-function getChapterNumber(labelId: string) {
+export function getStoryChapterNumber(labelId: string) {
     if (labelId === "start") {
         return 1;
     }
@@ -41,7 +45,7 @@ function getChapterNumber(labelId: string) {
 }
 
 export function getStoryAssetBundles(labelId: string) {
-    const chapterNumber = getChapterNumber(labelId);
+    const chapterNumber = getStoryChapterNumber(labelId);
     return chapterNumber ? storyBundlesByChapter[chapterNumber] ?? [] : [];
 }
 
@@ -50,11 +54,21 @@ export function getNextStoryAssetBundles(labelId: string) {
         return [];
     }
 
-    const chapterNumber = getChapterNumber(labelId);
+    const chapterNumber = getStoryChapterNumber(labelId);
     return chapterNumber ? storyBundlesByChapter[chapterNumber + 1] ?? [] : [];
 }
 
-const manifest: AssetsManifest = {
+export function getStoryAssetSequence(labelId: string) {
+    const chapterNumber = getStoryChapterNumber(labelId);
+    return chapterNumber ? storyAssetSequenceByChapter[chapterNumber] ?? [] : [];
+}
+
+export function getStorySpriteSequence(labelId: string) {
+    const chapterNumber = getStoryChapterNumber(labelId);
+    return chapterNumber ? storySpriteSequenceByChapter[chapterNumber] ?? [] : [];
+}
+
+const sourceManifest: AssetsManifest = {
     bundles: [
         {
             name: SPLASH_ROUTE,
@@ -77,8 +91,23 @@ const manifest: AssetsManifest = {
                 { alias: "ch01-university-walkway-afternoon", src: "/images/backgrounds/chapter_01/university_walkway_afternoon.webp" },
                 { alias: "ch01-fuutarou-notes-closeup", src: "/images/backgrounds/chapter_01/fuutarou_notes_closeup.webp" },
                 { alias: "ch01-takeda-collapse-cg", src: "/images/backgrounds/chapter_01/takeda_collapse_cg.webp" },
+                { alias: "ch01-cg-060-takeda-shower-flashback", src: "/images/cg/chapter_01/cg_060_takeda_shower_flashback.webp" },
+                { alias: "ch01-cg-061-fuutarou-nostalgic-smile", src: "/images/cg/chapter_01/cg_061_fuutarou_nostalgic_smile.webp" },
+                { alias: "ch01-cg-062-takeda-notices-smile", src: "/images/cg/chapter_01/cg_062_takeda_notices_smile.webp" },
+                { alias: "ch01-cg-063-takeda-teases-fuutarou", src: "/images/cg/chapter_01/cg_063_takeda_teases_fuutarou.webp" },
+                { alias: "ch01-cg-064-fuutarou-hot-springs-smile", src: "/images/cg/chapter_01/cg_064_fuutarou_hot_springs_smile_v8.png" },
+                { alias: "ch01-cg-064-5-takeda-chibi-teases", src: "/images/cg/chapter_01/cg_064_5_takeda_chibi_teases_v3.png" },
+                { alias: "ch01-cg-065-walk-denial", src: "/images/cg/chapter_01/cg_065_walk_denial.png" },
+                { alias: "ch01-cg-066-walk-denial-continuation", src: "/images/cg/chapter_01/cg_066_walk_denial_continuation.png" },
+                { alias: "ch01-cg-067-walk-denial-exposed", src: "/images/cg/chapter_01/cg_067_walk_denial_exposed.png" },
+                { alias: "ch01-cg-068-fuutarou-bakery-memory-hesitation", src: "/images/cg/chapter_01/cg_068_fuutarou_bakery_memory_hesitation.png" },
+                { alias: "ch01-cg-069-miku-bakery-training-hands-close", src: "/images/cg/chapter_01/cg_069_miku_bakery_training_hands_close.png" },
+                { alias: "ch01-cg-070-miku-bakery-training-counter-close", src: "/images/cg/chapter_01/cg_070_miku_bakery_training_counter_close.png" },
+                { alias: "ch01-cg-071-takeda-hug-attempt-extra", src: "/images/cg/chapter_01/cg_071_takeda_hug_attempt_extra.png" },
+                { alias: "ch01-cg-072-miku-fuutarou-rooftop-close-memory", src: "/images/cg/chapter_01/cg_072_miku_fuutarou_rooftop_close_memory.png" },
                 { alias: "ch01-arched-passage-afternoon", src: "/images/backgrounds/chapter_01/arched_passage_afternoon.webp" },
                 { alias: "ch01-student-residence-approach", src: "/images/backgrounds/chapter_01/student_residence_approach_afternoon.webp" },
+                { alias: "ch01-student-residence-corridor-reverse-l", src: "/images/backgrounds/chapter_01/student_residence_corridor_reverse_l_afternoon.webp" },
                 { alias: "ch01-student-residence-restroom", src: "/images/backgrounds/chapter_01/student_residence_restroom_extra.webp" },
             ],
         },
@@ -107,6 +136,7 @@ const manifest: AssetsManifest = {
                 { alias: "onsen-cg-002-bath-door-accident", src: "/images/cg/onsen_arc/cg_002_bath_door_accident.webp" },
                 { alias: "onsen-cg-003-grandpa-thanks-fuutarou", src: "/images/cg/onsen_arc/cg_003_grandpa_thanks_fuutarou.webp" },
                 { alias: "onsen-cg-004-fuutarou-destiny-bell", src: "/images/cg/onsen_arc/cg_004_fuutarou_destiny_bell.webp" },
+                { alias: "onsen-cg-054-grandpa-asks-if-fuutarou-is-happy", src: "/images/cg/onsen_arc/cg_054_grandpa_asks_if_fuutarou_is_happy.webp" },
             ],
         },
         {
@@ -139,6 +169,7 @@ const manifest: AssetsManifest = {
                 { alias: "onsen-cg-016-present-childhood-farewell", src: "/images/cg/onsen_arc/cg_016_present_childhood_farewell.webp" },
                 { alias: "onsen-cg-017-sisters-hold-crying-yotsuba", src: "/images/cg/onsen_arc/cg_017_sisters_hold_crying_yotsuba.webp" },
                 { alias: "onsen-cg-018-maruo-throws-umbrella", src: "/images/cg/onsen_arc/cg_018_maruo_throws_umbrella.webp" },
+                { alias: "onsen-cg-053-yotsuba-hears-miku-name", src: "/images/cg/onsen_arc/cg_053_yotsuba_hears_miku_name.webp" },
             ],
         },
         {
@@ -159,6 +190,8 @@ const manifest: AssetsManifest = {
                 { alias: "onsen-cg-024-raiha-motorcycle-farewell", src: "/images/cg/onsen_arc/cg_024_raiha_motorcycle_farewell.webp" },
                 { alias: "onsen-cg-025-fuutarou-meets-ren", src: "/images/cg/onsen_arc/cg_025_fuutarou_meets_ren.webp" },
                 { alias: "onsen-cg-026-maruo-ren-watch-descent", src: "/images/cg/onsen_arc/cg_026_maruo_ren_watch_descent.webp" },
+                { alias: "ch07-cg-051-isanari-proposes-to-aoi", src: "/images/cg/chapter_07/cg_051_isanari_proposes_to_aoi.webp" },
+                { alias: "ch07-cg-052-uesugi-family-bakery-memory", src: "/images/cg/chapter_07/cg_052_uesugi_family_bakery_memory.webp" },
             ],
         },
         {
@@ -167,9 +200,21 @@ const manifest: AssetsManifest = {
                 { alias: "ch08-mountain-descent-road", src: "/images/backgrounds/chapter_02/onsen_mountain_descent_road_bg_011.webp" },
                 { alias: "ch08-yuzine-eien-street", src: "/images/backgrounds/chapter_02/yuzine_eien_street_bg_012.webp" },
                 { alias: "ch08-yuzine-eien-street-rain", src: "/images/backgrounds/chapter_02/yuzine_eien_street_bg_012_rain.webp" },
+                { alias: "ch08-cg-041a-miku-answer-permission", src: "/images/cg/chapter_08/cg_041a_miku_answer_permission.png" },
+                { alias: "ch08-cg-041b-miku-steps-closer", src: "/images/cg/chapter_08/cg_041b_miku_steps_closer.png" },
+                { alias: "ch08-cg-041c-miku-embraces-fuutarou", src: "/images/cg/chapter_08/cg_041c_miku_embraces_fuutarou.png" },
+                { alias: "ch08-cg-041d-miku-almost-kiss", src: "/images/cg/chapter_08/cg_041d_miku_almost_kiss.png" },
+                { alias: "ch08-cg-041e-miku-initiates-kiss", src: "/images/cg/chapter_08/cg_041e_miku_initiates_kiss.png" },
+                { alias: "ch08-cg-041f-fuutarou-returns-kiss", src: "/images/cg/chapter_08/cg_041f_fuutarou_returns_kiss.png" },
                 { alias: "onsen-cg-027-miku-rainy-bench-reunion", src: "/images/cg/onsen_arc/cg_027_miku_rainy_bench_reunion.webp" },
                 { alias: "onsen-cg-028-fuutarou-miku-bell-confession-kiss", src: "/images/cg/onsen_arc/cg_028_fuutarou_miku_bell_confession_kiss.webp" },
                 { alias: "onsen-cg-029-fuutarou-miku-umbrella-walk", src: "/images/cg/onsen_arc/cg_029_fuutarou_miku_umbrella_walk.webp" },
+                { alias: "onsen-cg-041a-miku-initiates-rain-kiss", src: "/images/cg/onsen_arc/cg_041a_miku_initiates_rain_kiss.webp" },
+                { alias: "onsen-cg-041b-fuutarou-returns-rain-kiss", src: "/images/cg/onsen_arc/cg_041b_fuutarou_returns_rain_kiss.webp" },
+                { alias: "onsen-cg-042-miku-bell-kiss-flashback", src: "/images/cg/onsen_arc/cg_042_miku_bell_kiss_flashback.webp" },
+                { alias: "onsen-cg-043-miku-removes-wig-crying", src: "/images/cg/onsen_arc/cg_043_miku_removes_wig_crying.webp" },
+                { alias: "onsen-cg-044-fuutarou-reveals-miku-face", src: "/images/cg/onsen_arc/cg_044_fuutarou_reveals_miku_face.webp" },
+                { alias: "onsen-cg-045-fuutarou-initiates-rain-kiss", src: "/images/cg/onsen_arc/cg_045_fuutarou_initiates_rain_kiss.webp" },
             ],
         },
         {
@@ -183,6 +228,11 @@ const manifest: AssetsManifest = {
                 { alias: "ch09-asahiyama-high-school-exterior", src: "/images/backgrounds/chapter_09/asahiyama_high_school_exterior_bg_014.webp" },
                 { alias: "onsen-cg-030-fuutarou-miku-rooftop-dance", src: "/images/cg/onsen_arc/cg_030_fuutarou_miku_rooftop_dance.webp" },
                 { alias: "onsen-cg-031-miku-accepts-rooftop-proposal", src: "/images/cg/onsen_arc/cg_031_miku_accepts_rooftop_proposal.webp" },
+                { alias: "onsen-cg-046-miku-fuutarou-seven-month-reunion", src: "/images/cg/onsen_arc/cg_046_miku_fuutarou_seven_month_reunion.webp" },
+                { alias: "onsen-cg-047-fuutarou-rooftop-proposal-question", src: "/images/cg/onsen_arc/cg_047_fuutarou_rooftop_proposal_question.webp" },
+                { alias: "onsen-cg-048-miku-processes-rooftop-proposal", src: "/images/cg/onsen_arc/cg_048_miku_processes_rooftop_proposal.webp" },
+                { alias: "onsen-cg-049-miku-fuutarou-rooftop-yes-kiss", src: "/images/cg/onsen_arc/cg_049_miku_fuutarou_rooftop_yes_kiss.webp" },
+                { alias: "onsen-cg-050-miku-listens-to-fuutarou-heartbeat", src: "/images/cg/onsen_arc/cg_050_miku_listens_to_fuutarou_heartbeat.webp" },
             ],
         },
         {
@@ -198,6 +248,9 @@ const manifest: AssetsManifest = {
                 { alias: "wedding-cg-035-miku-thanks-her-sisters", src: "/images/cg/wedding_epilogue/cg_035_miku_thanks_her_sisters.webp" },
                 { alias: "wedding-cg-036-yotsuba-catches-wedding-bouquet", src: "/images/cg/wedding_epilogue/cg_036_yotsuba_catches_wedding_bouquet.webp" },
                 { alias: "wedding-cg-037-sisters-receive-wedding-keepsakes", src: "/images/cg/wedding_epilogue/cg_037_sisters_receive_wedding_keepsakes.webp" },
+                { alias: "wedding-cg-055-family-photo", src: "/images/cg/wedding_epilogue/cg_055_wedding_family_photo.webp" },
+                { alias: "wedding-cg-056-farewell-to-ryokan", src: "/images/cg/wedding_epilogue/cg_056_miku_fuutarou_farewell_to_ryokan.webp" },
+                { alias: "wedding-cg-057-limousine-kiss", src: "/images/cg/wedding_epilogue/cg_057_miku_fuutarou_limousine_kiss.webp" },
             ],
         },
         {
@@ -208,9 +261,75 @@ const manifest: AssetsManifest = {
                 { alias: "wedding-cg-038-sisters-career-montage", src: "/images/cg/wedding_epilogue/cg_038_sisters_career_montage.webp" },
                 { alias: "wedding-cg-039-family-visits-new-bakery", src: "/images/cg/wedding_epilogue/cg_039_family_visits_new_bakery.webp" },
                 { alias: "wedding-cg-040-miku-memory-desk-finale", src: "/images/cg/wedding_epilogue/cg_040_miku_memory_desk_finale.webp" },
+                { alias: "wedding-cg-058-miku-ring-new-family-reveal", src: "/images/cg/wedding_epilogue/cg_058_miku_ring_new_family_reveal.webp" },
+                { alias: "wedding-cg-059-fuutarou-leads-miku-to-future", src: "/images/cg/wedding_epilogue/cg_059_fuutarou_leads_miku_to_future.webp" },
             ],
         },
     ],
 };
+
+const storyBundleNames = new Set<string>(Object.values(STORY_ASSET_BUNDLES));
+const useStoryWebpDerivatives = import.meta.env.VITE_STORY_WEBP === "true";
+
+const manifest = useStoryWebpDerivatives
+    ? ({
+          ...sourceManifest,
+          bundles: sourceManifest.bundles.map((bundle) => {
+              if (!storyBundleNames.has(bundle.name)) return bundle;
+
+              return {
+                  ...bundle,
+                  assets: (Array.isArray(bundle.assets) ? bundle.assets : [bundle.assets]).map((asset: unknown) => {
+                      if (!asset || typeof asset !== "object" || Array.isArray(asset)) return asset;
+
+                      const descriptor = asset as { src?: string | string[] };
+                      const rewrite = (src: string) => src.replace(/\.png$/i, ".webp");
+                      const src = Array.isArray(descriptor.src)
+                          ? descriptor.src.map(rewrite)
+                          : typeof descriptor.src === "string"
+                            ? rewrite(descriptor.src)
+                            : descriptor.src;
+
+                      return { ...asset, src };
+                  }),
+              };
+          }),
+      } as AssetsManifest)
+    : sourceManifest;
+
+export interface StoryAssetEntry {
+    alias: string;
+    src: string;
+}
+
+export function getStoryAssetEntries(): StoryAssetEntry[] {
+    return getStoryAssetEntriesForBundles(Object.values(STORY_ASSET_BUNDLES));
+}
+
+export function getStoryAssetEntriesForBundles(bundleNames: readonly string[]): StoryAssetEntry[] {
+    const selectedBundleNames = new Set<string>(bundleNames);
+
+    return manifest.bundles
+        .filter((bundle) => selectedBundleNames.has(bundle.name))
+        .flatMap((bundle) => bundle.assets)
+        .flatMap((asset) => {
+            if (!asset || typeof asset !== "object" || Array.isArray(asset)) return [];
+
+            const descriptor = asset as { alias?: string | string[]; src?: string | string[] };
+            const aliases: Array<string | undefined> = Array.isArray(descriptor.alias)
+                ? descriptor.alias
+                : [descriptor.alias];
+            const sources: Array<string | undefined> = Array.isArray(descriptor.src)
+                ? descriptor.src
+                : [descriptor.src];
+            const src = sources.find((source): source is string => typeof source === "string");
+
+            if (!src) return [];
+
+            return aliases
+                .filter((alias): alias is string => typeof alias === "string")
+                .map((alias) => ({ alias, src }));
+        });
+}
 
 export default manifest;

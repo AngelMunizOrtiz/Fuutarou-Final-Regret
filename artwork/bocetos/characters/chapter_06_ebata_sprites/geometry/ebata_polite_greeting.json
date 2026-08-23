@@ -1,0 +1,16 @@
+{
+  "source_canvas": {
+    "width": 864,
+    "height": 1821
+  },
+  "runtime_canvas": {
+    "width": 620,
+    "height": 876
+  },
+  "scale": 0.5029377203290247,
+  "offset": {
+    "x": 97,
+    "y": -27
+  },
+  "alpha_threshold": 8
+}

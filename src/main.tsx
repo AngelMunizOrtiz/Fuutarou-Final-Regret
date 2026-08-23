@@ -8,6 +8,7 @@ import useCharacterStageStore from "./stores/useCharacterStageStore";
 import useChapterTransitionStore from "./stores/useChapterTransitionStore";
 import { loadStoryAssetsForLabel, releaseStoryAssets, trimStoryAssetCache } from "./utils/assets-utility";
 import { isStorySceneTransition } from "./utils/ink-utility";
+import { getAppPathname } from "./utils/base-path";
 import { applyPerformanceProfile, performanceProfile } from "./utils/performance-profile";
 import { configureCanvasRendererPerformance, wakeCanvasRenderer } from "./utils/renderer-performance";
 
@@ -16,8 +17,9 @@ applyPerformanceProfile();
 // Keep PWA caching out of dev so layout and asset tweaks are visible immediately.
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
-        if (import.meta.env.PROD && !performanceProfile.isTauriRuntime) {
-            navigator.serviceWorker.register("/sw.js").catch(console.error);
+        const pwaEnabled = import.meta.env.VITE_DISABLE_PWA !== "true";
+        if (import.meta.env.PROD && pwaEnabled && !performanceProfile.isTauriRuntime) {
+            navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`).catch(console.error);
             return;
         }
 
@@ -90,7 +92,7 @@ Game.init(body, {
 
 Game.onEnd(async ({ navigate }) => {
     wakeCanvasRenderer();
-    if (isStorySceneTransition() || window.location.pathname.startsWith(SCENE_ROUTE)) {
+    if (isStorySceneTransition() || getAppPathname().startsWith(SCENE_ROUTE)) {
         return;
     }
 

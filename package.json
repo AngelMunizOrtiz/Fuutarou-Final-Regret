@@ -15,6 +15,7 @@
     "build:android:chapter1:debug": "node scripts/build-chapter1-android-demo.mjs --debug",
     "prepare:windows:chapter1": "node scripts/prepare-chapter1-windows-demo.mjs",
     "build:windows:chapter1": "node scripts/build-chapter1-windows-demo.mjs",
+    "build:web:chapter1": "node scripts/build-chapter1-web-demo.mjs",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "validate:translations": "node scripts/validate-narration-translations.mjs",
     "preview": "vite preview",

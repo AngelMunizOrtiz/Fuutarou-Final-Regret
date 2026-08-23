@@ -9,7 +9,15 @@ import checker from "vite-plugin-checker";
 import { VitePWA } from "vite-plugin-pwa";
 
 const host = process.env.TAURI_DEV_HOST;
+const basePath = normalizeBasePath(process.env.VITE_BASE_PATH);
 const enablePwa = !process.env.TAURI_ENV_PLATFORM && process.env.VITE_DISABLE_PWA !== "true";
+
+function normalizeBasePath(value: string | undefined) {
+    const trimmedValue = value?.trim();
+    if (!trimmedValue || trimmedValue === "/") return "/";
+
+    return `/${trimmedValue.replace(/^\/+|\/+$/g, "")}/`;
+}
 
 function removeUnusedProductionMedia() {
     let outputDirectory = "";
@@ -34,6 +42,7 @@ function removeUnusedProductionMedia() {
 
 // https://vite.dev/config/
 export default defineConfig({
+    base: basePath,
     publicDir: process.env.VITE_PUBLIC_DIR || "public",
     plugins: [
         react(),
@@ -52,7 +61,8 @@ export default defineConfig({
                 short_name: "Fuutarou Final Regret",
                 description: "Fan game of TQQ , Route Miku",
                 theme_color: "#ffffff",
-                start_url: "/",
+                start_url: basePath,
+                scope: basePath,
                 display: "fullscreen",
                 orientation: "landscape",
                 icons: [

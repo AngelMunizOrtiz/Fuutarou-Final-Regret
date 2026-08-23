@@ -49,7 +49,7 @@ export default function NarrationScreen() {
                 <ChoiceMenu />
             </Box>
             <Box
-                className={dialogueVariants}
+                className={`vn-dialogue-shell ${dialogueVariants}`}
                 sx={{
                     "--dialog-box-height": DIALOGUE_BOX_HEIGHT,
                     position: "absolute",
@@ -80,6 +80,7 @@ export default function NarrationScreen() {
                 >
                     <Box
                         aria-hidden
+                        className="vn-dialogue-frame"
                         sx={{
                             position: "absolute",
                             inset: 0,
@@ -95,6 +96,7 @@ export default function NarrationScreen() {
                     />
                     <Box
                         ref={paragraphRef}
+                        className="vn-dialogue-copy"
                         sx={{
                             position: "relative",
                             zIndex: 1,
@@ -148,6 +150,7 @@ export default function NarrationScreen() {
                     >
                         <Box
                             aria-hidden
+                            className="vn-name-frame"
                             sx={{
                                 position: "absolute",
                                 inset: 0,
@@ -251,14 +254,15 @@ function EfficientTypewriterText({
     onEnd: () => void;
 }) {
     const characters = useMemo(() => Array.from(text), [text]);
-    const [visibleCount, setVisibleCount] = useState(characters.length);
+    const [revealState, setRevealState] = useState(() => ({ source: text, count: 0 }));
+    const visibleCount =
+        delay <= 0 ? characters.length : revealState.source === text ? revealState.count : 0;
+    const lastScrollAtRef = useRef(0);
 
     useEffect(() => {
         let timer: number | undefined;
-        setVisibleCount(0);
 
         if (characters.length === 0 || delay <= 0) {
-            setVisibleCount(characters.length);
             onEnd();
             return undefined;
         }
@@ -270,7 +274,11 @@ function EfficientTypewriterText({
         const revealNextChunk = () => {
             const elapsed = performance.now() - startedAt;
             const nextCount = Math.min(characters.length, Math.max(1, Math.floor(elapsed / delay)));
-            setVisibleCount((currentCount) => currentCount === nextCount ? currentCount : nextCount);
+            setRevealState((current) =>
+                current.source === text && current.count === nextCount
+                    ? current
+                    : { source: text, count: nextCount }
+            );
 
             if (nextCount >= characters.length) {
                 onEnd();
@@ -286,12 +294,23 @@ function EfficientTypewriterText({
             if (timer !== undefined) window.clearTimeout(timer);
             onEnd();
         };
-    }, [characters, delay, onEnd, onStart]);
+    }, [characters, delay, onEnd, onStart, text]);
 
     useEffect(() => {
+        const now = performance.now();
+        if (visibleCount < characters.length && now - lastScrollAtRef.current < 120) return;
+        lastScrollAtRef.current = now;
+
         const paragraph = paragraphRef.current;
-        if (paragraph) paragraph.scrollTop = paragraph.scrollHeight;
-    }, [paragraphRef, visibleCount]);
+        if (!paragraph) return;
+
+        const frame = window.requestAnimationFrame(() => {
+            if (paragraph.scrollHeight > paragraph.clientHeight) {
+                paragraph.scrollTop = paragraph.scrollHeight;
+            }
+        });
+        return () => window.cancelAnimationFrame(frame);
+    }, [characters.length, paragraphRef, visibleCount]);
 
     if (visibleCount >= characters.length) {
         return (

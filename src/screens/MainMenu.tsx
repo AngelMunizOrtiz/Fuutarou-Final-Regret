@@ -70,10 +70,19 @@ export default function MainMenu() {
 
     const closeGame = async () => {
         playRandomSfx();
+        const currentWindow = getCurrentWindow();
+
         try {
-            await getCurrentWindow().close();
-        } catch {
-            window.close();
+            await currentWindow.close();
+        } catch (closeError) {
+            console.warn("Unable to close the Tauri window gracefully; forcing shutdown.", closeError);
+
+            try {
+                await currentWindow.destroy();
+            } catch (destroyError) {
+                console.warn("Unable to destroy the Tauri window.", destroyError);
+                window.close();
+            }
         }
     };
 

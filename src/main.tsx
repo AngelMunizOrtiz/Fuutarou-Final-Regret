@@ -9,6 +9,7 @@ import useChapterTransitionStore from "./stores/useChapterTransitionStore";
 import { loadStoryAssetsForLabel, releaseStoryAssets, trimStoryAssetCache } from "./utils/assets-utility";
 import { isStorySceneTransition } from "./utils/ink-utility";
 import { applyPerformanceProfile, performanceProfile } from "./utils/performance-profile";
+import { configureCanvasRendererPerformance, wakeCanvasRenderer } from "./utils/renderer-performance";
 
 applyPerformanceProfile();
 
@@ -48,23 +49,12 @@ Game.init(body, {
     autoDensity: true,
     antialias: !performanceProfile.lite,
     preference: "webgl",
-    // The renderer is mostly compositing static VN frames. Avoid forcing a
-    // discrete GPU on laptops when the integrated adapter is sufficient.
-    powerPreference: "low-power",
+    // Android WebView benefits from the GPU renderer; desktop keeps the
+    // battery-friendly adapter because most frames are static.
+    powerPreference: performanceProfile.powerPreference,
 }).then(() => {
     canvas.app.ticker.maxFPS = performanceProfile.maxFps;
-
-    // Do not keep the WebGL renderer running while the Android app is in the
-    // background. Besides saving battery, this prevents a large catch-up burst
-    // when the WebView becomes visible again.
-    const updateTickerVisibility = () => {
-        if (document.hidden) {
-            canvas.app.ticker.stop();
-        } else {
-            canvas.app.ticker.start();
-        }
-    };
-    document.addEventListener("visibilitychange", updateTickerVisibility);
+    configureCanvasRendererPerformance();
 
     // Pixi.JS UI Layer
     canvas.addLayer(CANVAS_UI_LAYER_NAME, new Container());
@@ -99,6 +89,7 @@ Game.init(body, {
 });
 
 Game.onEnd(async ({ navigate }) => {
+    wakeCanvasRenderer();
     if (isStorySceneTransition() || window.location.pathname.startsWith(SCENE_ROUTE)) {
         return;
     }
@@ -116,6 +107,7 @@ Game.onError((type, error, { notify, uiTransition }) => {
 let activeStoryChapter: number | undefined;
 
 Game.onLoadingLabel(async (_stepId, { id }) => {
+    wakeCanvasRenderer();
     const nextChapter = getStoryChapterNumber(id);
     const isChapterBoundary = nextChapter !== undefined && nextChapter !== activeStoryChapter;
 
@@ -139,7 +131,10 @@ Game.onLoadingLabel(async (_stepId, { id }) => {
         useChapterTransitionStore.getState().end();
     }
 });
-Game.onStepEnd(() => trimStoryAssetCache());
+Game.onStepEnd(() => {
+    wakeCanvasRenderer();
+    void trimStoryAssetCache();
+});
 
 if (import.meta.hot) {
     import.meta.hot.on("ink-updated", () => window.location.reload());

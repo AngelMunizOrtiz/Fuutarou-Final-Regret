@@ -49,7 +49,7 @@ export default defineConfig({
             includeAssets: ["favicon.ico", "apple-touch-icon.png", "mask-icon.svg"],
             manifest: {
                 name: "Fuutarou Final Regret",
-                short_name: "my-game",
+                short_name: "Fuutarou Final Regret",
                 description: "Fan game of TQQ , Route Miku",
                 theme_color: "#ffffff",
                 start_url: "/",

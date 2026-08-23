@@ -1,18 +1,41 @@
 import { Assets, canvas } from "@drincs/pixi-vn";
 import manifest, {
+    getStoryAssetSequence,
     getStoryAssetBundles,
     getStoryAssetEntries,
     getStoryAssetEntriesForBundles,
+    getStorySpriteSequence,
 } from "../assets/manifest";
+import {
+    clearCharacterSpritePreloadSequence,
+    setCharacterSpritePreloadSequence,
+} from "../data/characterSprites";
 import { performanceProfile } from "./performance-profile";
 
 let activeStoryBundles: readonly string[] = [];
+let activeStorySequence: readonly string[] = [];
+let storySequenceCursor = 0;
 let trimRequest: Promise<void> | null = null;
+let trimRequestResolve: (() => void) | undefined;
+let trimHandle: number | undefined;
+let prefetchHandle: number | undefined;
+let storyGeneration = 0;
 let recentStoryAliases: string[] = [];
+const prefetchedStoryAliases = new Set<string>();
 
 const storyAssetEntries = getStoryAssetEntries();
 const storyAssetAliases = new Set(storyAssetEntries.map(({ alias }) => alias));
-const storyAliasBySource = new Map(storyAssetEntries.map(({ alias, src }) => [src, alias]));
+const storyAliasBySource = new Map<string, string>();
+for (const { alias, src } of storyAssetEntries) {
+    storyAliasBySource.set(src, alias);
+    try {
+        const resolvedSource = new URL(src, window.location.href);
+        storyAliasBySource.set(resolvedSource.href, alias);
+        storyAliasBySource.set(resolvedSource.pathname, alias);
+    } catch {
+        // The original source key remains available.
+    }
+}
 
 /**
  * Define all the assets that will be used in the game.
@@ -29,29 +52,45 @@ export async function loadStoryAssetsForLabel(labelId: string) {
         return;
     }
     activeStoryBundles = currentBundles;
+    activeStorySequence = getStoryAssetSequence(labelId);
+    storySequenceCursor = 0;
+    prefetchedStoryAliases.clear();
+    setCharacterSpritePreloadSequence(getStorySpriteSequence(labelId));
 
-    // PixiVN loads visuals on demand. Warming only the first couple of entries
-    // avoids a visible first-frame pause without decoding an entire chapter (and
-    // the following chapter) into RAM/VRAM at once on desktop.
-    const warmAssets = getStoryAssetEntriesForBundles(currentBundles)
+    // Warm assets in the exact order in which Ink will request them. Manifest
+    // order is for organization and is not necessarily story order.
+    const bundleEntries = getStoryAssetEntriesForBundles(currentBundles);
+    const fallbackAliases = bundleEntries.map(({ alias }) => alias);
+    const warmAssets = uniqueAliases(activeStorySequence.length ? activeStorySequence : fallbackAliases)
+        .filter((alias) => storyAssetAliases.has(alias))
         .slice(0, performanceProfile.storyWarmAssetCount);
     await Promise.all(
-        warmAssets.map(async ({ alias }) => {
+        warmAssets.map(async (alias) => {
             try {
                 if (!Assets.cache.has(alias)) {
                     await Assets.load(alias);
                 }
                 touchRecentStoryAlias(alias);
+                advanceStorySequence(alias);
             } catch (error) {
                 console.warn(`Unable to warm chapter asset: ${alias}`, error);
             }
         }),
     );
+    scheduleStoryPrefetch();
 }
 
 export async function releaseStoryAssets() {
+    storyGeneration += 1;
+    cancelScheduledTask("prefetch");
+    cancelScheduledTask("trim");
+    if (trimRequest) await trimRequest;
     activeStoryBundles = [];
+    activeStorySequence = [];
+    storySequenceCursor = 0;
     recentStoryAliases = [];
+    prefetchedStoryAliases.clear();
+    clearCharacterSpritePreloadSequence();
 
     const cachedAliases = [...storyAssetAliases].filter((alias) => Assets.cache.has(alias));
     await Promise.allSettled(cachedAliases.map((alias) => Assets.unload(alias)));
@@ -64,8 +103,17 @@ export async function releaseStoryAssets() {
 export function trimStoryAssetCache() {
     if (trimRequest) return trimRequest;
 
-    trimRequest = trimUnusedStoryAssets().finally(() => {
-        trimRequest = null;
+    const generation = storyGeneration;
+    trimRequest = new Promise<void>((resolve) => {
+        trimRequestResolve = resolve;
+        trimHandle = scheduleIdleTask(async () => {
+            trimHandle = undefined;
+            try {
+                if (generation === storyGeneration) await trimUnusedStoryAssets();
+            } finally {
+                settleTrimRequest();
+            }
+        }, 220);
     });
     return trimRequest;
 }
@@ -77,6 +125,11 @@ async function trimUnusedStoryAssets() {
     }
 
     retainedAliases.forEach(touchRecentStoryAlias);
+    retainedAliases.forEach((alias) => {
+        prefetchedStoryAliases.delete(alias);
+        advanceStorySequence(alias);
+    });
+    prefetchedStoryAliases.forEach((alias) => retainedAliases.add(alias));
     const retainedRecentAliases = recentStoryAliases
         .filter((alias) => !retainedAliases.has(alias))
         .slice(-performanceProfile.storyTextureRetainCount);
@@ -90,12 +143,93 @@ async function trimUnusedStoryAssets() {
     recentStoryAliases = recentStoryAliases.filter(
         (alias) => retainedAliases.has(alias) && Assets.cache.has(alias),
     );
+    scheduleStoryPrefetch();
 }
 
 function touchRecentStoryAlias(alias: string) {
     const previousIndex = recentStoryAliases.indexOf(alias);
     if (previousIndex >= 0) recentStoryAliases.splice(previousIndex, 1);
     recentStoryAliases.push(alias);
+}
+
+function advanceStorySequence(alias: string) {
+    const matchIndex = activeStorySequence.findIndex(
+        (sequenceAlias, index) => index >= storySequenceCursor && sequenceAlias === alias,
+    );
+    if (matchIndex >= 0) {
+        storySequenceCursor = matchIndex + 1;
+        const remainingAliases = new Set(activeStorySequence.slice(storySequenceCursor));
+        prefetchedStoryAliases.forEach((prefetchedAlias) => {
+            if (!remainingAliases.has(prefetchedAlias)) prefetchedStoryAliases.delete(prefetchedAlias);
+        });
+    }
+}
+
+function scheduleStoryPrefetch() {
+    if (
+        prefetchHandle !== undefined ||
+        storySequenceCursor >= activeStorySequence.length ||
+        typeof window === "undefined"
+    ) {
+        return;
+    }
+
+    const generation = storyGeneration;
+    prefetchHandle = scheduleIdleTask(async () => {
+        prefetchHandle = undefined;
+        if (generation !== storyGeneration) return;
+
+        const nextAliases = uniqueAliases(activeStorySequence.slice(storySequenceCursor))
+            .filter((alias) => storyAssetAliases.has(alias))
+            .slice(0, performanceProfile.storyPrefetchCount);
+
+        for (const alias of nextAliases) {
+            if (generation !== storyGeneration) return;
+            try {
+                if (!Assets.cache.has(alias)) await Assets.load(alias);
+                prefetchedStoryAliases.add(alias);
+            } catch (error) {
+                console.warn(`Unable to prefetch story asset: ${alias}`, error);
+            }
+        }
+    }, 350);
+}
+
+function settleTrimRequest() {
+    trimRequestResolve?.();
+    trimRequestResolve = undefined;
+    trimRequest = null;
+}
+
+function cancelScheduledTask(task: "trim" | "prefetch") {
+    const handle = task === "trim" ? trimHandle : prefetchHandle;
+    if (handle === undefined || typeof window === "undefined") return;
+
+    const idleWindow = window as Window & { cancelIdleCallback?: (idleHandle: number) => void };
+    if (idleWindow.cancelIdleCallback) idleWindow.cancelIdleCallback(handle);
+    else window.clearTimeout(handle);
+
+    if (task === "trim") {
+        trimHandle = undefined;
+        settleTrimRequest();
+    } else {
+        prefetchHandle = undefined;
+    }
+}
+
+function scheduleIdleTask(callback: () => void | Promise<void>, fallbackDelay: number) {
+    const idleWindow = window as Window & {
+        requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+    };
+
+    if (idleWindow.requestIdleCallback) {
+        return idleWindow.requestIdleCallback(() => void callback(), { timeout: 900 });
+    }
+    return window.setTimeout(() => void callback(), fallbackDelay);
+}
+
+function uniqueAliases(aliases: readonly string[]) {
+    return [...new Set(aliases)];
 }
 
 function collectCanvasAssetAliases(value: unknown, retainedAliases: Set<string>, visited = new Set<unknown>()) {
@@ -113,7 +247,14 @@ function collectCanvasAssetAliases(value: unknown, retainedAliases: Set<string>,
             retainedAliases.add(textureData.alias);
         }
         if (typeof textureData?.url === "string") {
-            const alias = storyAliasBySource.get(textureData.url);
+            let alias = storyAliasBySource.get(textureData.url);
+            if (!alias) {
+                try {
+                    alias = storyAliasBySource.get(new URL(textureData.url, window.location.href).pathname);
+                } catch {
+                    // Ignore malformed third-party texture URLs.
+                }
+            }
             if (alias) retainedAliases.add(alias);
         }
     } catch {

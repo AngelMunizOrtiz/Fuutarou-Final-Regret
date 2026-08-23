@@ -6,6 +6,7 @@ import useInterfaceStore from "../stores/useInterfaceStore";
 import useStepStore from "../stores/useStepStore";
 import useGameProps from "./useGameProps";
 import { INTERFACE_DATA_USE_QUEY_KEY } from "./useQueryInterface";
+import { wakeCanvasRenderer } from "../utils/renderer-performance";
 
 export default function useNarrationFunctions() {
     const setNextStepLoading = useStepStore(useShallow((state) => state.setLoading));
@@ -16,6 +17,9 @@ export default function useNarrationFunctions() {
     const gameProps = useGameProps();
 
     const goNext = useCallback(async () => {
+        if (useStepStore.getState().loading) return;
+
+        wakeCanvasRenderer();
         setNextStepLoading(true);
         try {
             if (hidden) {
@@ -40,9 +44,10 @@ export default function useNarrationFunctions() {
             console.error(e);
             return;
         }
-    }, [gameProps, queryClient]);
+    }, [gameProps, hidden, queryClient, setHideInterface, setNextStepLoading]);
 
     const goBack = useCallback(async () => {
+        wakeCanvasRenderer();
         setBackLoading(true);
         return stepHistory
             .back(gameProps)
@@ -54,10 +59,11 @@ export default function useNarrationFunctions() {
                 setBackLoading(false);
                 console.error(e);
             });
-    }, [gameProps, queryClient]);
+    }, [gameProps, queryClient, setBackLoading]);
 
     const selectChoice = useCallback(
         async (item: StoredIndexedChoiceInterface) => {
+            wakeCanvasRenderer();
             setNextStepLoading(true);
             return narration
                 .selectChoice(item, gameProps)
@@ -70,7 +76,7 @@ export default function useNarrationFunctions() {
                     console.error(e);
                 });
         },
-        [gameProps, queryClient]
+        [gameProps, queryClient, setNextStepLoading]
     );
 
     return {

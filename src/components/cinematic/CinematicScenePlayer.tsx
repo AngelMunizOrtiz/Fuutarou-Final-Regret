@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/joy";
 import { AnimatePresence, motion } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { DreamFragment } from "../../data/dreamSequence";
+import usePointerAdvance from "../../hooks/usePointerAdvance";
 import { performanceProfile } from "../../utils/performance-profile";
 import { preloadImages } from "../../utils/preload-utility";
 import BubbleAnimation from "../BubbleAnimation";
@@ -80,6 +81,11 @@ export default function CinematicScenePlayer({ sceneId, frames, onComplete }: Ci
         return () => window.removeEventListener("keydown", handleKeyDown);
     }, [advance]);
 
+    usePointerAdvance({
+        disabled: isCompleting || Boolean(currentFrame?.autoAdvanceMs),
+        onAdvance: advance,
+    });
+
     if (!currentFrame) return null;
 
     const isAutoAdvance = Boolean(currentFrame.autoAdvanceMs);
@@ -94,18 +100,11 @@ export default function CinematicScenePlayer({ sceneId, frames, onComplete }: Ci
                 overflow: "hidden",
                 backgroundColor: "black",
                 cursor: isAutoAdvance || isCompleting ? "default" : "pointer",
+                pointerEvents: "auto",
+                touchAction: "manipulation",
+                userSelect: "none",
             }}
         >
-            {!isAutoAdvance && !isCompleting && (
-                <Box
-                    onClick={(event) => {
-                        event.stopPropagation();
-                        void advance();
-                    }}
-                    sx={{ position: "absolute", inset: 0, zIndex: 9999, backgroundColor: "transparent" }}
-                />
-            )}
-
             <AnimatePresence mode='wait'>
                 <motion.div
                     key={visualKey}

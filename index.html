@@ -2,6 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      if (/Android/i.test(navigator.userAgent)) {
+        document.documentElement.classList.add("vn-performance-lite", "vn-system-fonts");
+        document.documentElement.dataset.performanceProfile = "lite";
+      }
+    </script>
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="stylesheet" href="/src/index.css" />

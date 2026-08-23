@@ -28,6 +28,8 @@ const buildEnvironment = {
     VITE_PUBLIC_DIR: stagedPublicDirectory,
     VITE_CHAPTER1_DEMO: "true",
     VITE_DISABLE_PWA: "true",
+    VITE_STORY_WEBP: "true",
+    VITE_SYSTEM_FONTS: "true",
 };
 
 const apkRelativePath = relative(generatedOutputsRoot, apkRoot);

@@ -54,7 +54,7 @@ export default function CharacterStage() {
 
                 return (
                     <Box
-                        key={`${slot}-${entry.characterId}-${entry.expression}`}
+                        key={slot}
                         className="vn-character-slot"
                         sx={{
                             ...slotPositions[slot],

@@ -21,17 +21,20 @@ interface DialogueBoxProps {
 }
 
 export default function DialogueBox({ text, speaker, variant, isThought }: DialogueBoxProps) {
-    const [displayedText, setDisplayedText] = useState("");
+    const [typewriterState, setTypewriterState] = useState(() => ({ source: text, value: "" }));
+    const displayedText = typewriterState.source === text ? typewriterState.value : "";
     const isDream = variant === "dream";
 
     useEffect(() => {
-        setDisplayedText("");
         let i = 0;
-        const frameDelay = performanceProfile.lite ? 50 : 25;
+        const frameDelay = performanceProfile.typewriterFrameMs;
         const charactersPerFrame = performanceProfile.lite ? 2 : 1;
         const timer = setInterval(() => {
             i = Math.min(text.length, i + charactersPerFrame);
-            setDisplayedText(text.slice(0, i));
+            const value = text.slice(0, i);
+            setTypewriterState((current) =>
+                current.source === text && current.value === value ? current : { source: text, value }
+            );
             if (i >= text.length) clearInterval(timer);
         }, frameDelay);
         return () => clearInterval(timer);
@@ -84,6 +87,7 @@ export default function DialogueBox({ text, speaker, variant, isThought }: Dialo
                 {!isDream && (
                     <Box
                         aria-hidden
+                        className="vn-dialogue-frame"
                         sx={{
                             position: "absolute",
                             inset: 0,
@@ -99,6 +103,7 @@ export default function DialogueBox({ text, speaker, variant, isThought }: Dialo
                     />
                 )}
                 <Typography
+                    className="vn-dialogue-copy"
                     sx={{
                         position: "relative",
                         zIndex: 1,
@@ -163,6 +168,7 @@ export default function DialogueBox({ text, speaker, variant, isThought }: Dialo
                     {!isDream && (
                         <Box
                             aria-hidden
+                            className="vn-name-frame"
                             sx={{
                                 position: "absolute",
                                 inset: 0,

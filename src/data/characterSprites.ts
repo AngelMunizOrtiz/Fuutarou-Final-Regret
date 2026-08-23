@@ -1,11 +1,16 @@
+import type { StorySpritePrefetchEntry } from "../assets/generatedStoryPrefetchPlan";
+import { performanceProfile } from "../utils/performance-profile";
+
 export type CharacterSpriteDefinition = {
     src: string;
     scale?: number;
     yOffset?: number;
 };
 
-const spritePreloadCache = new Map<string, Promise<void>>();
-const SPRITE_PRELOAD_CACHE_LIMIT = 24;
+const spritePreloadCache = new Map<string, Promise<HTMLImageElement | void>>();
+let activeSpriteSequence: readonly StorySpritePrefetchEntry[] = [];
+let spriteSequenceCursor = 0;
+let spritePrefetchHandle: number | undefined;
 
 export const characterSprites = {
     fuutarou: {
@@ -1215,6 +1220,21 @@ export function getCharacterSprite(characterId: string, expression = "neutral") 
     return expressions[expression] || expressions.neutral || expressions.smile || Object.values(expressions)[0];
 }
 
+export function setCharacterSpritePreloadSequence(sequence: readonly StorySpritePrefetchEntry[]) {
+    if (activeSpriteSequence === sequence) return;
+
+    cancelSpritePrefetch();
+    activeSpriteSequence = sequence;
+    spriteSequenceCursor = 0;
+    scheduleSpritePrefetch();
+}
+
+export function clearCharacterSpritePreloadSequence() {
+    cancelSpritePrefetch();
+    activeSpriteSequence = [];
+    spriteSequenceCursor = 0;
+}
+
 export async function preloadCharacterSprite(characterId: string, expression = "neutral") {
     const sprite = getCharacterSprite(characterId, expression);
 
@@ -1222,24 +1242,38 @@ export async function preloadCharacterSprite(characterId: string, expression = "
         return sprite;
     }
 
-    let preload = spritePreloadCache.get(sprite.src);
+    await loadCharacterSpriteResource(sprite.src);
+    advanceSpriteSequence(characterId, expression);
+    scheduleSpritePrefetch();
+    return sprite;
+}
+
+async function loadCharacterSpriteResource(source: string) {
+    let preload = spritePreloadCache.get(source);
     if (preload) {
-        spritePreloadCache.delete(sprite.src);
-        spritePreloadCache.set(sprite.src, preload);
+        spritePreloadCache.delete(source);
+        spritePreloadCache.set(source, preload);
     }
     if (!preload) {
-        preload = new Promise<void>((resolve, reject) => {
+        preload = new Promise<HTMLImageElement>((resolve, reject) => {
             const image = new Image();
             image.decoding = "async";
-            image.onload = () => resolve();
-            image.onerror = () => reject(new Error(`Unable to load character sprite: ${sprite.src}`));
-            image.src = sprite.src;
+            image.onload = async () => {
+                try {
+                    await image.decode();
+                } catch {
+                    // onload already guarantees that the browser can display it.
+                }
+                resolve(image);
+            };
+            image.onerror = () => reject(new Error(`Unable to load character sprite: ${source}`));
+            image.src = source;
         }).catch((error) => {
-            spritePreloadCache.delete(sprite.src);
+            spritePreloadCache.delete(source);
             console.warn(error);
         });
-        spritePreloadCache.set(sprite.src, preload);
-        while (spritePreloadCache.size > SPRITE_PRELOAD_CACHE_LIMIT) {
+        spritePreloadCache.set(source, preload);
+        while (spritePreloadCache.size > performanceProfile.spritePreloadCacheLimit) {
             const oldestSource = spritePreloadCache.keys().next().value;
             if (typeof oldestSource !== "string") break;
             spritePreloadCache.delete(oldestSource);
@@ -1247,5 +1281,59 @@ export async function preloadCharacterSprite(characterId: string, expression = "
     }
 
     await preload;
-    return sprite;
+}
+
+function advanceSpriteSequence(characterId: string, expression: string) {
+    const normalizedCharacterId = characterId.toLowerCase();
+    const matchIndex = activeSpriteSequence.findIndex(
+        ([sequenceCharacterId, sequenceExpression], index) =>
+            index >= spriteSequenceCursor &&
+            sequenceCharacterId.toLowerCase() === normalizedCharacterId &&
+            sequenceExpression === expression,
+    );
+
+    if (matchIndex >= 0) spriteSequenceCursor = matchIndex + 1;
+}
+
+function scheduleSpritePrefetch() {
+    if (
+        spritePrefetchHandle !== undefined ||
+        spriteSequenceCursor >= activeSpriteSequence.length ||
+        typeof window === "undefined"
+    ) {
+        return;
+    }
+
+    spritePrefetchHandle = scheduleIdleTask(async () => {
+        spritePrefetchHandle = undefined;
+        const nextEntries = activeSpriteSequence.slice(
+            spriteSequenceCursor,
+            spriteSequenceCursor + performanceProfile.spritePrefetchCount,
+        );
+
+        for (const [characterId, expression] of nextEntries) {
+            const sprite = getCharacterSprite(characterId, expression);
+            if (sprite) await loadCharacterSpriteResource(sprite.src);
+        }
+    });
+}
+
+function cancelSpritePrefetch() {
+    if (spritePrefetchHandle === undefined || typeof window === "undefined") return;
+
+    const idleWindow = window as Window & { cancelIdleCallback?: (handle: number) => void };
+    if (idleWindow.cancelIdleCallback) idleWindow.cancelIdleCallback(spritePrefetchHandle);
+    else window.clearTimeout(spritePrefetchHandle);
+    spritePrefetchHandle = undefined;
+}
+
+function scheduleIdleTask(callback: () => void | Promise<void>) {
+    const idleWindow = window as Window & {
+        requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+    };
+
+    if (idleWindow.requestIdleCallback) {
+        return idleWindow.requestIdleCallback(() => void callback(), { timeout: 500 });
+    }
+    return window.setTimeout(() => void callback(), 120);
 }

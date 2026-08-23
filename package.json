@@ -7,8 +7,9 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "node scripts/generate-story-prefetch-plan.mjs && tsc && vite build",
     "generate:gallery-thumbnails": "node scripts/generate-gallery-thumbnails.mjs",
+    "generate:story-prefetch-plan": "node scripts/generate-story-prefetch-plan.mjs",
     "prepare:android:chapter1": "node scripts/prepare-chapter1-android-demo.mjs",
     "build:android:chapter1": "node scripts/build-chapter1-android-demo.mjs",
     "build:android:chapter1:debug": "node scripts/build-chapter1-android-demo.mjs --debug",

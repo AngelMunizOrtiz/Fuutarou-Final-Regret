@@ -1,14 +1,9 @@
 import { CssVarsProvider, extendTheme } from "@mui/joy";
-import {
-    THEME_ID as MATERIAL_THEME_ID,
-    ThemeProvider as MaterialCssVarsProvider,
-    extendTheme as materialExtendTheme,
-} from "@mui/material/styles";
-import { createContext, useContext, useMemo, useState } from "react";
+import { createContext, useContext, useMemo, useState, type ReactNode } from "react";
 import ShadeGenerator from "shade-generator";
 
 type Iprops = {
-    children: React.ReactNode;
+    children: ReactNode;
 };
 type SolidColorType = "black" | "white";
 
@@ -23,8 +18,6 @@ const ColorContext = createContext<{
     solidColor: "white",
     setSolidColor: () => {},
 });
-const materialTheme = materialExtendTheme();
-
 export function useEditColorProvider() {
     const context = useContext(ColorContext);
     if (context === undefined) {
@@ -77,7 +70,7 @@ export default function MyThemeProvider({ children }: Iprops) {
         localStorage.setItem("primaryColor", primaryColor);
         localStorage.setItem("solidColor", solidColor);
 
-        let colors = get10ColorShades(primaryColor);
+        const colors = get10ColorShades(primaryColor);
         return extendTheme({
             colorSchemes: {
                 light: {
@@ -152,19 +145,17 @@ export default function MyThemeProvider({ children }: Iprops) {
     }, [primaryColor, solidColor]);
 
     return (
-        <MaterialCssVarsProvider theme={{ [MATERIAL_THEME_ID]: materialTheme }}>
-            <CssVarsProvider theme={theme}>
-                <ColorContext.Provider
-                    value={{
-                        primaryColor: primaryColor,
-                        setPrimaryColor: setPrimaryColor,
-                        solidColor: solidColor,
-                        setSolidColor: setSolidColor,
-                    }}
-                >
-                    {children}
-                </ColorContext.Provider>
-            </CssVarsProvider>
-        </MaterialCssVarsProvider>
+        <CssVarsProvider theme={theme}>
+            <ColorContext.Provider
+                value={{
+                    primaryColor: primaryColor,
+                    setPrimaryColor: setPrimaryColor,
+                    solidColor: solidColor,
+                    setSolidColor: setSolidColor,
+                }}
+            >
+                {children}
+            </ColorContext.Provider>
+        </CssVarsProvider>
     );
 }

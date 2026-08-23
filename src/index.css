@@ -902,6 +902,11 @@ body {
   font-display: swap;
 }
 
+html.vn-system-fonts .vn-game-ui-layer,
+html.vn-system-fonts .vn-game-ui-layer * {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif !important;
+}
+
 /* Android/tablet profile: preserve composition while avoiding costly full-screen
    blur, repeated shadows and perpetual animations inside an embedded WebView. */
 html.vn-performance-lite .vn-game-ui-layer,
@@ -920,6 +925,28 @@ html.vn-performance-lite .vn-character-body.is-listening {
 
 html.vn-performance-lite .vn-character-body.is-listening {
   opacity: 0.86;
+}
+
+html.vn-performance-lite .vn-character-slot {
+  contain: layout paint style;
+}
+
+html.vn-performance-lite .vn-dialogue-frame,
+html.vn-performance-lite .vn-name-frame {
+  filter: none !important;
+}
+
+html.vn-performance-lite .vn-dialogue-copy,
+html.vn-performance-lite .vn-dialogue-copy * {
+  text-shadow: none !important;
+}
+
+html.vn-performance-lite .vn-dialogue-shell {
+  will-change: auto !important;
+}
+
+html.vn-performance-lite .animate-pulse {
+  animation: none !important;
 }
 
 html.vn-performance-lite .vn-loading-screen::after,

@@ -1,5 +1,9 @@
 import type { AssetsManifest } from "@drincs/pixi-vn";
 import { MAIN_MENU_ROUTE, SPLASH_ROUTE } from "../constans";
+import {
+    storyAssetSequenceByChapter,
+    storySpriteSequenceByChapter,
+} from "./generatedStoryPrefetchPlan";
 
 export const STORY_ASSET_BUNDLES = {
     chapter1: "story-chapter-1",
@@ -54,7 +58,17 @@ export function getNextStoryAssetBundles(labelId: string) {
     return chapterNumber ? storyBundlesByChapter[chapterNumber + 1] ?? [] : [];
 }
 
-const manifest: AssetsManifest = {
+export function getStoryAssetSequence(labelId: string) {
+    const chapterNumber = getStoryChapterNumber(labelId);
+    return chapterNumber ? storyAssetSequenceByChapter[chapterNumber] ?? [] : [];
+}
+
+export function getStorySpriteSequence(labelId: string) {
+    const chapterNumber = getStoryChapterNumber(labelId);
+    return chapterNumber ? storySpriteSequenceByChapter[chapterNumber] ?? [] : [];
+}
+
+const sourceManifest: AssetsManifest = {
     bundles: [
         {
             name: SPLASH_ROUTE,
@@ -253,6 +267,35 @@ const manifest: AssetsManifest = {
         },
     ],
 };
+
+const storyBundleNames = new Set<string>(Object.values(STORY_ASSET_BUNDLES));
+const useStoryWebpDerivatives = import.meta.env.VITE_STORY_WEBP === "true";
+
+const manifest = useStoryWebpDerivatives
+    ? ({
+          ...sourceManifest,
+          bundles: sourceManifest.bundles.map((bundle) => {
+              if (!storyBundleNames.has(bundle.name)) return bundle;
+
+              return {
+                  ...bundle,
+                  assets: (Array.isArray(bundle.assets) ? bundle.assets : [bundle.assets]).map((asset: unknown) => {
+                      if (!asset || typeof asset !== "object" || Array.isArray(asset)) return asset;
+
+                      const descriptor = asset as { src?: string | string[] };
+                      const rewrite = (src: string) => src.replace(/\.png$/i, ".webp");
+                      const src = Array.isArray(descriptor.src)
+                          ? descriptor.src.map(rewrite)
+                          : typeof descriptor.src === "string"
+                            ? rewrite(descriptor.src)
+                            : descriptor.src;
+
+                      return { ...asset, src };
+                  }),
+              };
+          }),
+      } as AssetsManifest)
+    : sourceManifest;
 
 export interface StoryAssetEntry {
     alias: string;

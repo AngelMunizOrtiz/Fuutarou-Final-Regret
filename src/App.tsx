@@ -1,5 +1,6 @@
 import { ComponentType, lazy, Suspense, useCallback, useEffect, useState } from "react";
 import { ErrorBoundary, FallbackProps } from "react-error-boundary";
+import { MotionConfig } from "motion/react";
 import { getInitialGameLanguage, initializeI18n } from "./i18n";
 import LoadingScreen from "./screens/LoadingScreen";
 import { defineAssets } from "./utils/assets-utility";
@@ -127,11 +128,13 @@ export default function App() {
     }, [homeReady]);
 
     return (
-        <ErrorBoundary FallbackComponent={ErrorFallback}>
-            <Suspense fallback={null}>
-                <HomeReadyMarker onReady={markHomeReady} />
-            </Suspense>
-            {showInitialLoader && <LoadingScreen exiting={initialLoaderExiting} />}
-        </ErrorBoundary>
+        <MotionConfig reducedMotion={performanceProfile.reducedMotion ? "always" : "user"}>
+            <ErrorBoundary FallbackComponent={ErrorFallback}>
+                <Suspense fallback={null}>
+                    <HomeReadyMarker onReady={markHomeReady} />
+                </Suspense>
+                {showInitialLoader && <LoadingScreen exiting={initialLoaderExiting} />}
+            </ErrorBoundary>
+        </MotionConfig>
     );
 }

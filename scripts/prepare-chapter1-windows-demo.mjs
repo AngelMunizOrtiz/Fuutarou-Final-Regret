@@ -115,12 +115,12 @@ async function optimizeStoryImagesForWindows(paths) {
 
     for (const file of imageFiles) {
         const extension = extname(file).toLowerCase();
-        const temporaryFile = `${file}.windows-tmp${extension}`;
-        const codecArguments = extension === ".webp"
+        const convertToWebp = extension === ".png";
+        const outputFile = convertToWebp ? `${file.slice(0, -extension.length)}.webp` : file;
+        const temporaryFile = `${outputFile}.windows-tmp${convertToWebp ? ".webp" : extension}`;
+        const codecArguments = extension === ".webp" || convertToWebp
             ? ["-c:v", "libwebp", "-quality", "92", "-compression_level", "5", "-pix_fmt", "yuva420p"]
-            : extension === ".png"
-              ? ["-compression_level", "9"]
-              : ["-q:v", "2"];
+            : ["-q:v", "2"];
 
         try {
             await runQuiet(ffmpeg, [
@@ -134,7 +134,8 @@ async function optimizeStoryImagesForWindows(paths) {
                 ...codecArguments,
                 temporaryFile,
             ]);
-            await copyFile(temporaryFile, file);
+            await copyFile(temporaryFile, outputFile);
+            if (convertToWebp) await rm(file, { force: true });
             optimizedCount += 1;
         } catch (error) {
             console.warn(`Unable to optimize ${relative(outputDirectory, file)}: ${error.message}`);
@@ -143,10 +144,13 @@ async function optimizeStoryImagesForWindows(paths) {
         }
     }
 
-    const afterBytes = await totalFileSize(imageFiles);
+    const optimizedImageFiles = (await Promise.all(paths.map((path) => collectFiles(path))))
+        .flat()
+        .filter((file) => [".webp", ".jpg", ".jpeg"].includes(extname(file).toLowerCase()));
+    const afterBytes = await totalFileSize(optimizedImageFiles);
     console.log(
         `Windows story images optimized: ${optimizedCount} files, ` +
-        `${(beforeBytes / 1024 / 1024).toFixed(1)} MB -> ${(afterBytes / 1024 / 1024).toFixed(1)} MB (max 1920x1080)`,
+        `${(beforeBytes / 1024 / 1024).toFixed(1)} MB -> ${(afterBytes / 1024 / 1024).toFixed(1)} MB (WebP, max 1920x1080)`,
     );
 }
 

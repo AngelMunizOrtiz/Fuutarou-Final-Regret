@@ -110,7 +110,15 @@ export default function CinematicScenePlayer({ sceneId, frames, onComplete }: Ci
                     key={visualKey}
                     initial={{
                         opacity: 0,
-                        scale: isAwakeningPhase ? 1 : 1.05,
+                        // Android keeps a small GPU-friendly push-in. The PC
+                        // version retains the more pronounced cinematic zoom.
+                        scale: performanceProfile.lite
+                            ? isAwakeningPhase
+                                ? 1.005
+                                : 1.018
+                            : isAwakeningPhase
+                              ? 1
+                              : 1.05,
                         filter: performanceProfile.lite
                             ? "none"
                             : isAwakeningPhase
@@ -128,7 +136,11 @@ export default function CinematicScenePlayer({ sceneId, frames, onComplete }: Ci
                     }}
                     exit={{ opacity: 0 }}
                     transition={{
-                        duration: performanceProfile.lite ? 0.22 : isAwakeningPhase ? 0.3 : 1.5,
+                        duration: performanceProfile.lite
+                            ? performanceProfile.cinematicTransitionSeconds
+                            : isAwakeningPhase
+                              ? performanceProfile.cinematicTransitionSeconds
+                              : 1.5,
                         ease: "easeInOut",
                     }}
                     style={{ position: "absolute", inset: 0, zIndex: 1 }}
@@ -152,13 +164,15 @@ export default function CinematicScenePlayer({ sceneId, frames, onComplete }: Ci
                             src={currentFrame.image}
                             alt='Cinematic Scene'
                             decoding='async'
+                            loading='eager'
+                            fetchPriority={currentIndex <= 1 ? "high" : "auto"}
                             style={{ width: "100%", height: "100%", objectFit: "cover" }}
                         />
                     )}
                 </motion.div>
             </AnimatePresence>
 
-            {currentFrame.isDream && !performanceProfile.lite && (
+            {currentFrame.isDream && (
                 <Box sx={{ position: "absolute", inset: 0, zIndex: 50, pointerEvents: "none" }}>
                     <BubbleAnimation />
                 </Box>

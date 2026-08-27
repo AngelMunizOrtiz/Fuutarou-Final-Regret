@@ -1,6 +1,7 @@
 import { StepLabelProps } from "@drincs/pixi-vn";
 import { useQueryClient } from "@tanstack/react-query";
 import { useSnackbar } from "notistack";
+import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import useMyNavigate from "./useMyNavigate";
 import { INTERFACE_DATA_USE_QUEY_KEY } from "./useQueryInterface";
@@ -12,13 +13,16 @@ export default function useGameProps(): StepLabelProps {
     const { enqueueSnackbar } = useSnackbar();
     const queryClient = useQueryClient();
 
-    return {
-        navigate,
-        t,
-        uiTransition,
-        notify: enqueueSnackbar,
-        invalidateInterfaceData: () => {
-            queryClient.invalidateQueries({ queryKey: [INTERFACE_DATA_USE_QUEY_KEY] });
-        },
-    };
+    return useMemo(
+        () => ({
+            navigate,
+            t,
+            uiTransition,
+            notify: enqueueSnackbar,
+            invalidateInterfaceData: () => {
+                queryClient.invalidateQueries({ queryKey: [INTERFACE_DATA_USE_QUEY_KEY] });
+            },
+        }),
+        [enqueueSnackbar, navigate, queryClient, t, uiTransition],
+    );
 }

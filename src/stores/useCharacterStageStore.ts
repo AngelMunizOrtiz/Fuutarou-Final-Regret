@@ -40,6 +40,16 @@ const useCharacterStageStore = create<CharacterStageState>((set) => ({
         }
 
         set((state) => {
+            const previous = state.slots[slot];
+            if (
+                previous?.characterId === normalizedCharacterId &&
+                previous.expression === expression &&
+                previous.sprite === sprite &&
+                previous.mirror === options?.mirror
+            ) {
+                return state;
+            }
+
             const nextSlots = { ...state.slots };
 
             for (const existingSlot of characterStageSlots) {
@@ -60,12 +70,14 @@ const useCharacterStageStore = create<CharacterStageState>((set) => ({
     },
     hideSlot: (slot) => {
         set((state) => {
+            if (!state.slots[slot]) return state;
             const nextSlots = { ...state.slots };
             delete nextSlots[slot];
             return { slots: nextSlots };
         });
     },
-    clear: () => set({ slots: {} }),
+    clear: () =>
+        set((state) => (Object.keys(state.slots).length === 0 ? state : { slots: {} })),
 }));
 
 export default useCharacterStageStore;

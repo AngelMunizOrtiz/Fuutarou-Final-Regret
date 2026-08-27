@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type DependencyList } from "react";
 
 /**
  * A custom hook that sets up an interval to call a callback function.
@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react";
  * @param dependencies The dependencies array that determines when to re-run the effect.
  */
 export default function useInterval(
-    callback: () => any,
+    callback: () => void,
     options: {
         /**
          * The delay in milliseconds between each interval.
@@ -20,9 +20,9 @@ export default function useInterval(
          */
         enabled?: boolean;
     },
-    dependencies: any[] = []
+    dependencies: DependencyList = []
 ) {
-    const savedCallback = useRef<() => any | null>(null);
+    const savedCallback = useRef<(() => void) | null>(null);
     const { delay = 1000, enabled = true } = options;
 
     useEffect(() => {

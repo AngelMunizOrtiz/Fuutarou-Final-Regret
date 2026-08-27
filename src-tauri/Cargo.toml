@@ -19,7 +19,16 @@ tauri-build = { version = "2", features = [] }
 
 [dependencies]
 tauri = { version = "2", features = [] }
-tauri-plugin-opener = "2"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 
+
+[profile.release]
+# Both desktop and Android demos embed the same web runtime. A single LTO unit
+# and stripped symbols reduce the launcher size and the amount of native code
+# that must be mapped before the WebView can start.
+codegen-units = 1
+lto = true
+opt-level = "s"
+panic = "abort"
+strip = true

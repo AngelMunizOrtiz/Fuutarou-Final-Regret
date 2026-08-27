@@ -17,7 +17,8 @@ export default function useNarrationFunctions() {
     const gameProps = useGameProps();
 
     const goNext = useCallback(async () => {
-        if (useStepStore.getState().loading) return;
+        const stepState = useStepStore.getState();
+        if (stepState.loading || stepState.backLoading) return;
 
         wakeCanvasRenderer();
         setNextStepLoading(true);
@@ -47,6 +48,9 @@ export default function useNarrationFunctions() {
     }, [gameProps, hidden, queryClient, setHideInterface, setNextStepLoading]);
 
     const goBack = useCallback(async () => {
+        const stepState = useStepStore.getState();
+        if (stepState.loading || stepState.backLoading) return;
+
         wakeCanvasRenderer();
         setBackLoading(true);
         return stepHistory
@@ -63,6 +67,9 @@ export default function useNarrationFunctions() {
 
     const selectChoice = useCallback(
         async (item: StoredIndexedChoiceInterface) => {
+            const stepState = useStepStore.getState();
+            if (stepState.loading || stepState.backLoading) return;
+
             wakeCanvasRenderer();
             setNextStepLoading(true);
             return narration

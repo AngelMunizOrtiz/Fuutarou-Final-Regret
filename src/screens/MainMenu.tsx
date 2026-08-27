@@ -195,25 +195,40 @@ export default function MainMenu() {
     return (
         <Box sx={{ position: "absolute", inset: 0, overflow: "hidden", backgroundColor: "black" }}>
 
-            {/* 1. VIDEO DE FONDO */}
-            <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                poster="/images/bg_title.webp"
-                className="absolute inset-0 w-full h-full object-cover"
-            >
-                <source src={performanceProfile.menuVideoSrc} type="video/mp4" />
-            </video>
+            {/* Android uses the poster directly so video decoding does not
+                contend with Pixi for GPU time. Desktop keeps the animation. */}
+            {performanceProfile.menuVideoEnabled ? (
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload='metadata'
+                    disablePictureInPicture
+                    poster="/images/bg_title.webp"
+                    className="absolute inset-0 w-full h-full object-cover"
+                >
+                    <source src={performanceProfile.menuVideoSrc} type="video/mp4" />
+                </video>
+            ) : (
+                <img
+                    src="/images/bg_title.webp"
+                    alt=""
+                    aria-hidden
+                    decoding='async'
+                    fetchPriority='high'
+                    draggable={false}
+                    className="absolute inset-0 w-full h-full object-cover"
+                />
+            )}
 
-            {!performanceProfile.lite && <Box
+            <Box
                 sx={{
                     position: "absolute",
                     inset: 0,
                     zIndex: 0,
                     pointerEvents: "none",
-                    opacity: 0.58,
+                    opacity: performanceProfile.lite ? 0.22 : 0.58,
                     backgroundImage: `
                         linear-gradient(45deg, rgba(255, 188, 214, 0.24) 25%, transparent 25%, transparent 75%, rgba(255, 188, 214, 0.24) 75%),
                         linear-gradient(45deg, rgba(185, 229, 245, 0.18) 25%, transparent 25%, transparent 75%, rgba(185, 229, 245, 0.18) 75%),
@@ -222,15 +237,19 @@ export default function MainMenu() {
                     `,
                     backgroundSize: "92px 92px, 92px 92px, 52px 52px, 100% 100%",
                     backgroundPosition: "0 0, 46px 46px, 0 0, 0 0",
-                    mixBlendMode: "screen",
+                    mixBlendMode: performanceProfile.lite ? "normal" : "screen",
                 }}
-            />}
+            />
 
-            {!performanceProfile.lite && <Box
+            <Box
                 component={motion.div}
-                initial={{ opacity: 0, y: -12 }}
-                animate={{ opacity: 0.72, y: 0 }}
-                transition={{ delay: 0.45, duration: 1.2, ease: "easeOut" }}
+                initial={{ opacity: 0, y: performanceProfile.lite ? -6 : -12 }}
+                animate={{ opacity: performanceProfile.lite ? 0.34 : 0.72, y: 0 }}
+                transition={{
+                    delay: 0.45,
+                    duration: performanceProfile.lite ? 0.55 : 1.2,
+                    ease: "easeOut",
+                }}
                 sx={{
                     position: "absolute",
                     inset: 0,
@@ -242,14 +261,14 @@ export default function MainMenu() {
                     `,
                     maskImage: "linear-gradient(90deg, transparent 0%, black 18%, black 82%, transparent 100%)",
                 }}
-            />}
+            />
 
             {/* 2. CONTENEDOR PRINCIPAL */}
             <Box
                 component={motion.div}
-                initial={{ x: -800 }}
+                initial={performanceProfile.reducedMotion ? false : { x: -800 }}
                 animate={{ x: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
+                transition={{ duration: performanceProfile.reducedMotion ? 0 : 0.8, ease: "easeOut" }}
                 sx={{
                     position: "absolute",
                     left: 0,

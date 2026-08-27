@@ -17,7 +17,6 @@ await rm(outputDirectory, { recursive: true, force: true });
 await mkdir(outputDirectory, { recursive: true });
 
 const directories = [
-    "images/ui",
     "images/memories",
     "images/backgrounds/chapter_01",
     "images/cg/chapter_01",
@@ -26,14 +25,17 @@ const directories = [
 ];
 
 const files = [
-    "apple-touch-icon.png",
-    "favicon.ico",
     "images/bg_title.webp",
     "images/logo_game.webp",
-    "images/pressanybutton.webp",
+    "images/ui/Cajamenu.webp",
+    "images/ui/cuaderno_menu_v2.webp",
+    "images/ui/dialog_box_v2.webp",
+    "images/ui/menu_sticker_base.webp",
+    "images/ui/name_box_v2.webp",
+    "images/ui/press-any-button-en.svg",
+    "images/ui/press-any-button-es.svg",
     "audio/bgm/menu-mobile.m4a",
     "audio/bgm/splash-mobile.m4a",
-    "videos/menu/menu-mobile.mp4",
 ];
 
 for (const directory of directories) {
@@ -60,12 +62,9 @@ await optimizeStoryImagesForAndroid([
 await optimizeUiImagesForAndroid([
     { file: join(outputDirectory, "images/ui/Cajamenu.webp"), width: 760, height: 900 },
     { file: join(outputDirectory, "images/ui/cuaderno_menu_v2.webp"), width: 768, height: 1154 },
-    { file: join(outputDirectory, "images/ui/game_select_mode_header.webp"), width: 1158, height: 144 },
     { file: join(outputDirectory, "images/ui/menu_sticker_base.webp"), width: 640, height: 180 },
-    { file: join(outputDirectory, "images/ui/dialog_box.webp"), width: 1280, height: 204 },
     { file: join(outputDirectory, "images/ui/dialog_box_v2.webp"), width: 1280, height: 204 },
 ]);
-await optimizeMenuVideoForAndroid(join(outputDirectory, "videos/menu/menu-mobile.mp4"));
 
 const stagedFiles = await collectFiles(outputDirectory);
 const sizeBytes = (
@@ -129,7 +128,7 @@ async function optimizeStoryImagesForAndroid(paths) {
                 "-loglevel", "error",
                 "-y",
                 "-i", file,
-                "-vf", "scale='min(iw,1280)':'min(ih,720)':force_original_aspect_ratio=decrease:force_divisible_by=2",
+                "-vf", "scale='min(iw,1152)':'min(ih,648)':force_original_aspect_ratio=decrease:force_divisible_by=2",
                 "-frames:v", "1",
                 "-map_metadata", "-1",
                 ...codecArguments,
@@ -151,7 +150,7 @@ async function optimizeStoryImagesForAndroid(paths) {
     const afterBytes = await totalFileSize(optimizedImageFiles);
     console.log(
         `Android story images optimized: ${optimizedCount} files, ` +
-        `${(beforeBytes / 1024 / 1024).toFixed(1)} MB -> ${(afterBytes / 1024 / 1024).toFixed(1)} MB (WebP, max 1280x720)`,
+        `${(beforeBytes / 1024 / 1024).toFixed(1)} MB -> ${(afterBytes / 1024 / 1024).toFixed(1)} MB (WebP, max 1152x648)`,
     );
 }
 
@@ -201,42 +200,6 @@ async function optimizeUiImagesForAndroid(entries) {
         } finally {
             await rm(temporaryFile, { force: true });
         }
-    }
-}
-
-async function optimizeMenuVideoForAndroid(videoFile) {
-    const ffmpeg = await findFfmpeg();
-    if (!ffmpeg || process.env.SKIP_ANDROID_VIDEO_OPTIMIZATION === "true") return;
-
-    const temporaryFile = `${videoFile}.android-tmp.mp4`;
-    const beforeBytes = (await stat(videoFile)).size;
-
-    try {
-        await runQuiet(ffmpeg, [
-            "-hide_banner",
-            "-loglevel", "error",
-            "-y",
-            "-i", videoFile,
-            "-vf", "scale=1280:720:force_original_aspect_ratio=decrease:force_divisible_by=2,fps=30",
-            "-an",
-            "-c:v", "libx264",
-            "-preset", "fast",
-            "-tune", "animation",
-            "-crf", "25",
-            "-pix_fmt", "yuv420p",
-            "-movflags", "+faststart",
-            temporaryFile,
-        ]);
-        await copyFile(temporaryFile, videoFile);
-        const afterBytes = (await stat(videoFile)).size;
-        console.log(
-            `Android menu video optimized: ${(beforeBytes / 1024 / 1024).toFixed(1)} MB -> ` +
-            `${(afterBytes / 1024 / 1024).toFixed(1)} MB (1280x720, 30 fps)`,
-        );
-    } catch (error) {
-        console.warn(`Unable to optimize the Android menu video: ${error.message}`);
-    } finally {
-        await rm(temporaryFile, { force: true });
     }
 }
 

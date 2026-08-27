@@ -12,18 +12,21 @@ type LocaleResource = Record<string, unknown> & {
     narration?: Record<string, unknown>;
 };
 
-const spanishNarrationModules = import.meta.glob<Record<string, string>>("./locales/narration_es/*.json", {
-    import: "default",
-});
+const spanishNarrationModules = isChapterOneDemoBuild
+    ? import.meta.glob<Record<string, string>>("./locales/narration_es/chapter_01.json", {
+          import: "default",
+      })
+    : import.meta.glob<Record<string, string>>("./locales/narration_es/*.json", {
+          import: "default",
+      });
 let spanishNarrationResourcePromise: Promise<Record<string, string>> | undefined;
 
 function getSpanishNarrationResource() {
     if (!spanishNarrationResourcePromise) {
         spanishNarrationResourcePromise = Promise.all(
             Object.entries(spanishNarrationModules)
-            .filter(([path]) => !isChapterOneDemoBuild || path.endsWith("/chapter_01.json"))
-            .sort(([pathA], [pathB]) => pathA.localeCompare(pathB, "en"))
-            .map(([, loadResource]) => loadResource()),
+                .sort(([pathA], [pathB]) => pathA.localeCompare(pathB, "en"))
+                .map(([, loadResource]) => loadResource()),
         ).then((resources) => Object.fromEntries(resources.flatMap((resource) => Object.entries(resource))));
     }
     return spanishNarrationResourcePromise;

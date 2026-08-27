@@ -17,7 +17,7 @@ const SPLASH_IMAGE_ASSETS = [
 ] as const;
 
 const INITIAL_LOADER_MINIMUM_MS = performanceProfile.initialLoaderMinimumMs;
-const INITIAL_LOADER_EXIT_MS = 420;
+const INITIAL_LOADER_EXIT_MS = performanceProfile.initialLoaderExitMs;
 const INITIAL_LOADER_STARTED_AT = performance.now();
 
 const Home = lazy(async () => {

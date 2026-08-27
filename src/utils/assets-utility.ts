@@ -22,6 +22,12 @@ let prefetchHandle: number | undefined;
 let storyGeneration = 0;
 let recentStoryAliases: string[] = [];
 const prefetchedStoryAliases = new Set<string>();
+let lastTrimRequestedAt = Number.NEGATIVE_INFINITY;
+
+// Texture cleanup is intentionally less frequent than story steps. Running
+// it after every tap can evict a background that is reused a few lines later,
+// creating a decode/upload hitch that is more visible than the memory saved.
+const MIN_TRIM_INTERVAL_MS = performanceProfile.isAndroid ? 1_800 : performanceProfile.lite ? 1_200 : 900;
 
 const storyAssetEntries = getStoryAssetEntries();
 const storyAssetAliases = new Set(storyAssetEntries.map(({ alias }) => alias));
@@ -88,6 +94,7 @@ export async function releaseStoryAssets() {
     activeStoryBundles = [];
     activeStorySequence = [];
     storySequenceCursor = 0;
+    lastTrimRequestedAt = Number.NEGATIVE_INFINITY;
     recentStoryAliases = [];
     prefetchedStoryAliases.clear();
     clearCharacterSpritePreloadSequence();
@@ -103,6 +110,10 @@ export async function releaseStoryAssets() {
 export function trimStoryAssetCache() {
     if (trimRequest) return trimRequest;
 
+    const now = performance.now();
+    if (now - lastTrimRequestedAt < MIN_TRIM_INTERVAL_MS) return Promise.resolve();
+    lastTrimRequestedAt = now;
+
     const generation = storyGeneration;
     trimRequest = new Promise<void>((resolve) => {
         trimRequestResolve = resolve;
@@ -113,7 +124,7 @@ export function trimStoryAssetCache() {
             } finally {
                 settleTrimRequest();
             }
-        }, 220);
+        }, performanceProfile.storyTrimFallbackMs, performanceProfile.storyAssetIdleTimeoutMs);
     });
     return trimRequest;
 }
@@ -192,7 +203,7 @@ function scheduleStoryPrefetch() {
                 console.warn(`Unable to prefetch story asset: ${alias}`, error);
             }
         }
-    }, 350);
+    }, performanceProfile.storyPrefetchFallbackMs, performanceProfile.storyAssetIdleTimeoutMs);
 }
 
 function settleTrimRequest() {
@@ -217,13 +228,17 @@ function cancelScheduledTask(task: "trim" | "prefetch") {
     }
 }
 
-function scheduleIdleTask(callback: () => void | Promise<void>, fallbackDelay: number) {
+function scheduleIdleTask(
+    callback: () => void | Promise<void>,
+    fallbackDelay: number,
+    idleTimeout: number,
+) {
     const idleWindow = window as Window & {
         requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
     };
 
     if (idleWindow.requestIdleCallback) {
-        return idleWindow.requestIdleCallback(() => void callback(), { timeout: 900 });
+        return idleWindow.requestIdleCallback(() => void callback(), { timeout: idleTimeout });
     }
     return window.setTimeout(() => void callback(), fallbackDelay);
 }

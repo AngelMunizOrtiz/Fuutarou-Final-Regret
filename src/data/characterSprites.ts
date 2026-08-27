@@ -1333,7 +1333,12 @@ function scheduleIdleTask(callback: () => void | Promise<void>) {
     };
 
     if (idleWindow.requestIdleCallback) {
-        return idleWindow.requestIdleCallback(() => void callback(), { timeout: 500 });
+        return idleWindow.requestIdleCallback(() => void callback(), {
+            timeout: performanceProfile.spriteAssetIdleTimeoutMs,
+        });
     }
-    return window.setTimeout(() => void callback(), 120);
+    return window.setTimeout(
+        () => void callback(),
+        performanceProfile.spritePrefetchFallbackMs,
+    );
 }

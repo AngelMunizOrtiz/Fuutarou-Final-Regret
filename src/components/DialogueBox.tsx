@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/joy";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import {
     DIALOGUE_BOX_HEIGHT,
     DIALOGUE_BOX_IMAGE,
@@ -20,25 +20,8 @@ interface DialogueBoxProps {
     isThought?: boolean;
 }
 
-export default function DialogueBox({ text, speaker, variant, isThought }: DialogueBoxProps) {
-    const [typewriterState, setTypewriterState] = useState(() => ({ source: text, value: "" }));
-    const displayedText = typewriterState.source === text ? typewriterState.value : "";
+export default memo(function DialogueBox({ text, speaker, variant, isThought }: DialogueBoxProps) {
     const isDream = variant === "dream";
-
-    useEffect(() => {
-        let i = 0;
-        const frameDelay = performanceProfile.typewriterFrameMs;
-        const charactersPerFrame = performanceProfile.lite ? 2 : 1;
-        const timer = setInterval(() => {
-            i = Math.min(text.length, i + charactersPerFrame);
-            const value = text.slice(0, i);
-            setTypewriterState((current) =>
-                current.source === text && current.value === value ? current : { source: text, value }
-            );
-            if (i >= text.length) clearInterval(timer);
-        }, frameDelay);
-        return () => clearInterval(timer);
-    }, [text]);
 
     return (
         <Box
@@ -134,7 +117,7 @@ export default function DialogueBox({ text, speaker, variant, isThought }: Dialo
                         scrollbarColor: "rgba(160, 92, 122, 0.45) transparent",
                     }}
                 >
-                    {displayedText}
+                    <DialogueTypewriterText text={text} />
                 </Typography>
             </Box>
 
@@ -213,4 +196,35 @@ export default function DialogueBox({ text, speaker, variant, isThought }: Dialo
             )}
         </Box>
     );
+});
+
+/**
+ * Keep the typewriter state below the dialogue chrome. Scene text changes on
+ * a timer, so storing it in DialogueBox used to re-render every MUI surface
+ * (frame, name plate and shadows) for every revealed character.
+ */
+function DialogueTypewriterText({ text }: { text: string }) {
+    const [displayedText, setDisplayedText] = useState("");
+
+    useEffect(() => {
+        let i = 0;
+        setDisplayedText("");
+
+        if (!text) return undefined;
+
+        const frameDelay = performanceProfile.typewriterFrameMs;
+        const charactersPerFrame = performanceProfile.lite ? 2 : 1;
+        const timer = window.setInterval(() => {
+            i = Math.min(text.length, i + charactersPerFrame);
+            setDisplayedText((current) => {
+                const next = text.slice(0, i);
+                return current === next ? current : next;
+            });
+            if (i >= text.length) window.clearInterval(timer);
+        }, frameDelay);
+
+        return () => window.clearInterval(timer);
+    }, [text]);
+
+    return <>{displayedText}</>;
 }

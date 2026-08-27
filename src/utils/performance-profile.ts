@@ -19,6 +19,11 @@ const hasConstrainedMemory = typeof navigatorWithMemory.deviceMemory === "number
 const hasConstrainedCpu = typeof navigator.hardwareConcurrency === "number" && navigator.hardwareConcurrency <= 4;
 const automaticLiteMode = isAndroid || hasConstrainedMemory || hasConstrainedCpu;
 const lite = requestedQuality === "lite" || (requestedQuality !== "full" && automaticLiteMode);
+// A constrained device should use cheaper effects, not lose all motion. Keep
+// Motion's global accessibility switch tied to the user's OS preference so
+// Android still gets lightweight fades, pans and character emphasis.
+const prefersReducedMotion =
+    typeof window.matchMedia === "function" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 export const isChapterOneDemoBuild = import.meta.env.VITE_CHAPTER1_DEMO === "true";
 
@@ -41,18 +46,41 @@ export const performanceProfile = Object.freeze({
     maxFps: isAndroid ? 30 : lite ? 30 : 45,
     cinematicPreloadCount: lite ? 1 : 2,
     storyWarmAssetCount: lite ? 1 : 2,
-    storyPrefetchCount: constrainedAndroid ? 1 : lite ? 2 : 3,
-    storyTextureRetainCount: constrainedAndroid ? 1 : isAndroid ? 2 : lite ? 2 : 3,
-    spritePrefetchCount: constrainedAndroid ? 1 : lite ? 2 : 3,
-    spritePreloadCacheLimit: lite ? 8 : 24,
-    imagePreloadCacheLimit: lite ? 6 : 24,
+    // Mobile keeps exactly the next visual warm. Decoding several 16:9
+    // textures while dialogue is being revealed was the main source of the
+    // short stalls seen in Android WebView.
+    storyPrefetchCount: isAndroid ? 1 : lite ? 2 : 3,
+    // Keep the current and immediately previous background on mobile. One
+    // texture was too aggressive: quick dialogue advances could unload a
+    // background that the next line needed again, forcing another decode.
+    storyTextureRetainCount: isAndroid ? 2 : lite ? 2 : 3,
+    spritePrefetchCount: isAndroid ? 1 : lite ? 2 : 3,
+    spritePreloadCacheLimit: isAndroid ? 4 : lite ? 8 : 24,
+    imagePreloadCacheLimit: isAndroid ? 3 : lite ? 6 : 24,
     typewriterFrameMs: isAndroid ? 64 : lite ? 50 : 25,
-    rendererIdleSleepMs: isAndroid ? 1_200 : lite ? 1_800 : 3_000,
-    enableViewTransitions: !lite,
-    reducedMotion: lite,
+    // Lite transitions are shortened below, so Pixi only needs to remain
+    // awake for a small tail after each tap. DOM dialogue and sprites keep
+    // animating independently while the static WebGL scene sleeps.
+    rendererIdleSleepMs: isAndroid ? 360 : lite ? 650 : 1_200,
+    storyTrimFallbackMs: isAndroid ? 500 : 220,
+    storyPrefetchFallbackMs: isAndroid ? 850 : 350,
+    storyAssetIdleTimeoutMs: isAndroid ? 1_800 : 900,
+    spritePrefetchFallbackMs: isAndroid ? 650 : 120,
+    spriteAssetIdleTimeoutMs: isAndroid ? 1_400 : 500,
+    canvasFadeDurationSeconds: isAndroid || lite ? 0.18 : undefined,
+    // Keep mobile transitions short, but long enough for a visible 30 FPS
+    // fade/zoom instead of appearing as an instant cut.
+    cinematicTransitionSeconds: isAndroid || lite ? 0.26 : 0.3,
+    enableViewTransitions: !prefersReducedMotion,
+    reducedMotion: prefersReducedMotion,
     useSystemFonts,
     powerPreference: isAndroid ? "high-performance" : "low-power",
-    initialLoaderMinimumMs: lite ? 700 : 500,
+    initialLoaderMinimumMs: lite ? 250 : 500,
+    initialLoaderExitMs: lite ? 140 : 420,
+    // Video decoding and compositing competes with Pixi for the same mobile
+    // GPU. Android gets the existing title illustration; desktop retains the
+    // animated menu.
+    menuVideoEnabled: !isAndroid && !lite,
     menuVideoSrc: lite ? "/videos/menu/menu-mobile.mp4" : "/videos/menu/menu.mp4",
     // AAC is transparent for these tracks and streams efficiently. The WAV
     // versions add more than 50 MB to a chapter-one desktop package.

@@ -50,11 +50,15 @@ export function useWheelActions({
     const queryClient = useQueryClient();
     const gameProps = useGameProps();
 
-    const runAsync = async (fn: (props: StepLabelProps) => Promise<unknown>) => {
+    const gamePropsRef = useRef(gameProps);
+    gamePropsRef.current = gameProps;
+
+    const runAsyncRef = useRef<((fn: (props: StepLabelProps) => Promise<unknown>) => Promise<void>) | null>(null);
+    runAsyncRef.current = async (fn) => {
         try {
             pendingAsync.current += 1;
             setLoading(pendingAsync.current > 0);
-            await fn(gameProps);
+            await fn(gamePropsRef.current);
         } finally {
             pendingAsync.current -= 1;
             setLoading(pendingAsync.current > 0);
@@ -80,12 +84,12 @@ export function useWheelActions({
 
             if (deltaY < 0) {
                 // ⬆️ Scroll up
-                await runAsync(narration.continue.bind(narration));
+                await runAsyncRef.current?.(narration.continue.bind(narration));
             }
 
             if (deltaY > 0) {
                 // ⬇️ Scroll down
-                await runAsync(stepHistory.back.bind(stepHistory));
+                await runAsyncRef.current?.(stepHistory.back.bind(stepHistory));
             }
         }, throttleMs),
         [throttleMs, minDelta]

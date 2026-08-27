@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, type DependencyList } from "react";
 
 /**
  * A custom hook that debounces a callback function.
@@ -20,13 +20,18 @@ export default function useDebouncedEffect(
          */
         enabled?: boolean;
     } = {},
-    dependencies: any[] = []
+    dependencies: DependencyList = []
 ) {
     const { delay = 1000, enabled = true } = options;
+    const callbackRef = useRef(callback);
+
+    useEffect(() => {
+        callbackRef.current = callback;
+    }, [callback]);
 
     useEffect(() => {
         if (enabled && delay > 0) {
-            const timeout = setTimeout(callback, delay);
+            const timeout = window.setTimeout(() => callbackRef.current(), delay);
             return () => clearTimeout(timeout);
         }
     }, [delay, enabled, ...dependencies]);

@@ -1,15 +1,15 @@
 import { RegisteredCharacters } from "@drincs/pixi-vn";
 import {
-    convertInkText,
     HashtagCommands,
-    importInkText,
+    importJson,
     onInkTranslate,
     onReplaceTextBeforeTranslation,
 } from "@drincs/pixi-vn-ink";
+import compiledInkStory from "virtual:compiled-ink-story";
 import { SCENE_ROUTE } from "../constans";
 import { preloadCharacterSprite } from "../data/characterSprites";
 import useCharacterStageStore, { isCharacterStageSlotName } from "../stores/useCharacterStageStore";
-import { isChapterOneDemoBuild } from "./performance-profile";
+import { performanceProfile } from "./performance-profile";
 
 export const STORY_SCENE_TRANSITION_FLAG = "__pixi_vn_story_scene_transition";
 let inkRuntimeInitialized = false;
@@ -22,63 +22,21 @@ export function isStorySceneTransition() {
     return Boolean((window as Window & { [STORY_SCENE_TRANSITION_FLAG]?: boolean })[STORY_SCENE_TRANSITION_FLAG]);
 }
 
-async function getInkText() {
-    const files = isChapterOneDemoBuild
-        ? import.meta.glob<string>(["../ink/start.ink", "../ink/chapters/chapter_01.ink"], {
-              eager: true,
-              import: "default",
-          })
-        : import.meta.glob<string>("../ink/**/*.ink", { eager: true, import: "default" });
-    const rootPath = "../ink/start.ink";
-    const root = files[rootPath];
-
-    if (!root) {
-        throw new Error(`Ink root file not found: ${rootPath}`);
-    }
-
-    const chapters = Object.entries(files)
-        .filter(([path]) => path !== rootPath)
-        .filter(([path]) => !isChapterOneDemoBuild || path.endsWith("/chapter_01.ink"))
-        .sort(([pathA], [pathB]) => pathA.localeCompare(pathB, "en"))
-        .map(([, content]) => {
-            const trimmedContent = content.trim();
-            return isChapterOneDemoBuild ? createChapterOneDemoInk(trimmedContent) : trimmedContent;
-        });
-
-    return [`${root.trim()}\n\n${chapters.join("\n\n")}\n\n`];
-}
-
-function createChapterOneDemoInk(chapter: string) {
-    const extraLabel = "=== chapter_1_extra ===";
-    const labelIndex = chapter.indexOf(extraLabel);
-    if (labelIndex < 0) return chapter;
-
-    const mainChapter = chapter
-        .slice(0, labelIndex)
-        .replace(/\n\* Continuar al capitulo 2\s*\n-> chapter_2\s*$/u, "")
-        .trimEnd();
-    const extraChapter = chapter
-        .slice(labelIndex)
-        .replace(/\n\* Continuar al capitulo 2\s*\n-> chapter_2\s*$/u, "\n-> END")
-        .trimEnd();
-
-    return `${mainChapter}\n\n${extraChapter}`;
-}
-
 export async function importAllInkLabels() {
-    const fileEntries = await getInkText();
-    await importInkText(fileEntries);
+    await importJson(compiledInkStory);
 }
 
 export async function convertInkToJson() {
-    const fileEntries = await getInkText();
-    return await Promise.all(fileEntries.map((data) => convertInkText(data)));
+    return [compiledInkStory];
 }
 
 export function initializeInk(options: { t: (key: string) => string }) {
     const { t } = options;
     if (!inkRuntimeInitialized) {
         HashtagCommands.add(async (script, props) => {
+            const optimizedTransitionCommand = getOptimizedTransitionCommand(script);
+            if (optimizedTransitionCommand) return optimizedTransitionCommand;
+
             if (script.length === 2) {
                 if (script[0] === "navigate") {
                     await props.navigate(script[1]);
@@ -136,4 +94,19 @@ export function initializeInk(options: { t: (key: string) => string }) {
     }
 
     onInkTranslate(t);
+}
+
+function getOptimizedTransitionCommand(script: string[]) {
+    const duration = performanceProfile.canvasFadeDurationSeconds;
+    if (!duration || script[0] !== "show" || script[1] !== "image") return undefined;
+
+    const transitionIndex = script.indexOf("with");
+    if (transitionIndex < 0 || script[transitionIndex + 1] !== "fade") return undefined;
+
+    // Avoid re-processing the command after the Ink adapter receives the
+    // rewritten string from this custom handler.
+    const transitionProps = script.slice(transitionIndex + 2);
+    if (transitionProps.includes("duration")) return undefined;
+
+    return `${script.join(" ")} duration ${duration}`;
 }

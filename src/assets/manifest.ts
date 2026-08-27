@@ -270,11 +270,27 @@ const sourceManifest: AssetsManifest = {
 
 const storyBundleNames = new Set<string>(Object.values(STORY_ASSET_BUNDLES));
 const useStoryWebpDerivatives = import.meta.env.VITE_STORY_WEBP === "true";
+const chapterOneDemoBuild = import.meta.env.VITE_CHAPTER1_DEMO === "true";
+const chapterOneDemoBundleNames = new Set<string>([
+    SPLASH_ROUTE,
+    MAIN_MENU_ROUTE,
+    STORY_ASSET_BUNDLES.chapter1,
+]);
+
+// The demo never references later chapters. Keeping their descriptors out of
+// Pixi's resolver reduces startup parsing and avoids hundreds of dead aliases
+// in the texture-cache maintenance path.
+const selectedSourceManifest: AssetsManifest = chapterOneDemoBuild
+    ? {
+          ...sourceManifest,
+          bundles: sourceManifest.bundles.filter((bundle) => chapterOneDemoBundleNames.has(bundle.name)),
+      }
+    : sourceManifest;
 
 const manifest = useStoryWebpDerivatives
     ? ({
-          ...sourceManifest,
-          bundles: sourceManifest.bundles.map((bundle) => {
+          ...selectedSourceManifest,
+          bundles: selectedSourceManifest.bundles.map((bundle) => {
               if (!storyBundleNames.has(bundle.name)) return bundle;
 
               return {
@@ -295,7 +311,7 @@ const manifest = useStoryWebpDerivatives
               };
           }),
       } as AssetsManifest)
-    : sourceManifest;
+    : selectedSourceManifest;
 
 export interface StoryAssetEntry {
     alias: string;

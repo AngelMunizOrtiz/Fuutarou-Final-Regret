@@ -927,6 +927,13 @@ html.vn-performance-lite .vn-character-body.is-listening {
   opacity: 0.86;
 }
 
+/* Keep the speaking emphasis on mobile: this animation only changes
+   transform, so it stays GPU-friendly after the expensive shadow filters are
+   removed above. */
+html.vn-performance-lite .vn-character-body.is-active-speaker {
+  animation: vn-character-active-bounce 620ms ease-out 1 !important;
+}
+
 html.vn-performance-lite .vn-character-slot {
   contain: layout paint style;
 }

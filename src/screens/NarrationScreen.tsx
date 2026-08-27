@@ -1,8 +1,9 @@
 import { useColorScheme } from "@mui/joy";
 import Box from "@mui/joy/Box";
 import Typography from "@mui/joy/Typography";
-import { RefObject, useEffect, useMemo, useRef, useState } from "react";
+import { memo, RefObject, useEffect, useMemo, useRef, useState } from "react";
 import Markdown from "react-markdown";
+import type { Components } from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import { useShallow } from "zustand/react/shallow";
@@ -22,6 +23,12 @@ import {
     dialogueFrameFilter,
 } from "../values/dialogueUi";
 import ChoiceMenu from "./ChoiceMenu";
+
+const MARKDOWN_REMARK_PLUGINS = [remarkGfm];
+const MARKDOWN_REHYPE_PLUGINS = [rehypeRaw];
+const INLINE_MARKDOWN_COMPONENTS: Components = {
+    p: (props) => <span {...props} />,
+};
 
 export default function NarrationScreen() {
     const { data: { animatedText, character, text } = {} } = useQueryDialogue();
@@ -210,17 +217,7 @@ function NarrationScreenText({ paragraphRef }: { paragraphRef: RefObject<HTMLDiv
                 lineHeight: "inherit",
             }}
         >
-            <span>
-                <Markdown
-                    remarkPlugins={[remarkGfm]}
-                    rehypePlugins={[rehypeRaw]}
-                    components={{
-                        p: (props) => <span {...props} />,
-                    }}
-                >
-                    {text}
-                </Markdown>
-            </span>
+            <MemoizedMarkdownText text={text || ""} />
             <span>
                 <span> </span>
                 <EfficientTypewriterText
@@ -234,6 +231,20 @@ function NarrationScreenText({ paragraphRef }: { paragraphRef: RefObject<HTMLDiv
         </p>
     );
 }
+
+const MemoizedMarkdownText = memo(function MemoizedMarkdownText({ text }: { text: string }) {
+    return (
+        <span>
+            <Markdown
+                remarkPlugins={MARKDOWN_REMARK_PLUGINS}
+                rehypePlugins={MARKDOWN_REHYPE_PLUGINS}
+                components={INLINE_MARKDOWN_COMPONENTS}
+            >
+                {text}
+            </Markdown>
+        </span>
+    );
+});
 
 /**
  * Efficient typewriter for every profile. It keeps one text node and reveals a
@@ -313,15 +324,7 @@ function EfficientTypewriterText({
     }, [characters.length, paragraphRef, visibleCount]);
 
     if (visibleCount >= characters.length) {
-        return (
-            <Markdown
-                remarkPlugins={[remarkGfm]}
-                rehypePlugins={[rehypeRaw]}
-                components={{ p: (props) => <span {...props} /> }}
-            >
-                {text}
-            </Markdown>
-        );
+        return <MemoizedMarkdownText text={text} />;
     }
 
     return <>{characters.slice(0, visibleCount).join("")}</>;

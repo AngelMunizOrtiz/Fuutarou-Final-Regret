@@ -27,7 +27,6 @@ let lastTrimRequestedAt = Number.NEGATIVE_INFINITY;
 // Texture cleanup is intentionally less frequent than story steps. Running
 // it after every tap can evict a background that is reused a few lines later,
 // creating a decode/upload hitch that is more visible than the memory saved.
-const MIN_TRIM_INTERVAL_MS = performanceProfile.isAndroid ? 1_800 : performanceProfile.lite ? 1_200 : 900;
 
 const storyAssetEntries = getStoryAssetEntries();
 const storyAssetAliases = new Set(storyAssetEntries.map(({ alias }) => alias));
@@ -111,7 +110,7 @@ export function trimStoryAssetCache() {
     if (trimRequest) return trimRequest;
 
     const now = performance.now();
-    if (now - lastTrimRequestedAt < MIN_TRIM_INTERVAL_MS) return Promise.resolve();
+    if (now - lastTrimRequestedAt < performanceProfile.storyTrimMinIntervalMs) return Promise.resolve();
     lastTrimRequestedAt = now;
 
     const generation = storyGeneration;

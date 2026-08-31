@@ -63,7 +63,7 @@ He wonders whether he could have fallen in love with Yotsuba under different cir
 She appeared to be everything Fuutarou wanted in a woman.
 Perhaps he truly could have loved her...or perhaps there was already a moment when he did.
 But…
-Memories of her flood Fuutarou's mind: her smiles, her actions and her gentle words.
+narrator: Memories of her flood Fuutarou's mind: her smiles, her actions and her gentle words.
 He remembers everything she did for him and for herself as she struggled to become a better person.
 He remembers chasing her, New Year's, their play date, the first hot springs trip, Kyoto, the aquarium, the pool and the Sunrise Festival...
 Fuutarou smiles.

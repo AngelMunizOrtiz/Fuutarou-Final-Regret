@@ -7,6 +7,7 @@ import { useLocation } from "react-router-dom";
 import ModalDialogCustom from "../components/ModalDialog";
 import useMyNavigate from "../hooks/useMyNavigate";
 import useSettingsScreenStore from "../stores/useSettingsScreenStore";
+import { resetActiveStoryChapter } from "../utils/story-runtime-state";
 
 export default function ReturnMainMenuButton() {
     const setOpenSettings = useSettingsScreenStore((state) => state.setOpen);
@@ -48,6 +49,7 @@ export default function ReturnMainMenuButton() {
                             variant='outlined'
                             onClick={() => {
                                 Game.clear();
+                                resetActiveStoryChapter();
                                 navigate("/");
                                 setOpenSettings(false);
                                 setOpenDialog(false);

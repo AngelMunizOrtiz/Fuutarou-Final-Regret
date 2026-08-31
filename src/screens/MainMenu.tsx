@@ -25,6 +25,7 @@ import { preloadImages } from "../utils/preload-utility";
 import { loadSave } from "../utils/save-utility";
 import { runViewTransition } from "../utils/view-transition";
 import { performanceProfile } from "../utils/performance-profile";
+import { resetActiveStoryChapter } from "../utils/story-runtime-state";
 import LoadingScreen from "./LoadingScreen";
 
 const OPENING_SCENE_ASSETS = [
@@ -88,6 +89,7 @@ export default function MainMenu() {
 
     useEffect(() => {
         editHideInterface(false);
+        resetActiveStoryChapter();
         void releaseStoryAssets();
 
         const music = new Audio();

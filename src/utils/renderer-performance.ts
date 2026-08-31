@@ -29,7 +29,11 @@ export function configureCanvasRendererPerformance() {
 
 export function wakeCanvasRenderer(activeForMs = performanceProfile.rendererIdleSleepMs) {
     try {
-        canvas.app.ticker.start();
+        // Pointer events and narration steps can wake the renderer in the
+        // same turn. Avoid repeatedly touching Pixi's ticker when it is
+        // already running; on WebView this also avoids needless scheduler
+        // bookkeeping during rapid taps.
+        if (!canvas.app.ticker.started) canvas.app.ticker.start();
     } catch {
         return;
     }
@@ -47,7 +51,7 @@ export function sleepCanvasRenderer() {
         idleTimer = undefined;
     }
     try {
-        canvas.app.ticker.stop();
+        if (canvas.app.ticker.started) canvas.app.ticker.stop();
     } catch {
         // Game.init has not completed yet.
     }

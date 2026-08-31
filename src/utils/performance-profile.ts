@@ -50,10 +50,15 @@ export const performanceProfile = Object.freeze({
     // textures while dialogue is being revealed was the main source of the
     // short stalls seen in Android WebView.
     storyPrefetchCount: isAndroid ? 1 : lite ? 2 : 3,
-    // Keep the current and immediately previous background on mobile. One
-    // texture was too aggressive: quick dialogue advances could unload a
-    // background that the next line needed again, forcing another decode.
-    storyTextureRetainCount: isAndroid ? 2 : lite ? 2 : 3,
+    // Keep a small rolling window of backgrounds on mobile. One or two
+    // textures were too aggressive for quick dialogue advances: a background
+    // could be unloaded just before the next line reused it, forcing another
+    // decode/upload on the WebView GPU.
+    storyTextureRetainCount: isAndroid ? 3 : lite ? 2 : 3,
+    // Texture eviction is deliberately less frequent than dialogue steps.
+    // Releasing GPU resources is more expensive than retaining one extra
+    // chapter texture for a few seconds, especially on Android WebView.
+    storyTrimMinIntervalMs: isAndroid ? 5_000 : lite ? 2_000 : 1_200,
     spritePrefetchCount: isAndroid ? 1 : lite ? 2 : 3,
     spritePreloadCacheLimit: isAndroid ? 4 : lite ? 8 : 24,
     imagePreloadCacheLimit: isAndroid ? 3 : lite ? 6 : 24,

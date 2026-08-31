@@ -11,6 +11,11 @@ import { isStorySceneTransition } from "./utils/ink-utility";
 import { getAppPathname } from "./utils/base-path";
 import { applyPerformanceProfile, performanceProfile } from "./utils/performance-profile";
 import { configureCanvasRendererPerformance, wakeCanvasRenderer } from "./utils/renderer-performance";
+import {
+    isStoryChapterBoundary,
+    resetActiveStoryChapter,
+    setActiveStoryChapter,
+} from "./utils/story-runtime-state";
 
 applyPerformanceProfile();
 
@@ -98,6 +103,7 @@ Game.onEnd(async ({ navigate }) => {
 
     useCharacterStageStore.getState().clear();
     Game.clear();
+    resetActiveStoryChapter();
     navigate("/");
 });
 
@@ -106,19 +112,17 @@ Game.onError((type, error, { notify, uiTransition }) => {
     console.error(`Error occurred: ${type}`, error);
 });
 
-let activeStoryChapter: number | undefined;
-
 Game.onLoadingLabel(async (_stepId, { id }) => {
     wakeCanvasRenderer();
     const nextChapter = getStoryChapterNumber(id);
-    const isChapterBoundary = nextChapter !== undefined && nextChapter !== activeStoryChapter;
+    const isChapterBoundary = isStoryChapterBoundary(nextChapter);
 
-    if (!isChapterBoundary) {
+    if (!isChapterBoundary || nextChapter === undefined) {
         await loadStoryAssetsForLabel(id);
         return;
     }
 
-    activeStoryChapter = nextChapter;
+    setActiveStoryChapter(nextChapter);
     useChapterTransitionStore.getState().begin(nextChapter);
 
     try {

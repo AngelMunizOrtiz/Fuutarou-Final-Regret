@@ -106,6 +106,7 @@ async function compileInkSource(source: string) {
     runtime.addEventListener = noop;
     runtime.removeEventListener = noop;
     try {
+        await registerInkCharactersForBuild();
         const { convertInkText } = await import("@drincs/pixi-vn-ink");
         return convertInkText(source);
     } finally {
@@ -115,6 +116,24 @@ async function compileInkSource(source: string) {
             else delete runtime[key];
         }
     }
+}
+
+async function registerInkCharactersForBuild() {
+    // The runtime imports src/values/characters before loading Ink. Vite runs
+    // this compiler in Node, where importing that module would load Pixi's
+    // browser-only sound entry point. Reuse its declared IDs with lightweight
+    // records instead: Ink only needs to identify a valid dialogue speaker.
+    const registrySource = await readFile(resolve("src", "values", "characters.ts"), "utf8");
+    const characterIds = Array.from(
+        registrySource.matchAll(/new Character\("([^"\\]+)"/g),
+        ([, id]) => id,
+    );
+    const { RegisteredCharacters } = await import("@drincs/pixi-vn/characters");
+    const missingCharacters = characterIds
+        .filter((id) => !RegisteredCharacters.has(id))
+        .map((id) => ({ id, name: id, color: "#ffffff" }));
+
+    if (missingCharacters.length > 0) RegisteredCharacters.add(missingCharacters);
 }
 
 function createChapterOneDemoInk(chapter: string) {

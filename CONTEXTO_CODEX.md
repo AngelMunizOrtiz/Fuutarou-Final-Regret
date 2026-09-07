@@ -2,7 +2,7 @@
 
 ## Fecha de actualización
 
-1 de septiembre de 2026.
+6 de septiembre de 2026 (revisión de continuidad y prototipo de animación para explorar un ending).
 
 ## Objetivo general del proyecto
 
@@ -10,14 +10,20 @@ Desarrollar **Fuutarou Final Regret**, una novela visual fan de *The Quintessent
 
 ## Estado actual
 
-- Rama comprobada: `New-Optimization`; `HEAD` era `bef5373` (`Terminar Optimizacion y continuar con CG`) al iniciar esta actualización. El árbol estaba limpio antes de crear estos dos archivos.
+- **Ampliación cronológica vigente:** el usuario aprobó Romance y esperanza y pidió más material, fotogramas, transiciones y orden desde el nacimiento. La secuencia ahora tiene **29 planos/144 s**, usa **12 PNG + 13 MP4 fuente** (25 de los 33 archivos visuales) y **220 fotogramas extraídos** en 14 secuencias. Orden: Miku con recién nacida → despertar/chupete/brazos abiertos → besos de padres → salida al campo → pasos → vida cotidiana/epílogo → cocina → cumpleaños. La edad, pelo y estilo de las bases siguen siendo provisionales; no se homogeneizaron los originales.
+- **Última petición del ending:** el usuario pidió otra variante más romántica y esperanzadora. Añadida **Romance y esperanza** como tercera opción y nuevo valor inicial (`look=hope`): pastel, luz dorada/rosada, pétalos sutiles, disolvencias de 1.5 s y cierre a marfil. Las otras dos variantes siguen disponibles. Se mantiene el pase interactivo de 72 s/14 planos; no se exporta video ni se cambia el juego.
+- Rama comprobada el 6 de septiembre: `New-Optimization`; `HEAD` es `be92700` (`Crear contexxto para agente Codex`), que solo añadió `AGENTS.md` y este documento sobre `bef5373`. El árbol estaba limpio al comenzar la revisión de continuidad.
 - La historia activa contiene 11 capítulos Ink en `src/ink/chapters/`. Vite los precompila durante el build; el modo demo incluye solo el capítulo 1 y su extra.
 - Existen scripts para demo de capítulo 1 en web, Windows y Android, y para la versión completa en Windows y Android. No se ejecutaron en esta tarea los empaquetados Tauri completos.
 - El build web de producción pasa. La demo web tiene despliegue automático de GitHub Pages al hacer push a `main`; el estado y la URL pública actuales quedan pendientes de verificar externamente.
 - La versión PC portable fue reportada por el usuario como fluida. El rendimiento de la última versión Android en la Huawei MatePad 11 todavía necesita una prueba física reciente; las primeras versiones llegaron a tener tirones severos.
-- El trabajo visual vigente se concentra en terminar CG del capítulo 1 y en bocetos del epílogo cómico de Mitsuki. La carpeta `public/images/cg/epilogue-mitsuki/background-fixed/` contiene actualmente 11 PNG; el conteo de `docs/INVENTARIO_CG_EPILOGO_MITSUKI.md` está desactualizado y debe revisarse antes de usarlo como inventario definitivo.
+- El trabajo visual vigente incluye fondos/CG del capítulo 1 y el epílogo cómico de Mitsuki. En la revisión posterior del 6 de septiembre, `public/images/cg/epilogue-mitsuki/background-fixed/` ya contiene 15 PNG y 18 MP4, además del instrumental y archivos de trabajo. El conteo previo de 11 PNG y `docs/INVENTARIO_CG_EPILOGO_MITSUKI.md` están desactualizados; no asumir que todo el contenido está aprobado.
 - `src/ink-sin-narrador/` conserva una reescritura editorial separada de los 11 capítulos. No está integrada al runtime. Se mantiene aparte mientras el narrador aún ayuda a definir acciones y CG.
 - `src/ink-borradores/extra_final_mitsuki.ink` y su JSON español son un borrador independiente; su integración en la historia principal está pendiente.
+- El usuario está produciendo los fondos definitivos del capítulo 1 y preparando un ending después del capítulo final. Autorizó una prueba de CG animado. Se creó `experiments/ending-lab/`, una vista previa independiente de 24 s basada en `cg_041a_miku_answer_permission.png`, con capas, parpadeo, respiración, lluvia, comparación estática, pase de títulos provisionales y medición. No está integrada al runtime ni aprobada como ending final.
+- El usuario valoró positivamente el experimento y prefiere explorar un ending con ilustraciones estáticas y movimientos leves, como parpadeo. Tiene canciones en Suno que no lo convencen por completo y está explorando un instrumental de referencia.
+- **Corrección vigente:** el usuario quiere ampliar la misma base INTERACTIVA de Miku, sin exportar MP4 por ahora. `ending-lab` ya incluye un pase de Mitsuki de 72 s/14 planos a partir de 9 CG, manteniendo Miku en el selector. Añadió como referencia una imagen de Cyberpunk: Edgerunners: se incorporó una variante Neón gráfico (amarillo/cian/magenta, posterización, ecos de silueta y barridos) alternable con Luz cálida. Parpadeo y respiración solo en el retrato de Mitsuki y el panel central del tríptico. Los demás CG usan cámara/composición/efectos, sin inventar animación corporal. Los originales no se modifican.
+- Después entregó `antent - hope to see you again.mp3` (147.84 s) y `Megami no Cafe Terrace - Ending.mp4` (90.09 s), ambos en su escritorio. Posponiendo la petición de prompt para Suno, pidió hacer un ending con los recursos de `background-fixed` (escribió `background-fix`, que no existe). Autorizó usar las ilustraciones como bases reemplazables. Se preparó un montaje de 20 planos y 90 s con el instrumental recibido, tomando como referencia los detalles/retratos/grupos del MP4; incluye ilustraciones y clips existentes de esa carpeta. No se utilizan escenas ni audio del anime de referencia.
 
 ## Decisiones importantes y sus motivos
 
@@ -29,6 +35,8 @@ Desarrollar **Fuutarou Final Regret**, una novela visual fan de *The Quintessent
 - **Composición visual base 16:9.** Fondos y CG se trabajan normalmente a 2560×1440 y se exportan a 1920×1080; para paneo/zoom se recomienda maestro 3840×2160. Sprites: maestro transparente 1240×1752 y exportación 620×876.
 - **Continuidad del epílogo de Mitsuki.** La vivienda debe ser una casa japonesa contemporánea, cálida y modesta, no un departamento. Día 1: Mitsuki usa ojos normales y Raiha aparece desde la tarde. Día 2: Mitsuki usa los ojos tiernos aprendidos y Raiha ya no está. La posición y mirada de los personajes deben respetar el eje del genkan/puerta.
 - **No confirmar assets nuevos solo por existir.** Versiones con sufijos `draft` o múltiples `vN` son candidatas de revisión; no se consideran finales ni integradas hasta comprobar referencias en manifiesto/Ink y aprobación del usuario.
+- **Explorar el ending con una prueba independiente.** Los derivados ImageGen están en `artwork/experiments/ending-lab/`; el recorte utiliza el CG original con una máscara generada. Los títulos son ejemplos, sin canción definitiva. La prueba no cambia Ink, partidas ni fondos del capítulo 1.
+- **Formato de trabajo del ending:** animación de imágenes en Canvas 2D dentro de `ending-lab`, con pausa, búsqueda, selección de plano, comparación, perfiles y música opcional. No seguir desarrollando la exportación MP4 salvo nueva petición. El tratamiento neón se calcula una vez por textura y se conserva en memoria; no procesa píxeles de toda la pantalla en cada frame.
 
 ## Arquitectura o funcionamiento relevante
 
@@ -61,9 +69,15 @@ Desarrollar **Fuutarou Final Regret**, una novela visual fan de *The Quintessent
 - `docs/revision-integral-sin-narrador.md`: referencia de la revisión narrativa.
 - `docs/INVENTARIO_CG_EPILOGO_MITSUKI.md`: inventario visual útil, pero su conteo actual requiere actualización.
 - `public/images/cg/chapter_01/`, `public/images/cg/epilogue-mitsuki/` y `public/images/backgrounds/epilogue/`: trabajo visual reciente.
+- `experiments/ending-lab/README.md`: uso, límites y prueba física de la escena animada. `vite.ending-lab.config.ts` y comandos `dev:ending-lab`, `build:ending-lab`, `preview:ending-lab`: servidor 1430, compilación independiente y preview de producción 1431. `scripts/prepare-ending-lab-assets.mjs`: empaquetado reproducible de los derivados.
+- `experiments/ending-lab/mitsuki-ending.ts`: dirección de 14 planos/72 s y compositor en tiempo real; `mitsuki-assets.json`: 9 CG reemplazables; `neon-treatment.ts`: tratamiento gráfico cacheado; `scripts/prepare-mitsuki-live-assets.mjs`: dos resoluciones y música. Derivados de ojos/máscara/fondo y prompts en `artwork/experiments/ending-lab/mitsuki/`. Cambiar el retrato base exige rehacer sus capas y coordenadas de ojos.
+- `experiments/ending-lab/hope-treatment.ts`: tercera variante Romance y esperanza, corrección pastel por textura y partículas Canvas. `EndingLook` sustituye al booleano neón; se libera la caché inactiva al alternar variantes y se conserva el tiempo del plano.
+- `experiments/ending-lab/mitsuki-sequence.ts`: nuevo montaje cronológico de 29 planos/4 etapas y títulos provisionales. `mitsuki-motion.json`: fuente, rango temporal y cantidad de fotogramas de los clips; `scripts/prepare-mitsuki-motion.mjs`: extracción/hojas WebP en dos resoluciones. `mitsuki-ending.ts` carga por proximidad hasta 3 hojas de animación y libera su tratamiento de color al expulsarlas; conserva posters mientras una hoja opcional termina de cargar. El ending sigue siendo Canvas interactivo, sin exportación de película.
+- `experiments/ending-mitsuki/sequence.json`: montaje editable de 20 planos con fuentes, tiempos y encuadres. `scripts/render-mitsuki-ending.mjs`: exportación FFmpeg; `--preview` genera 960×540 y sin opción genera 1920×1080. Salidas locales en `artifacts/ending-mitsuki-v1/`, excluidas de Git; caché en `.codex-tmp/ending-mitsuki/`. La guía explica cómo sustituir ilustraciones/música y las limitaciones de continuidad.
 
 ## Trabajo ya realizado
 
+- Revisión de continuidad del 6 de septiembre: leídos `AGENTS.md` y este resumen; contrastados rama, último commit, scripts de `package.json`, 11 capítulos Ink y 11 PNG de Mitsuki. El README conserva documentación de la plantilla y el plan maestro visual tiene fechas/estados anteriores; no sustituyen al código como evidencia del avance actual. No se repitieron builds ni validadores.
 - Historia principal estructurada en 11 capítulos Ink con traducciones españolas por capítulo.
 - Demo del capítulo 1 + extra y variantes de build web, Windows y Android.
 - Builds completas para Windows (portable e instalador) y Android ARM64.
@@ -83,6 +97,29 @@ Comprobadas el 1 de septiembre de 2026:
 - `npm run validate:translations`: **falló** con 1736/1739 entradas traducidas. Capítulo 1 tiene 2 faltantes y capítulo 8 tiene 1; también hay entradas extra. Los numerosos avisos de personajes/comandos aparecen porque el validador aislado no registra todo el runtime, pero los tres faltantes sí son deuda verificable.
 - No se ejecutaron builds Tauri completos, instaladores, APK ni una prueba visual/end-to-end en esta tarea.
 - Validación manual previa reportada por el usuario: el portable de PC funciona fluido. Resultado actual en tablet Android: pendiente de verificar con el último build.
+
+Comprobadas el 6 de septiembre, solo para el experimento de ending:
+
+- `npm run build:ending-lab`: correcto (incluye TypeScript). ESLint de `main.ts` del experimento y `vite.ending-lab.config.ts`: correcto. No se repitieron lint/build completos del juego.
+- Prueba en navegador: carga, pausa, búsqueda temporal, parpadeo a 2.60 s, comparación estática, títulos y movimiento reducido; revisión visual a 390×844 y 1280×800. Sin errores/avisos en la consola consultada.
+- Perfil de detalle en navegador de escritorio/desarrollo: muestra de 10 s a 60 FPS, intervalo p95 16.8 ms, envío de dibujo p95 0.3 ms, 0 intervalos >50 ms, canvas 1003×564. No mide tiempo de GPU ni rendimiento real de Android.
+- Perfil ligero en preview de producción: 29.9 FPS, intervalo p95 33.5 ms, envío de dibujo p95 1.9 ms, 1 intervalo >50 ms, canvas 1134×638. Se comprobaron también activación del audio sin errores de consola, pantalla completa y detención del ending en 24 s. Las dos muestras tienen tamaños distintos y no son un benchmark comparativo de hardware.
+- Los WebP cargados por el perfil ligero suman aproximadamente 392 KB. El perfil limita el canvas a 1152 px y el dibujo a 30 FPS. Medición física en MatePad y comportamiento dentro del juego completo pendientes.
+
+Montaje MP4 posterior del 6 de septiembre:
+
+- Generado `artifacts/ending-mitsuki-v1/ending-mitsuki-1080p-v1.mp4`: 90 s, 1080p, 24 FPS/2160 fotogramas, H.264 + AAC estéreo, ~70.8 MB. Preview 960×540 disponible. Son 12 planos a partir de CG y 8 a partir de clips existentes, con reencuadres, transiciones, partículas discretas y títulos.
+- FFmpeg decodificó el MP4 completo sin errores. Revisados 20 fotogramas representativos y transiciones/título; se corrigió el tiempo del nombre de Fuutarou. Sintaxis del script y comprobación de espacios correctas. Audio analizado técnicamente en el primer corte, sin saturación; no hubo evaluación auditiva ni prueba Android.
+- Originales conservados; montaje y títulos editables, sin integración al juego ni publicación. La coherencia visual entre estilos/edades y la selección definitiva quedan para revisión del usuario.
+
+Ampliación interactiva posterior a la aclaración del usuario:
+
+- Mitsuki: 72 s/14 planos, tratamientos Luz cálida y Neón gráfico; este último es el inicial por la referencia de Cyberpunk: Edgerunners. Pausa, búsqueda, selección de planos, bucle de un plano, comparación original, música opcional con reloj sincronizado y archivo local reemplazable por sesión. Miku sigue disponible en el selector.
+- Build y TypeScript aislados, ESLint de `main.ts`, `mitsuki-ending.ts`, `neon-treatment.ts` y configuración Vite: correctos. Sintaxis de los scripts y espacios correctos.
+- Corregido empaquetado alfa de ambos experimentos: `removeAlpha` y `joinChannel` juntos descartaban transparencia; ahora se materializa RGB antes de añadir el canal y se comprueba el alfa. Las métricas antiguas de Miku NO describen la versión corregida.
+- Revisados retratos cálido/neón, parpadeo a 2.61 s, tríptico, controles, comparación, movimiento reducido, vuelta a Miku y vistas de 1280×900 y 390×844. En preview de producción el pase y la música se detienen a 72 s; se comprobó reanudación desde otro plano. Los errores transitorios de HMR por HTML todavía sin actualizar se resolvieron recargando; última consulta sin errores nuevos en producción. Un bloqueo inicial del navegador por límite de uso se resolvió en el reintento después de la petición de continuar. Vista de producción disponible en `http://127.0.0.1:1431/?quality=lite`, marcada para conservarse; tamaño de prueba del navegador restaurado.
+- Perfil ligero en escritorio/producción con neón y música, canvas 1134×638: 30 FPS, intervalo p95 33.5 ms, envío de dibujo p95 1.1 ms, 0 intervalos >50 ms durante 10 s. No mide GPU ni Android. WebP ligero Mitsuki: 703,556 bytes; audio opcional: 3,549,864 bytes. Memoria decodificada/neón y rendimiento físico pendientes.
+- Variante romántica posterior: build/TypeScript y ESLint de los cuatro módulos del ending correctos. Revisados en producción la selección exclusiva entre tres variantes, retrato inicial con título, color pastel/pétalos y un CG posterior durante reproducción. Aplicada `look=hope` en la misma pestaña. No se repitió el benchmark ni se midió Android para este tratamiento; las cifras de la viñeta anterior corresponden al neón.
 
 ## Problemas o bloqueos conocidos
 
@@ -108,4 +145,4 @@ Comprobadas el 1 de septiembre de 2026:
 
 ## Próximo paso concreto para retomar el trabajo
 
-Construir el APK actual del capítulo 1 + extra con `npm run build:android:chapter1`, instalarlo en la Huawei MatePad 11 y recorrer introducción, capítulo y extra anotando exactamente dónde aparecen tirones. Si la tablet no está disponible, continuar con la selección/exportación final de los CG del capítulo 1 y comprobar sus referencias en `src/assets/manifest.ts` y `src/ink/chapters/chapter_01.ink`.
+Revisar la versión ampliada y cronológica de **Romance y esperanza** (29 planos/144 s) en `http://127.0.0.1:1431/?quality=lite&look=hope`. Ajustar especialmente la continuidad visual entre edades/estilos de los recursos, velocidad de los gestos y sincronía musical; el usuario aprobó el filtro y pidió aprovechar más material. Neón gráfico, Luz cálida y Miku bajo la lluvia siguen disponibles. No continuar exportaciones MP4 por ahora; Suno está pospuesto. Sin integración al juego, commits ni publicación. Pendientes prueba física en MatePad y CG definitivos.

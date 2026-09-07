@@ -7,6 +7,9 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
+    "dev:ending-lab": "vite --config vite.ending-lab.config.ts",
+    "build:ending-lab": "tsc -p experiments/ending-lab/tsconfig.json && vite build --config vite.ending-lab.config.ts",
+    "preview:ending-lab": "vite preview --config vite.ending-lab.config.ts",
     "build": "node scripts/generate-story-prefetch-plan.mjs && tsc && vite build",
     "generate:gallery-thumbnails": "node scripts/generate-gallery-thumbnails.mjs",
     "generate:story-prefetch-plan": "node scripts/generate-story-prefetch-plan.mjs",

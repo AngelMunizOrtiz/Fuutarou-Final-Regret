@@ -1,0 +1,30 @@
+{
+  "title": "Fuutarou Final Regret — Todos los días, contigo",
+  "sourceDirectory": "public/images/cg/epilogue-mitsuki/background-fixed",
+  "audio": "antent - hope to see you again.mp3",
+  "audioStart": 0,
+  "fps": 24,
+  "transitionFrames": 16,
+  "shots": [
+    {"id":"01-home", "file":"raiha-miku-complicit-reaction-night-house-bg-cg-draft-v2.png", "duration":5, "zoom":[1.18,1.05], "focus":[[0.57,0.44],[0.50,0.50]], "mood":"night", "note":"La casa al final del día. Presentación del título."},
+    {"id":"02-first-days", "file":"2026-05-26-1779831687236.mp4", "duration":5, "trim":[0.2,4.7], "zoom":[1.08,1.12], "focus":[[0.49,0.48],[0.48,0.45]], "note":"Primeros cuidados; clip del usuario."},
+    {"id":"03-family", "file":"2026-06-01-1780328479997.mp4", "duration":4, "trim":[0.25,4.7], "zoom":[1.09,1.14], "focus":[[0.52,0.48],[0.51,0.45]], "note":"Un gesto de afecto entre los tres."},
+    {"id":"04-mitsuki", "file":"mitsuki-pov-sad-normal-eyes-house-bg-cg-draft-v2.png", "duration":4, "zoom":[1.10,1.21], "focus":[[0.57,0.42],[0.57,0.39]], "note":"Retrato y mirada; ancla visual de Mitsuki."},
+    {"id":"05-little-hand", "file":"mitsuki-holds-fuutarou-pants-house-bg-cg-draft-v2.png", "duration":5, "zoom":[1.60,1.42], "focus":[[0.51,0.53],[0.53,0.47]], "note":"Plano de detalle de la mano sujetando a su padre."},
+    {"id":"06-stay", "file":"mitsuki-holds-fuutarou-pants-house-bg-cg-draft-v2.png", "duration":4, "zoom":[1.04,1.09], "focus":[[0.50,0.50],[0.52,0.46]], "transition":"fadewhite", "note":"Apertura del encuadre después del detalle."},
+    {"id":"07-small-gesture", "file":"3.mp4", "duration":4, "trim":[0.6,5.3], "zoom":[1.09,1.12], "focus":[[0.53,0.47],[0.55,0.45]], "note":"Movimiento ya disponible; no se genera animación corporal nueva."},
+    {"id":"08-comfort", "file":"miku-comforts-mitsuki-raiha-arrives-house-bg-cg-draft-v2.png", "duration":5, "zoom":[1.07,1.16], "focus":[[0.48,0.51],[0.40,0.46]], "note":"Miku y Mitsuki, con Raiha entrando al fondo."},
+    {"id":"09-secret", "file":"mitsuki-raiha-secret-lesson-house-bg-cg-draft-v3.png", "duration":4, "zoom":[1.05,1.12], "focus":[[0.49,0.50],[0.44,0.48]], "note":"Un secreto compartido."},
+    {"id":"10-whisper", "file":"mitsuki-raiha-secret-lesson-house-bg-cg-draft-v3.png", "duration":5, "zoom":[1.43,1.52], "focus":[[0.36,0.45],[0.37,0.43]], "transition":"smoothleft", "note":"Detalle del gesto; recorrido lateral breve."},
+    {"id":"11-cute-eyes", "file":"mitsuki-pov-cute-eyes-chibi-bubble-house-bg-cg-draft-v2.png", "duration":4, "zoom":[1.07,1.16], "focus":[[0.54,0.47],[0.57,0.43]], "note":"La mirada aprendida; se conserva la viñeta del original."},
+    {"id":"12-father", "file":"fuutarou-reaction-to-mitsuki-cute-eyes-house-bg-cg-draft-v2.png", "duration":5, "zoom":[1.05,1.15], "focus":[[0.50,0.44],[0.50,0.40]], "note":"Contraplano de Fuutarou."},
+    {"id":"13-doorway", "file":"mitsuki-pleading-eyes-door-angle-morning-cg-draft-v7.png", "duration":4, "zoom":[1.14,1.03], "focus":[[0.50,0.49],[0.50,0.50]], "transition":"fadewhite", "note":"Volver al espacio compartido."},
+    {"id":"14-lemon-detail", "file":"KomikoAI-video (3).mp4", "duration":4, "trim":[0.2,4.65], "zoom":[1.08,1.12], "focus":[[0.50,0.50],[0.53,0.48]], "note":"Inserto de cocina, como los detalles cotidianos de la referencia."},
+    {"id":"15-baking", "file":"KomikoAI-video (7).mp4", "duration":5, "trim":[0.2,4.7], "zoom":[1.07,1.11], "focus":[[0.53,0.47],[0.52,0.45]], "note":"Descubrimientos cotidianos; estilo provisional del clip."},
+    {"id":"16-outside", "file":"2026-05-18-1779113712548.mp4", "duration":4, "trim":[0.2,4.7], "zoom":[1.08,1.13], "focus":[[0.52,0.49],[0.54,0.46]], "note":"Recuerdo de una salida familiar."},
+    {"id":"17-together", "file":"KomikoAI-video (1).mp4", "duration":5, "trim":[0.2,4.7], "zoom":[1.08,1.13], "focus":[[0.53,0.48],[0.52,0.46]], "note":"Repetición del abrazo como motivo emocional."},
+    {"id":"18-birthday", "file":"KomikoAI-video (8).mp4", "duration":5, "trim":[3.1,8.9], "zoom":[1.05,1.10], "focus":[[0.54,0.50],[0.55,0.46]], "mood":"night", "note":"Celebración; punto de mayor color y movimiento."},
+    {"id":"19-carry", "file":"fuutarou-leaves-carrying-mitsuki-cute-eyes-house-bg-cg-draft-v5.png", "duration":5, "zoom":[1.17,1.04], "focus":[[0.57,0.41],[0.50,0.49]], "transition":"fadewhite", "note":"Cierre de la pequeña historia: salen juntos."},
+    {"id":"20-home-again", "file":"raiha-miku-complicit-reaction-night-house-bg-cg-draft-v2.png", "duration":4, "zoom":[1.06,1.10], "focus":[[0.51,0.49],[0.54,0.46]], "mood":"night", "note":"Regreso al hogar y fundido final."}
+  ]
+}

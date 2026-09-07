@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#10191e" />
+    <link rel="icon" href="data:," />
+    <title>Todos los días, contigo · Final Regret</title>
+  </head>
+  <body>
+    <main class="lab">
+      <header class="masthead">
+        <a class="wordmark" href="./" aria-label="Final Regret, inicio de la prueba">Fuutarou <span>Final Regret</span></a>
+        <label class="edition experiment-picker">ESTUDIO DE ENDING <select id="experiment" aria-label="Experimento"><option value="mitsuki">Mitsuki · Contigo</option><option value="miku">Miku · Bajo la lluvia</option></select></label>
+      </header>
+      <section class="introduction" aria-labelledby="title">
+        <div><p class="eyebrow">UN RECUERDO QUE SIGUE VIVO</p><h1 id="title">Todos los días, <span>contigo.</span></h1></div>
+        <p id="intro-note">Pequeños gestos. Un hogar. Un recuerdo que continúa.<br />Un pase de ending con tus ilustraciones.</p>
+      </section>
+
+      <section class="viewer" id="viewer" aria-label="Ending interactivo de Mitsuki">
+        <audio id="music" preload="none" hidden></audio>
+        <div class="scene" id="scene">
+          <canvas id="canvas" width="1280" height="720" role="img" aria-label="Ending de Mitsuki con ilustraciones animadas"></canvas>
+          <div class="loading" id="loading" role="status">Preparando el recuerdo…</div>
+          <div class="scene-top"><span class="scene-label" id="scene-label">MIKU · CALLE EIEN</span><span class="scene-label" id="mode-label">ESCENA VIVA</span></div>
+          <div class="credits" id="credits" aria-hidden="true"><span id="credit-kicker"></span><p id="credit-title"></p><small id="credit-note"></small></div>
+          <button class="restore" id="restore" hidden>Mostrar controles</button>
+          <div class="scene-bottom"><span>FINAL REGRET <em>／</em> MOTION STUDY</span><span id="scene-caption">La lluvia pasa. El recuerdo permanece.</span></div>
+        </div>
+        <div class="transport">
+          <div class="transport-main">
+            <button id="play" class="round-button" aria-label="Pausar" title="Pausar (Espacio)" disabled>Ⅱ</button>
+            <button id="restart" class="text-button" title="Volver al inicio" disabled>↺ <span>Reiniciar</span></button>
+            <label class="timeline-label" for="timeline">Posición de la escena</label>
+            <input id="timeline" type="range" min="0" max="144" step="0.01" value="0" aria-label="Posición de la escena" disabled />
+            <output id="time">00:00 <span>/ 02:24</span></output>
+          </div>
+          <div class="transport-actions">
+            <button id="sound" class="text-button" aria-pressed="false" disabled>Activar música</button>
+            <button id="fullscreen" class="text-button" disabled>Pantalla completa ↗</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="Opciones de la prueba">
+        <div class="mode-selector" role="group" aria-label="Presentación">
+          <button data-mode="ending" aria-pressed="true" disabled>Pase de ending <span id="ending-length">02:24</span></button>
+          <button data-mode="live" aria-pressed="false" disabled id="live-label">Mantener plano</button>
+          <button data-mode="original" aria-pressed="false" disabled>Comparar original</button>
+        </div>
+        <button class="text-button settings-button" id="settings-toggle" aria-expanded="false" aria-controls="settings">Ajustar efectos <span>＋</span></button>
+      </section>
+      <p class="hint" id="hint">Mueve suavemente el cursor sobre la imagen para explorar la profundidad.</p>
+      <div class="look-controls" id="look-controls" role="group" aria-label="Dirección visual"><span>DIRECCIÓN VISUAL</span><button data-look="hope" aria-pressed="true"><i class="hope-swatch"></i> Romance y esperanza</button><button data-look="warm" aria-pressed="false"><i class="warm-swatch"></i> Luz cálida</button><button data-look="neon" aria-pressed="false"><i class="neon-swatch"></i> Neón gráfico</button></div>
+
+      <section class="storyboard" id="storyboard" aria-label="Planos del ending">
+        <div class="storyboard-heading"><p class="eyebrow">LOS PEQUEÑOS RECUERDOS</p><label>Ir a <select id="shot" aria-label="Elegir plano"></select></label></div>
+        <div class="chapters" id="chapters" role="group" aria-label="Etapas de su crecimiento"></div>
+        <div class="filmstrip" id="filmstrip" role="group" aria-label="Saltar a un recuerdo"></div>
+      </section>
+
+      <section class="settings" id="settings" hidden aria-label="Ajustes de animación">
+        <div class="effects">
+          <label><input id="depth" type="checkbox" checked /> Cámara y profundidad</label>
+          <label><input id="blink" type="checkbox" checked /> <span id="blink-label">Parpadeo de Mitsuki</span></label>
+          <label><input id="breath" type="checkbox" checked /> <span id="breath-label">Respiración de Mitsuki</span></label>
+          <label><input id="rain" type="checkbox" checked /> <span id="rain-label">Luz y partículas</span></label>
+          <label>Intensidad <input id="intensity" type="range" min="0" max="1" step="0.05" value="0.5" /></label>
+        </div>
+        <div class="profile-row">
+          <label>Perfil <select id="quality"><option value="lite">Ligero · 30 FPS</option><option value="full">Detalle · 60 FPS</option></select></label>
+          <label><input id="reduced" type="checkbox" /> Movimiento reducido</label>
+          <button class="text-button" id="measure" disabled>Medir durante 10 s</button>
+          <button class="text-button" id="download" disabled>Descargar medición</button>
+        </div>
+        <p class="measurement" id="measurement" role="status">La medición corresponde a este navegador. El perfil ligero no simula el hardware de Android.</p>
+        <div class="music-settings" id="music-settings"><div><span>MÚSICA DE LA PRUEBA</span><p id="music-name">antent — hope to see you again</p><small>Parpadeo y respiración disponibles en el retrato de Mitsuki y el plano de tres retratos.</small></div><label class="file-button">Elegir canción <input id="music-file" type="file" accept="audio/*" aria-label="Elegir canción local" /></label></div>
+      </section>
+      <footer><span>ILUSTRACIÓN → CAPAS → MOVIMIENTO</span><p>Prueba independiente · Arte y títulos provisionales, reemplazables.</p><span class="footer-mark">FFR</span></footer>
+      <p class="notice" id="notice" role="status"></p>
+    </main>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,114 @@
+{
+  "birth": {
+    "file": "2026-05-26-1779831687236.mp4",
+    "from": 0.15,
+    "to": 4.7,
+    "frames": 12,
+    "columns": 4,
+    "rows": 3
+  },
+  "waking": {
+    "file": "KomikoAI-video.mp4",
+    "from": 0.15,
+    "to": 5.15,
+    "frames": 20,
+    "columns": 4,
+    "rows": 5
+  },
+  "morningHug": {
+    "file": "KomikoAI-video.mp4",
+    "from": 5.15,
+    "to": 7.72,
+    "frames": 16,
+    "columns": 4,
+    "rows": 4
+  },
+  "motherKiss": {
+    "file": "2026-06-01-1780328479997.mp4",
+    "from": 0.15,
+    "to": 4.65,
+    "frames": 12,
+    "columns": 4,
+    "rows": 3
+  },
+  "fatherKiss": {
+    "file": "KomikoAI-video (1).mp4",
+    "from": 0.15,
+    "to": 4.65,
+    "frames": 12,
+    "columns": 4,
+    "rows": 3
+  },
+  "farm": {
+    "file": "2026-05-18-1779113712548.mp4",
+    "from": 0.15,
+    "to": 4.65,
+    "frames": 16,
+    "columns": 4,
+    "rows": 4
+  },
+  "steps": {
+    "file": "KomikoAI-video (2).mp4",
+    "from": 0.1,
+    "to": 3.75,
+    "frames": 16,
+    "columns": 4,
+    "rows": 4
+  },
+  "littleWorld": {
+    "file": "1.mp4",
+    "from": 0.08,
+    "to": 2.55,
+    "frames": 12,
+    "columns": 4,
+    "rows": 3
+  },
+  "sleeve": {
+    "file": "3.mp4",
+    "from": 0.2,
+    "to": 8.8,
+    "frames": 20,
+    "columns": 4,
+    "rows": 5
+  },
+  "armsUp": {
+    "file": "321321312321.mp4",
+    "from": 0.15,
+    "to": 4.65,
+    "frames": 16,
+    "columns": 4,
+    "rows": 4
+  },
+  "lemonHands": {
+    "file": "KomikoAI-video (3).mp4",
+    "from": 0.2,
+    "to": 4.65,
+    "frames": 16,
+    "columns": 4,
+    "rows": 4
+  },
+  "lemonGirl": {
+    "file": "KomikoAI-video (4).mp4",
+    "from": 0.15,
+    "to": 4.65,
+    "frames": 12,
+    "columns": 4,
+    "rows": 3
+  },
+  "lemonProud": {
+    "file": "KomikoAI-video (7).mp4",
+    "from": 0.15,
+    "to": 4.65,
+    "frames": 16,
+    "columns": 4,
+    "rows": 4
+  },
+  "birthday": {
+    "file": "KomikoAI-video (8).mp4",
+    "from": 0.3,
+    "to": 9.5,
+    "frames": 24,
+    "columns": 4,
+    "rows": 6
+  }
+}

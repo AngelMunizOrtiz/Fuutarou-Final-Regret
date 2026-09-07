@@ -46,3 +46,4 @@ lerna-debug.log*
 *.sw?
 /Suno mp3
 /artifacts/windows
+/artifacts/ending-mitsuki-v1/

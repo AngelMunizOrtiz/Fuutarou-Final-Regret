@@ -36,3 +36,12 @@ body[data-look="hope"] .scene-top,body[data-look="hope"] .scene-bottom{color:#ff
 .chapters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 13px}.chapters button{background:transparent;border:0;border-bottom:1px solid var(--line);padding:7px 12px 9px 0;margin-right:12px;font-size:10px;color:var(--muted);text-align:left}.chapters button[aria-current=true]{color:var(--accent);border-color:var(--accent)}
 body[data-experiment="mitsuki"] .credits.lower{top:72%;width:33%}
 @media(max-width:520px){.chapters{gap:4px}.chapters button{font-size:8px;flex:1 1 42%;margin-right:0;padding:7px 4px}.mode-selector button{padding:9px 6px;font-size:9px}body[data-experiment="mitsuki"] .credits.lower{top:69%;width:37%}}
+
+/* During the film, keep editorial diagnostics outside the illustration. */
+body[data-experiment="mitsuki"][data-presentation="ending"] .scene-top,
+body[data-experiment="mitsuki"][data-presentation="ending"] .scene-bottom{display:none}
+body[data-look="hope"] .credits.finale{top:50%;left:15%;right:auto;width:70%;text-align:center;text-shadow:none;transform:translateY(-50%)}
+body[data-look="hope"] .credits.finale p{font-size:clamp(25px,4.4vw,64px);line-height:1.12;margin:18px 0}
+body[data-look="hope"] .credits.finale span::after{margin:13px auto 0;width:64px}
+body[data-look="hope"] .credits.finale small{letter-spacing:.07em}
+@media(max-width:520px){body[data-look="hope"] .credits.finale p{font-size:25px;margin:9px 0}body[data-look="hope"] .credits.finale span::after{margin-top:7px;width:32px}}

@@ -172,14 +172,16 @@ function draw(time: number) {
         const frame = mitsukiEnding.draw(ctx, time, { original: state.mode === "original", hold: state.mode === "live",
             reduced: state.reduced, depth: state.depth, blink: state.blink, breath: state.breath, atmosphere: state.rain,
             look: state.look, intensity: state.intensity, quality: state.quality, pointerX, pointerY });
-        if (frame.index !== lastCredit) {
+        const creditKey = frame.index + (frame.finale ? 1000 : 0);
+        if (creditKey !== lastCredit) {
             $("credit-kicker").textContent = frame.card?.kicker ?? "";
             $("credit-title").textContent = frame.card?.title ?? "";
             $("credit-note").textContent = frame.card?.note ?? "";
             credits.classList.toggle("right", frame.card?.side === "right");
             credits.classList.toggle("small", Boolean(frame.card?.small));
             credits.classList.toggle("lower", Boolean(frame.card?.lower));
-            lastCredit = frame.index;
+            credits.classList.toggle("finale", Boolean(frame.finale));
+            lastCredit = creditKey;
         }
         credits.style.opacity = frame.card ? String(frame.opacity) : "0";
         if (frame.index !== lastShot) {
@@ -266,6 +268,7 @@ function resize() {
 }
 
 function updateUi() {
+    document.body.dataset.presentation = state.mode;
     const active = state.playing && state.mode !== "original";
     play.textContent = active ? "Ⅱ" : "▶";
     play.setAttribute("aria-label", active ? "Pausar" : "Reproducir");
@@ -456,12 +459,12 @@ function presentExperiment() {
     $("storyboard").hidden = !isMitsuki;
     $("look-controls").hidden = !isMitsuki;
     $("music-settings").hidden = !isMitsuki;
-    $("rain-label").textContent = isMitsuki ? { neon: "Líneas y eco de color", warm: "Luz y partículas", hope: "Luz y pétalos" }[state.look] : "Lluvia";
+    $("rain-label").textContent = isMitsuki ? { neon: "Líneas y eco de color", warm: "Luz y partículas", hope: "Luz y ambiente" }[state.look] : "Lluvia";
     $("breath-label").textContent = isMitsuki ? "Respiración de Mitsuki" : "Respiración";
     $("blink-label").textContent = isMitsuki ? "Parpadeo de Mitsuki" : "Parpadeo";
     $("live-label").textContent = isMitsuki ? "Mantener plano" : "Escena viva";
     $("ending-length").textContent = formatTime(duration());
-    credits.classList.remove("right", "small", "lower");
+    credits.classList.remove("right", "small", "lower", "finale");
     lastShot = lastCredit = -1;
     if (!isMitsuki) {
         $("scene-label").textContent = "MIKU · CALLE EIEN";

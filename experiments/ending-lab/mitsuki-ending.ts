@@ -1,6 +1,6 @@
 // Live direction: the timeline holds art choices and framing, never rendered video.
 import { NeonTreatment } from "./neon-treatment";
-import { HopeTreatment } from "./hope-treatment";
+import { HopeTreatment, type HopeMood } from "./hope-treatment";
 import { shots, shotAt, ENDING_DURATION, isMotion, motion, type Art, type MotionArt, type Shot, type Card, type Point } from "./mitsuki-sequence";
 export { shots, shotAt, ENDING_DURATION, stages } from "./mitsuki-sequence";
 const urls = import.meta.glob<string>("./assets/mitsuki/*.webp", { eager: true, query: "?url", import: "default" });
@@ -12,7 +12,9 @@ const mix = (a: number, b: number, t: number) => a + (b - a) * t;
 export type EndingLook = "warm" | "neon" | "hope";
 export type EndingOptions = { original: boolean; hold: boolean; reduced: boolean; depth: boolean; blink: boolean;
     breath: boolean; atmosphere: boolean; look: EndingLook; intensity: number; quality: "lite" | "full"; pointerX: number; pointerY: number };
-export type EndingFrame = { index: number; card?: Card; opacity: number; label: string };
+export type EndingFrame = { index: number; card?: Card; opacity: number; label: string; finale?: boolean };
+const moodFor = (art: Art): HopeMood => art === "sunsetWalk" ? "sunset" :
+    ["night", "reading", "birthday"].includes(art) ? "night" : art === "farm" ? "garden" : "home";
 type Images = Record<Art | "room" | "child" | "eyes", HTMLImageElement>;
 
 export class MitsukiEnding {
@@ -244,9 +246,12 @@ export class MitsukiEnding {
         c.fillStyle = shade; c.fillRect(0, 0, W, H);
         if (shot.card && !o.hold) {
             const right = shot.card.side === "right";
-            const shade = c.createLinearGradient(right ? W : 0, 0, right ? W * .54 : W * .5, 0);
+            const shade = c.createLinearGradient(right ? W : 0, shot.card.lower ? H : 0,
+                right ? W * .54 : W * .5, shot.card.lower ? H * .22 : 0);
             shade.addColorStop(0, romantic ? "#fff5ead9" : "#1915219c"); shade.addColorStop(1, romantic ? "#fff5ea00" : "#19152100");
-            c.fillStyle = shade; c.fillRect(0, 0, W, H);
+            c.save();
+            c.globalAlpha = o.reduced ? 1 : smooth((t - .8) / 1.1) * smooth((shot.seconds - t - .3) / .9);
+            c.fillStyle = shade; c.fillRect(0, 0, W, H); c.restore();
         }
     }
     draw(c: CanvasRenderingContext2D, time: number, o: EndingOptions): EndingFrame {
@@ -269,7 +274,8 @@ export class MitsukiEnding {
         }
         const romantic = o.look === "hope";
         const transition = romantic ? "dissolve" : o.look === "neon" ? shot.transition === "cut" ? "cut" : "wipe" : shot.transition ?? "dissolve";
-        const duration = romantic ? shot.hopeTransition === "bloom" ? 1.8 : 1.4 : transition === "cut" ? 0 : transition === "wipe" ? .9 : 1.05;
+        // Short inserts need time to read after the transition has settled.
+        const duration = romantic ? Math.min(shot.seconds * .26, shot.hopeTransition === "bloom" ? 1.55 : 1.2) : transition === "cut" ? 0 : transition === "wipe" ? .9 : 1.05;
         const transitioning = index > 0 && local < duration && !o.hold && !o.reduced;
         this.paint(this.buffers[0], index, time, o);
         if (transitioning) {
@@ -295,8 +301,8 @@ export class MitsukiEnding {
                 c.drawImage(this.buffers[0], -W / 2, -H / 2, W, H);
             } else {
                 if (transition === "wipe") {
-                const edge = progress * (W + 210) - 210;
-                c.beginPath(); c.moveTo(0, 0); c.lineTo(edge + 210, 0); c.lineTo(edge, H); c.lineTo(0, H); c.closePath(); c.clip();
+                    const edge = progress * (W + 210) - 210;
+                    c.beginPath(); c.moveTo(0, 0); c.lineTo(edge + 210, 0); c.lineTo(edge, H); c.lineTo(0, H); c.closePath(); c.clip();
                 } else c.globalAlpha = progress;
                 c.drawImage(this.buffers[0], 0, 0, W, H);
             }
@@ -321,9 +327,20 @@ export class MitsukiEnding {
                 c.drawImage(source, 0, y / H * source.height, source.width, 17 / H * source.height, shift, y, W, 17);
             }
         }
-        if (romantic && o.atmosphere) this.hope.atmosphere(c, time, o.intensity, o.reduced, o.quality === "lite", shot.art === "night" || shot.art === "birthday", time / ENDING_DURATION);
+        if (romantic && o.atmosphere) {
+            const mood = moodFor(shot.art), previousMood = moodFor(shots[Math.max(0, index - 1)].art);
+            const blend = transitioning && mood !== previousMood ? smooth(local / duration) : 1;
+            if (blend < 1) this.hope.atmosphere(c, time, o.intensity * (1 - blend), o.reduced, o.quality === "lite", previousMood, time / ENDING_DURATION);
+            this.hope.atmosphere(c, time, o.intensity * blend, o.reduced, o.quality === "lite", mood, time / ENDING_DURATION);
+        }
         const fade = o.hold || o.reduced ? 0 : 1 - smooth(time / 1.15) * smooth((ENDING_DURATION - time) / (romantic ? 2.3 : 1.7));
         if (fade > 0) { c.fillStyle = romantic ? `rgba(255,246,237,${fade})` : `rgba(17,16,24,${fade})`; c.fillRect(0, 0, W, H); }
+        if (romantic && !o.hold && time >= ENDING_DURATION - 1.8) {
+            if (o.reduced) { c.fillStyle = "#fff6ed"; c.fillRect(0, 0, W, H); }
+            return { index, label: shot.label, finale: true,
+                card: { kicker: "FUUTAROU FINAL REGRET", title: "Todos los días,\ncontigo.", note: "Gracias por acompañarnos." },
+                opacity: o.reduced ? 1 : smooth((time - ENDING_DURATION + 1.8) / .9) };
+        }
         const opacity = o.hold ? 0 : o.reduced ? 1 : smooth((local - .8) / 1.1) * smooth((shot.seconds - local - .3) / .9) * (1 - fade);
         return { index, card: shot.card, opacity, label: shot.label };
     }

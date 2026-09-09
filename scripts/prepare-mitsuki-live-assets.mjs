@@ -1,6 +1,6 @@
 // Pack the user's stills and ImageGen animation plates. Never modifies the masters.
 import { createRequire } from "node:module";
-import { copyFile, mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 const require = createRequire(import.meta.url);
@@ -12,9 +12,19 @@ const artwork = path.join(root, "artwork/experiments/ending-lab/mitsuki");
 const output = path.join(root, "experiments/ending-lab/assets/mitsuki");
 const manifest = JSON.parse(await readFile(path.join(root, "experiments/ending-lab/mitsuki-assets.json"), "utf8"));
 await mkdir(output, { recursive: true });
+async function writeChanged(destination, data) {
+    const encoded = Buffer.isBuffer(data) ? data : Buffer.from(data);
+    const previous = await readFile(destination).catch(error => {
+        if (error.code !== "ENOENT") throw error;
+        return undefined;
+    });
+    if (!previous?.equals(encoded)) await writeFile(destination, encoded);
+}
 async function pack(name, input) {
     for (const [profile, width, quality] of [["full", 1672, 90], ["lite", 1152, 84]]) {
-        await sharp(input).resize(width).webp({ quality, alphaQuality: 100 }).toFile(path.join(output, `${name}-${profile}.webp`));
+        const encoded = await sharp(input).resize(width).webp({ quality, alphaQuality: 100 }).toBuffer();
+        const destination = path.join(output, `${name}-${profile}.webp`);
+        await writeChanged(destination, encoded);
     }
 }
 for (const [name, file] of Object.entries(manifest)) {
@@ -45,11 +55,12 @@ for (let y = 0; y < eyeRect.height; y++) for (let x = 0; x < eyeRect.width; x++)
     alpha[y * eyeRect.width + x] = Math.round(opacity * 255);
 }
 const eyeRgb = await sharp(path.join(artwork, "blink.png")).resize(width, height, { fit: "fill" }).extract(eyeRect).removeAlpha().raw().toBuffer();
-await sharp(eyeRgb, { raw: { width: eyeRect.width, height: eyeRect.height, channels: 3 } })
+const eyes = await sharp(eyeRgb, { raw: { width: eyeRect.width, height: eyeRect.height, channels: 3 } })
     .joinChannel(alpha, { raw: { width: eyeRect.width, height: eyeRect.height, channels: 1 } })
-    .webp({ lossless: true }).toFile(path.join(output, "eyes.webp"));
-await writeFile(path.join(output, "registration.json"), JSON.stringify({ width, height, eyeRect }, null, 2) + "\n");
-await copyFile(path.join(source, "antent - hope to see you again.mp3"), path.join(output, "reference.mp3"));
+    .webp({ lossless: true }).toBuffer();
+await writeChanged(path.join(output, "eyes.webp"), eyes);
+await writeChanged(path.join(output, "registration.json"), JSON.stringify({ width, height, eyeRect }, null, 2) + "\n");
+await writeChanged(path.join(output, "reference.mp3"), await readFile(path.join(source, "antent - hope to see you again.mp3")));
 for (const name of ["child-full.webp", "child-lite.webp", "eyes.webp"]) {
     if (!(await sharp(path.join(output, name)).metadata()).hasAlpha) throw new Error(`Missing transparency: ${name}`);
 }

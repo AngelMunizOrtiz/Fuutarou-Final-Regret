@@ -33,8 +33,8 @@
             <button id="play" class="round-button" aria-label="Pausar" title="Pausar (Espacio)" disabled>Ⅱ</button>
             <button id="restart" class="text-button" title="Volver al inicio" disabled>↺ <span>Reiniciar</span></button>
             <label class="timeline-label" for="timeline">Posición de la escena</label>
-            <input id="timeline" type="range" min="0" max="144" step="0.01" value="0" aria-label="Posición de la escena" disabled />
-            <output id="time">00:00 <span>/ 02:24</span></output>
+            <input id="timeline" type="range" min="0" max="147" step="0.01" value="0" aria-label="Posición de la escena" disabled />
+            <output id="time">00:00 <span>/ 02:27</span></output>
           </div>
           <div class="transport-actions">
             <button id="sound" class="text-button" aria-pressed="false" disabled>Activar música</button>
@@ -45,7 +45,7 @@
 
       <section class="controls" aria-label="Opciones de la prueba">
         <div class="mode-selector" role="group" aria-label="Presentación">
-          <button data-mode="ending" aria-pressed="true" disabled>Pase de ending <span id="ending-length">02:24</span></button>
+          <button data-mode="ending" aria-pressed="true" disabled>Pase de ending <span id="ending-length">02:27</span></button>
           <button data-mode="live" aria-pressed="false" disabled id="live-label">Mantener plano</button>
           <button data-mode="original" aria-pressed="false" disabled>Comparar original</button>
         </div>
@@ -75,7 +75,7 @@
           <button class="text-button" id="download" disabled>Descargar medición</button>
         </div>
         <p class="measurement" id="measurement" role="status">La medición corresponde a este navegador. El perfil ligero no simula el hardware de Android.</p>
-        <div class="music-settings" id="music-settings"><div><span>MÚSICA DE LA PRUEBA</span><p id="music-name">antent — hope to see you again</p><small>Parpadeo y respiración disponibles en el retrato de Mitsuki y el plano de tres retratos.</small></div><label class="file-button">Elegir canción <input id="music-file" type="file" accept="audio/*" aria-label="Elegir canción local" /></label></div>
+        <div class="music-settings" id="music-settings"><div><span>MÚSICA DE LA PRUEBA</span><p id="music-name">antent — hope to see you again</p><small>Parpadeo y respiración disponibles en el retrato de Mitsuki.</small></div><label class="file-button">Elegir canción <input id="music-file" type="file" accept="audio/*" aria-label="Elegir canción local" /></label></div>
       </section>
       <footer><span>ILUSTRACIÓN → CAPAS → MOVIMIENTO</span><p>Prueba independiente · Arte y títulos provisionales, reemplazables.</p><span class="footer-mark">FFR</span></footer>
       <p class="notice" id="notice" role="status"></p>

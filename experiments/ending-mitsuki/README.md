@@ -1,6 +1,6 @@
 # Ending de Mitsuki — montaje provisional 01
 
-**Flujo anterior, fuera del encargo vigente.** El usuario aclaró que quiere efectos en la base interactiva de Miku y ningún MP4 por ahora. El trabajo actual está en `experiments/ending-lab/`. Este montaje se conserva como prueba previa; no continuar exportándolo sin nueva petición.
+**Montaje MP4 independiente.** La vista interactiva actual está en `experiments/ending-lab/`; este directorio conserva un montaje editable de 90 s para generar una película cuando se necesite. No se integra en la VN ni reemplaza la vista interactiva.
 
 Referencia de montaje aportada por el usuario: `Megami no Cafe Terrace - Ending.mp4`, 90.09 s, 640×360.
 Se estudió su alternancia entre detalles, retratos y momentos de grupo. No se insertan fotogramas, subtítulos ni música de ese anime.
@@ -27,8 +27,8 @@ Las distintas edades, vestuario, escenarios y estilos de los clips se presentan 
 Desde la raíz del proyecto, con FFmpeg (libx264, AAC, libass, drawtext, zoompan y xfade) disponible:
 
 ```powershell
-node scripts/render-mitsuki-ending.mjs --preview
-node scripts/render-mitsuki-ending.mjs
+npm run ending:mp4:preview
+npm run ending:mp4
 ```
 
 La primera orden produce 960×540 para revisar. La segunda produce 1920×1080 H.264/AAC con `faststart`.

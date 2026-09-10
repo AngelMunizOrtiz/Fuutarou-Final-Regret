@@ -17,7 +17,12 @@ const temp = path.join(root, ".codex-tmp/ending-mitsuki", preview ? "preview" : 
 const outDir = path.join(root, "artifacts/ending-mitsuki-v1");
 await mkdir(temp, { recursive: true });
 await mkdir(outDir, { recursive: true });
-const ffmpeg = process.env.FFMPEG_PATH || "ffmpeg";
+const ffmpeg = await findFfmpeg();
+if (!ffmpeg) {
+    throw new Error(
+        "FFmpeg no está disponible. Instálalo y añádelo al PATH, o define FFMPEG_PATH con la ruta completa a ffmpeg.exe.",
+    );
+}
 const safeSource = name => {
     const target = path.resolve(source, name);
     if (!target.startsWith(source + path.sep)) throw new Error(`Asset outside selected folder: ${name}`);
@@ -124,3 +129,34 @@ await run([...inputs, "-i", safeSource(plan.audio), "-filter_complex_threads", "
 await writeFile(path.join(outDir, "timeline.json"), JSON.stringify({ title: plan.title, duration: totalDuration, fps, sourceDirectory: plan.sourceDirectory, audio: plan.audio, audioStart: plan.audioStart, provisional: true, shots: timings }, null, 2) + "\n");
 await writeFile(path.join(outDir, "titles.ass"), ass);
 console.log(`Completed: ${output}`);
+
+async function findFfmpeg() {
+    const candidates = [
+        process.env.FFMPEG_PATH,
+        process.platform === "win32" ? "C:\\ffmpeg\\bin\\ffmpeg.exe" : undefined,
+        process.platform === "win32" ? "ffmpeg.exe" : "ffmpeg",
+    ].filter(Boolean);
+
+    for (const candidate of [...new Set(candidates)]) {
+        try {
+            await probe(candidate);
+            return candidate;
+        } catch {
+            // Try the next candidate so the final error can explain how to configure it.
+        }
+    }
+
+    return undefined;
+}
+
+function probe(command) {
+    return new Promise((resolveProbe, rejectProbe) => {
+        const child = spawn(command, ["-version"], {
+            cwd: root,
+            windowsHide: true,
+            stdio: ["ignore", "ignore", "ignore"],
+        });
+        child.once("error", rejectProbe);
+        child.once("exit", code => code === 0 ? resolveProbe() : rejectProbe(new Error(`${command} exited with code ${code ?? "unknown"}`)));
+    });
+}

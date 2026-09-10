@@ -14,7 +14,7 @@ export type EndingOptions = { original: boolean; hold: boolean; reduced: boolean
     breath: boolean; atmosphere: boolean; look: EndingLook; intensity: number; quality: "lite" | "full"; pointerX: number; pointerY: number };
 export type EndingFrame = { index: number; card?: Card; opacity: number; label: string; finale?: boolean };
 const moodFor = (art: Art): HopeMood => art === "sunsetWalk" ? "sunset" :
-    ["night", "reading", "birthday"].includes(art) ? "night" : art === "farm" ? "garden" : "home";
+    ["night", "reading", "birthday", "homeSleeping", "homeArrival", "homeBlanket", "homeKissMitsuki", "homeKissMiku"].includes(art) ? "night" : art === "farm" ? "garden" : "home";
 type Images = Record<Art | "room" | "child" | "eyes", HTMLImageElement>;
 
 export class MitsukiEnding {
@@ -240,7 +240,7 @@ export class MitsukiEnding {
             return;
         }
         const romantic = o.look === "hope";
-        if (!romantic) this.atmosphere(c, t, shot.art === "night", o);
+        if (!romantic) this.atmosphere(c, t, moodFor(shot.art) === "night", o);
         const shade = c.createLinearGradient(0, 0, 0, H);
         shade.addColorStop(0, romantic ? "#fff4e61c" : "#20162a10"); shade.addColorStop(.5, "#20162a00"); shade.addColorStop(1, romantic ? "#eab8d01c" : "#23182b35");
         c.fillStyle = shade; c.fillRect(0, 0, W, H);
@@ -273,13 +273,15 @@ export class MitsukiEnding {
             buffer.width = size.width; buffer.height = size.height;
         }
         const romantic = o.look === "hope";
-        const transition = romantic ? "dissolve" : o.look === "neon" ? shot.transition === "cut" ? "cut" : "wipe" : shot.transition ?? "dissolve";
+        const transition = romantic ? shot.hopeTransition === "cut" ? "cut" : "dissolve" : o.look === "neon" ? shot.transition === "cut" ? "cut" : "wipe" : shot.transition ?? "dissolve";
         // Short inserts need time to read after the transition has settled.
-        const duration = romantic ? Math.min(shot.seconds * .26, shot.hopeTransition === "bloom" ? 1.55 : 1.2) : transition === "cut" ? 0 : transition === "wipe" ? .9 : 1.05;
+        const duration = transition === "cut" ? 0 : Math.min(shot.seconds * .26,
+            shot.transitionSeconds ?? (romantic ? shot.hopeTransition === "bloom" ? 1.55 : 1.2 : transition === "wipe" ? .9 : 1.05));
         const transitioning = index > 0 && local < duration && !o.hold && !o.reduced;
         this.paint(this.buffers[0], index, time, o);
         if (transitioning) {
-            this.paint(this.buffers[1], index - 1, shot.start + local, o);
+            // Hold the outgoing shot at its final frame, including its camera tilt.
+            this.paint(this.buffers[1], index - 1, shot.start, o);
             c.drawImage(this.buffers[1], 0, 0, W, H);
             const progress = smooth(local / duration);
             c.save();
